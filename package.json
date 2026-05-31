@@ -1,35 +1,26 @@
 {
-	"name": "@pwarush/sudokupado",
+	"name": "pwarush",
 	"private": true,
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"type": "module",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
+		"dev": "npm run dev --workspace=@pwarush/sudokupado",
+		"build": "npm run build --workspaces --if-present",
+		"test": "npm run test --workspaces --if-present",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"format": "biome format --write .",
-		"typecheck": "tsc --noEmit",
-		"preview": "vite preview",
-		"test": "vitest run",
-		"test:watch": "vitest",
+		"typecheck": "npm run typecheck --workspaces --if-present",
 		"e2e": "playwright test",
 		"e2e:update": "playwright test --update-snapshots",
 		"prepare": "husky"
 	},
 	"lint-staged": {
 		"*.{js,ts,tsx,css,json}": "biome check --write"
-	},
-	"dependencies": {
-		"@fontsource-variable/hanken-grotesk": "^5.2.8",
-		"@fontsource-variable/inter": "^5.2.8",
-		"dexie": "^4.0.1",
-		"dexie-react-hooks": "^1.1.7",
-		"framer-motion": "^11.1.7",
-		"lucide-react": "^0.378.0",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"zustand": "^4.5.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.15",
@@ -38,21 +29,12 @@
 		"@testing-library/react": "^15.0.6",
 		"@testing-library/user-event": "^14.5.2",
 		"@types/node": "^20.12.7",
-		"@types/react": "^18.3.1",
-		"@types/react-dom": "^18.3.1",
-		"@vitejs/plugin-react": "^6.0.2",
 		"@vitest/coverage-v8": "^4.1.6",
-		"autoprefixer": "^10.4.19",
 		"fake-indexeddb": "^6.2.5",
 		"husky": "^9.1.7",
 		"jsdom": "^24.0.0",
 		"lint-staged": "^15.4.3",
-		"postcss": "^8.4.38",
-		"punycode": "^2.3.1",
-		"tailwindcss": "^3.4.3",
 		"typescript": "^5.4.5",
-		"vite": "^8.0.13",
-		"vite-plugin-pwa": "^1.3.0",
 		"vitest": "^4.1.6"
 	}
 }
