@@ -32,12 +32,12 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build --workspace=@pwarush/sudokupado
 
       - name: Assemble deploy directory
         run: |
           mkdir -p deploy/sudokupado
-          cp -r dist/. deploy/sudokupado/
+          cp -r apps/sudokupado/dist/. deploy/sudokupado/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
