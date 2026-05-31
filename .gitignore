@@ -35,3 +35,6 @@ LEEME*
 test-results/
 playwright-report/
 playwright/.cache/
+
+# vite-plugin-pwa devOptions output
+dev-dist/
