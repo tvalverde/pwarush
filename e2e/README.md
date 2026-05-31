@@ -36,7 +36,7 @@ app boots Dexie; otherwise the live connection blocks our writes.
 
 Each test:
 
-1. Navigates to `/sudokupado/__e2e_bootstrap__`, a fake HTML page
+1. Navigates to `/pwarush/sudokupado/__e2e_bootstrap__`, a fake HTML page
    served by `page.route` on the same origin as the SPA.
 2. Writes `localStorage` and recreates `SudokupadoDB` at Dexie's
    internal version (20) with the requested player, preferences and

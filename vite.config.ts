@@ -44,12 +44,15 @@ export default defineConfig({
 				cleanupOutdatedCaches: true,
 				clientsClaim: true,
 				skipWaiting: false,
-				navigateFallback: '/sudokupado/index.html',
-				navigateFallbackDenylist: [/^\/sudokupado\/version\.json$/, /^\/sudokupado\/assets\//],
+				navigateFallback: '/pwarush/sudokupado/index.html',
+				navigateFallbackDenylist: [
+					/^\/pwarush\/sudokupado\/version\.json$/,
+					/^\/pwarush\/sudokupado\/assets\//,
+				],
 			},
 		}),
 	],
-	base: '/sudokupado/',
+	base: '/pwarush/sudokupado/',
 	define: {
 		__APP_VERSION__: JSON.stringify(process.env.npm_package_version),
 	},

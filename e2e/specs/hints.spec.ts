@@ -5,7 +5,7 @@ const emptyNotes = () => Array.from({ length: 9 }, () => Array.from({ length: 9 
 
 test.describe('Hints', () => {
 	test('requesting a hint opens the explanation panel', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,
 				initialGrid: nearWinPuzzle.initialGrid,
@@ -30,7 +30,7 @@ test.describe('Hints', () => {
 	});
 
 	test('hint button is disabled when max hints is zero', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			zustand: { maxHints: 0 },
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,

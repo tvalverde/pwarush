@@ -4,7 +4,7 @@ import { expect, test } from '../helpers/page-setup';
 test.describe('Trophies screen with populated history', () => {
 	test('all filter renders every entry sorted by score', async ({ page, seedAndGoto }) => {
 		const history = buildHistoryEntries(5, { startScore: 6000, scoreStep: 250 });
-		await seedAndGoto('/sudokupado/', { history });
+		await seedAndGoto('/pwarush/sudokupado/', { history });
 		await page.getByTestId('nav-trophies').click();
 
 		const entries = page.locator('article');
@@ -27,7 +27,7 @@ test.describe('Trophies screen with populated history', () => {
 			startScore: 3000,
 			startTimestamp: 1_700_500_000_000,
 		});
-		await seedAndGoto('/sudokupado/', { history: [...beginnerEntries, ...expertEntries] });
+		await seedAndGoto('/pwarush/sudokupado/', { history: [...beginnerEntries, ...expertEntries] });
 
 		await page.getByTestId('nav-trophies').click();
 		await expect(page.locator('article')).toHaveCount(4);
@@ -38,7 +38,7 @@ test.describe('Trophies screen with populated history', () => {
 
 	test('show-all toggle reveals entries beyond the first 50', async ({ page, seedAndGoto }) => {
 		const history = buildHistoryEntries(55, { startScore: 8000, scoreStep: 50 });
-		await seedAndGoto('/sudokupado/', { history });
+		await seedAndGoto('/pwarush/sudokupado/', { history });
 		await page.getByTestId('nav-trophies').click();
 
 		await expect(page.locator('article')).toHaveCount(50);

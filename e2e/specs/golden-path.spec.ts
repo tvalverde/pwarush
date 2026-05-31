@@ -34,7 +34,7 @@ test.describe('Golden path: completing a near-finished puzzle', () => {
 
 		const emptyNotes = Array.from({ length: 9 }, () => Array.from({ length: 9 }, () => []));
 
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: playableGrid,
 				initialGrid: nearWinPuzzle.initialGrid,

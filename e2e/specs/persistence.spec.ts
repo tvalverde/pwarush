@@ -9,7 +9,7 @@ test.describe('Persistence', () => {
 		seedAndGoto,
 	}) => {
 		const seededGrid = nearWinPuzzle.initialGrid;
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: seededGrid,
 				initialGrid: seededGrid,
@@ -30,7 +30,7 @@ test.describe('Persistence', () => {
 
 	test('reload after seeding still shows the resume card', async ({ page, seedAndGoto }) => {
 		const seededGrid = nearWinPuzzle.initialGrid;
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: seededGrid,
 				initialGrid: seededGrid,

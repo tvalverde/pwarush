@@ -8,7 +8,7 @@ test.describe('Lifecycle hooks', () => {
 		page,
 		seedAndGoto,
 	}) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,
 				initialGrid: nearWinPuzzle.initialGrid,

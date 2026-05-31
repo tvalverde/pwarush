@@ -12,7 +12,7 @@ const entryFor = (playerId: number, score: number, date: number) => ({
 
 test.describe('Trophies screen with multiple players', () => {
 	test('renders entries from every player with their own name', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			extraPlayers: [
 				{ id: 2, name: 'Alice', createdAt: 1_700_000_000_000, isDeleted: 0 },
 				{ id: 3, name: 'Bob', createdAt: 1_700_100_000_000, isDeleted: 0 },

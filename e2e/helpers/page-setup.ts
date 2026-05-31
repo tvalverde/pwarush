@@ -29,7 +29,7 @@ export const test = base.extend<SudokupadoFixtures>({
 			});
 		});
 
-		const visit = async (path = '/sudokupado/', seedOptions: SeedOptions = {}) => {
+		const visit = async (path = '/pwarush/sudokupado/', seedOptions: SeedOptions = {}) => {
 			await seedAndNavigate(page, path, seedOptions);
 			await page.addStyleTag({ content: animationsCss });
 		};

@@ -10,7 +10,7 @@ const resumeIntoGame = async (
 		options?: Parameters<typeof import('../helpers/seed').seedAndNavigate>[2],
 	) => Promise<void>,
 ) => {
-	await seedAndGoto('/sudokupado/', {
+	await seedAndGoto('/pwarush/sudokupado/', {
 		gameState: {
 			grid: nearWinPuzzle.initialGrid,
 			initialGrid: nearWinPuzzle.initialGrid,

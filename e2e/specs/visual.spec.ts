@@ -11,7 +11,7 @@ test.describe('Visual regression', () => {
 	});
 
 	test('main menu with saved game card', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,
 				initialGrid: nearWinPuzzle.initialGrid,
@@ -29,7 +29,7 @@ test.describe('Visual regression', () => {
 	});
 
 	test('game screen with seeded puzzle', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,
 				initialGrid: nearWinPuzzle.initialGrid,

@@ -39,7 +39,7 @@ test.describe('Result screen', () => {
 			startScore: 4800,
 			scoreStep: 100,
 		});
-		await seedAndGoto('/sudokupado/', { history });
+		await seedAndGoto('/pwarush/sudokupado/', { history });
 		await installResultScreen(page, {
 			score: 4800,
 			timeElapsed: 125,
@@ -58,7 +58,7 @@ test.describe('Result screen', () => {
 	});
 
 	test('return home button navigates back to main menu', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			history: buildHistoryEntries(1, { difficulty: 'beginner' }),
 		});
 		await installResultScreen(page, {
@@ -74,7 +74,7 @@ test.describe('Result screen', () => {
 	});
 
 	test('leaderboard button navigates to trophies', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			history: buildHistoryEntries(1, { difficulty: 'beginner' }),
 		});
 		await installResultScreen(page, {
@@ -90,7 +90,7 @@ test.describe('Result screen', () => {
 	});
 
 	test('new game button transitions back to the game screen', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			history: buildHistoryEntries(1, { difficulty: 'beginner' }),
 		});
 		await installResultScreen(page, {

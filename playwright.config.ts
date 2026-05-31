@@ -10,7 +10,7 @@ export default defineConfig({
 	workers: process.env.CI ? 1 : undefined,
 	reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'html',
 	use: {
-		baseURL: 'http://localhost:5173/sudokupado/',
+		baseURL: 'http://localhost:5173/pwarush/sudokupado/',
 		trace: 'on-first-retry',
 	},
 	expect: {
@@ -33,7 +33,7 @@ export default defineConfig({
 	],
 	webServer: {
 		command: 'npm run dev -- --host 0.0.0.0 --port 5173 --strictPort',
-		url: 'http://localhost:5173/sudokupado/',
+		url: 'http://localhost:5173/pwarush/sudokupado/',
 		reuseExistingServer: !process.env.CI,
 		timeout: 120_000,
 		env: {

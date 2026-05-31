@@ -17,7 +17,7 @@ test.describe('Game over conditions', () => {
 		page,
 		seedAndGoto,
 	}) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			zustand: { maxMistakes: 0 },
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,
@@ -52,7 +52,7 @@ test.describe('Game over conditions', () => {
 		page,
 		seedAndGoto,
 	}) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			zustand: { maxMistakes: -1 },
 			gameState: {
 				grid: nearWinPuzzle.initialGrid,

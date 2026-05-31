@@ -33,8 +33,8 @@ interface DexieSeedPayload {
 
 const DEXIE_INTERNAL_VERSION = 20;
 
-const BOOTSTRAP_PATH = '/sudokupado/__e2e_bootstrap__';
-const BOOTSTRAP_URL_PATTERN = '**/sudokupado/__e2e_bootstrap__';
+const BOOTSTRAP_PATH = '/pwarush/sudokupado/__e2e_bootstrap__';
+const BOOTSTRAP_URL_PATTERN = '**/pwarush/sudokupado/__e2e_bootstrap__';
 const BOOTSTRAP_HTML = `<!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><title>E2E Bootstrap</title></head>

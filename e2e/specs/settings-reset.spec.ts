@@ -25,7 +25,7 @@ const readCounts = (page: import('@playwright/test').Page) =>
 
 test.describe('Settings reset', () => {
 	test('confirming Clear All Data wipes every table and reloads', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			history: buildHistoryEntries(3, { difficulty: 'beginner' }),
 		});
 

@@ -40,7 +40,7 @@ const readDbCounts = (page: import('@playwright/test').Page, playerId: number) =
 
 test.describe('Player menu', () => {
 	test('creating a player sets it as active', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			zustand: { activePlayerId: null },
 			skipPlayer: true,
 		});
@@ -57,7 +57,7 @@ test.describe('Player menu', () => {
 	});
 
 	test('switching to guest clears the active player id', async ({ page, seedAndGoto }) => {
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			extraPlayers: [{ id: 2, name: 'Alice', createdAt: 1_700_000_000_000, isDeleted: 0 }],
 		});
 		await page.getByTestId('open-player-menu').click();
@@ -70,7 +70,7 @@ test.describe('Player menu', () => {
 		seedAndGoto,
 	}) => {
 		const bobId = 3;
-		await seedAndGoto('/sudokupado/', {
+		await seedAndGoto('/pwarush/sudokupado/', {
 			extraPlayers: [{ id: bobId, name: 'Bob', createdAt: 1_700_000_000_000, isDeleted: 0 }],
 			extraPreferences: [
 				{
