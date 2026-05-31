@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-	testDir: './e2e/specs',
+	testDir: './apps/sudokupado/e2e/specs',
 	snapshotPathTemplate: '{testDir}/__screenshots__/{testFilePath}/{arg}-{projectName}{ext}',
 	outputDir: 'test-results/',
 	fullyParallel: true,
@@ -32,7 +32,8 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: 'npm run dev -- --host 0.0.0.0 --port 5173 --strictPort',
+		command:
+			'npm run dev --workspace=@pwarush/sudokupado -- --host 0.0.0.0 --port 5173 --strictPort',
 		url: 'http://localhost:5173/pwarush/sudokupado/',
 		reuseExistingServer: !process.env.CI,
 		timeout: 120_000,

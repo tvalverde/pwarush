@@ -11,35 +11,27 @@ DOCKER_RUN_BASE := docker run --rm --ipc=host --network host \
 DOCKER_RUN := $(DOCKER_RUN_BASE) $(PLAYWRIGHT_IMAGE)
 DOCKER_RUN_TTY := $(DOCKER_RUN_BASE) -it $(PLAYWRIGHT_IMAGE)
 
-# Install dependencies
 install:
 	npm ci
 
-# Start development server
 dev:
 	npm run dev
 
-# Build for production
 build:
 	npm run build
 
-# Run linter (Biome)
 lint:
 	npm run lint
 
-# Format code (Biome)
 format:
 	npm run format
 
-# Check TypeScript types
 typecheck:
 	npm run typecheck
 
-# Run tests once
 test:
-	npm test -- --run
+	npm test
 
-# Full quality gate check
 check: lint typecheck test
 
 # Run E2E tests inside the official Playwright container
