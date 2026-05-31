@@ -1,0 +1,93 @@
+:root {
+	--bg: #ffffff;
+	--text-primary: #0f172a;
+	--text-secondary: #475569;
+	--border: #e2e8f0;
+	--surface: #f1f5f9;
+	--accent: #0f172a;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	color: var(--text-primary);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	line-height: 1.5;
+	min-height: 100svh;
+}
+
+.container {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 4rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 2rem;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+header p {
+	margin: 0.5rem 0 0;
+	color: var(--text-secondary);
+	font-size: 0.95rem;
+}
+
+.cards {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+	.cards {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.card {
+	display: block;
+	padding: 1.5rem;
+	border: 1px solid var(--border);
+	border-radius: 1rem;
+	background: var(--surface);
+	text-decoration: none;
+	color: inherit;
+	transition:
+		border-color 0.15s ease,
+		transform 0.15s ease;
+}
+
+.card:hover,
+.card:focus-visible {
+	border-color: var(--accent);
+	transform: translateY(-2px);
+	outline: none;
+}
+
+.card h2 {
+	margin: 0 0 0.5rem;
+	font-size: 1.1rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.card p {
+	margin: 0;
+	color: var(--text-secondary);
+	font-size: 0.9rem;
+}
