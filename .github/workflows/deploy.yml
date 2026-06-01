@@ -34,16 +34,16 @@ jobs:
       - name: Build Sudokupado
         run: npm run build --workspace=@pwarush/sudokupado
 
-      - name: Build Murdokusado
-        run: npm run build --workspace=@pwarush/murdokusado
+      - name: Build Murdokupado
+        run: npm run build --workspace=@pwarush/murdokupado
 
       - name: Assemble deploy directory
         run: |
-          mkdir -p deploy/sudokupado deploy/murdokusado
+          mkdir -p deploy/sudokupado deploy/murdokupado
           cp landing/index.html deploy/index.html
           cp landing/styles.css deploy/styles.css
           cp -r apps/sudokupado/dist/. deploy/sudokupado/
-          cp -r apps/murdokusado/dist/. deploy/murdokusado/
+          cp -r apps/murdokupado/dist/. deploy/murdokupado/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
