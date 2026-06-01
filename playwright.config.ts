@@ -38,12 +38,12 @@ export default defineConfig({
 			},
 		},
 		{
-			name: 'murdokusado-desktop',
-			testDir: './apps/murdokusado/e2e/specs',
+			name: 'murdokupado-desktop',
+			testDir: './apps/murdokupado/e2e/specs',
 			use: {
 				...devices['Desktop Chrome'],
 				viewport: { width: 1280, height: 720 },
-				baseURL: 'http://localhost:5174/pwarush/murdokusado/',
+				baseURL: 'http://localhost:5174/pwarush/murdokupado/',
 				trace: 'on-first-retry',
 			},
 		},
@@ -61,8 +61,8 @@ export default defineConfig({
 		},
 		{
 			command:
-				'npm run dev --workspace=@pwarush/murdokusado -- --host 0.0.0.0 --port 5174 --strictPort',
-			url: 'http://localhost:5174/pwarush/murdokusado/',
+				'npm run dev --workspace=@pwarush/murdokupado -- --host 0.0.0.0 --port 5174 --strictPort',
+			url: 'http://localhost:5174/pwarush/murdokupado/',
 			reuseExistingServer: !process.env.CI,
 			timeout: 120_000,
 		},
