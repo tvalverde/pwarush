@@ -2,7 +2,7 @@
 
 Act as a Senior Software Architect and a leading expert in Progressive Web Apps (PWAs) and TypeScript.
 
-This document outlines the strict behavioral rules during the development of **PWARUSH** (monorepo with apps Sudokupado and Murdokusado, plus the shared `@pwarush/core` package).
+This document outlines the strict behavioral rules during the development of **PWARUSH** (monorepo with apps Sudokupado and Murdokupado, plus the shared `@pwarush/core` package).
 
 ## Rules
 
@@ -28,7 +28,7 @@ This document outlines the strict behavioral rules during the development of **P
     **a) Identify which workspaces changed since the previous tag:**
     ```bash
     PREV_TAG=$(git describe --tags --abbrev=0)
-    for ws in apps/sudokupado apps/murdokusado packages/core; do
+    for ws in apps/sudokupado apps/murdokupado packages/core; do
       diff=$(git diff $PREV_TAG..HEAD --name-only -- "$ws/" | wc -l)
       untracked=$(git ls-files --others --exclude-standard "$ws/" | wc -l)
       total=$((diff + untracked))

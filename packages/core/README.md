@@ -1,6 +1,6 @@
 # @pwarush/core
 
-Shared shell for the pwarush monorepo apps (Sudokupado, Murdokusado).
+Shared shell for the pwarush monorepo apps (Sudokupado, Murdokupado).
 
 Currently a stub. It grows incrementally from Hito 4 onwards as the
 following layers are extracted from `apps/sudokupado`:
