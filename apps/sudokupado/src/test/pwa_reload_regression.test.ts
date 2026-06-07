@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import ReloadPrompt from '../components/ReloadPrompt';
+import ReloadPrompt, { RELOAD_FALLBACK_MS } from '../components/ReloadPrompt';
 import { installSWUpdateListener } from '../utils/swUpdateListener';
 
 const mockSetOfflineReady = vi.fn();
@@ -11,7 +11,10 @@ const mockWaitingSW = {
 	addEventListener: vi.fn(),
 	removeEventListener: vi.fn(),
 };
-const mockRegistration = {
+const mockRegistration: {
+	waiting: typeof mockWaitingSW | null;
+	update: ReturnType<typeof vi.fn>;
+} = {
 	waiting: mockWaitingSW,
 	update: vi.fn().mockResolvedValue(undefined),
 };
@@ -58,6 +61,7 @@ describe('Regression: SW update reload contract', () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
 		mockNeedRefresh = false;
+		mockRegistration.waiting = mockWaitingSW;
 		vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ json: () => Promise.resolve({}) }));
 	});
 
@@ -91,6 +95,39 @@ describe('Regression: SW update reload contract', () => {
 			fireEvent.click(updateBtn);
 
 			expect(mockWaitingSW.addEventListener).not.toHaveBeenCalled();
+		});
+
+		it('schedules a fallback reload after RELOAD_FALLBACK_MS for user agents where controllerchange never fires (e.g. iOS standalone)', () => {
+			vi.useFakeTimers();
+			try {
+				mockNeedRefresh = true;
+
+				render(React.createElement(ReloadPrompt));
+				const updateBtn = screen.getByRole('button', { name: /update|actualizar/i });
+				fireEvent.click(updateBtn);
+
+				expect(window.location.reload).not.toHaveBeenCalled();
+
+				vi.advanceTimersByTime(RELOAD_FALLBACK_MS - 1);
+				expect(window.location.reload).not.toHaveBeenCalled();
+
+				vi.advanceTimersByTime(1);
+				expect(window.location.reload).toHaveBeenCalledTimes(1);
+			} finally {
+				vi.useRealTimers();
+			}
+		});
+
+		it('reloads immediately when there is no waiting SW (nothing to skip)', () => {
+			mockRegistration.waiting = null;
+			mockNeedRefresh = true;
+
+			render(React.createElement(ReloadPrompt));
+			const updateBtn = screen.getByRole('button', { name: /update|actualizar/i });
+			fireEvent.click(updateBtn);
+
+			expect(mockWaitingSW.postMessage).not.toHaveBeenCalled();
+			expect(window.location.reload).toHaveBeenCalledTimes(1);
 		});
 	});
 
