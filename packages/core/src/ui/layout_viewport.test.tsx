@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { describe, expect, it } from 'vitest';
-import Layout from '../components/Layout';
+import Layout from './Layout';
 
 describe('Regression: Layout outer must use 100svh, not 100dvh', () => {
 	it('renders the outer container with h-svh', () => {

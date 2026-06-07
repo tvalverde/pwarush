@@ -6,6 +6,22 @@
 	"main": "./src/index.ts",
 	"exports": {
 		".": "./src/index.ts",
-		"./theme.css": "./src/theme.css"
+		"./theme.css": "./src/theme.css",
+		"./ui": "./src/ui/index.ts"
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run"
+	},
+	"peerDependencies": {
+		"framer-motion": "^11.1.7",
+		"lucide-react": "^0.378.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.1",
+		"@types/react-dom": "^18.3.1",
+		"@vitejs/plugin-react": "^6.0.2"
 	}
 }
