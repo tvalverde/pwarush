@@ -1,18 +1,86 @@
 @import "tailwindcss";
 @import "@pwarush/core/theme.css";
 
-/* Murdokupado palette (per-app color, provisional clone of Sudokupado). Shared color-free tokens live in @pwarush/core. */
+/*
+  Murdokupado palette (per-app color) — provisional clone of Sudokupado's Material
+  scheme. The semantic color contract (token names) lives in packages/core/DESIGN.md;
+  Murdokupado may diverge here later without touching core.
+*/
 @theme {
-	--color-background: #ffffff;
-	--color-primary-text: #0f172a;
-	--color-dark-accent: #0f172a;
-	--color-border: #e2e8f0;
-	--color-subtle-accent: #e2e8f0;
-	--color-subtle-bg: #f1f5f9;
+	/* Surfaces */
 	--color-surface: #f6fafe;
+	--color-surface-dim: #d6dade;
+	--color-surface-bright: #f6fafe;
+	--color-surface-container-lowest: #ffffff;
+	--color-surface-container-low: #f0f4f8;
+	--color-surface-container: #eaeef2;
+	--color-surface-container-high: #e4e9ed;
+	--color-surface-container-highest: #dfe3e7;
+	--color-surface-variant: #dfe3e7;
+	--color-on-surface: #171c1f;
+	--color-on-surface-variant: #45464d;
+	--color-inverse-surface: #2c3134;
+	--color-inverse-on-surface: #edf1f5;
+	--color-surface-tint: #565e74;
+
+	/* Background */
+	--color-background: #f6fafe;
+	--color-on-background: #171c1f;
+
+	/* Outlines */
+	--color-outline: #76777d;
+	--color-outline-variant: #c6c6cd;
+
+	/* Primary */
 	--color-primary: #000000;
+	--color-on-primary: #ffffff;
+	--color-primary-container: #131b2e;
+	--color-on-primary-container: #7c839b;
+	--color-inverse-primary: #bec6e0;
+	--color-primary-fixed: #dae2fd;
+	--color-primary-fixed-dim: #bec6e0;
+	--color-on-primary-fixed: #131b2e;
+	--color-on-primary-fixed-variant: #3f465c;
+
+	/* Secondary */
 	--color-secondary: #595f66;
+	--color-on-secondary: #ffffff;
+	--color-secondary-container: #dde3eb;
+	--color-on-secondary-container: #5f656c;
+	--color-secondary-fixed: #dde3eb;
+	--color-secondary-fixed-dim: #c1c7cf;
+	--color-on-secondary-fixed: #161c22;
+	--color-on-secondary-fixed-variant: #41474e;
+
+	/* Tertiary (amber accents) */
+	--color-tertiary: #000000;
+	--color-on-tertiary: #ffffff;
+	--color-tertiary-container: #271901;
+	--color-on-tertiary-container: #98805d;
+	--color-tertiary-fixed: #fcdeb5;
+	--color-tertiary-fixed-dim: #dec29a;
+	--color-on-tertiary-fixed: #271901;
+	--color-on-tertiary-fixed-variant: #574425;
+
+	/* Error / danger */
 	--color-error: #ba1a1a;
+	--color-on-error: #ffffff;
+	--color-error-container: #ffdad6;
+	--color-on-error-container: #93000a;
+
+	/* Extended feedback roles: success / warning / info */
+	--color-success: #22c55e;
+	--color-on-success: #ffffff;
+	--color-success-container: #f0fdf4;
+	--color-on-success-container: #15803d;
+	--color-warning: #eab308;
+	--color-on-warning: #ffffff;
+	--color-warning-container: #fef9c3;
+	--color-on-warning-container: #713f12;
+	--color-info: #3b82f6;
+	--color-on-info: #ffffff;
+	--color-info-container: #dbeafe;
+	--color-on-info-container: #1e3a8a;
 }
 
 /*
@@ -29,7 +97,7 @@
 	::before,
 	::backdrop,
 	::file-selector-button {
-		border-color: var(--color-gray-200, currentcolor);
+		border-color: var(--color-outline-variant, currentcolor);
 	}
 }
 

@@ -83,14 +83,14 @@ const ResultScreen: React.FC = () => {
 			initial={{ opacity: 0, scale: 0.9 }}
 			animate={{ opacity: 1, scale: 1 }}
 			exit={{ opacity: 0, scale: 1.1 }}
-			className="flex flex-col h-full bg-white overflow-hidden"
+			className="flex flex-col h-full bg-surface-container-lowest overflow-hidden"
 		>
 			{/* Header Section */}
 			<header className="flex flex-col items-center justify-center pt-12 pb-8 px-5 shrink-0">
-				<div className="bg-subtle-bg p-6 rounded-full mb-4">
-					<Trophy className="w-16 h-16 text-primary-text" />
+				<div className="bg-surface-container p-6 rounded-full mb-4">
+					<Trophy className="w-16 h-16 text-on-surface" />
 				</div>
-				<h1 className="font-hanken text-3xl font-extrabold text-primary-text text-center mb-2 tracking-widest-premium uppercase">
+				<h1 className="font-hanken text-3xl font-extrabold text-on-surface text-center mb-2 tracking-widest-premium uppercase">
 					{t('result.victory')}
 				</h1>
 				<p className="font-hanken text-xs font-bold text-secondary text-center uppercase tracking-wider">
@@ -101,13 +101,13 @@ const ResultScreen: React.FC = () => {
 			{/* Main Content Area */}
 			<main className="flex-1 overflow-y-auto px-5 pb-40 flex flex-col gap-6">
 				{/* Score Summary Card */}
-				<section className="bg-white border border-border rounded-DEFAULT p-6 flex flex-col items-center justify-center gap-4 shadow-xs">
+				<section className="bg-surface-container-lowest border border-outline-variant rounded-DEFAULT p-6 flex flex-col items-center justify-center gap-4 shadow-xs">
 					<div className="grid grid-cols-3 w-full gap-4">
 						<div className="flex flex-col items-center gap-1">
 							<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 								{t('result.time')}
 							</span>
-							<span className="font-hanken text-lg font-bold text-primary-text">
+							<span className="font-hanken text-lg font-bold text-on-surface">
 								{formatTime(lastGameResult.timeElapsed)}
 							</span>
 						</div>
@@ -115,7 +115,7 @@ const ResultScreen: React.FC = () => {
 							<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 								{t('game.mistakes')}
 							</span>
-							<span className="font-hanken text-lg font-bold text-primary-text">
+							<span className="font-hanken text-lg font-bold text-on-surface">
 								{lastGameResult.mistakes}
 							</span>
 						</div>
@@ -123,14 +123,14 @@ const ResultScreen: React.FC = () => {
 							<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 								{t('game.hint')}
 							</span>
-							<span className="font-hanken text-lg font-bold text-primary-text">
+							<span className="font-hanken text-lg font-bold text-on-surface">
 								{lastGameResult.hintsUsed}
 							</span>
 						</div>
 					</div>
-					<div className="w-full h-px bg-border"></div>
+					<div className="w-full h-px bg-outline-variant"></div>
 					<div className="flex flex-col items-center gap-1">
-						<span className="font-hanken text-4xl font-extrabold text-primary-text">
+						<span className="font-hanken text-4xl font-extrabold text-on-surface">
 							{lastGameResult.score}
 						</span>
 						<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
@@ -141,17 +141,17 @@ const ResultScreen: React.FC = () => {
 
 				{/* Leaderboard */}
 				<section className="flex flex-col gap-4">
-					<h2 className="font-hanken text-lg font-bold text-primary-text text-center uppercase tracking-widest-premium">
+					<h2 className="font-hanken text-lg font-bold text-on-surface text-center uppercase tracking-widest-premium">
 						{t('result.top_5')} {t(`main_menu.difficulties.${lastGameResult.difficulty}`)}
 					</h2>
-					<div className="flex flex-col border border-border rounded bg-white overflow-hidden shadow-xs">
+					<div className="flex flex-col border border-outline-variant rounded bg-surface-container-lowest overflow-hidden shadow-xs">
 						{topScores?.map((entry, index) => (
 							<div
 								key={entry.id}
-								className={`flex items-center justify-between p-4 border-b border-border last:border-0 ${
+								className={`flex items-center justify-between p-4 border-b border-outline-variant last:border-0 ${
 									entry.score === lastGameResult.score &&
 									entry.timeElapsed === lastGameResult.timeElapsed
-										? 'bg-subtle-bg'
+										? 'bg-surface-container'
 										: ''
 								}`}
 							>
@@ -162,15 +162,13 @@ const ResultScreen: React.FC = () => {
 									<div className="flex items-center gap-2">
 										<User className="w-4 h-4 text-secondary" />
 										<span
-											className={`font-sans text-base ${entry.score === lastGameResult.score ? 'font-bold text-primary-text' : 'text-secondary'}`}
+											className={`font-sans text-base ${entry.score === lastGameResult.score ? 'font-bold text-on-surface' : 'text-secondary'}`}
 										>
 											{entry.playerId === activePlayerId ? activePlayer?.name : 'Player'}
 										</span>
 									</div>
 								</div>
-								<span className="font-hanken text-lg font-bold text-primary-text">
-									{entry.score}
-								</span>
+								<span className="font-hanken text-lg font-bold text-on-surface">{entry.score}</span>
 							</div>
 						))}
 					</div>
@@ -178,7 +176,7 @@ const ResultScreen: React.FC = () => {
 			</main>
 
 			{/* Fixed Action Area */}
-			<footer className="absolute bottom-0 w-full bg-white border-t border-border p-5 flex flex-col gap-3 z-50">
+			<footer className="absolute bottom-0 w-full bg-surface-container-lowest border-t border-outline-variant p-5 flex flex-col gap-3 z-50">
 				<Button
 					variant="primary"
 					size="lg"

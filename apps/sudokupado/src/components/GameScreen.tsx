@@ -330,25 +330,25 @@ const GameScreen: React.FC = () => {
 			initial={{ opacity: 0, x: 20 }}
 			animate={{ opacity: 1, x: 0 }}
 			exit={{ opacity: 0, x: -20 }}
-			className="flex flex-col h-full bg-white relative"
+			className="flex flex-col h-full bg-surface-container-lowest relative"
 		>
 			{/* TopAppBar */}
-			<header className="w-full border-b border-border bg-white flex justify-between items-center px-5 h-16 z-10">
+			<header className="w-full border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center px-5 h-16 z-10">
 				<button
 					type="button"
 					onClick={() => setScreen('main')}
-					className="p-2 hover:bg-subtle-bg rounded-full transition-colors text-secondary"
+					className="p-2 hover:bg-surface-container rounded-full transition-colors text-secondary"
 				>
 					<ArrowLeft className="w-6 h-6" />
 				</button>
-				<h1 className="font-hanken text-xl font-extrabold tracking-widest-premium text-primary-text uppercase">
+				<h1 className="font-hanken text-xl font-extrabold tracking-widest-premium text-on-surface uppercase">
 					SUDOKUPADO
 				</h1>
 				<button
 					type="button"
 					data-testid="pause-toggle"
 					onClick={() => setPaused(!isPaused)}
-					className="p-2 hover:bg-subtle-bg rounded-full transition-colors text-secondary"
+					className="p-2 hover:bg-surface-container rounded-full transition-colors text-secondary"
 				>
 					{isPaused ? <Play className="w-6 h-6" /> : <Pause className="w-6 h-6" />}
 				</button>
@@ -357,12 +357,12 @@ const GameScreen: React.FC = () => {
 			{/* Main Game Container */}
 			<main className="flex-1 flex flex-col px-5 pt-4 pb-24 overflow-y-auto">
 				{/* Status Bar */}
-				<div className="flex justify-between items-center bg-subtle-bg rounded-full px-4 py-2 mb-6 border border-border">
+				<div className="flex justify-between items-center bg-surface-container rounded-full px-4 py-2 mb-6 border border-outline-variant">
 					<div className="flex flex-col items-start">
 						<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 							{t('game.time')}
 						</span>
-						<span className="font-hanken text-lg font-bold text-primary-text">
+						<span className="font-hanken text-lg font-bold text-on-surface">
 							{formatTime(timeElapsed)}
 						</span>
 					</div>
@@ -378,7 +378,7 @@ const GameScreen: React.FC = () => {
 						<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 							{t('game.mistakes')}
 						</span>
-						<span className="font-hanken text-lg font-bold text-primary-text">
+						<span className="font-hanken text-lg font-bold text-on-surface">
 							{maxMistakes === 0
 								? t('game.no_mistakes_allowed')
 								: maxMistakes === -1
@@ -404,14 +404,14 @@ const GameScreen: React.FC = () => {
 										scale: [1, 1.2, 1],
 									}}
 									transition={{ duration: 1.5, repeat: Infinity }}
-									className="bg-white/90 backdrop-blur-lg p-8 rounded-3xl border-4 border-green-500 shadow-2xl flex flex-col items-center gap-6"
+									className="bg-surface-container-lowest/90 backdrop-blur-lg p-8 rounded-3xl border-4 border-success shadow-2xl flex flex-col items-center gap-6"
 								>
-									<Trophy className="w-16 h-16 text-green-600" />
+									<Trophy className="w-16 h-16 text-on-success-container" />
 									<motion.h2
 										initial={{ y: 20, opacity: 0 }}
 										animate={{ y: 0, opacity: 1 }}
 										transition={{ delay: 0.5 }}
-										className="font-hanken text-3xl font-black text-green-700 tracking-widest-premium"
+										className="font-hanken text-3xl font-black text-on-success-container tracking-widest-premium"
 									>
 										{t('game.victory')}
 									</motion.h2>
@@ -423,9 +423,9 @@ const GameScreen: React.FC = () => {
 						<button
 							type="button"
 							onClick={() => setPaused(false)}
-							className="absolute inset-0 bg-white/90 backdrop-blur-xs z-30 flex flex-col items-center justify-center cursor-pointer"
+							className="absolute inset-0 bg-surface-container-lowest/90 backdrop-blur-xs z-30 flex flex-col items-center justify-center cursor-pointer"
 						>
-							<Play className="w-16 h-16 text-primary-text mb-4" />
+							<Play className="w-16 h-16 text-on-surface mb-4" />
 							<span className="font-hanken text-xl font-bold uppercase tracking-widest-premium">
 								{t('game.paused')}
 							</span>
@@ -442,7 +442,7 @@ const GameScreen: React.FC = () => {
 						type="button"
 						data-testid="action-erase"
 						onClick={handleErase}
-						className="flex flex-col items-center justify-center py-3 bg-white border border-border rounded-xl text-primary-text hover:bg-subtle-bg transition-all active:scale-95"
+						className="flex flex-col items-center justify-center py-3 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface hover:bg-surface-container transition-all active:scale-95"
 					>
 						<Eraser className="w-5 h-5 mb-1" />
 						<span className="font-hanken text-[10px] font-bold tracking-wider uppercase">
@@ -458,8 +458,8 @@ const GameScreen: React.FC = () => {
 						}}
 						className={`flex flex-col items-center justify-center py-3 rounded-xl transition-all active:scale-95 ${
 							isNoteMode
-								? 'bg-primary-text text-white shadow-md'
-								: 'bg-white border border-border text-primary-text hover:bg-subtle-bg'
+								? 'bg-primary text-white shadow-md'
+								: 'bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container'
 						}`}
 					>
 						<Pencil className={`w-5 h-5 mb-1 ${isNoteMode ? 'fill-current' : ''}`} />
@@ -498,7 +498,7 @@ const GameScreen: React.FC = () => {
 						}}
 						disabled={maxHints <= 0 || hintsUsed >= maxHints}
 						aria-disabled={maxHints <= 0 || hintsUsed >= maxHints}
-						className="flex flex-col items-center justify-center py-3 bg-white border border-border rounded-xl text-primary-text hover:bg-subtle-bg disabled:opacity-30 transition-all active:scale-95"
+						className="flex flex-col items-center justify-center py-3 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface hover:bg-surface-container disabled:opacity-30 transition-all active:scale-95"
 					>
 						<Lightbulb className="w-5 h-5 mb-1" />
 						<span className="font-hanken text-[10px] font-bold tracking-wider uppercase">
@@ -511,7 +511,7 @@ const GameScreen: React.FC = () => {
 						type="button"
 						data-testid="action-restart"
 						onClick={handleRestartClick}
-						className="flex flex-col items-center justify-center py-3 bg-white border border-border rounded-xl text-primary-text hover:bg-subtle-bg transition-all active:scale-95"
+						className="flex flex-col items-center justify-center py-3 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface hover:bg-surface-container transition-all active:scale-95"
 					>
 						<RotateCcw className="w-5 h-5 mb-1" />
 						<span className="font-hanken text-[10px] font-bold tracking-wider uppercase">
@@ -535,8 +535,8 @@ const GameScreen: React.FC = () => {
 									onClick={() => handleNumberClick(num)}
 									className={`border rounded-2xl h-14 flex items-center justify-center font-hanken text-2xl font-bold transition-all shadow-xs active:scale-95 ${
 										completed
-											? 'bg-transparent border-transparent text-slate-300 opacity-20'
-											: 'bg-white border-border text-primary-text hover:bg-subtle-bg active:bg-border'
+											? 'bg-transparent border-transparent text-outline-variant opacity-20'
+											: 'bg-surface-container-lowest border-outline-variant text-on-surface hover:bg-surface-container active:bg-outline-variant'
 									}`}
 								>
 									{num}
@@ -555,8 +555,8 @@ const GameScreen: React.FC = () => {
 									onClick={() => handleNumberClick(num)}
 									className={`border rounded-2xl h-14 flex items-center justify-center font-hanken text-2xl font-bold transition-all shadow-xs active:scale-95 ${
 										completed
-											? 'bg-transparent border-transparent text-slate-300 opacity-20'
-											: 'bg-white border-border text-primary-text hover:bg-subtle-bg active:bg-border'
+											? 'bg-transparent border-transparent text-outline-variant opacity-20'
+											: 'bg-surface-container-lowest border-outline-variant text-on-surface hover:bg-surface-container active:bg-outline-variant'
 									}`}
 								>
 									{num}
@@ -573,11 +573,11 @@ const GameScreen: React.FC = () => {
 						initial={{ opacity: 0, y: 50 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: 50 }}
-						className="absolute bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-primary-text p-6 pb-10 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.2)] rounded-t-3xl"
+						className="absolute bottom-0 left-0 right-0 z-50 bg-surface-container-lowest border-t-2 border-primary p-6 pb-10 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.2)] rounded-t-3xl"
 					>
 						<div className="flex items-center gap-2 mb-3">
-							<Lightbulb className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-							<h3 className="font-hanken text-xs font-black text-primary-text uppercase tracking-widest-premium">
+							<Lightbulb className="w-5 h-5 text-warning fill-warning" />
+							<h3 className="font-hanken text-xs font-black text-on-surface uppercase tracking-widest-premium">
 								{t('hints.title')}
 							</h3>
 						</div>
@@ -594,7 +594,7 @@ const GameScreen: React.FC = () => {
 									vibrate(10);
 									applyHint();
 								}}
-								className="flex-1 bg-primary-text text-white py-4 rounded-xl font-hanken text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform shadow-md"
+								className="flex-1 bg-primary text-white py-4 rounded-xl font-hanken text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform shadow-md"
 							>
 								{t('hints.apply')}
 							</button>
@@ -604,7 +604,7 @@ const GameScreen: React.FC = () => {
 									vibrate(10);
 									clearHint();
 								}}
-								className="flex-1 border border-border text-secondary py-4 rounded-xl font-hanken text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform"
+								className="flex-1 border border-outline-variant text-secondary py-4 rounded-xl font-hanken text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform"
 							>
 								{t('hints.close')}
 							</button>

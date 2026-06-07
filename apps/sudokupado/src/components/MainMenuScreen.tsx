@@ -101,23 +101,23 @@ const MainMenuScreen: React.FC = () => {
 	return (
 		<div className="flex flex-col h-full">
 			{/* TopAppBar */}
-			<header className="w-full border-b border-border bg-white flex justify-between items-center px-5 h-16 z-10">
+			<header className="w-full border-b border-outline-variant bg-surface-container-lowest flex justify-between items-center px-5 h-16 z-10">
 				<button
 					type="button"
 					data-testid="open-player-menu"
 					onClick={() => setIsPlayerMenuOpen(true)}
-					className="p-2 hover:bg-subtle-bg rounded-full transition-colors"
+					className="p-2 hover:bg-surface-container rounded-full transition-colors"
 				>
 					<User className="w-6 h-6 text-secondary" />
 				</button>
-				<h1 className="font-hanken text-xl font-extrabold tracking-widest-premium text-primary-text uppercase">
+				<h1 className="font-hanken text-xl font-extrabold tracking-widest-premium text-on-surface uppercase">
 					SUDOKUPADO
 				</h1>
 				<button
 					type="button"
 					data-testid="open-settings"
 					onClick={() => setIsSettingsOpen(true)}
-					className="p-2 hover:bg-subtle-bg rounded-full transition-colors"
+					className="p-2 hover:bg-surface-container rounded-full transition-colors"
 				>
 					<Settings className="w-6 h-6 text-secondary" />
 				</button>
@@ -128,19 +128,19 @@ const MainMenuScreen: React.FC = () => {
 				{/* Greeting */}
 				<div className="text-center">
 					<p className="font-sans text-lg text-secondary">{t('main_menu.greeting')}</p>
-					<h2 className="font-hanken text-xl font-bold text-primary-text mt-1">
+					<h2 className="font-hanken text-xl font-bold text-on-surface mt-1">
 						{activePlayer?.name || t('main_menu.guest')}
 					</h2>
 				</div>
 
 				{/* Resume Game Card */}
 				{savedGame && (
-					<div className="bg-subtle-bg p-4 rounded-DEFAULT border border-border flex items-center justify-between shadow-xs">
+					<div className="bg-surface-container p-4 rounded-DEFAULT border border-outline-variant flex items-center justify-between shadow-xs">
 						<div className="flex flex-col">
 							<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 								{t('main_menu.saved_game')}
 							</span>
-							<span className="font-hanken text-sm font-bold text-primary-text uppercase">
+							<span className="font-hanken text-sm font-bold text-on-surface uppercase">
 								{t(`main_menu.difficulties.${savedGame.difficulty}`)}
 							</span>
 						</div>
@@ -172,8 +172,8 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setDifficulty(diff)}
 								className={`w-full py-4 px-4 rounded-full font-sans text-base transition-colors border ${
 									selectedDifficulty === diff
-										? 'bg-primary-text text-white border-transparent shadow-xs'
-										: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
+										? 'bg-primary text-white border-transparent shadow-xs'
+										: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 								}`}
 							>
 								{t(`main_menu.difficulties.${diff}`)}
@@ -182,25 +182,23 @@ const MainMenuScreen: React.FC = () => {
 					</div>
 				</section>
 
-				<hr className="border-border" />
+				<hr className="border-outline-variant" />
 
 				{/* Notes Toggle */}
 				<section className="flex items-center justify-between py-2">
 					<div className="flex items-center gap-3">
 						<LayoutGrid className="w-5 h-5 text-secondary" />
-						<span className="font-sans text-lg text-primary-text">
-							{t('main_menu.notes_label')}
-						</span>
+						<span className="font-sans text-lg text-on-surface">{t('main_menu.notes_label')}</span>
 					</div>
 					<button
 						type="button"
 						onClick={() => setAllowNotes(!allowNotes)}
 						className={`w-14 h-8 rounded-full relative cursor-pointer transition-all flex items-center p-1 ${
-							allowNotes ? 'bg-primary-text' : 'bg-subtle-accent'
+							allowNotes ? 'bg-primary' : 'bg-surface-container-high'
 						}`}
 					>
 						<div
-							className={`w-6 h-6 bg-white rounded-full shadow-xs transition-transform duration-200 ${allowNotes ? 'translate-x-6' : 'translate-x-0'}`}
+							className={`w-6 h-6 bg-surface-container-lowest rounded-full shadow-xs transition-transform duration-200 ${allowNotes ? 'translate-x-6' : 'translate-x-0'}`}
 						/>
 					</button>
 				</section>
@@ -220,8 +218,8 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setMaxMistakes(limit)}
 								className={`w-16 h-16 rounded-full font-hanken text-xl flex items-center justify-center transition-all border ${
 									maxMistakes === limit
-										? 'bg-primary-text text-white border-transparent shadow-md'
-										: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
+										? 'bg-primary text-white border-transparent shadow-md'
+										: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 								}`}
 							>
 								{limit === -1 ? '∞' : limit}
@@ -245,8 +243,8 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setMaxHints(limit)}
 								className={`w-16 h-16 rounded-full font-hanken text-xl flex items-center justify-center transition-all border ${
 									maxHints === limit
-										? 'bg-primary-text text-white border-transparent shadow-md'
-										: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
+										? 'bg-primary text-white border-transparent shadow-md'
+										: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 								}`}
 							>
 								{limit}
@@ -257,7 +255,7 @@ const MainMenuScreen: React.FC = () => {
 			</main>
 
 			{/* Fixed Action Area - Positioned above BottomNavBar */}
-			<div className="absolute bottom-[calc(4rem+env(safe-area-inset-bottom))] w-full p-5 bg-white border-t border-border z-20">
+			<div className="absolute bottom-[calc(4rem+env(safe-area-inset-bottom))] w-full p-5 bg-surface-container-lowest border-t border-outline-variant z-20">
 				<Button
 					variant="primary"
 					size="xl"

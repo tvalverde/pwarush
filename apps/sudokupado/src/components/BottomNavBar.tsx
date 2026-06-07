@@ -13,7 +13,7 @@ const BottomNavBar: React.FC = () => {
 	];
 
 	return (
-		<nav className="absolute bottom-0 left-0 w-full bg-white border-t border-border z-40 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+		<nav className="absolute bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant z-40 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
 			<div className="flex justify-around items-center h-16">
 				{navItems.map((item) => {
 					const Icon = item.icon;
@@ -26,11 +26,11 @@ const BottomNavBar: React.FC = () => {
 							data-testid={`nav-${item.id}`}
 							onClick={() => setScreen(item.id)}
 							className={`flex flex-col items-center justify-center flex-1 h-full gap-1 transition-colors ${
-								isActive ? 'text-primary-text' : 'text-secondary hover:text-primary-text'
+								isActive ? 'text-on-surface' : 'text-secondary hover:text-on-surface'
 							}`}
 						>
 							<div
-								className={`p-1.5 rounded-xl transition-colors ${isActive ? 'bg-subtle-bg' : ''}`}
+								className={`p-1.5 rounded-xl transition-colors ${isActive ? 'bg-surface-container' : ''}`}
 							>
 								<Icon className={`w-5 h-5 ${isActive ? 'fill-current' : ''}`} />
 							</div>

@@ -34,17 +34,17 @@ const OrientationOverlay: React.FC = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-					className="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center p-10 text-center"
+					className="fixed inset-0 z-200 bg-surface-container-lowest flex flex-col items-center justify-center p-10 text-center"
 				>
 					<motion.div
 						animate={{ rotate: [0, 90, 0] }}
 						transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
 						className="mb-8"
 					>
-						<Smartphone className="w-20 h-20 text-primary-text" />
+						<Smartphone className="w-20 h-20 text-on-surface" />
 					</motion.div>
 
-					<h2 className="font-hanken text-2xl font-extrabold text-primary-text uppercase tracking-widest-premium mb-4">
+					<h2 className="font-hanken text-2xl font-extrabold text-on-surface uppercase tracking-widest-premium mb-4">
 						{t('orientation.title')}
 					</h2>
 

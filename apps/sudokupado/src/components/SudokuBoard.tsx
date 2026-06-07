@@ -55,10 +55,10 @@ const SudokuBoard: React.FC = () => {
 
 	return (
 		<div
-			className={`w-full aspect-square border-4 mb-6 relative select-none transition-all duration-1000 ${isVictory ? 'bg-green-50 border-green-500' : 'bg-primary-text border-primary-text'}`}
+			className={`w-full aspect-square border-4 mb-6 relative select-none transition-all duration-1000 ${isVictory ? 'bg-success-container border-success' : 'bg-primary border-primary'}`}
 		>
 			<div
-				className={`w-full h-full grid grid-cols-9 grid-rows-9 gap-px transition-colors duration-1000 ${isVictory ? 'bg-green-500/20' : 'bg-primary-text'}`}
+				className={`w-full h-full grid grid-cols-9 grid-rows-9 gap-px transition-colors duration-1000 ${isVictory ? 'bg-success/20' : 'bg-primary'}`}
 			>
 				{grid.map((row, r) =>
 					row.map((val, c) => {
@@ -76,16 +76,16 @@ const SudokuBoard: React.FC = () => {
 										isVictory
 											? 'bg-transparent'
 											: isAnimating(r, c)
-												? 'bg-[#fcdeb5] border border-[#dec29a] shadow-[0_0_20px_rgba(252,222,181,0.6)] z-20 transition-all duration-300 scale-105'
+												? 'bg-tertiary-fixed border border-tertiary-fixed-dim shadow-[0_0_20px_rgba(252,222,181,0.6)] z-20 transition-all duration-300 scale-105'
 												: isHintCell(r, c)
-													? 'bg-yellow-100 animate-pulse'
+													? 'bg-warning-container animate-pulse'
 													: isSelected(r, c)
-														? 'bg-slate-200'
+														? 'bg-surface-container-high'
 														: isSameNumber(r, c)
-															? 'bg-blue-100'
+															? 'bg-info-container'
 															: isSameGroup(r, c)
-																? 'bg-subtle-bg'
-																: 'bg-white'
+																? 'bg-surface-container'
+																: 'bg-surface-container-lowest'
 									}
                   ${isError ? 'animate-shake' : ''}
                   ${isVictory ? 'pointer-events-none' : 'cursor-pointer'}
@@ -94,14 +94,14 @@ const SudokuBoard: React.FC = () => {
 							>
 								{/* Visual indicator for selection - using a subtle border instead of full black background */}
 								{isSelected(r, c) && !isVictory && (
-									<div className="absolute inset-0 border-4 border-primary-text z-10 pointer-events-none" />
+									<div className="absolute inset-0 border-4 border-primary z-10 pointer-events-none" />
 								)}
 
 								{val !== 0 ? (
 									<span
 										className={`
                     text-4xl md:text-5xl lg:text-4xl transition-colors duration-1000
-                    ${isVictory ? 'text-green-700 font-bold' : isInitial ? 'text-primary-text font-black' : isError ? 'text-error font-bold' : 'text-slate-600 font-bold'}
+                    ${isVictory ? 'text-on-success-container font-bold' : isInitial ? 'text-on-surface font-black' : isError ? 'text-error font-bold' : 'text-on-surface-variant font-bold'}
                   `}
 									>
 										{val}
@@ -127,28 +127,28 @@ const SudokuBoard: React.FC = () => {
 			{/* 3x3 Block Overlays */}
 			<div className="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none">
 				<div
-					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-b-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-b-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-r-2 border-b-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-b-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-b-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-r-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-r-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div
-					className={`border-r-2 transition-colors duration-1000 ${isVictory ? 'border-green-500/50' : 'border-primary-text'}`}
+					className={`border-r-2 transition-colors duration-1000 ${isVictory ? 'border-success/50' : 'border-primary'}`}
 				></div>
 				<div></div>
 			</div>

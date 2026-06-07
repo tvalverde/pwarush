@@ -11,19 +11,19 @@ const RulesScreen: React.FC = () => {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: -20 }}
-			className="flex flex-col h-full bg-white overflow-hidden"
+			className="flex flex-col h-full bg-surface-container-lowest overflow-hidden"
 		>
 			{/* Header */}
-			<header className="sticky top-0 w-full z-50 bg-white border-b border-border flex justify-between items-center h-16 px-5">
+			<header className="sticky top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center h-16 px-5">
 				<button
 					type="button"
 					data-testid="rules-back"
 					onClick={() => setScreen('main')}
-					className="p-2 -ml-2 hover:bg-subtle-bg rounded-full transition-colors text-primary-text"
+					className="p-2 -ml-2 hover:bg-surface-container rounded-full transition-colors text-on-surface"
 				>
 					<ArrowLeft className="w-6 h-6" />
 				</button>
-				<h1 className="font-hanken text-lg font-bold text-primary-text tracking-widest-premium uppercase">
+				<h1 className="font-hanken text-lg font-bold text-on-surface tracking-widest-premium uppercase">
 					{t('rules.title')}
 				</h1>
 				<div className="w-10"></div>
@@ -32,7 +32,7 @@ const RulesScreen: React.FC = () => {
 			{/* Content */}
 			<main className="flex-1 overflow-y-auto px-5 py-8 flex flex-col gap-8 pb-32">
 				<section className="space-y-4">
-					<div className="flex items-center gap-2 text-primary-text">
+					<div className="flex items-center gap-2 text-on-surface">
 						<BookOpen className="w-6 h-6" />
 						<h2 className="font-hanken text-lg font-bold uppercase tracking-wide-premium">
 							{t('rules.basic_rules_title')}
@@ -44,27 +44,27 @@ const RulesScreen: React.FC = () => {
 				</section>
 
 				<section className="space-y-4">
-					<div className="flex items-center gap-2 text-primary-text">
+					<div className="flex items-center gap-2 text-on-surface">
 						<Info className="w-6 h-6" />
 						<h2 className="font-hanken text-lg font-bold uppercase tracking-wide-premium">
 							{t('rules.techniques_title')}
 						</h2>
 					</div>
 					<div className="space-y-4">
-						<article className="border-l-2 border-primary-text pl-4">
-							<h3 className="font-hanken text-sm font-bold text-primary-text uppercase">
+						<article className="border-l-2 border-primary pl-4">
+							<h3 className="font-hanken text-sm font-bold text-on-surface uppercase">
 								{t('rules.naked_pairs')}
 							</h3>
 							<p className="font-sans text-xs text-secondary mt-1">{t('rules.naked_pairs_text')}</p>
 						</article>
-						<article className="border-l-2 border-primary-text pl-4">
-							<h3 className="font-hanken text-sm font-bold text-primary-text uppercase">
+						<article className="border-l-2 border-primary pl-4">
+							<h3 className="font-hanken text-sm font-bold text-on-surface uppercase">
 								{t('rules.x_wing')}
 							</h3>
 							<p className="font-sans text-xs text-secondary mt-1">{t('rules.x_wing_text')}</p>
 						</article>
-						<article className="border-l-2 border-primary-text pl-4">
-							<h3 className="font-hanken text-sm font-bold text-primary-text uppercase">
+						<article className="border-l-2 border-primary pl-4">
+							<h3 className="font-hanken text-sm font-bold text-on-surface uppercase">
 								{t('rules.hidden_singles')}
 							</h3>
 							<p className="font-sans text-xs text-secondary mt-1">
@@ -74,8 +74,8 @@ const RulesScreen: React.FC = () => {
 					</div>
 				</section>
 
-				<section className="bg-subtle-bg p-6 rounded-DEFAULT border border-border">
-					<h3 className="font-hanken text-sm font-bold text-primary-text uppercase mb-2">
+				<section className="bg-surface-container p-6 rounded-DEFAULT border border-outline-variant">
+					<h3 className="font-hanken text-sm font-bold text-on-surface uppercase mb-2">
 						{t('rules.scoring_title')}
 					</h3>
 					<ul className="font-sans text-xs text-secondary space-y-2 list-disc pl-4">

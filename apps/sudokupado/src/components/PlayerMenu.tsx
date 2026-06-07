@@ -64,25 +64,25 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						onClick={onClose}
-						className="absolute inset-0 bg-slate-900/70"
+						className="absolute inset-0 bg-primary/70"
 					/>
 					<motion.div
 						initial={{ scale: 0.9, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
 						exit={{ scale: 0.9, opacity: 0 }}
-						className="bg-white w-full max-w-container rounded-lg border border-border overflow-hidden flex flex-col relative shadow-xl"
+						className="bg-surface-container-lowest w-full max-w-container rounded-lg border border-outline-variant overflow-hidden flex flex-col relative shadow-xl"
 					>
 						{/* Header */}
-						<div className="flex items-center justify-between p-4 border-b border-subtle-bg bg-white">
-							<h2 className="font-hanken text-lg font-bold text-primary-text tracking-widest-premium uppercase">
+						<div className="flex items-center justify-between p-4 border-b border-surface-container bg-surface-container-lowest">
+							<h2 className="font-hanken text-lg font-bold text-on-surface tracking-widest-premium uppercase">
 								{t('player_menu.title')}
 							</h2>
 							<button
 								type="button"
 								onClick={onClose}
-								className="p-2 hover:bg-subtle-bg rounded-full transition-colors"
+								className="p-2 hover:bg-surface-container rounded-full transition-colors"
 							>
-								<X className="w-6 h-6 text-primary-text" />
+								<X className="w-6 h-6 text-on-surface" />
 							</button>
 						</div>
 
@@ -97,10 +97,10 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 									<button
 										type="button"
 										onClick={onClose} // Closing if clicking current active is also a good QoL
-										className="bg-primary-text text-white rounded-DEFAULT p-4 flex items-center justify-between shadow-xs cursor-pointer w-full text-left"
+										className="bg-primary text-white rounded-DEFAULT p-4 flex items-center justify-between shadow-xs cursor-pointer w-full text-left"
 									>
 										<div className="flex items-center gap-3">
-											<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+											<div className="w-10 h-10 rounded-full bg-surface-container-lowest/20 flex items-center justify-center">
 												<User className="w-6 h-6" />
 											</div>
 											<span className="font-hanken text-lg font-bold">{activePlayer.name}</span>
@@ -108,13 +108,13 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 										<CheckCircle className="w-6 h-6 text-white" />
 									</button>
 								) : (
-									<div className="p-4 border-2 border-dashed border-border rounded-DEFAULT text-center text-secondary font-sans text-sm">
+									<div className="p-4 border-2 border-dashed border-outline-variant rounded-DEFAULT text-center text-secondary font-sans text-sm">
 										{t('player_menu.no_active')}
 									</div>
 								)}
 							</div>
 
-							<div className="w-full h-px bg-subtle-bg" />
+							<div className="w-full h-px bg-surface-container" />
 
 							{/* Switch Player Section */}
 							<div className="flex flex-col gap-2">
@@ -131,13 +131,13 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 												setActivePlayer(null);
 												onClose();
 											}}
-											className="bg-subtle-bg border border-border rounded-DEFAULT p-3 flex items-center justify-between hover:bg-slate-200 transition-colors cursor-pointer group w-full text-left"
+											className="bg-surface-container border border-outline-variant rounded-DEFAULT p-3 flex items-center justify-between hover:bg-surface-container-high transition-colors cursor-pointer group w-full text-left"
 										>
 											<div className="flex items-center gap-3">
-												<div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-secondary">
+												<div className="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary">
 													<User className="w-6 h-6" />
 												</div>
-												<span className="font-sans text-base text-primary-text font-medium">
+												<span className="font-sans text-base text-on-surface font-medium">
 													{t('main_menu.guest')}
 												</span>
 											</div>
@@ -153,13 +153,13 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 												setActivePlayer(player.id!);
 												onClose(); // Auto-close on selection
 											}}
-											className="bg-subtle-bg border border-border rounded-DEFAULT p-3 flex items-center justify-between hover:bg-slate-200 transition-colors cursor-pointer group w-full text-left"
+											className="bg-surface-container border border-outline-variant rounded-DEFAULT p-3 flex items-center justify-between hover:bg-surface-container-high transition-colors cursor-pointer group w-full text-left"
 										>
 											<div className="flex items-center gap-3">
-												<div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-secondary">
+												<div className="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary">
 													<User className="w-6 h-6" />
 												</div>
-												<span className="font-sans text-base text-primary-text font-medium">
+												<span className="font-sans text-base text-on-surface font-medium">
 													{player.name}
 												</span>
 											</div>
@@ -170,7 +170,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 													e.stopPropagation();
 													handleDeletePlayer(player.id!, player.name);
 												}}
-												className="p-2 hover:bg-red-100 hover:text-error rounded-full transition-colors text-secondary"
+												className="p-2 hover:bg-error-container hover:text-error rounded-full transition-colors text-secondary"
 											>
 												<Trash2 className="w-5 h-5" />
 											</button>
@@ -187,7 +187,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 										value={newPlayerName}
 										onChange={(e) => setNewPlayerName(e.target.value)}
 										placeholder={t('player_menu.enter_name')}
-										className="w-full p-3 border border-border rounded-DEFAULT focus:outline-hidden focus:border-primary-text font-sans text-sm"
+										className="w-full p-3 border border-outline-variant rounded-DEFAULT focus:outline-hidden focus:border-primary font-sans text-sm"
 										onKeyDown={(e) => e.key === 'Enter' && handleCreatePlayer()}
 									/>
 									<div className="flex gap-2">
@@ -216,12 +216,12 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 
 						{/* Footer Action Area */}
 						{!isCreating && (
-							<div className="p-4 border-t border-subtle-bg bg-subtle-bg">
+							<div className="p-4 border-t border-surface-container bg-surface-container">
 								<button
 									type="button"
 									data-testid="player-create-button"
 									onClick={() => setIsCreating(true)}
-									className="w-full bg-primary-text text-white rounded-full py-4 px-6 flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors active:scale-95 shadow-xs"
+									className="w-full bg-primary text-white rounded-full py-4 px-6 flex items-center justify-center gap-2 hover:bg-primary-container transition-colors active:scale-95 shadow-xs"
 								>
 									<Plus className="w-5 h-5" />
 									<span className="font-hanken text-sm font-bold tracking-widest-premium uppercase">

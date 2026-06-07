@@ -106,26 +106,26 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 							onClick={onClose}
-							className="absolute inset-0 bg-slate-900/70"
+							className="absolute inset-0 bg-primary/70"
 						/>
 						<motion.div
 							initial={{ scale: 0.9, opacity: 0 }}
 							animate={{ scale: 1, opacity: 1 }}
 							exit={{ scale: 0.9, opacity: 0 }}
-							className="bg-white w-full max-w-container rounded-lg border border-border overflow-hidden flex flex-col relative shadow-xl"
+							className="bg-surface-container-lowest w-full max-w-container rounded-lg border border-outline-variant overflow-hidden flex flex-col relative shadow-xl"
 						>
 							{/* Header */}
-							<div className="flex items-center justify-between p-4 border-b border-subtle-bg bg-white">
-								<h2 className="font-hanken text-lg font-bold text-primary-text tracking-widest-premium uppercase">
+							<div className="flex items-center justify-between p-4 border-b border-surface-container bg-surface-container-lowest">
+								<h2 className="font-hanken text-lg font-bold text-on-surface tracking-widest-premium uppercase">
 									{t('settings.title')}
 								</h2>
 								<button
 									type="button"
 									data-testid="settings-close"
 									onClick={onClose}
-									className="p-2 hover:bg-subtle-bg rounded-full transition-colors"
+									className="p-2 hover:bg-surface-container rounded-full transition-colors"
 								>
-									<X className="w-6 h-6 text-primary-text" />
+									<X className="w-6 h-6 text-on-surface" />
 								</button>
 							</div>
 
@@ -138,8 +138,8 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 										animate={{ opacity: 1, y: 0 }}
 										className={`p-3 rounded-DEFAULT flex items-center gap-3 ${
 											status.type === 'success'
-												? 'bg-green-50 text-green-700'
-												: 'bg-red-50 text-red-700'
+												? 'bg-success-container text-on-success-container'
+												: 'bg-error-container text-on-error-container'
 										}`}
 									>
 										{status.type === 'success' ? (
@@ -166,8 +166,8 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 												onClick={() => setLanguage(lang)}
 												className={`flex-1 py-3 rounded-full font-hanken text-xs font-bold uppercase transition-all border ${
 													language === lang
-														? 'bg-primary-text text-white border-transparent'
-														: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
+														? 'bg-primary text-white border-transparent'
+														: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 												}`}
 											>
 												{lang === 'en' ? 'English' : 'Castellano'}
@@ -176,7 +176,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 									</div>
 								</section>
 
-								<div className="w-full h-px bg-subtle-bg" />
+								<div className="w-full h-px bg-surface-container" />
 
 								{/* Export/Import Section */}
 								<section className="space-y-4">
@@ -224,7 +224,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 									</div>
 								</section>
 
-								<div className="w-full h-px bg-subtle-bg" />
+								<div className="w-full h-px bg-surface-container" />
 
 								{/* Danger Zone */}
 								<section className="space-y-4">
@@ -234,7 +234,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 									<Button
 										variant="ghost"
 										size="md"
-										className="w-full gap-3 justify-start px-4 text-error hover:bg-red-50"
+										className="w-full gap-3 justify-start px-4 text-error hover:bg-error-container"
 										onClick={handleReset}
 									>
 										<Trash2 className="w-5 h-5" />
@@ -244,7 +244,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 
 								{/* About Section */}
 								<section className="space-y-2 mt-4 text-center">
-									<div className="flex justify-center gap-1 text-primary-text mb-2">
+									<div className="flex justify-center gap-1 text-on-surface mb-2">
 										<Info className="w-4 h-4" />
 										<span className="font-hanken text-[10px] font-bold uppercase tracking-wider">
 											{t('settings.about')}

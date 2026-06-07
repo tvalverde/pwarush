@@ -70,19 +70,17 @@ const TrophiesScreen: React.FC = () => {
 				ref={isHighlighted && !isPinned ? (highlightedCallbackRef as any) : null}
 				className={`
 					border rounded-DEFAULT p-4 flex flex-col gap-2 transition-all duration-500
-					${isPinned ? 'bg-primary-fixed-dim border-primary-text shadow-xl' : isHighlighted ? 'bg-primary-fixed border-primary-text shadow-md scale-[1.02]' : 'bg-white border-border shadow-xs'}
+					${isPinned ? 'bg-primary-fixed-dim border-primary shadow-xl' : isHighlighted ? 'bg-primary-fixed border-primary shadow-md scale-[1.02]' : 'bg-surface-container-lowest border-outline-variant shadow-xs'}
 				`}
 			>
-				<div className="flex justify-between items-start border-b border-border/50 pb-2">
+				<div className="flex justify-between items-start border-b border-outline-variant/50 pb-2">
 					<div className="flex items-center gap-2">
-						<span className="font-hanken text-xs font-bold text-secondary-fixed-variant">
+						<span className="font-hanken text-xs font-bold text-on-surface-variant">
 							#{index + 1}
 						</span>
-						<span className="font-sans text-sm font-bold text-primary-text">
-							{entry.playerName}
-						</span>
+						<span className="font-sans text-sm font-bold text-on-surface">{entry.playerName}</span>
 						{isHighlighted && (
-							<span className="bg-primary-text text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
+							<span className="bg-primary text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
 								{t('trophies.recent') || 'RECIENTE'}
 							</span>
 						)}
@@ -110,7 +108,7 @@ const TrophiesScreen: React.FC = () => {
 						<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider leading-none mb-1">
 							{t(`main_menu.difficulties.${entry.difficulty}`)}
 						</span>
-						<span className="font-hanken text-2xl font-bold text-primary-text leading-none">
+						<span className="font-hanken text-2xl font-bold text-on-surface leading-none">
 							{entry.score} <span className="text-xs">{t('trophies.pts')}</span>
 						</span>
 					</div>
@@ -124,25 +122,25 @@ const TrophiesScreen: React.FC = () => {
 			initial={{ opacity: 0, x: -20 }}
 			animate={{ opacity: 1, x: 0 }}
 			exit={{ opacity: 0, x: 20 }}
-			className="flex flex-col h-full bg-white"
+			className="flex flex-col h-full bg-surface-container-lowest"
 		>
 			{/* Header */}
-			<header className="sticky top-0 w-full z-50 bg-white border-b border-border flex justify-between items-center h-16 px-5">
+			<header className="sticky top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center h-16 px-5">
 				<button
 					type="button"
 					onClick={() => setScreen('main')}
-					className="p-2 -ml-2 hover:bg-subtle-bg rounded-full transition-colors text-primary-text"
+					className="p-2 -ml-2 hover:bg-surface-container rounded-full transition-colors text-on-surface"
 				>
 					<ArrowLeft className="w-6 h-6" />
 				</button>
-				<h1 className="font-hanken text-lg font-bold text-primary-text tracking-widest-premium uppercase">
+				<h1 className="font-hanken text-lg font-bold text-on-surface tracking-widest-premium uppercase">
 					{t('trophies.title')}
 				</h1>
 				<div className="w-10" />
 			</header>
 
 			{/* Difficulty Filters */}
-			<div className="sticky top-16 z-40 bg-white py-2 border-b border-border overflow-hidden">
+			<div className="sticky top-16 z-40 bg-surface-container-lowest py-2 border-b border-outline-variant overflow-hidden">
 				<div className="flex gap-2 overflow-x-auto no-scrollbar px-5 pb-2">
 					<button
 						type="button"
@@ -152,8 +150,8 @@ const TrophiesScreen: React.FC = () => {
 						}}
 						className={`whitespace-nowrap px-4 py-2 rounded-full font-hanken text-[10px] font-bold tracking-wider uppercase border transition-colors ${
 							filterDifficulty === 'all'
-								? 'bg-primary-text text-white border-transparent'
-								: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
+								? 'bg-primary text-white border-transparent'
+								: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 						}`}
 					>
 						{t('trophies.all')}
@@ -168,8 +166,8 @@ const TrophiesScreen: React.FC = () => {
 							}}
 							className={`whitespace-nowrap px-4 py-2 rounded-full font-hanken text-[10px] font-bold tracking-wider uppercase border transition-colors ${
 								filterDifficulty === diff
-									? 'bg-primary-text text-white border-transparent'
-									: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
+									? 'bg-primary text-white border-transparent'
+									: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 							}`}
 						>
 							{t(`main_menu.difficulties.${diff}`)}
@@ -179,7 +177,7 @@ const TrophiesScreen: React.FC = () => {
 			</div>
 
 			{/* History List */}
-			<section className="flex-1 bg-subtle-bg px-5 py-4 flex flex-col gap-4 overflow-y-auto pb-32">
+			<section className="flex-1 bg-surface-container px-5 py-4 flex flex-col gap-4 overflow-y-auto pb-32">
 				{!history || history.length === 0 ? (
 					<div className="flex flex-col items-center justify-center py-20 text-secondary">
 						<span className="font-hanken text-sm font-bold uppercase tracking-widest-premium">
