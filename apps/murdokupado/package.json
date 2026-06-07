@@ -1,7 +1,7 @@
 {
 	"name": "@pwarush/murdokupado",
 	"private": true,
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.8",
-		"@pwarush/core": "^0.1.0",
+		"@pwarush/core": "*",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},

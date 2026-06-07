@@ -1,7 +1,7 @@
 {
 	"name": "@pwarush/sudokupado",
 	"private": true,
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@fontsource-variable/hanken-grotesk": "^5.2.8",
 		"@fontsource-variable/inter": "^5.2.8",
-		"@pwarush/core": "^0.1.0",
+		"@pwarush/core": "*",
 		"dexie": "^4.0.1",
 		"dexie-react-hooks": "^1.1.7",
 		"framer-motion": "^11.1.7",
