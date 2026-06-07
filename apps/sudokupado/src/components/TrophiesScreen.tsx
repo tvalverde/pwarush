@@ -70,7 +70,7 @@ const TrophiesScreen: React.FC = () => {
 				ref={isHighlighted && !isPinned ? (highlightedCallbackRef as any) : null}
 				className={`
 					border rounded-DEFAULT p-4 flex flex-col gap-2 transition-all duration-500
-					${isPinned ? 'bg-primary-fixed-dim border-primary-text shadow-xl' : isHighlighted ? 'bg-primary-fixed border-primary-text shadow-md scale-[1.02]' : 'bg-white border-border shadow-sm'}
+					${isPinned ? 'bg-primary-fixed-dim border-primary-text shadow-xl' : isHighlighted ? 'bg-primary-fixed border-primary-text shadow-md scale-[1.02]' : 'bg-white border-border shadow-xs'}
 				`}
 			>
 				<div className="flex justify-between items-start border-b border-border/50 pb-2">
@@ -210,7 +210,7 @@ const TrophiesScreen: React.FC = () => {
 
 			{/* Pinned Recent Entry if not in view */}
 			{shouldShowPinned && recentGameEntry && (
-				<div className="fixed bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-white via-white to-transparent z-50">
+				<div className="fixed bottom-0 left-0 right-0 p-5 bg-linear-to-t from-white via-white to-transparent z-50">
 					<div className="mb-2 text-center">
 						<span className="text-[10px] font-black text-secondary uppercase tracking-widest">
 							...

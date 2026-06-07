@@ -1,5 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -16,6 +17,7 @@ export default defineConfig({
 				);
 			},
 		},
+		tailwindcss(),
 		react(),
 		VitePWA({
 			registerType: 'prompt',

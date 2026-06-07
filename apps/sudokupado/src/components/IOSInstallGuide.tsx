@@ -15,13 +15,13 @@ const IOSInstallGuide: React.FC<IOSInstallGuideProps> = ({ isOpen, onClose }) =>
 	return (
 		<AnimatePresence>
 			{isOpen && (
-				<div className="fixed inset-0 z-[60] flex items-center justify-center p-5">
+				<div className="fixed inset-0 z-60 flex items-center justify-center p-5">
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						onClick={onClose}
-						className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"
+						className="absolute inset-0 bg-slate-900/70 backdrop-blur-xs"
 					/>
 					<motion.div
 						initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ const IOSInstallGuide: React.FC<IOSInstallGuideProps> = ({ isOpen, onClose }) =>
 
 						<ol className="space-y-3 mb-6">
 							<li className="flex items-start gap-3">
-								<span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-text text-white font-hanken text-xs font-bold flex items-center justify-center">
+								<span className="shrink-0 w-6 h-6 rounded-full bg-primary-text text-white font-hanken text-xs font-bold flex items-center justify-center">
 									1
 								</span>
 								<p className="font-sans text-sm text-secondary leading-relaxed">
@@ -55,7 +55,7 @@ const IOSInstallGuide: React.FC<IOSInstallGuideProps> = ({ isOpen, onClose }) =>
 								</p>
 							</li>
 							<li className="flex items-start gap-3">
-								<span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-text text-white font-hanken text-xs font-bold flex items-center justify-center">
+								<span className="shrink-0 w-6 h-6 rounded-full bg-primary-text text-white font-hanken text-xs font-bold flex items-center justify-center">
 									2
 								</span>
 								<p className="font-sans text-sm text-secondary leading-relaxed">

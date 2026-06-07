@@ -31,13 +31,13 @@ const InstallModal: React.FC<InstallModalProps> = ({ isOpen, onClose }) => {
 	return (
 		<AnimatePresence>
 			{isOpen && deferredPrompt && (
-				<div className="fixed inset-0 z-[60] flex items-center justify-center p-5">
+				<div className="fixed inset-0 z-60 flex items-center justify-center p-5">
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						onClick={onClose}
-						className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"
+						className="absolute inset-0 bg-slate-900/70 backdrop-blur-xs"
 					/>
 					<motion.div
 						initial={{ scale: 0.9, opacity: 0, y: 20 }}

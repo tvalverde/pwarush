@@ -135,7 +135,7 @@ const MainMenuScreen: React.FC = () => {
 
 				{/* Resume Game Card */}
 				{savedGame && (
-					<div className="bg-subtle-bg p-4 rounded-DEFAULT border border-border flex items-center justify-between shadow-sm">
+					<div className="bg-subtle-bg p-4 rounded-DEFAULT border border-border flex items-center justify-between shadow-xs">
 						<div className="flex flex-col">
 							<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
 								{t('main_menu.saved_game')}
@@ -172,7 +172,7 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setDifficulty(diff)}
 								className={`w-full py-4 px-4 rounded-full font-sans text-base transition-colors border ${
 									selectedDifficulty === diff
-										? 'bg-primary-text text-white border-transparent shadow-sm'
+										? 'bg-primary-text text-white border-transparent shadow-xs'
 										: 'bg-white text-primary-text border-border hover:bg-subtle-bg'
 								}`}
 							>
@@ -200,7 +200,7 @@ const MainMenuScreen: React.FC = () => {
 						}`}
 					>
 						<div
-							className={`w-6 h-6 bg-white rounded-full shadow-sm transition-transform duration-200 ${allowNotes ? 'translate-x-6' : 'translate-x-0'}`}
+							className={`w-6 h-6 bg-white rounded-full shadow-xs transition-transform duration-200 ${allowNotes ? 'translate-x-6' : 'translate-x-0'}`}
 						/>
 					</button>
 				</section>

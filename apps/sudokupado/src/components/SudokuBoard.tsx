@@ -58,7 +58,7 @@ const SudokuBoard: React.FC = () => {
 			className={`w-full aspect-square border-4 mb-6 relative select-none transition-all duration-1000 ${isVictory ? 'bg-green-50 border-green-500' : 'bg-primary-text border-primary-text'}`}
 		>
 			<div
-				className={`w-full h-full grid grid-cols-9 grid-rows-9 gap-[1px] transition-colors duration-1000 ${isVictory ? 'bg-green-500/20' : 'bg-primary-text'}`}
+				className={`w-full h-full grid grid-cols-9 grid-rows-9 gap-px transition-colors duration-1000 ${isVictory ? 'bg-green-500/20' : 'bg-primary-text'}`}
 			>
 				{grid.map((row, r) =>
 					row.map((val, c) => {

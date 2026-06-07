@@ -423,7 +423,7 @@ const GameScreen: React.FC = () => {
 						<button
 							type="button"
 							onClick={() => setPaused(false)}
-							className="absolute inset-0 bg-white/90 backdrop-blur-sm z-30 flex flex-col items-center justify-center cursor-pointer"
+							className="absolute inset-0 bg-white/90 backdrop-blur-xs z-30 flex flex-col items-center justify-center cursor-pointer"
 						>
 							<Play className="w-16 h-16 text-primary-text mb-4" />
 							<span className="font-hanken text-xl font-bold uppercase tracking-widest-premium">
@@ -533,7 +533,7 @@ const GameScreen: React.FC = () => {
 									key={num}
 									disabled={completed}
 									onClick={() => handleNumberClick(num)}
-									className={`border rounded-2xl h-14 flex items-center justify-center font-hanken text-2xl font-bold transition-all shadow-sm active:scale-95 ${
+									className={`border rounded-2xl h-14 flex items-center justify-center font-hanken text-2xl font-bold transition-all shadow-xs active:scale-95 ${
 										completed
 											? 'bg-transparent border-transparent text-slate-300 opacity-20'
 											: 'bg-white border-border text-primary-text hover:bg-subtle-bg active:bg-border'
@@ -553,7 +553,7 @@ const GameScreen: React.FC = () => {
 									key={num}
 									disabled={completed}
 									onClick={() => handleNumberClick(num)}
-									className={`border rounded-2xl h-14 flex items-center justify-center font-hanken text-2xl font-bold transition-all shadow-sm active:scale-95 ${
+									className={`border rounded-2xl h-14 flex items-center justify-center font-hanken text-2xl font-bold transition-all shadow-xs active:scale-95 ${
 										completed
 											? 'bg-transparent border-transparent text-slate-300 opacity-20'
 											: 'bg-white border-border text-primary-text hover:bg-subtle-bg active:bg-border'

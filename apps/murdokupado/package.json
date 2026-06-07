@@ -11,16 +11,16 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.8",
+		"@pwarush/core": "^0.1.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
+		"@tailwindcss/vite": "^4.3.0",
 		"@types/react": "^18.3.1",
 		"@types/react-dom": "^18.3.1",
 		"@vitejs/plugin-react": "^6.0.2",
-		"autoprefixer": "^10.4.19",
-		"postcss": "^8.4.38",
-		"tailwindcss": "^3.4.3",
+		"tailwindcss": "^4.3.0",
 		"vite": "^8.0.13",
 		"vite-plugin-pwa": "^1.3.0"
 	}

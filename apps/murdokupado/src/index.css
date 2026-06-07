@@ -1,6 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "@pwarush/core/theme.css";
+
+/* Murdokupado palette (per-app color, provisional clone of Sudokupado). Shared color-free tokens live in @pwarush/core. */
+@theme {
+	--color-background: #ffffff;
+	--color-primary-text: #0f172a;
+	--color-dark-accent: #0f172a;
+	--color-border: #e2e8f0;
+	--color-subtle-accent: #e2e8f0;
+	--color-subtle-bg: #f1f5f9;
+	--color-surface: #f6fafe;
+	--color-primary: #000000;
+	--color-secondary: #595f66;
+	--color-error: #ba1a1a;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentcolor);
+	}
+}
 
 html,
 body,

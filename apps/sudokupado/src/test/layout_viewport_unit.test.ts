@@ -4,18 +4,18 @@ import { describe, expect, it } from 'vitest';
 import Layout from '../components/Layout';
 
 describe('Regression: Layout outer must use 100svh, not 100dvh', () => {
-	it('renders the outer container with h-[100svh]', () => {
+	it('renders the outer container with h-svh', () => {
 		const { container } = render(React.createElement(Layout, null, null));
 
 		const outer = container.firstElementChild;
 		expect(outer).not.toBeNull();
-		expect(outer?.className).toContain('h-[100svh]');
+		expect(outer?.className).toContain('h-svh');
 	});
 
-	it('does NOT use h-[100dvh] on the outer container', () => {
+	it('does NOT use h-dvh on the outer container', () => {
 		const { container } = render(React.createElement(Layout, null, null));
 
 		const outer = container.firstElementChild;
-		expect(outer?.className).not.toContain('h-[100dvh]');
+		expect(outer?.className).not.toContain('h-dvh');
 	});
 });

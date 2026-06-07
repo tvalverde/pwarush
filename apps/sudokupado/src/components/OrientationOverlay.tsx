@@ -34,7 +34,7 @@ const OrientationOverlay: React.FC = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-					className="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center p-10 text-center"
+					className="fixed inset-0 z-200 bg-white flex flex-col items-center justify-center p-10 text-center"
 				>
 					<motion.div
 						animate={{ rotate: [0, 90, 0] }}

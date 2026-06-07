@@ -97,7 +97,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 									<button
 										type="button"
 										onClick={onClose} // Closing if clicking current active is also a good QoL
-										className="bg-primary-text text-white rounded-DEFAULT p-4 flex items-center justify-between shadow-sm cursor-pointer w-full text-left"
+										className="bg-primary-text text-white rounded-DEFAULT p-4 flex items-center justify-between shadow-xs cursor-pointer w-full text-left"
 									>
 										<div className="flex items-center gap-3">
 											<div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
@@ -187,7 +187,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 										value={newPlayerName}
 										onChange={(e) => setNewPlayerName(e.target.value)}
 										placeholder={t('player_menu.enter_name')}
-										className="w-full p-3 border border-border rounded-DEFAULT focus:outline-none focus:border-primary-text font-sans text-sm"
+										className="w-full p-3 border border-border rounded-DEFAULT focus:outline-hidden focus:border-primary-text font-sans text-sm"
 										onKeyDown={(e) => e.key === 'Enter' && handleCreatePlayer()}
 									/>
 									<div className="flex gap-2">
@@ -221,7 +221,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 									type="button"
 									data-testid="player-create-button"
 									onClick={() => setIsCreating(true)}
-									className="w-full bg-primary-text text-white rounded-full py-4 px-6 flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors active:scale-95 shadow-sm"
+									className="w-full bg-primary-text text-white rounded-full py-4 px-6 flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors active:scale-95 shadow-xs"
 								>
 									<Plus className="w-5 h-5" />
 									<span className="font-hanken text-sm font-bold tracking-widest-premium uppercase">

@@ -101,7 +101,7 @@ const ResultScreen: React.FC = () => {
 			{/* Main Content Area */}
 			<main className="flex-1 overflow-y-auto px-5 pb-40 flex flex-col gap-6">
 				{/* Score Summary Card */}
-				<section className="bg-white border border-border rounded-DEFAULT p-6 flex flex-col items-center justify-center gap-4 shadow-sm">
+				<section className="bg-white border border-border rounded-DEFAULT p-6 flex flex-col items-center justify-center gap-4 shadow-xs">
 					<div className="grid grid-cols-3 w-full gap-4">
 						<div className="flex flex-col items-center gap-1">
 							<span className="font-hanken text-[10px] font-bold text-secondary uppercase tracking-wider">
@@ -144,7 +144,7 @@ const ResultScreen: React.FC = () => {
 					<h2 className="font-hanken text-lg font-bold text-primary-text text-center uppercase tracking-widest-premium">
 						{t('result.top_5')} {t(`main_menu.difficulties.${lastGameResult.difficulty}`)}
 					</h2>
-					<div className="flex flex-col border border-border rounded bg-white overflow-hidden shadow-sm">
+					<div className="flex flex-col border border-border rounded bg-white overflow-hidden shadow-xs">
 						{topScores?.map((entry, index) => (
 							<div
 								key={entry.id}

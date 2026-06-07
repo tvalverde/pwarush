@@ -1,0 +1,45 @@
+/*
+  Shared design tokens for the PWARUSH design system (Hito 4).
+
+  This file holds the COLOR-FREE part of the system — shapes, typography,
+  spacing, container sizing and animations — so every app shares one source
+  of truth. Per-app palettes live in each app's own `@theme` block in
+  `apps/<app>/src/index.css`.
+
+  Imported by each app right after `@import "tailwindcss"`. Tailwind v4 merges
+  multiple `@theme` blocks, so the app palette and these tokens combine.
+*/
+@theme {
+	--font-sans: Inter, sans-serif;
+	--font-hanken: "Hanken Grotesk", sans-serif;
+
+	--tracking-widest-premium: 0.15em;
+	--tracking-wide-premium: 0.1em;
+
+	--radius-sm: 0.5rem;
+	--radius: 1rem;
+	--radius-md: 1.5rem;
+	--radius-lg: 2rem;
+	--radius-xl: 3rem;
+
+	--spacing-8px: 8px;
+	--spacing-16px: 16px;
+	--spacing-20px: 20px;
+
+	--container-container: 448px;
+
+	--animate-shake: shake 0.2s ease-in-out 0s 2;
+
+	@keyframes shake {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		25% {
+			transform: translateX(-4px);
+		}
+		75% {
+			transform: translateX(4px);
+		}
+	}
+}
