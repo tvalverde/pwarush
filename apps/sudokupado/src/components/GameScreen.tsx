@@ -1,3 +1,4 @@
+import { formatDuration, isIOS } from '@pwarush/core/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, Eraser, Lightbulb, Pause, Pencil, Play, RotateCcw, Trophy } from 'lucide-react';
 import type React from 'react';
@@ -7,7 +8,6 @@ import { db } from '../db/database';
 import { clearSavedGame as clearSavedGameDb } from '../hooks/useAutoSave';
 import { useSudokuWorker } from '../hooks/useSudokuWorker';
 import { useGameStore } from '../store/gameStore';
-import { isIOS } from '../utils/device';
 import { isMistakeLimitReached } from '../utils/gameState';
 import { calculateScore } from '../utils/scoring';
 import SudokuBoard from './SudokuBoard';
@@ -295,12 +295,6 @@ const GameScreen: React.FC = () => {
 		handleNumberInput,
 	]);
 
-	const formatTime = (seconds: number) => {
-		const mins = Math.floor(seconds / 60);
-		const secs = seconds % 60;
-		return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-	};
-
 	const handleRestartClick = () => {
 		vibrate(10);
 		showDialog({
@@ -363,7 +357,7 @@ const GameScreen: React.FC = () => {
 							{t('game.time')}
 						</span>
 						<span className="font-hanken text-lg font-bold text-on-surface">
-							{formatTime(timeElapsed)}
+							{formatDuration(timeElapsed)}
 						</span>
 					</div>
 					<div className="flex flex-col items-center">

@@ -1,9 +1,9 @@
+import { createBackupGuard, isNotesGrid, isNumberGrid, isOneOf } from '@pwarush/core/utils';
 import type { Difficulty, GameState, HistoryEntry, Player, Preferences } from '../types';
 
 const VALID_DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'expert', 'master'];
 
-export const isValidDifficulty = (v: unknown): v is Difficulty =>
-	typeof v === 'string' && (VALID_DIFFICULTIES as string[]).includes(v);
+export const isValidDifficulty = isOneOf(VALID_DIFFICULTIES);
 
 export const isValidPlayer = (v: unknown): v is Player =>
 	typeof v === 'object' &&
@@ -46,28 +46,8 @@ export const isValidHistoryEntry = (v: unknown): v is HistoryEntry => {
 	);
 };
 
-const isValid9x9Grid = (v: unknown): v is number[][] =>
-	Array.isArray(v) &&
-	v.length === 9 &&
-	v.every(
-		(row) =>
-			Array.isArray(row) &&
-			row.length === 9 &&
-			row.every((cell) => typeof cell === 'number' && cell >= 0 && cell <= 9),
-	);
-
-const isValidNotes = (v: unknown): v is number[][][] =>
-	Array.isArray(v) &&
-	v.length === 9 &&
-	v.every(
-		(row) =>
-			Array.isArray(row) &&
-			row.length === 9 &&
-			row.every(
-				(cell) =>
-					Array.isArray(cell) && cell.every((n) => typeof n === 'number' && n >= 1 && n <= 9),
-			),
-	);
+const isValid9x9Grid = isNumberGrid(9, 0, 9);
+const isValidNotes = isNotesGrid(9, 1, 9);
 
 export const isValidGameState = (v: unknown): v is GameState => {
 	if (typeof v !== 'object' || v === null) return false;
@@ -89,17 +69,8 @@ export const isValidGameState = (v: unknown): v is GameState => {
 	);
 };
 
-export const isValidBackup = (v: unknown): boolean => {
-	if (typeof v !== 'object' || v === null) return false;
-	const d = v as Record<string, unknown>;
-	if (d.appName !== 'SUDOKUPADO') return false;
-	if (!Array.isArray(d.players) || !d.players.every(isValidPlayer)) return false;
-	if (!Array.isArray(d.history) || !d.history.every(isValidHistoryEntry)) return false;
-	if (d.preferences !== undefined) {
-		if (!Array.isArray(d.preferences) || !d.preferences.every(isValidPreferences)) return false;
-	}
-	if (d.gameState !== undefined) {
-		if (!Array.isArray(d.gameState) || !d.gameState.every(isValidGameState)) return false;
-	}
-	return true;
-};
+export const isValidBackup = createBackupGuard({
+	appName: 'SUDOKUPADO',
+	required: { players: isValidPlayer, history: isValidHistoryEntry },
+	optional: { preferences: isValidPreferences, gameState: isValidGameState },
+});

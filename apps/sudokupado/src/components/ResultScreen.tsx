@@ -1,4 +1,5 @@
 import { Button } from '@pwarush/core/ui';
+import { formatDuration } from '@pwarush/core/utils';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { motion } from 'framer-motion';
 import { Home, Play, Trophy, User } from 'lucide-react';
@@ -60,12 +61,6 @@ const ResultScreen: React.FC = () => {
 		);
 	}
 
-	const formatTime = (seconds: number) => {
-		const mins = Math.floor(seconds / 60);
-		const secs = seconds % 60;
-		return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-	};
-
 	const handleNewGame = async () => {
 		setIsLoading(true);
 		try {
@@ -108,7 +103,7 @@ const ResultScreen: React.FC = () => {
 								{t('result.time')}
 							</span>
 							<span className="font-hanken text-lg font-bold text-on-surface">
-								{formatTime(lastGameResult.timeElapsed)}
+								{formatDuration(lastGameResult.timeElapsed)}
 							</span>
 						</div>
 						<div className="flex flex-col items-center gap-1">

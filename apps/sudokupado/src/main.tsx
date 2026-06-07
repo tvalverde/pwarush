@@ -1,11 +1,11 @@
 import '@fontsource-variable/hanken-grotesk';
 import '@fontsource-variable/inter';
+import { installSWUpdateListener } from '@pwarush/core/utils';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import { useGameStore } from './store/gameStore';
-import { installSWUpdateListener } from './utils/swUpdateListener';
 
 window.addEventListener('beforeinstallprompt', (e) => {
 	// Prevent Chrome 67 and earlier from automatically showing the prompt

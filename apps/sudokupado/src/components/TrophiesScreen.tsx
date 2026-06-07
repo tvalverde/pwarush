@@ -1,4 +1,5 @@
 import { Button } from '@pwarush/core/ui';
+import { formatDate, formatDuration } from '@pwarush/core/utils';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronDown, Timer } from 'lucide-react';
@@ -36,20 +37,6 @@ const TrophiesScreen: React.FC = () => {
 	const history = showAll ? fullHistory : fullHistory?.slice(0, 50);
 
 	const difficulties: Difficulty[] = ['beginner', 'intermediate', 'expert', 'master'];
-
-	const formatTime = (seconds: number) => {
-		const mins = Math.floor(seconds / 60);
-		const secs = seconds % 60;
-		return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-	};
-
-	const formatDate = (timestamp: number) => {
-		return new Date(timestamp).toLocaleDateString(undefined, {
-			day: '2-digit',
-			month: 'short',
-			year: 'numeric',
-		});
-	};
 
 	const recentGameIndex = fullHistory?.findIndex((h) => h.id === lastGameResult?.id);
 	const isRecentInTop50 =
@@ -91,7 +78,7 @@ const TrophiesScreen: React.FC = () => {
 					<div className="flex items-center gap-3 text-secondary">
 						<div className="flex items-center gap-1">
 							<Timer className="w-3.5 h-3.5" />
-							<span className="font-sans text-xs">{formatTime(entry.timeElapsed)}</span>
+							<span className="font-sans text-xs">{formatDuration(entry.timeElapsed)}</span>
 						</div>
 						<div className="flex items-center gap-1">
 							<span className="font-sans text-xs font-bold text-error">{entry.mistakes}</span>
