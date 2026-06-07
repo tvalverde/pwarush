@@ -1,5 +1,6 @@
 ---
 name: SUDOKUPADO Design System
+extends: '@pwarush/core/DESIGN.md'
 colors:
   surface: '#f6fafe'
   surface-dim: '#d6dade'
@@ -48,124 +49,32 @@ colors:
   background: '#f6fafe'
   on-background: '#171c1f'
   surface-variant: '#dfe3e7'
-typography:
-  headline-lg:
-    fontFamily: Hanken Grotesk
-    fontSize: 24px
-    fontWeight: '800'
-    lineHeight: '1.2'
-    letterSpacing: 0.15em
-  headline-md:
-    fontFamily: Hanken Grotesk
-    fontSize: 20px
-    fontWeight: '700'
-    lineHeight: '1.2'
-    letterSpacing: 0.1em
-  body-lg:
-    fontFamily: Inter
-    fontSize: 18px
-    fontWeight: '400'
-    lineHeight: '1.5'
-    letterSpacing: '0'
-  body-md:
-    fontFamily: Inter
-    fontSize: 16px
-    fontWeight: '400'
-    lineHeight: '1.5'
-    letterSpacing: '0'
-  label-caps:
-    fontFamily: Hanken Grotesk
-    fontSize: 12px
-    fontWeight: '700'
-    lineHeight: '1'
-    letterSpacing: 0.1em
-  number-grid:
-    fontFamily: Hanken Grotesk
-    fontSize: 28px
-    fontWeight: '500'
-    lineHeight: '1'
-    letterSpacing: '0'
-rounded:
-  sm: 0.5rem
-  DEFAULT: 1rem
-  md: 1.5rem
-  lg: 2rem
-  xl: 3rem
-  full: 9999px
-spacing:
-  container_max_width: 448px
-  base_unit: 8px
-  gutter: 16px
-  margin_mobile: 20px
-  grid_gap: 2px
 ---
+
+> **Shared foundation:** typography, shapes, spacing, elevation strategy and token scales are defined in [`@pwarush/core/DESIGN.md`](../../packages/core/DESIGN.md). This file specifies **only Sudokupado's brand narrative and concrete color palette**. The palette tokens active in the build live in `apps/sudokupado/src/index.css` (`@theme` `--color-*`).
 
 ## Brand & Style
 
-The design system is rooted in the philosophy of "Zen Focus." It aims to eliminate cognitive load, allowing the user to immerse themselves entirely in the logic of the puzzle. The aesthetic is **Minimalist and High-Contrast**, blending the clarity of Swiss design with the functional elegance of modern mobile interfaces.
+Sudokupado is rooted in the philosophy of **"Zen Focus."** It aims to eliminate cognitive load, allowing the user to immerse themselves entirely in the logic of the puzzle. The aesthetic is **Minimalist and High-Contrast**, blending the clarity of Swiss design with the functional elegance of modern mobile interfaces.
 
-The target audience is intellectually curious users who value a premium, ad-free aesthetic. The UI should evoke a sense of calm, precision, and sophistication. Every element is intentional, utilizing generous whitespace and a restricted palette to direct attention toward the game grid.
+The target audience is intellectually curious users who value a premium, ad-free aesthetic. The UI should evoke calm, precision, and sophistication. Every element is intentional, using generous whitespace and a restricted palette to direct attention toward the game grid.
 
 ## Colors
 
-The palette is strictly monochromatic and utilitarian, relying on values of Slate to create depth without distraction.
+The palette is strictly monochromatic and utilitarian, relying on values of Slate to create depth without distraction. The tokens active in the build (`src/index.css`) are:
 
-- **Background (#FFFFFF):** The primary canvas, ensuring maximum legibility and a clean, "paper-like" feel.
-- **Primary Text & Dark Accents (#0F172A):** Used for headlines, active game numbers, and high-impact UI elements. It provides the "ink" that anchors the experience.
-- **Borders & Subtle Accents (#E2E8F0):** Defines the grid and secondary containers. This color provides structure without visual noise.
-- **Subtle Backgrounds (#F1F5F9):** Used for non-interactive areas or background fills for the game board to distinguish regions.
+- **Background (`--color-background`, #FFFFFF):** The primary canvas — a clean, "paper-like" feel.
+- **Primary Text & Dark Accents (`--color-primary-text` / `--color-dark-accent`, #0F172A):** Headlines, active game numbers, high-impact UI. The "ink" that anchors the experience.
+- **Borders & Subtle Accents (`--color-border` / `--color-subtle-accent`, #E2E8F0):** Defines the grid and secondary containers — structure without visual noise.
+- **Subtle Backgrounds (`--color-subtle-bg`, #F1F5F9):** Non-interactive areas and game-board region fills.
+- **Surface / Primary / Secondary / Error (`#f6fafe` / `#000000` / `#595f66` / `#ba1a1a`):** Supporting roles drawn from the extended Material-derived ramp in the frontmatter.
 
-## Typography
+## Components (color application)
 
-This design system uses a dual-sans-serif pairing to distinguish between branding and utility.
-
-- **Headlines:** Use **Hanken Grotesk**. For major titles, apply "tracking-widest" (0.15em) to create an editorial, premium feel.
-- **Body & Interface:** Use **Inter** for its exceptional legibility at small sizes, particularly for system messages and settings.
-- **Game Numbers:** Use **Hanken Grotesk** at a medium weight for the Sudoku grid to ensure numbers are distinct and modern, avoiding the "math textbook" look of traditional fonts.
-
-## Layout & Spacing
-
-This design system follows a **Mobile-First Fixed Grid** philosophy. As a PWA game, the interface is optimized for handheld portrait use.
-
-- **Constraints:** The main content container is capped at `448px` (max-w-md) and centered on larger screens to maintain a compact, "app-like" experience.
-- **Rhythm:** An 8px base unit governs all padding and margins. 
-- **The Grid:** The Sudoku board uses a `2px` gap for the internal 9x9 cells and a `4px` gap to distinguish the 3x3 sub-grids.
-- **Safe Zones:** Use 20px horizontal margins on mobile to ensure interactive elements don't hit the screen edge.
-
-## Elevation & Depth
-
-This design system avoids shadows to maintain a minimalist, high-contrast aesthetic. Depth is achieved through **Tonal Layers** and **Low-Contrast Outlines**.
-
-- **Level 0 (Base):** White (#FFFFFF) background.
-- **Level 1 (Grid/Containers):** Light Gray (#F1F5F9) fills with 1px Light Slate (#E2E8F0) borders.
-- **Overlays/Modals:** White background with a heavy 2px Dark Slate (#0F172A) border to create a "pop" effect without using blurs or shadows.
-- **Interaction:** Depth is communicated through color inversion rather than physical height (e.g., an active button turns from White/Slate to solid Slate 900).
-
-## Shapes
-
-The shape language is defined by **Pill-Shaped (Roundedness 3)** geometry for interactive elements. This softens the high-contrast color palette and makes the UI feel approachable and tactile.
-
-- **Buttons & Toggles:** Always fully rounded (pill-shaped).
-- **Game Grid Cells:** Maintain a slight rounding (4px) to avoid a harsh technical look, though they remain primarily square to preserve grid integrity.
-- **Cards/Modals:** Use `rounded-xl` (1.5rem) to differentiate them from the sharp lines of the game board.
-
-## Components
-
-### Buttons
-- **Primary:** Solid Dark Slate (#0F172A) background with White (#FFFFFF) text. Pill-shaped.
-- **Secondary/Ghost:** White background with 1px Light Slate (#E2E8F0) border and Dark Slate text. Pill-shaped.
-- **Active State:** On press, primary buttons shift to a slightly lighter slate; ghost buttons fill with Light Gray (#F1F5F9).
-
-### Toggle Switches
-- **Track:** Pill-shaped. Light Gray (#F1F5F9) when off, Dark Slate (#0F172A) when on.
-- **Thumb:** Pure White circle. High-contrast movement. No shadows.
-
-### Input Fields (Numbers)
-- **Cell Style:** White background. Active cell has a 2px Dark Slate border. "Note" mode uses Inter at 10px size in the corners of the cell.
-- **Keypad:** Pill-shaped buttons at the bottom of the screen. Selected number is inverted (Dark Slate background).
-
-### Cards & Dialogs
-- Use a White background with a 1px Light Slate border. Ensure headlines within cards use the "wide tracking" rule defined in the typography section.
-
-### Progress Indicators
-- Linear bars with a Light Gray (#F1F5F9) track and a Dark Slate (#0F172A) fill. No rounded corners on the fill itself for a precise, "loading" aesthetic.
+- **Buttons — Primary:** Solid Dark Slate (#0F172A) background, White text, pill-shaped.
+- **Buttons — Secondary/Ghost:** White background, 1px Light Slate (#E2E8F0) border, Dark Slate text, pill-shaped. Active state fills with Light Gray (#F1F5F9).
+- **Toggle Switches:** Pill track — Light Gray (#F1F5F9) off, Dark Slate (#0F172A) on; pure White thumb, no shadows.
+- **Input cells (numbers):** White background; active cell has a 2px Dark Slate border; "note" mode uses Inter at 10px in the cell corners.
+- **Keypad:** Pill-shaped buttons; selected number inverts to a Dark Slate background.
+- **Cards & Dialogs:** White background, 1px Light Slate border; headlines use the wide-tracking rule from the shared system.
+- **Progress Indicators:** Light Gray (#F1F5F9) track with a Dark Slate (#0F172A) fill; no rounded corners on the fill for a precise, "loading" aesthetic.
