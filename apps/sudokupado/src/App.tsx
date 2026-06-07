@@ -1,8 +1,8 @@
+import { Layout } from '@pwarush/core/ui';
 import { AnimatePresence } from 'framer-motion';
 import { lazy, Suspense } from 'react';
+import AppConfirmDialog from './components/AppConfirmDialog';
 import BottomNavBar from './components/BottomNavBar';
-import ConfirmDialog from './components/ConfirmDialog';
-import Layout from './components/Layout';
 import OrientationOverlay from './components/OrientationOverlay';
 import ReloadPrompt from './components/ReloadPrompt';
 import { useAutoSave } from './hooks/useAutoSave';
@@ -54,7 +54,7 @@ function App() {
 			{isNavScreen && <BottomNavBar />}
 			<ReloadPrompt />
 			<OrientationOverlay />
-			<ConfirmDialog />
+			<AppConfirmDialog />
 		</Layout>
 	);
 }

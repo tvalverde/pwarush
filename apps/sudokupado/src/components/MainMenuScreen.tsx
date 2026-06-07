@@ -1,3 +1,4 @@
+import { Button } from '@pwarush/core/ui';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { LayoutGrid, Play, PlayCircle, Settings, User } from 'lucide-react';
 import type React from 'react';
@@ -6,7 +7,6 @@ import { db } from '../db/database';
 import { useSudokuWorker } from '../hooks/useSudokuWorker';
 import { useGameStore } from '../store/gameStore';
 import type { Difficulty } from '../types';
-import Button from './Button';
 import PlayerMenu from './PlayerMenu';
 import SettingsMenu from './SettingsMenu';
 

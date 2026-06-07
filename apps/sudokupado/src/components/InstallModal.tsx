@@ -1,8 +1,8 @@
+import { Button } from '@pwarush/core/ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 import type React from 'react';
 import { useGameStore } from '../store/gameStore';
-import Button from './Button';
 
 interface InstallModalProps {
 	isOpen: boolean;

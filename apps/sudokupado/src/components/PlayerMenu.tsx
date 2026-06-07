@@ -1,3 +1,4 @@
+import { Button } from '@pwarush/core/ui';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CheckCircle, Plus, Trash2, User, X } from 'lucide-react';
@@ -5,7 +6,6 @@ import type React from 'react';
 import { useState } from 'react';
 import { db } from '../db/database';
 import { useGameStore } from '../store/gameStore';
-import Button from './Button';
 
 interface PlayerMenuProps {
 	isOpen: boolean;

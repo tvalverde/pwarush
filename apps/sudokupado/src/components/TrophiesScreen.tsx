@@ -1,3 +1,4 @@
+import { Button } from '@pwarush/core/ui';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ChevronDown, Timer } from 'lucide-react';
@@ -6,7 +7,6 @@ import { useCallback, useState } from 'react';
 import { db } from '../db/database';
 import { useGameStore } from '../store/gameStore';
 import type { Difficulty } from '../types';
-import Button from './Button';
 
 const TrophiesScreen: React.FC = () => {
 	const { setScreen, t, lastGameResult } = useGameStore();

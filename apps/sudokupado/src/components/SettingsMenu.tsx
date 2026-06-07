@@ -1,3 +1,4 @@
+import { Button } from '@pwarush/core/ui';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
 	AlertCircle,
@@ -16,7 +17,6 @@ import { db } from '../db/database';
 import { type Language, useGameStore } from '../store/gameStore';
 import { isIOS, isStandalone } from '../utils/device';
 import { exportDatabaseToJson, importDatabaseFromJson } from '../utils/exportImport';
-import Button from './Button';
 import IOSInstallGuide from './IOSInstallGuide';
 
 interface SettingsMenuProps {
