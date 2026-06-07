@@ -82,7 +82,7 @@ test.describe('Keyboard shortcuts', () => {
 
 		await page.keyboard.press('n');
 		await expect.poll(() => readIsNoteMode(page)).toBe(true);
-		await expect(page.getByTestId('action-notes')).toHaveClass(/bg-primary-text/);
+		await expect(page.getByTestId('action-notes')).toHaveClass(/bg-primary(?!-)/);
 
 		await page.keyboard.press(' ');
 		await expect.poll(() => readIsNoteMode(page)).toBe(false);

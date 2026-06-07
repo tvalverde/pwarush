@@ -50,7 +50,9 @@ test.describe('Result screen', () => {
 
 		await expect(page.getByRole('heading', { name: /victory/i })).toBeVisible();
 		await expect(page.getByText('4800').first()).toBeVisible();
-		await expect(page.locator('.bg-white.border.border-border').first()).toBeVisible();
+		await expect(
+			page.locator('.bg-surface-container-lowest.border.border-outline-variant').first(),
+		).toBeVisible();
 		const leaderboardRows = page.locator(
 			'section.flex.flex-col.gap-4 .flex.items-center.justify-between.p-4',
 		);

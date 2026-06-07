@@ -21,7 +21,7 @@ test.describe('Golden path: difficulty selection', () => {
 			await seedAndGoto();
 			const button = page.getByTestId(`difficulty-${diff}`);
 			await button.click();
-			await expect(button).toHaveClass(/bg-primary-text/);
+			await expect(button).toHaveClass(/bg-primary(?!-)/);
 		});
 	}
 });

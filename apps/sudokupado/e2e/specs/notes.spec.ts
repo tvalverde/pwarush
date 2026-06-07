@@ -32,9 +32,9 @@ test.describe('Notes mode', () => {
 		await resumeIntoGame(page, seedAndGoto);
 		const notesButton = page.getByTestId('action-notes');
 		await notesButton.click();
-		await expect(notesButton).toHaveClass(/bg-primary-text/);
+		await expect(notesButton).toHaveClass(/bg-primary(?!-)/);
 		await notesButton.click();
-		await expect(notesButton).not.toHaveClass(/bg-primary-text/);
+		await expect(notesButton).not.toHaveClass(/bg-primary(?!-)/);
 	});
 
 	test('placing a candidate note renders inside the selected cell', async ({
