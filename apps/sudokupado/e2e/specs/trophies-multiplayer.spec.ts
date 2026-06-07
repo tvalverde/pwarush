@@ -1,15 +1,5 @@
 import { expect, test } from '../helpers/page-setup';
 
-const entryFor = (playerId: number, score: number, date: number) => ({
-	playerId,
-	difficulty: 'beginner' as const,
-	score,
-	timeElapsed: 100,
-	mistakes: 0,
-	hintsUsed: 0,
-	date,
-});
-
 test.describe('Trophies screen with multiple players', () => {
 	test('renders entries from every player with their own name', async ({ page, seedAndGoto }) => {
 		await seedAndGoto('/pwarush/sudokupado/', {
