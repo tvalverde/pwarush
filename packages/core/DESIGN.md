@@ -107,4 +107,19 @@ The shape language is defined by **pill-shaped geometry** for interactive elemen
 | Tracking | `tracking-widest-premium` (0.15em) · `tracking-wide-premium` (0.1em) | `theme.css` `--tracking-*` |
 | Animation | `animate-shake` | `theme.css` `--animate-shake` |
 
-**Color is intentionally absent here.** Each app declares its palette as `--color-*` tokens in its own `@theme` block; Tailwind v4 merges those with the shared tokens above.
+## Color contract
+
+Color values live **per app** (each app declares `--color-*` in its own `@theme`; Tailwind v4 merges them with the shared tokens above). But the **role names are a shared contract**: every app MUST provide this Material-based semantic set so that components extracted to `@pwarush/core/ui` can rely on it without knowing any concrete palette.
+
+| Group | Roles (`--color-*`) |
+| --- | --- |
+| Surfaces | `surface`, `surface-dim`, `surface-bright`, `surface-container-lowest`, `surface-container-low`, `surface-container`, `surface-container-high`, `surface-container-highest`, `surface-variant`, `on-surface`, `on-surface-variant`, `inverse-surface`, `inverse-on-surface`, `surface-tint` |
+| Background | `background`, `on-background` |
+| Outline | `outline`, `outline-variant` |
+| Primary | `primary`, `on-primary`, `primary-container`, `on-primary-container`, `inverse-primary`, `primary-fixed`, `primary-fixed-dim`, `on-primary-fixed`, `on-primary-fixed-variant` |
+| Secondary | `secondary`, `on-secondary`, `secondary-container`, `on-secondary-container`, `secondary-fixed`, `secondary-fixed-dim`, `on-secondary-fixed`, `on-secondary-fixed-variant` |
+| Tertiary | `tertiary`, `on-tertiary`, `tertiary-container`, `on-tertiary-container`, `tertiary-fixed`, `tertiary-fixed-dim`, `on-tertiary-fixed`, `on-tertiary-fixed-variant` |
+| Error | `error`, `on-error`, `error-container`, `on-error-container` |
+| Feedback (extended) | `success`, `on-success`, `success-container`, `on-success-container`, `warning`, `on-warning`, `warning-container`, `on-warning-container`, `info`, `on-info`, `info-container`, `on-info-container` |
+
+Each role follows the Material convention: a base color and its readable `on-*` counterpart. The concrete palette for each app lives in `apps/<app>/DESIGN.md` and is materialised in `apps/<app>/src/index.css`.

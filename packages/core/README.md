@@ -2,14 +2,14 @@
 
 Shared shell for the pwarush monorepo apps (Sudokupado, Murdokupado).
 
-Currently a stub. It grows incrementally from Hito 4 onwards as the
-following layers are extracted from `apps/sudokupado`:
+It grows incrementally as layers are extracted from `apps/sudokupado`:
 
-- `design/` — tokens, Tailwind preset, semantic naming (Hito 4)
-- `ui/` — generic primitives (`Button`, `ConfirmDialog`, `Layout`, …) (Hito 5)
-- `utils/` — formatters, schemas guards factories (Hito 6)
-- `persistence/` — Dexie wrapper + lifecycle hooks (Hito 7)
-- `store/` — Zustand patterns with throttled persist (Hito 8)
-- `pwa/` — vite-plugin-pwa factory + gesture lockdown helpers (Hito 9)
+- `theme.css` — shared color-free design tokens, Tailwind v4 CSS-first `@theme` (Hito 4)
+- `DESIGN.md` — shared system + semantic color contract; per-app Material palette redesign (Hito 5)
+- `ui/` — generic primitives (`Button`, `ConfirmDialog`, `Layout`, …), agnostic of store/i18n (text via props) (Hito 6)
+- `utils/` — formatters, schema guard factories (Hito 7)
+- `persistence/` — Dexie wrapper + lifecycle hooks (Hito 8)
+- `store/` — Zustand patterns with throttled persist (Hito 9)
+- `pwa/` — vite-plugin-pwa factory + gesture lockdown helpers (Hito 10)
 
 See `plan-monorepo.md` at the repo root for the full roadmap.

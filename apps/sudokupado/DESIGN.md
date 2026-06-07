@@ -49,6 +49,18 @@ colors:
   background: '#f6fafe'
   on-background: '#171c1f'
   surface-variant: '#dfe3e7'
+  success: '#22c55e'
+  on-success: '#ffffff'
+  success-container: '#f0fdf4'
+  on-success-container: '#15803d'
+  warning: '#eab308'
+  on-warning: '#ffffff'
+  warning-container: '#fef9c3'
+  on-warning-container: '#713f12'
+  info: '#3b82f6'
+  on-info: '#ffffff'
+  info-container: '#dbeafe'
+  on-info-container: '#1e3a8a'
 ---
 
 > **Shared foundation:** typography, shapes, spacing, elevation strategy and token scales are defined in [`@pwarush/core/DESIGN.md`](../../packages/core/DESIGN.md). This file specifies **only Sudokupado's brand narrative and concrete color palette**. The palette tokens active in the build live in `apps/sudokupado/src/index.css` (`@theme` `--color-*`).
@@ -61,20 +73,23 @@ The target audience is intellectually curious users who value a premium, ad-free
 
 ## Colors
 
-The palette is strictly monochromatic and utilitarian, relying on values of Slate to create depth without distraction. The tokens active in the build (`src/index.css`) are:
+The palette follows a **Material scheme** (surfaces, on-* pairs, primary/secondary/tertiary, error and extended feedback). It stays minimalist and high-contrast, but every color is a semantic role from the shared [color contract](../../packages/core/DESIGN.md). The roles materialised in the build (`src/index.css`) are the full set listed in the frontmatter above. Key roles:
 
-- **Background (`--color-background`, #FFFFFF):** The primary canvas — a clean, "paper-like" feel.
-- **Primary Text & Dark Accents (`--color-primary-text` / `--color-dark-accent`, #0F172A):** Headlines, active game numbers, high-impact UI. The "ink" that anchors the experience.
-- **Borders & Subtle Accents (`--color-border` / `--color-subtle-accent`, #E2E8F0):** Defines the grid and secondary containers — structure without visual noise.
-- **Subtle Backgrounds (`--color-subtle-bg`, #F1F5F9):** Non-interactive areas and game-board region fills.
-- **Surface / Primary / Secondary / Error (`#f6fafe` / `#000000` / `#595f66` / `#ba1a1a`):** Supporting roles drawn from the extended Material-derived ramp in the frontmatter.
+- **Background (`background`, #f6fafe) / `on-background` (#171c1f):** the app canvas behind the content card.
+- **Surfaces (`surface-container-lowest` #ffffff … `surface-container-highest` #dfe3e7):** tonal layers for cards, fills and elevated regions; text over them uses `on-surface` (#171c1f) / `on-surface-variant` (#45464d).
+- **Outlines (`outline` #76777d / `outline-variant` #c6c6cd):** the default border color and grid/structure lines.
+- **Primary (`primary` #000000 / `on-primary` #ffffff):** high-impact actions (PLAY, active difficulty, keypad selection).
+- **Secondary (`secondary` #595f66):** muted labels and secondary text.
+- **Tertiary fixed (`tertiary-fixed` #fcdeb5 / `tertiary-fixed-dim` #dec29a):** the amber highlight on the game board.
+- **Error (`error` #ba1a1a + container/on-*):** danger zones and destructive actions.
+- **Feedback — `success` (correct cells), `warning` (achievement star / cell hint), `info` (cell highlights):** each with its `container`/`on-*` pair.
 
 ## Components (color application)
 
-- **Buttons — Primary:** Solid Dark Slate (#0F172A) background, White text, pill-shaped.
-- **Buttons — Secondary/Ghost:** White background, 1px Light Slate (#E2E8F0) border, Dark Slate text, pill-shaped. Active state fills with Light Gray (#F1F5F9).
-- **Toggle Switches:** Pill track — Light Gray (#F1F5F9) off, Dark Slate (#0F172A) on; pure White thumb, no shadows.
-- **Input cells (numbers):** White background; active cell has a 2px Dark Slate border; "note" mode uses Inter at 10px in the cell corners.
-- **Keypad:** Pill-shaped buttons; selected number inverts to a Dark Slate background.
-- **Cards & Dialogs:** White background, 1px Light Slate border; headlines use the wide-tracking rule from the shared system.
-- **Progress Indicators:** Light Gray (#F1F5F9) track with a Dark Slate (#0F172A) fill; no rounded corners on the fill for a precise, "loading" aesthetic.
+- **Buttons — Primary:** `bg-primary` (#000) with `on-primary` text, pill-shaped.
+- **Buttons — Secondary/Ghost:** `surface-container-lowest` background, 1px `outline-variant` border, `on-surface` text, pill-shaped.
+- **Toggle Switches:** pill track — `surface-container` off, `primary` on; `surface-container-lowest` thumb.
+- **Input cells (numbers):** `surface-container-lowest` background; active cell uses a `primary` border; correct cells use `success`; the board highlight uses `tertiary-fixed`.
+- **Keypad:** pill-shaped buttons; selected number inverts to `bg-primary`.
+- **Cards & Dialogs:** `surface-container-lowest` background, 1px `outline-variant` border; headlines use the wide-tracking rule from the shared system.
+- **Progress Indicators:** `surface-container` track with a `primary` fill.
