@@ -8,13 +8,15 @@
 		".": "./src/index.ts",
 		"./theme.css": "./src/theme.css",
 		"./ui": "./src/ui/index.ts",
-		"./utils": "./src/utils/index.ts"
+		"./utils": "./src/utils/index.ts",
+		"./persistence": "./src/persistence/index.ts"
 	},
 	"scripts": {
 		"typecheck": "tsc --noEmit",
 		"test": "vitest run"
 	},
 	"peerDependencies": {
+		"dexie": "^4.0.1",
 		"framer-motion": "^11.1.7",
 		"lucide-react": "^0.378.0",
 		"react": "^18.3.1",
@@ -23,6 +25,8 @@
 	"devDependencies": {
 		"@types/react": "^18.3.1",
 		"@types/react-dom": "^18.3.1",
-		"@vitejs/plugin-react": "^6.0.2"
+		"@vitejs/plugin-react": "^6.0.2",
+		"dexie": "^4.0.1",
+		"fake-indexeddb": "^6.2.5"
 	}
 }
