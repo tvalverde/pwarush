@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@pwarush/core/theme.css";
+@import "@pwarush/core/pwa.css";
 
 /* Scan @pwarush/core/ui components for Tailwind classes (v4 does not scan node_modules). */
 @source "../../../packages/core/src/ui";
@@ -124,21 +125,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-	overscroll-behavior: none;
-}
-
 body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100svh;
-	overflow: hidden;
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	user-select: none;
-	touch-action: manipulation;
 }
 
 #root {

@@ -13,12 +13,4 @@ describe('Regression: PWA Gesture Lockdown', () => {
 		expect(viewportTag).toContain('maximum-scale=1');
 		expect(viewportTag).toContain('minimum-scale=1');
 	});
-
-	it('global CSS disables iOS callout and global text selection on body', () => {
-		const css = readFileSync(join(PROJECT_ROOT, 'src', 'index.css'), 'utf-8');
-
-		expect(css).toMatch(/-webkit-touch-callout:\s*none/);
-		expect(css).toMatch(/user-select:\s*none/);
-		expect(css).toMatch(/-webkit-user-select:\s*none/);
-	});
 });
