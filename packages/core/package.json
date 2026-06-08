@@ -9,7 +9,8 @@
 		"./theme.css": "./src/theme.css",
 		"./ui": "./src/ui/index.ts",
 		"./utils": "./src/utils/index.ts",
-		"./persistence": "./src/persistence/index.ts"
+		"./persistence": "./src/persistence/index.ts",
+		"./store": "./src/store/index.ts"
 	},
 	"scripts": {
 		"typecheck": "tsc --noEmit",
