@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import React from 'react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useGameStore } from '../store/gameStore';
@@ -72,9 +72,11 @@ describe('Regression: Zustand Selectors Prevent Unnecessary Re-renders (Fix 4.1)
 
 		const initialRenderCount = renderCount;
 
-		for (let i = 1; i <= 5; i++) {
-			useGameStore.getState().incrementTime();
-		}
+		act(() => {
+			for (let i = 1; i <= 5; i++) {
+				useGameStore.getState().incrementTime();
+			}
+		});
 
 		expect(renderCount).toBe(initialRenderCount);
 	});
@@ -98,7 +100,9 @@ describe('Regression: Zustand Selectors Prevent Unnecessary Re-renders (Fix 4.1)
 
 		const newGrid = empty9x9();
 		newGrid[0][0] = 5;
-		useGameStore.setState({ grid: newGrid });
+		act(() => {
+			useGameStore.setState({ grid: newGrid });
+		});
 
 		expect(renderCount).toBeGreaterThan(initialRenderCount);
 	});
@@ -120,9 +124,11 @@ describe('Regression: Zustand Selectors Prevent Unnecessary Re-renders (Fix 4.1)
 
 		const initialRenderCount = renderCount;
 
-		for (let i = 1; i <= 5; i++) {
-			useGameStore.getState().incrementTime();
-		}
+		act(() => {
+			for (let i = 1; i <= 5; i++) {
+				useGameStore.getState().incrementTime();
+			}
+		});
 
 		expect(renderCount).toBe(initialRenderCount);
 	});
@@ -144,7 +150,9 @@ describe('Regression: Zustand Selectors Prevent Unnecessary Re-renders (Fix 4.1)
 
 		const initialRenderCount = renderCount;
 
-		useGameStore.setState({ activeScreen: 'main' });
+		act(() => {
+			useGameStore.setState({ activeScreen: 'main' });
+		});
 
 		expect(renderCount).toBeGreaterThan(initialRenderCount);
 	});
