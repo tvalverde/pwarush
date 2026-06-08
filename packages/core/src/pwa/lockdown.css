@@ -1,0 +1,21 @@
+/*
+  Shared PWA gesture lockdown (Hito 10).
+
+  Behavior-only rules that every pwarush PWA needs: disable overscroll
+  (pull-to-refresh), iOS callout/long-press, text selection and double-tap
+  zoom. Color-free; imported by each app right after `@pwarush/core/theme.css`.
+  The viewport meta that disables pinch-zoom lives per-app in each index.html.
+*/
+html,
+body {
+	overscroll-behavior: none;
+}
+
+body {
+	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	user-select: none;
+	touch-action: manipulation;
+}
