@@ -20,6 +20,8 @@ This document outlines the strict behavioral rules during the development of **P
     *   **PATCH:** bug fixes that are backward-compatible.
 6.  **Version Tagging Condition:** Only create a new monorepo tag when ANY workspace (`apps/*` or `packages/*`) or shared infrastructure (workflows, root configs) has real functional changes since the previous tag. Changes exclusively to meta-files or documentation (CLAUDE.md, root README.md, comments) DO NOT warrant a new monorepo tag.
 
+    **Exception — major release milestones:** a deliberate major release that marks a project-wide milestone (e.g. `v1.0.0` for functional parity with the legacy `sudokupado` v1.9.x) MAY be tagged even when the delta since the previous tag is documentation-only. These are explicit, user-authorized release events, not the incidental doc/meta churn this rule guards against.
+
     Per workspace: the `version` of a workspace SHOULD only be bumped if its own folder has functional changes since the previous tag. Mechanical verification is mandatory before each bump (see rule 9).
 7.  **Version Tagging Authorization:** NEVER create a version tag without PRIOR EXPLICIT CONFIRMATION from the user. Once confirmed, the authorization IMPLICITLY includes permission to push both the `main` branch and the new tag to the remote repository to trigger deployment.
 8.  **Pre-Tagging Workflow:** Before creating a version tag, all changes MUST be committed using the Conventional Commits standard.
