@@ -30,6 +30,7 @@ TODO.md
 plan-*.md
 LEEME*
 .claude/settings.local.json
+.xclaude-docker
 
 # Playwright
 test-results/
