@@ -2,8 +2,9 @@
 @import "@pwarush/core/theme.css";
 @import "@pwarush/core/pwa.css";
 
-/* Scan @pwarush/core/ui components for Tailwind classes (v4 does not scan node_modules). */
+/* Scan @pwarush/core components for Tailwind classes (v4 does not scan node_modules). */
 @source "../../../packages/core/src/ui";
+@source "../../../packages/core/src/pwa";
 
 /*
   Sudokupado palette (per-app color) — Material scheme.
