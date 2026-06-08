@@ -12,6 +12,7 @@
 		"./persistence": "./src/persistence/index.ts",
 		"./store": "./src/store/index.ts",
 		"./pwa": "./src/pwa/index.ts",
+		"./pwa/react": "./src/pwa/react.ts",
 		"./pwa.css": "./src/pwa/lockdown.css"
 	},
 	"scripts": {
@@ -28,6 +29,7 @@
 		"vite-plugin-pwa": "^1.3.0"
 	},
 	"devDependencies": {
+		"@testing-library/react": "^15.0.6",
 		"@types/react": "^18.3.1",
 		"@types/react-dom": "^18.3.1",
 		"@vitejs/plugin-react": "^6.0.2",

@@ -10,6 +10,6 @@ It grows incrementally as layers are extracted from `apps/sudokupado`:
 - ✅ `utils/` — formatters, generic type-guard factories, device/SW helpers (Hito 7)
 - ✅ `persistence/` — Dexie database factory + lifecycle-aware autosave helper (Hito 8)
 - ✅ `store/` — generic autosave controller (snapshot-diff dedup + lifecycle-aware subscription) (Hito 9)
-- ✅ `pwa/` — vite-plugin-pwa factory (`createPwaConfig`, `createVersionJsonPlugin`) + shared gesture lockdown CSS (`@pwarush/core/pwa.css`) (Hito 10)
+- ✅ `pwa/` — vite-plugin-pwa factory (`createPwaConfig`, `createVersionJsonPlugin`) + shared gesture lockdown CSS (`@pwarush/core/pwa.css`) (Hito 10). Runtime PWA shell primitives (`InstallPrompt`, `IosInstallSteps`, `RotateDeviceOverlay`, `UpdateBanner`) live under the separate `@pwarush/core/pwa/react` subpath — store/i18n-agnostic, driven by props; apps wrap them to inject text and platform logic (Hito 11).
 
 See `plan-monorepo.md` at the repo root for the full roadmap.
