@@ -1,8 +1,10 @@
-import { installAutosaveLifecycle } from '@pwarush/core/persistence';
-import { useCallback, useEffect, useRef } from 'react';
+import { createAutosaveController } from '@pwarush/core/store';
+import { useEffect } from 'react';
 import { db } from '../db/database';
 import { useGameStore } from '../store/gameStore';
 import { hasUserInput, isMistakeLimitReached } from '../utils/gameState';
+
+type GameStoreState = ReturnType<typeof useGameStore.getState>;
 
 export const clearSavedGame = async (): Promise<void> => {
 	const { activePlayerId } = useGameStore.getState();
@@ -16,92 +18,73 @@ export const clearSavedGame = async (): Promise<void> => {
 	}
 };
 
+const persistGame = async (state: GameStoreState): Promise<void> => {
+	const playerId = state.activePlayerId ?? 0;
+
+	try {
+		await db.transaction('rw', db.gameState, async () => {
+			const existing = await db.gameState.where('playerId').equals(playerId).first();
+
+			const data = {
+				playerId: playerId,
+				grid: state.grid,
+				initialGrid: state.initialGrid,
+				solution: state.solution,
+				notes: state.notes,
+				timeElapsed: state.timeElapsed,
+				mistakes: state.mistakes,
+				hintsUsed: state.hintsUsed,
+				isPaused: state.isPaused,
+				difficulty: state.selectedDifficulty,
+			};
+
+			if (existing) {
+				await db.gameState.update(existing.id!, data);
+			} else {
+				await db.gameState.add(data);
+			}
+		});
+	} catch (error) {
+		console.error('Auto-save failed:', error);
+	}
+};
+
 export const useAutoSave = () => {
-	const lastSavedStateRef = useRef<string>('');
-
-	const saveGame = useCallback(async (force = false) => {
-		const currentState = useGameStore.getState();
-		const { activePlayerId, activeScreen } = currentState;
-
-		if (!force && activeScreen !== 'game') return;
-
-		const playerId = activePlayerId ?? 0;
-
-		const isWon = currentState.lastGameResult !== null;
-		const isLost = isMistakeLimitReached(currentState.mistakes, currentState.maxMistakes);
-		const isCleared = !currentState.hasActiveGame;
-
-		if (isWon || isLost || isCleared) {
-			await clearSavedGame();
-			return;
-		}
-
-		const stateSnapshot = JSON.stringify({
-			grid: currentState.grid,
-			notes: currentState.notes,
-			timeElapsed: currentState.timeElapsed,
-			mistakes: currentState.mistakes,
-			hintsUsed: currentState.hintsUsed,
-			isPaused: currentState.isPaused,
-		});
-
-		if (!force && stateSnapshot === lastSavedStateRef.current) return;
-
-		try {
-			await db.transaction('rw', db.gameState, async () => {
-				const existing = await db.gameState.where('playerId').equals(playerId).first();
-
-				const data = {
-					playerId: playerId,
-					grid: currentState.grid,
-					initialGrid: currentState.initialGrid,
-					solution: currentState.solution,
-					notes: currentState.notes,
-					timeElapsed: currentState.timeElapsed,
-					mistakes: currentState.mistakes,
-					hintsUsed: currentState.hintsUsed,
-					isPaused: currentState.isPaused,
-					difficulty: currentState.selectedDifficulty,
-				};
-
-				if (existing) {
-					await db.gameState.update(existing.id!, data);
-				} else {
-					await db.gameState.add(data);
-				}
-			});
-
-			lastSavedStateRef.current = stateSnapshot;
-		} catch (error) {
-			console.error('Auto-save failed:', error);
-		}
-	}, []);
-
 	useEffect(() => {
-		const cleanupLifecycle = installAutosaveLifecycle(() => saveGame(), { intervalMs: 3000 });
+		const controller = createAutosaveController<GameStoreState>({
+			getState: useGameStore.getState,
+			subscribe: useGameStore.subscribe,
+			snapshot: (state) =>
+				JSON.stringify({
+					grid: state.grid,
+					notes: state.notes,
+					timeElapsed: state.timeElapsed,
+					mistakes: state.mistakes,
+					hintsUsed: state.hintsUsed,
+					isPaused: state.isPaused,
+				}),
+			shouldSave: (state) => state.activeScreen === 'game',
+			shouldClear: (state) =>
+				state.lastGameResult !== null ||
+				isMistakeLimitReached(state.mistakes, state.maxMistakes) ||
+				!state.hasActiveGame,
+			clear: () => clearSavedGame(),
+			persist: persistGame,
+			triggers: (state, prevState) => {
+				const hasLeftGame = prevState.activeScreen === 'game' && state.activeScreen !== 'game';
+				const hasPaused = !prevState.isPaused && state.isPaused;
 
-		const unsubscribe = useGameStore.subscribe((state, prevState) => {
-			const hasLeftGame = prevState.activeScreen === 'game' && state.activeScreen !== 'game';
-			const hasPaused = !prevState.isPaused && state.isPaused;
-
-			if (hasLeftGame) {
-				// Intentional navigation back to the menu: only keep the save if the player produced input.
-				if (hasUserInput(state.grid, state.initialGrid, state.notes)) {
-					saveGame(true);
-				} else {
-					clearSavedGame().catch((err) => console.error('Failed to discard untouched game:', err));
+				if (hasLeftGame) {
+					return hasUserInput(state.grid, state.initialGrid, state.notes) ? 'save' : 'clear';
 				}
-				return;
-			}
-
-			if (hasPaused) {
-				saveGame(true);
-			}
+				if (hasPaused) {
+					return 'save';
+				}
+				return null;
+			},
+			intervalMs: 3000,
 		});
 
-		return () => {
-			cleanupLifecycle();
-			unsubscribe();
-		};
-	}, [saveGame]);
+		return controller.start();
+	}, []);
 };
