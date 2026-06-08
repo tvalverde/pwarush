@@ -31,7 +31,8 @@ pwarush/
 `theme.css` (design tokens), `ui` (Button/Layout/ConfirmDialog), `utils`
 (formatters + type-guard factories + SW/device helpers), `persistence` (Dexie
 factory + lifecycle autosave), `store` (generic autosave controller), `pwa`
-(vite-plugin-pwa factory + shared gesture lockdown CSS). See
+(vite-plugin-pwa factory + gesture lockdown CSS, plus runtime shell primitives
+under `pwa/react`). See
 [`packages/core/README.md`](./packages/core/README.md) for the module map and
 [`packages/core/DESIGN.md`](./packages/core/DESIGN.md) for the color-free design
 system; each app maps the semantic tokens to a concrete palette in its own
