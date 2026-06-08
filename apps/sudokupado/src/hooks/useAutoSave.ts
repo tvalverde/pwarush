@@ -1,3 +1,4 @@
+import { installAutosaveLifecycle } from '@pwarush/core/persistence';
 import { useCallback, useEffect, useRef } from 'react';
 import { db } from '../db/database';
 import { useGameStore } from '../store/gameStore';
@@ -77,20 +78,7 @@ export const useAutoSave = () => {
 	}, []);
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			saveGame();
-		}, 3000);
-
-		const handleVisibilityChange = () => {
-			if (document.visibilityState === 'hidden') {
-				saveGame();
-			}
-		};
-		const handleBeforeUnload = () => {
-			saveGame();
-		};
-		window.addEventListener('beforeunload', handleBeforeUnload);
-		document.addEventListener('visibilitychange', handleVisibilityChange);
+		const cleanupLifecycle = installAutosaveLifecycle(() => saveGame(), { intervalMs: 3000 });
 
 		const unsubscribe = useGameStore.subscribe((state, prevState) => {
 			const hasLeftGame = prevState.activeScreen === 'game' && state.activeScreen !== 'game';
@@ -112,9 +100,7 @@ export const useAutoSave = () => {
 		});
 
 		return () => {
-			clearInterval(interval);
-			window.removeEventListener('beforeunload', handleBeforeUnload);
-			document.removeEventListener('visibilitychange', handleVisibilityChange);
+			cleanupLifecycle();
 			unsubscribe();
 		};
 	}, [saveGame]);
