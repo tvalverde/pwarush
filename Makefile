@@ -4,9 +4,25 @@ PLAYWRIGHT_IMAGE := mcr.microsoft.com/playwright:v1.60.0-noble
 PLAYWRIGHT_LOCAL_IMAGE := pwarush/playwright:local
 HOST_UID := $(shell id -u)
 HOST_GID := $(shell id -g)
-DOCKER_RUN_BASE := docker run --rm --ipc=host --network host \
+
+# Container engine: prefer docker, fall back to podman. Override with
+# `make CONTAINER_ENGINE=podman e2e`.
+CONTAINER_ENGINE ?= $(shell command -v docker >/dev/null 2>&1 && echo docker || echo podman)
+
+# User mapping differs by engine. Docker's daemon runs as root, so we force the
+# host uid/gid to keep generated files (snapshots, playwright-report) owned by the
+# host user. Podman rootless already maps the host user into the container, and a
+# bare `-u` would break that mapping (the uid has no /etc/passwd entry); the
+# idiomatic fix is `--userns=keep-id`.
+ifeq ($(CONTAINER_ENGINE),podman)
+CONTAINER_USER_MAP := --userns=keep-id
+else
+CONTAINER_USER_MAP := -u $(HOST_UID):$(HOST_GID)
+endif
+
+DOCKER_RUN_BASE := $(CONTAINER_ENGINE) run --rm --ipc=host --network host \
 	-v $(CURDIR):/work -w /work \
-	-u $(HOST_UID):$(HOST_GID) \
+	$(CONTAINER_USER_MAP) \
 	-e CI=$(CI) -e HOME=/tmp
 DOCKER_RUN := $(DOCKER_RUN_BASE) $(PLAYWRIGHT_IMAGE)
 DOCKER_RUN_TTY := $(DOCKER_RUN_BASE) -it $(PLAYWRIGHT_IMAGE)
@@ -49,4 +65,4 @@ e2e-ui:
 
 # Build a local Playwright image with make and project tooling
 e2e-build:
-	docker build -t $(PLAYWRIGHT_LOCAL_IMAGE) -f docker/playwright.Dockerfile .
+	$(CONTAINER_ENGINE) build -t $(PLAYWRIGHT_LOCAL_IMAGE) -f docker/playwright.Dockerfile .
