@@ -54,10 +54,12 @@ spacing:
 
 ## Scope
 
-This document defines the **color-free foundation** shared by every PWARUSH app (Sudokupado, Murdokupado): typography, shape language, spacing rhythm, elevation strategy and the semantic token scales.
+This document defines the **color-free foundation** shared by the apps that import `@pwarush/core/theme.css` (Sudokupado, Murdokupado): typography, shape language, spacing rhythm, elevation strategy and the semantic token scales.
+
+El Farsante keeps its own visual identity — its own typography (Space Grotesk + Plus Jakarta Sans) and radii, and it does NOT import `@pwarush/core/theme.css`. It adheres ONLY to the "Color contract" role names defined at the bottom of this document.
 
 - **Per-app color palettes and brand narrative** live in each app's own `apps/<app>/DESIGN.md`.
-- **Concrete token values** are materialised in `packages/core/src/theme.css` and consumed by each app via `@import "@pwarush/core/theme.css"`.
+- **Concrete token values** are materialised in `packages/core/src/theme.css` and consumed by Sudokupado and Murdokupado via `@import "@pwarush/core/theme.css"`.
 
 ## Typography
 
