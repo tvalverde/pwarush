@@ -1,5 +1,8 @@
 import type { VitePWAOptions } from 'vite-plugin-pwa';
 
+type PwaManifest = Exclude<VitePWAOptions['manifest'], false | undefined>;
+type PwaWorkbox = NonNullable<VitePWAOptions['workbox']>;
+
 export interface PwaAppConfig {
 	name: string;
 	shortName: string;
@@ -10,6 +13,10 @@ export interface PwaAppConfig {
 	scope?: string;
 	startUrl?: string;
 	devOptions?: boolean;
+	includeAssets?: string[];
+	icons?: PwaManifest['icons'];
+	extraGlobPatterns?: string[];
+	runtimeCaching?: PwaWorkbox['runtimeCaching'];
 }
 
 const PWA_ICONS = [
@@ -17,6 +24,10 @@ const PWA_ICONS = [
 	{ src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
 	{ src: 'pwa-maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
 ];
+
+const DEFAULT_INCLUDE_ASSETS = ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'];
+
+const BASE_GLOB_PATTERN = '**/*.{js,css,html,ico,png,svg,woff2}';
 
 export function createPwaConfig(config: PwaAppConfig): Partial<VitePWAOptions> {
 	const {
@@ -29,6 +40,10 @@ export function createPwaConfig(config: PwaAppConfig): Partial<VitePWAOptions> {
 		scope,
 		startUrl,
 		devOptions,
+		includeAssets = DEFAULT_INCLUDE_ASSETS,
+		icons = PWA_ICONS,
+		extraGlobPatterns = [],
+		runtimeCaching,
 	} = config;
 
 	const escapedBase = basePath.replace(/\//g, '\\/');
@@ -36,7 +51,7 @@ export function createPwaConfig(config: PwaAppConfig): Partial<VitePWAOptions> {
 	return {
 		registerType: 'prompt',
 		...(devOptions !== undefined && { devOptions: { enabled: devOptions } }),
-		includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+		includeAssets,
 		manifest: {
 			name,
 			short_name: shortName,
@@ -47,10 +62,10 @@ export function createPwaConfig(config: PwaAppConfig): Partial<VitePWAOptions> {
 			orientation: 'portrait',
 			...(scope !== undefined && { scope }),
 			...(startUrl !== undefined && { start_url: startUrl }),
-			icons: PWA_ICONS,
+			icons,
 		},
 		workbox: {
-			globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+			globPatterns: [BASE_GLOB_PATTERN, ...extraGlobPatterns],
 			cleanupOutdatedCaches: true,
 			clientsClaim: true,
 			skipWaiting: false,
@@ -59,6 +74,7 @@ export function createPwaConfig(config: PwaAppConfig): Partial<VitePWAOptions> {
 				new RegExp(`^${escapedBase}version\\.json$`),
 				new RegExp(`^${escapedBase}assets\\/`),
 			],
+			...(runtimeCaching !== undefined && { runtimeCaching }),
 		},
 	};
 }

@@ -70,3 +70,62 @@ describe('createPwaConfig', () => {
 		expect(full.workbox?.navigateFallback).toBe('/pwarush/murdokupado/index.html');
 	});
 });
+
+describe('createPwaConfig asset overrides', () => {
+	const customIcons = [
+		{ src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' },
+		{ src: 'icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
+	];
+	const fontsCaching = [
+		{
+			urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+			handler: 'CacheFirst' as const,
+			options: { cacheName: 'google-fonts-cache' },
+		},
+	];
+	const overridden = createPwaConfig({
+		name: 'EL FARSANTE',
+		shortName: 'El Farsante',
+		description: 'A social deduction party game',
+		basePath: '/pwarush/elfarsante/',
+		includeAssets: ['favicon.svg', 'sfx/*.mp3'],
+		icons: customIcons,
+		extraGlobPatterns: ['**/*.mp3'],
+		runtimeCaching: fontsCaching,
+	});
+
+	it('replaces includeAssets and manifest icons when provided', () => {
+		expect(overridden.includeAssets).toEqual(['favicon.svg', 'sfx/*.mp3']);
+		expect(manifestOf(overridden).icons).toEqual(customIcons);
+	});
+
+	it('appends extraGlobPatterns after the shared base pattern', () => {
+		expect(overridden.workbox?.globPatterns).toEqual([
+			'**/*.{js,css,html,ico,png,svg,woff2}',
+			'**/*.mp3',
+		]);
+	});
+
+	it('emits runtimeCaching only when provided', () => {
+		expect(overridden.workbox?.runtimeCaching).toEqual(fontsCaching);
+		const minimal = createPwaConfig({
+			name: 'SUDOKUPADO',
+			shortName: 'Sudokupado',
+			description: 'Premium Zen Sudoku Experience',
+			basePath: '/pwarush/sudokupado/',
+		});
+		expect(minimal.workbox && 'runtimeCaching' in minimal.workbox).toBe(false);
+	});
+
+	it('keeps shared defaults untouched for existing consumers', () => {
+		const minimal = createPwaConfig({
+			name: 'SUDOKUPADO',
+			shortName: 'Sudokupado',
+			description: 'Premium Zen Sudoku Experience',
+			basePath: '/pwarush/sudokupado/',
+		});
+		expect(minimal.includeAssets).toEqual(['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg']);
+		expect(minimal.workbox?.globPatterns).toEqual(['**/*.{js,css,html,ico,png,svg,woff2}']);
+		expect(manifestOf(minimal).icons).toHaveLength(3);
+	});
+});
