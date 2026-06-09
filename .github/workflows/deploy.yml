@@ -37,13 +37,25 @@ jobs:
       - name: Build Murdokupado
         run: npm run build --workspace=@pwarush/murdokupado
 
+      - name: Build El Farsante
+        run: npm run build --workspace=@pwarush/elfarsante
+        env:
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
+
       - name: Assemble deploy directory
         run: |
-          mkdir -p deploy/sudokupado deploy/murdokupado
+          mkdir -p deploy/sudokupado deploy/murdokupado deploy/elfarsante
           cp landing/index.html deploy/index.html
           cp landing/styles.css deploy/styles.css
           cp -r apps/sudokupado/dist/. deploy/sudokupado/
           cp -r apps/murdokupado/dist/. deploy/murdokupado/
+          cp -r apps/elfarsante/dist/. deploy/elfarsante/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
