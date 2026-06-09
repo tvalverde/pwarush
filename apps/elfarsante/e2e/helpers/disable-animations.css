@@ -1,0 +1,9 @@
+/* biome-ignore-all lint/complexity/noImportantStyles: required to override Tailwind utilities and Framer Motion inline styles for snapshot stability. */
+*,
+*::before,
+*::after {
+	animation-duration: 0ms !important;
+	animation-delay: 0ms !important;
+	transition-duration: 0ms !important;
+	transition-delay: 0ms !important;
+}

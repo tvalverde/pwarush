@@ -47,6 +47,25 @@ export default defineConfig({
 				trace: 'on-first-retry',
 			},
 		},
+		{
+			name: 'elfarsante-desktop',
+			testDir: './apps/elfarsante/e2e/specs',
+			use: {
+				...devices['Desktop Chrome'],
+				viewport: { width: 1280, height: 720 },
+				baseURL: 'http://localhost:5175/pwarush/elfarsante/',
+				trace: 'on-first-retry',
+			},
+		},
+		{
+			name: 'elfarsante-mobile',
+			testDir: './apps/elfarsante/e2e/specs',
+			use: {
+				...devices['Pixel 5'],
+				baseURL: 'http://localhost:5175/pwarush/elfarsante/',
+				trace: 'on-first-retry',
+			},
+		},
 	],
 	webServer: [
 		{
@@ -65,6 +84,16 @@ export default defineConfig({
 			url: 'http://localhost:5174/pwarush/murdokupado/',
 			reuseExistingServer: !process.env.CI,
 			timeout: 120_000,
+		},
+		{
+			command:
+				'npm run dev --workspace=@pwarush/elfarsante -- --host 0.0.0.0 --port 5175 --strictPort',
+			url: 'http://localhost:5175/pwarush/elfarsante/',
+			reuseExistingServer: !process.env.CI,
+			timeout: 120_000,
+			env: {
+				VITE_E2E: '1',
+			},
 		},
 	],
 });
