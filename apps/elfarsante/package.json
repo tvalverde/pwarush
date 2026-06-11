@@ -11,6 +11,8 @@
 		"test": "vitest run"
 	},
 	"dependencies": {
+		"@fontsource/plus-jakarta-sans": "^5.2.8",
+		"@fontsource/space-grotesk": "^5.2.10",
 		"@pwarush/core": "*",
 		"firebase": "^12.13.0",
 		"framer-motion": "^12",
