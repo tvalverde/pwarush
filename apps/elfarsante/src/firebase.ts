@@ -1,6 +1,10 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously } from 'firebase/auth';
-import { enableIndexedDbPersistence, getFirestore } from 'firebase/firestore';
+import {
+	initializeFirestore,
+	persistentLocalCache,
+	persistentMultipleTabManager,
+} from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -14,17 +18,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
-
-if (typeof window !== 'undefined') {
-	enableIndexedDbPersistence(db).catch((err) => {
-		if (err.code === 'failed-precondition') {
-			console.warn('Persistence failed: multiple tabs open');
-		} else if (err.code === 'unimplemented') {
-			console.warn('Persistence is not available in this browser');
-		}
-	});
-}
+// Replaces the deprecated enableIndexedDbPersistence: the multi-tab manager
+// coordinates the IndexedDB cache across tabs (no failed-precondition case)
+// and the SDK falls back to memory cache on browsers without IndexedDB.
+export const db = initializeFirestore(app, {
+	localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }),
+});
 
 export const initAuth = () => signInAnonymously(auth);
 
