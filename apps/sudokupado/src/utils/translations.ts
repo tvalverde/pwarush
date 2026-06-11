@@ -84,6 +84,7 @@ export const translations = {
 				'Importing a backup will overwrite all current players and history. Do you want to proceed?',
 			import_prompt_confirm: 'IMPORT & RELOAD',
 			delete_all_confirm: 'DELETE EVERYTHING',
+			save_error: 'Your preferences could not be saved. They will only apply to this session.',
 		},
 		trophies: {
 			title: 'TROPHY HISTORY',
@@ -262,6 +263,7 @@ export const translations = {
 				'Importar una copia de seguridad sobrescribirá todos los jugadores e historial actuales. ¿Deseas continuar?',
 			import_prompt_confirm: 'IMPORTAR Y RECARGAR',
 			delete_all_confirm: 'BORRAR TODO',
+			save_error: 'No se han podido guardar tus preferencias. Solo se aplicarán en esta sesión.',
 		},
 		trophies: {
 			title: 'TROFEOS',

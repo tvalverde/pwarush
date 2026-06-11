@@ -13,7 +13,7 @@ import {
 	X,
 } from 'lucide-react';
 import type React from 'react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { db } from '../db/database';
 import { type Language, useGameStore } from '../store/gameStore';
 import { exportDatabaseToJson, importDatabaseFromJson } from '../utils/exportImport';
@@ -93,8 +93,13 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 
 	const showStatus = (type: 'success' | 'error', message: string) => {
 		setStatus({ type, message });
-		setTimeout(() => setStatus(null), 4000);
 	};
+
+	useEffect(() => {
+		if (!status) return;
+		const dismissTimeout = setTimeout(() => setStatus(null), 4000);
+		return () => clearTimeout(dismissTimeout);
+	}, [status]);
 
 	return (
 		<>

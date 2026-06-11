@@ -68,7 +68,7 @@ const TrophiesScreen: React.FC = () => {
 						<span className="font-sans text-sm font-bold text-on-surface">{entry.playerName}</span>
 						{isHighlighted && (
 							<span className="bg-primary text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
-								{t('trophies.recent') || 'RECIENTE'}
+								{t('trophies.recent')}
 							</span>
 						)}
 					</div>
@@ -185,7 +185,7 @@ const TrophiesScreen: React.FC = () => {
 									className="gap-2"
 								>
 									<ChevronDown className="w-4 h-4" />
-									{t('trophies.show_all') || 'VER TODO EL HISTÓRICO'}
+									{t('trophies.show_all')}
 								</Button>
 							</div>
 						)}

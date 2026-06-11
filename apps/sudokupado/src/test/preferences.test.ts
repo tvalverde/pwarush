@@ -92,7 +92,7 @@ describe('Regression: Async store actions for preferences (Fix 1.3)', () => {
 		await expect(setDifficulty('master')).resolves.toBeUndefined();
 		expect(useGameStore.getState().selectedDifficulty).toBe('master');
 		expect(consoleSpy).toHaveBeenCalledWith(
-			'Failed to persist difficulty preference:',
+			'Failed to persist player preferences:',
 			expect.any(Error),
 		);
 
@@ -113,7 +113,7 @@ describe('Regression: Async store actions for preferences (Fix 1.3)', () => {
 		await expect(setAllowNotes(false)).resolves.toBeUndefined();
 		expect(useGameStore.getState().allowNotes).toBe(false);
 		expect(consoleSpy).toHaveBeenCalledWith(
-			'Failed to persist allowNotes preference:',
+			'Failed to persist player preferences:',
 			expect.any(Error),
 		);
 
@@ -134,7 +134,7 @@ describe('Regression: Async store actions for preferences (Fix 1.3)', () => {
 		await expect(setMaxMistakes(0)).resolves.toBeUndefined();
 		expect(useGameStore.getState().maxMistakes).toBe(0);
 		expect(consoleSpy).toHaveBeenCalledWith(
-			'Failed to persist maxMistakes preference:',
+			'Failed to persist player preferences:',
 			expect.any(Error),
 		);
 
