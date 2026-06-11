@@ -6,7 +6,8 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { db } from '../db/database';
 import { clearSavedGame as clearSavedGameDb } from '../hooks/useAutoSave';
-import { useSudokuWorker } from '../hooks/useSudokuWorker';
+import { useGameHints } from '../hooks/useGameHints';
+import { useGameKeyboard } from '../hooks/useGameKeyboard';
 import { useGameStore } from '../store/gameStore';
 import { isMistakeLimitReached } from '../utils/gameState';
 import { calculateScore } from '../utils/scoring';
@@ -25,17 +26,12 @@ const GameScreen: React.FC = () => {
 	const maxMistakes = useGameStore((s) => s.maxMistakes);
 	const maxHints = useGameStore((s) => s.maxHints);
 	const currentHint = useGameStore((s) => s.currentHint);
-	const grid = useGameStore((s) => s.grid);
-	const solution = useGameStore((s) => s.solution);
-	const initialGrid = useGameStore((s) => s.initialGrid);
 
 	const {
 		setScreen,
 		setPaused,
 		incrementTime,
 		setNoteMode,
-		useHint: triggerHint,
-		setSelectedCell,
 		setCellValue,
 		toggleNote,
 		setLastGameResult,
@@ -52,8 +48,6 @@ const GameScreen: React.FC = () => {
 			setPaused: s.setPaused,
 			incrementTime: s.incrementTime,
 			setNoteMode: s.setNoteMode,
-			useHint: s.useHint,
-			setSelectedCell: s.setSelectedCell,
 			setCellValue: s.setCellValue,
 			toggleNote: s.toggleNote,
 			setLastGameResult: s.setLastGameResult,
@@ -67,7 +61,7 @@ const GameScreen: React.FC = () => {
 		})),
 	);
 
-	const { getHint } = useSudokuWorker();
+	const { requestHint, isHintDisabled } = useGameHints();
 	const wakeLockRef = useRef<WakeLockSentinel | null>(null);
 	const isMountedRef = useRef(true);
 	const victoryTimeoutRef = useRef<any>(null);
@@ -241,59 +235,7 @@ const GameScreen: React.FC = () => {
 		],
 	);
 
-	// Keyboard Navigation and Shortcuts
-	useEffect(() => {
-		const handleKeyDown = (e: KeyboardEvent) => {
-			if (isPaused || isVictory) return;
-
-			// Arrow Navigation
-			if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-				e.preventDefault();
-				if (!selectedCell) {
-					setSelectedCell(4, 4);
-					return;
-				}
-
-				let { r, c } = selectedCell;
-				if (e.key === 'ArrowUp') r = Math.max(0, r - 1);
-				if (e.key === 'ArrowDown') r = Math.min(8, r + 1);
-				if (e.key === 'ArrowLeft') c = Math.max(0, c - 1);
-				if (e.key === 'ArrowRight') c = Math.min(8, c + 1);
-
-				if (r !== selectedCell.r || c !== selectedCell.c) {
-					setSelectedCell(r, c);
-				}
-				return;
-			}
-
-			// Number Input (1-9)
-			if (/^[1-9]$/.test(e.key)) {
-				e.preventDefault();
-				handleNumberInput(Number.parseInt(e.key, 10));
-				return;
-			}
-
-			// Toggle Note Mode (N or Space)
-			if (e.key.toLowerCase() === 'n' || e.key === ' ') {
-				e.preventDefault();
-				setNoteMode(!isNoteMode);
-				return;
-			}
-		};
-
-		window.addEventListener('keydown', handleKeyDown);
-		return () => {
-			window.removeEventListener('keydown', handleKeyDown);
-		};
-	}, [
-		isPaused,
-		isVictory,
-		selectedCell,
-		isNoteMode,
-		setSelectedCell,
-		setNoteMode,
-		handleNumberInput,
-	]);
+	useGameKeyboard(handleNumberInput);
 
 	const handleRestartClick = () => {
 		vibrate(10);
@@ -464,34 +406,12 @@ const GameScreen: React.FC = () => {
 					<button
 						type="button"
 						data-testid="action-hint"
-						onClick={async () => {
+						onClick={() => {
 							vibrate(10);
-							if (maxHints <= 0 || hintsUsed >= maxHints || currentHint) return;
-
-							const cleanGrid = grid.map((row, ri) =>
-								row.map((cellVal, ci) =>
-									cellVal !== 0 && initialGrid[ri][ci] === 0 && cellVal !== solution[ri][ci]
-										? 0
-										: cellVal,
-								),
-							);
-
-							try {
-								const hint = await getHint(cleanGrid, solution);
-								triggerHint(hint);
-							} catch {
-								clearHint();
-								showDialog({
-									title: t('hints.title'),
-									message: t('hints.error'),
-									type: 'info',
-									confirmText: 'OK',
-									onConfirm: () => {},
-								});
-							}
+							requestHint();
 						}}
-						disabled={maxHints <= 0 || hintsUsed >= maxHints}
-						aria-disabled={maxHints <= 0 || hintsUsed >= maxHints}
+						disabled={isHintDisabled}
+						aria-disabled={isHintDisabled}
 						className="flex flex-col items-center justify-center py-3 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface hover:bg-surface-container disabled:opacity-30 transition-all active:scale-95"
 					>
 						<Lightbulb className="w-5 h-5 mb-1" />
