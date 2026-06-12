@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 		'inline-flex items-center justify-center font-hanken transition-all active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none';
 
 	const variants = {
-		primary: 'bg-primary text-white hover:bg-primary-container',
+		primary: 'bg-primary text-on-primary hover:bg-primary-container',
 		secondary:
 			'bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container',
 		ghost: 'bg-transparent text-on-surface hover:bg-surface-container',

@@ -97,7 +97,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 									<button
 										type="button"
 										onClick={onClose} // Closing if clicking current active is also a good QoL
-										className="bg-primary text-white rounded-DEFAULT p-4 flex items-center justify-between shadow-xs cursor-pointer w-full text-left"
+										className="bg-primary text-on-primary rounded-DEFAULT p-4 flex items-center justify-between shadow-xs cursor-pointer w-full text-left"
 									>
 										<div className="flex items-center gap-3">
 											<div className="w-10 h-10 rounded-full bg-surface-container-lowest/20 flex items-center justify-center">
@@ -105,7 +105,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 											</div>
 											<span className="font-hanken text-lg font-bold">{activePlayer.name}</span>
 										</div>
-										<CheckCircle className="w-6 h-6 text-white" />
+										<CheckCircle className="w-6 h-6 text-on-primary" />
 									</button>
 								) : (
 									<div className="p-4 border-2 border-dashed border-outline-variant rounded-DEFAULT text-center text-secondary font-sans text-sm">
@@ -221,7 +221,7 @@ const PlayerMenu: React.FC<PlayerMenuProps> = ({ isOpen, onClose }) => {
 									type="button"
 									data-testid="player-create-button"
 									onClick={() => setIsCreating(true)}
-									className="w-full bg-primary text-white rounded-full py-4 px-6 flex items-center justify-center gap-2 hover:bg-primary-container transition-colors active:scale-95 shadow-xs"
+									className="w-full bg-primary text-on-primary rounded-full py-4 px-6 flex items-center justify-center gap-2 hover:bg-primary-container transition-colors active:scale-95 shadow-xs"
 								>
 									<Plus className="w-5 h-5" />
 									<span className="font-hanken text-sm font-bold tracking-widest-premium uppercase">

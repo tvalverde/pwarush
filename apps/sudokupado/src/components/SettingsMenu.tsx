@@ -171,7 +171,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ isOpen, onClose }) => {
 												onClick={() => setLanguage(lang)}
 												className={`flex-1 py-3 rounded-full font-hanken text-xs font-bold uppercase transition-all border ${
 													language === lang
-														? 'bg-primary text-white border-transparent'
+														? 'bg-primary text-on-primary border-transparent'
 														: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 												}`}
 											>

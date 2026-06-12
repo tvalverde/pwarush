@@ -55,13 +55,13 @@ const IosInstallSteps: React.FC<IosInstallStepsProps> = ({
 
 						<ol className="space-y-3 mb-6">
 							<li className="flex items-start gap-3">
-								<span className="shrink-0 w-6 h-6 rounded-full bg-primary text-white font-hanken text-xs font-bold flex items-center justify-center">
+								<span className="shrink-0 w-6 h-6 rounded-full bg-primary text-on-primary font-hanken text-xs font-bold flex items-center justify-center">
 									1
 								</span>
 								<p className="font-sans text-sm text-secondary leading-relaxed">{step1}</p>
 							</li>
 							<li className="flex items-start gap-3">
-								<span className="shrink-0 w-6 h-6 rounded-full bg-primary text-white font-hanken text-xs font-bold flex items-center justify-center">
+								<span className="shrink-0 w-6 h-6 rounded-full bg-primary text-on-primary font-hanken text-xs font-bold flex items-center justify-center">
 									2
 								</span>
 								<p className="font-sans text-sm text-secondary leading-relaxed">{step2}</p>

@@ -36,7 +36,7 @@ const UpdateBanner: React.FC<UpdateBannerProps> = ({
 					exit={{ y: 100, opacity: 0 }}
 					className="absolute bottom-20 left-4 right-4 z-100 mx-auto max-w-[400px]"
 				>
-					<div className="bg-primary text-white p-4 rounded-2xl shadow-2xl flex flex-col items-center justify-between gap-4 border border-white/10 overflow-hidden">
+					<div className="bg-primary text-on-primary p-4 rounded-2xl shadow-2xl flex flex-col items-center justify-between gap-4 border border-on-primary/10 overflow-hidden">
 						<div className="flex flex-col gap-1 flex-1 text-center w-full">
 							<span className="font-hanken text-xs font-black uppercase tracking-widest-premium">
 								{offlineReady ? readyLabel : newVersionLabel}

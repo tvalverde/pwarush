@@ -172,7 +172,7 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setDifficulty(diff)}
 								className={`w-full py-4 px-4 rounded-full font-sans text-base transition-colors border ${
 									selectedDifficulty === diff
-										? 'bg-primary text-white border-transparent shadow-xs'
+										? 'bg-primary text-on-primary border-transparent shadow-xs'
 										: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 								}`}
 							>
@@ -218,7 +218,7 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setMaxMistakes(limit)}
 								className={`w-16 h-16 rounded-full font-hanken text-xl flex items-center justify-center transition-all border ${
 									maxMistakes === limit
-										? 'bg-primary text-white border-transparent shadow-md'
+										? 'bg-primary text-on-primary border-transparent shadow-md'
 										: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 								}`}
 							>
@@ -243,7 +243,7 @@ const MainMenuScreen: React.FC = () => {
 								onClick={() => setMaxHints(limit)}
 								className={`w-16 h-16 rounded-full font-hanken text-xl flex items-center justify-center transition-all border ${
 									maxHints === limit
-										? 'bg-primary text-white border-transparent shadow-md'
+										? 'bg-primary text-on-primary border-transparent shadow-md'
 										: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 								}`}
 							>

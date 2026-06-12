@@ -394,7 +394,7 @@ const GameScreen: React.FC = () => {
 						}}
 						className={`flex flex-col items-center justify-center py-3 rounded-xl transition-all active:scale-95 ${
 							isNoteMode
-								? 'bg-primary text-white shadow-md'
+								? 'bg-primary text-on-primary shadow-md'
 								: 'bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container'
 						}`}
 					>
@@ -508,7 +508,7 @@ const GameScreen: React.FC = () => {
 									vibrate(10);
 									applyHint();
 								}}
-								className="flex-1 bg-primary text-white py-4 rounded-xl font-hanken text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform shadow-md"
+								className="flex-1 bg-primary text-on-primary py-4 rounded-xl font-hanken text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform shadow-md"
 							>
 								{t('hints.apply')}
 							</button>

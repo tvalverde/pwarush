@@ -67,7 +67,7 @@ const TrophiesScreen: React.FC = () => {
 						</span>
 						<span className="font-sans text-sm font-bold text-on-surface">{entry.playerName}</span>
 						{isHighlighted && (
-							<span className="bg-primary text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
+							<span className="bg-primary text-on-primary text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
 								{t('trophies.recent')}
 							</span>
 						)}
@@ -137,7 +137,7 @@ const TrophiesScreen: React.FC = () => {
 						}}
 						className={`whitespace-nowrap px-4 py-2 rounded-full font-hanken text-[10px] font-bold tracking-wider uppercase border transition-colors ${
 							filterDifficulty === 'all'
-								? 'bg-primary text-white border-transparent'
+								? 'bg-primary text-on-primary border-transparent'
 								: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 						}`}
 					>
@@ -153,7 +153,7 @@ const TrophiesScreen: React.FC = () => {
 							}}
 							className={`whitespace-nowrap px-4 py-2 rounded-full font-hanken text-[10px] font-bold tracking-wider uppercase border transition-colors ${
 								filterDifficulty === diff
-									? 'bg-primary text-white border-transparent'
+									? 'bg-primary text-on-primary border-transparent'
 									: 'bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container'
 							}`}
 						>
@@ -195,7 +195,7 @@ const TrophiesScreen: React.FC = () => {
 
 			{/* Pinned Recent Entry if not in view */}
 			{shouldShowPinned && recentGameEntry && (
-				<div className="fixed bottom-0 left-0 right-0 p-5 bg-linear-to-t from-white via-white to-transparent z-50">
+				<div className="fixed bottom-0 left-0 right-0 p-5 bg-linear-to-t from-surface-container-lowest via-surface-container-lowest to-transparent z-50">
 					<div className="mb-2 text-center">
 						<span className="text-[10px] font-black text-secondary uppercase tracking-widest">
 							...
