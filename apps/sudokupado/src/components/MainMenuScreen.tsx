@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react';
 import { db } from '../db/database';
 import { useSudokuWorker } from '../hooks/useSudokuWorker';
 import { useGameStore } from '../store/gameStore';
-import type { Difficulty } from '../types';
+import type { Difficulty, GameState } from '../types';
+import { requestAppFullscreen } from '../utils/fullscreen';
 import PlayerMenu from './PlayerMenu';
 import SettingsMenu from './SettingsMenu';
+
+const preloadGameScreen = () => import('./GameScreen').catch(() => {});
 
 const MainMenuScreen: React.FC = () => {
 	const {
@@ -64,13 +67,22 @@ const MainMenuScreen: React.FC = () => {
 	const startNewGameLogic = async () => {
 		setIsLoading(true);
 		try {
-			const { initialGrid, solution } = await generatePuzzle(selectedDifficulty);
+			const [, , { initialGrid, solution }] = await Promise.all([
+				requestAppFullscreen(),
+				preloadGameScreen(),
+				generatePuzzle(selectedDifficulty),
+			]);
 			initGame(initialGrid, solution, selectedDifficulty);
 		} catch (error) {
 			console.error('Failed to generate puzzle:', error);
 		} finally {
 			setIsLoading(false);
 		}
+	};
+
+	const resumeGameLogic = async (saved: GameState) => {
+		await Promise.all([requestAppFullscreen(), preloadGameScreen()]);
+		resumeGame(saved);
 	};
 
 	const handleStartGame = async () => {
@@ -80,7 +92,7 @@ const MainMenuScreen: React.FC = () => {
 				message: t('main_menu.resume_prompt_msg'),
 				confirmText: t('main_menu.resume_prompt_confirm'),
 				cancelText: t('main_menu.resume_prompt_cancel'),
-				onConfirm: () => resumeGame(savedGame),
+				onConfirm: () => resumeGameLogic(savedGame),
 				onCancel: startNewGameLogic,
 				type: 'info',
 			});
@@ -90,9 +102,9 @@ const MainMenuScreen: React.FC = () => {
 		await startNewGameLogic();
 	};
 
-	const handleResumeGame = () => {
+	const handleResumeGame = async () => {
 		if (savedGame) {
-			resumeGame(savedGame);
+			await resumeGameLogic(savedGame);
 		}
 	};
 

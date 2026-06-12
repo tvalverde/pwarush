@@ -1,4 +1,4 @@
-import { formatDuration, isIOS } from '@pwarush/core/utils';
+import { formatDuration } from '@pwarush/core/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, Eraser, Lightbulb, Pause, Pencil, Play, RotateCcw, Trophy } from 'lucide-react';
 import type React from 'react';
@@ -9,6 +9,7 @@ import { clearSavedGame as clearSavedGameDb } from '../hooks/useAutoSave';
 import { useGameHints } from '../hooks/useGameHints';
 import { useGameKeyboard } from '../hooks/useGameKeyboard';
 import { useGameStore } from '../store/gameStore';
+import { exitAppFullscreen, requestAppFullscreen } from '../utils/fullscreen';
 import { isMistakeLimitReached } from '../utils/gameState';
 import { calculateScore } from '../utils/scoring';
 import SudokuBoard from './SudokuBoard';
@@ -93,17 +94,8 @@ const GameScreen: React.FC = () => {
 			}
 		};
 
-		const enterFullscreen = async () => {
-			if (isIOS()) return;
-			try {
-				if (document.documentElement.requestFullscreen) {
-					await document.documentElement.requestFullscreen();
-				}
-			} catch (_err) {}
-		};
-
 		requestWakeLock();
-		enterFullscreen();
+		requestAppFullscreen();
 
 		const handlePopState = () => {
 			setPaused(true);
@@ -124,9 +116,7 @@ const GameScreen: React.FC = () => {
 
 		return () => {
 			wakeLockRef.current?.release();
-			if (document.fullscreenElement) {
-				document.exitFullscreen().catch(() => {});
-			}
+			exitAppFullscreen();
 			window.removeEventListener('popstate', handlePopState);
 			document.removeEventListener('visibilitychange', handleVisibilityChange);
 		};

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { db } from '../db/database';
 import { useSudokuWorker } from '../hooks/useSudokuWorker';
 import { useGameStore } from '../store/gameStore';
+import { requestAppFullscreen } from '../utils/fullscreen';
 import InstallModal from './InstallModal';
 
 const ResultScreen: React.FC = () => {
@@ -64,7 +65,10 @@ const ResultScreen: React.FC = () => {
 	const handleNewGame = async () => {
 		setIsLoading(true);
 		try {
-			const { initialGrid, solution } = await generatePuzzle(selectedDifficulty);
+			const [, { initialGrid, solution }] = await Promise.all([
+				requestAppFullscreen(),
+				generatePuzzle(selectedDifficulty),
+			]);
 			initGame(initialGrid, solution, selectedDifficulty);
 		} catch (error) {
 			console.error('Failed to generate puzzle:', error);
