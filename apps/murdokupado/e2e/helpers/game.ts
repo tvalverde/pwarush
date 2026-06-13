@@ -35,6 +35,8 @@ export async function open(page: Page, opts: { seed?: number } = {}): Promise<vo
 	const query = opts.seed !== undefined ? `?seed=${opts.seed}` : '';
 	await page.goto(`${APP_BASE}${query}`);
 	await page.addStyleTag({ content: ANIMATIONS_OFF });
+	// Wait for the bundled fonts so snapshots are not captured mid font-swap.
+	await page.evaluate(() => document.fonts.ready);
 }
 
 export async function startCase(page: Page, difficulty = 'beginner'): Promise<void> {

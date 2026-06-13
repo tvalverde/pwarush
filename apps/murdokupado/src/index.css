@@ -5,90 +5,95 @@
 /* Scan @pwarush/core/ui components for Tailwind classes (v4 does not scan node_modules). */
 @source "../../../packages/core/src/ui";
 
-/* Room-region tints live on lazily-loaded CaseBoard cells; safelist them so they
-   are always emitted in the first CSS payload (no dev HMR timing race). */
-@source inline("bg-room-1 bg-room-2 bg-room-3 bg-room-4");
+/* These utilities live on lazily-loaded screens; safelist them so they are always
+   emitted in the first CSS payload (no dev HMR timing race). */
+@source inline("bg-room-1 bg-room-2 bg-room-3 bg-room-4 font-display");
 
 /*
-  Murdokupado palette (per-app color) — provisional clone of Sudokupado's Material
-  scheme. The semantic color contract (token names) lives in packages/core/DESIGN.md;
-  Murdokupado may diverge here later without touching core.
+  Murdokupado palette (per-app color) — "case file / pulp" identity: aged paper
+  surfaces, ink text, a crimson stamp accent and sepia secondary. The semantic
+  color contract (token names) lives in packages/core/DESIGN.md; only the values
+  diverge here. Brand narrative in apps/murdokupado/DESIGN.md.
 */
 @theme {
-	/* Surfaces */
-	--color-surface: #f6fafe;
-	--color-surface-dim: #d6dade;
-	--color-surface-bright: #f6fafe;
-	--color-surface-container-lowest: #ffffff;
-	--color-surface-container-low: #f0f4f8;
-	--color-surface-container: #eaeef2;
-	--color-surface-container-high: #e4e9ed;
-	--color-surface-container-highest: #dfe3e7;
-	--color-surface-variant: #dfe3e7;
-	--color-on-surface: #171c1f;
-	--color-on-surface-variant: #45464d;
-	--color-inverse-surface: #2c3134;
-	--color-inverse-on-surface: #edf1f5;
-	--color-surface-tint: #565e74;
+	/* App-local display face (typewriter / case-file). Body + UI typography stay
+	   shared through core (--font-sans / --font-hanken); see core/DESIGN.md. */
+	--font-display: "Courier Prime", "Courier New", monospace;
+
+	/* Surfaces — aged paper */
+	--color-surface: #f4efe4;
+	--color-surface-dim: #e1d8c4;
+	--color-surface-bright: #fffdf7;
+	--color-surface-container-lowest: #fffdf7;
+	--color-surface-container-low: #f7f2e8;
+	--color-surface-container: #efe8d9;
+	--color-surface-container-high: #e8e0cd;
+	--color-surface-container-highest: #e1d8c4;
+	--color-surface-variant: #e6ddc9;
+	--color-on-surface: #1a1714;
+	--color-on-surface-variant: #5a4f43;
+	--color-inverse-surface: #2b231b;
+	--color-inverse-on-surface: #f4efe4;
+	--color-surface-tint: #8c1c13;
 
 	/* Background */
-	--color-background: #f6fafe;
-	--color-on-background: #171c1f;
+	--color-background: #f4efe4;
+	--color-on-background: #1a1714;
 
-	/* Outlines */
-	--color-outline: #76777d;
-	--color-outline-variant: #c6c6cd;
+	/* Outlines — sepia rules */
+	--color-outline: #8a7a66;
+	--color-outline-variant: #cdbfa8;
 
-	/* Primary */
-	--color-primary: #000000;
-	--color-on-primary: #ffffff;
-	--color-primary-container: #131b2e;
-	--color-on-primary-container: #7c839b;
-	--color-inverse-primary: #bec6e0;
-	--color-primary-fixed: #dae2fd;
-	--color-primary-fixed-dim: #bec6e0;
-	--color-on-primary-fixed: #131b2e;
-	--color-on-primary-fixed-variant: #3f465c;
+	/* Primary — ink (buttons, person tokens, grid lines) */
+	--color-primary: #241c15;
+	--color-on-primary: #f7f2e8;
+	--color-primary-container: #3a2e22;
+	--color-on-primary-container: #d9c9b3;
+	--color-inverse-primary: #cdbfa8;
+	--color-primary-fixed: #e8dcc7;
+	--color-primary-fixed-dim: #d6c5a9;
+	--color-on-primary-fixed: #241c15;
+	--color-on-primary-fixed-variant: #4a3b2c;
 
-	/* Secondary */
-	--color-secondary: #595f66;
-	--color-on-secondary: #ffffff;
-	--color-secondary-container: #dde3eb;
-	--color-on-secondary-container: #5f656c;
-	--color-secondary-fixed: #dde3eb;
-	--color-secondary-fixed-dim: #c1c7cf;
-	--color-on-secondary-fixed: #161c22;
-	--color-on-secondary-fixed-variant: #41474e;
+	/* Secondary — sepia */
+	--color-secondary: #6b5d4f;
+	--color-on-secondary: #fffdf7;
+	--color-secondary-container: #e8ddc9;
+	--color-on-secondary-container: #4a3f33;
+	--color-secondary-fixed: #e8ddc9;
+	--color-secondary-fixed-dim: #d4c6ad;
+	--color-on-secondary-fixed: #241c15;
+	--color-on-secondary-fixed-variant: #4a3f33;
 
-	/* Tertiary (amber accents) */
-	--color-tertiary: #000000;
-	--color-on-tertiary: #ffffff;
-	--color-tertiary-container: #271901;
-	--color-on-tertiary-container: #98805d;
-	--color-tertiary-fixed: #fcdeb5;
-	--color-tertiary-fixed-dim: #dec29a;
-	--color-on-tertiary-fixed: #271901;
-	--color-on-tertiary-fixed-variant: #574425;
+	/* Tertiary — crimson stamp accent */
+	--color-tertiary: #8c1c13;
+	--color-on-tertiary: #fffdf7;
+	--color-tertiary-container: #f3d9d2;
+	--color-on-tertiary-container: #5e120c;
+	--color-tertiary-fixed: #f3d9d2;
+	--color-tertiary-fixed-dim: #e3b3a8;
+	--color-on-tertiary-fixed: #2e0805;
+	--color-on-tertiary-fixed-variant: #6e150e;
 
-	/* Error / danger */
-	--color-error: #ba1a1a;
-	--color-on-error: #ffffff;
-	--color-error-container: #ffdad6;
-	--color-on-error-container: #93000a;
+	/* Error / danger — deep red ink */
+	--color-error: #a3170c;
+	--color-on-error: #fffdf7;
+	--color-error-container: #f6d8d2;
+	--color-on-error-container: #5e120c;
 
-	/* Extended feedback roles: success / warning / info */
-	--color-success: #22c55e;
-	--color-on-success: #ffffff;
-	--color-success-container: #f0fdf4;
-	--color-on-success-container: #15803d;
-	--color-warning: #eab308;
-	--color-on-warning: #ffffff;
-	--color-warning-container: #fef9c3;
-	--color-on-warning-container: #713f12;
-	--color-info: #3b82f6;
-	--color-on-info: #ffffff;
-	--color-info-container: #dbeafe;
-	--color-on-info-container: #1e3a8a;
+	/* Extended feedback roles, harmonised to the paper scheme */
+	--color-success: #4a6b3f;
+	--color-on-success: #fffdf7;
+	--color-success-container: #e4ead7;
+	--color-on-success-container: #2f4a26;
+	--color-warning: #9a6b1a;
+	--color-on-warning: #fffdf7;
+	--color-warning-container: #f3e6c8;
+	--color-on-warning-container: #5e3f0e;
+	--color-info: #3a5a7a;
+	--color-on-info: #fffdf7;
+	--color-info-container: #dbe6f0;
+	--color-on-info-container: #233b52;
 
 	/*
 	  Room-region tints — soft, low-saturation backgrounds assigned by room order
@@ -97,10 +102,10 @@
 	  while the noir identity is pending; tuned for readable separation in the light
 	  scheme without competing with the black grid lines or person tokens.
 	*/
-	--color-room-1: #e4e9f0;
-	--color-room-2: #c5dcf2;
-	--color-room-3: #f1e4bf;
-	--color-room-4: #cbe7d2;
+	--color-room-1: #ece1cb;
+	--color-room-2: #d8e2e6;
+	--color-room-3: #f2dfb8;
+	--color-room-4: #dde6cf;
 }
 
 /*

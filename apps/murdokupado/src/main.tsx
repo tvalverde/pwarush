@@ -1,3 +1,7 @@
+import '@fontsource-variable/hanken-grotesk';
+import '@fontsource-variable/inter';
+import '@fontsource/courier-prime/400.css';
+import '@fontsource/courier-prime/700.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

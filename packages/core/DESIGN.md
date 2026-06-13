@@ -71,6 +71,10 @@ PWARUSH uses a dual-sans-serif pairing to distinguish between branding and utili
 
 The named type ramp (`headline-lg`, `headline-md`, `body-lg`, `body-md`, `label-caps`, `number-grid`) is defined in the frontmatter above and is the canonical scale for all apps.
 
+### Optional per-app display face
+
+Body and interface typography (`--font-sans` / `--font-hanken`) are **shared** and must not be overridden per app. An app MAY, however, add a single **app-local display face** — `--font-display` in its own `@theme` — for brand surfaces only (wordmark, screen titles, and themed evidence such as a clue list). This is the one sanctioned typographic divergence: it carries brand identity without forking the shared reading typography. Apps that do this document the face and where it is applied in their own `apps/<app>/DESIGN.md`. (Murdokupado uses a typewriter face for its case-file identity; Sudokupado defines none.)
+
 ## Layout & Spacing
 
 A **Mobile-First Fixed Grid** philosophy. As PWAs, the interfaces are optimized for handheld portrait use.

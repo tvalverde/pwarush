@@ -15,7 +15,9 @@ export default defineConfig({
 			createPwaConfig({
 				name: 'MURDOKUPADO',
 				shortName: 'Murdokupado',
-				description: 'A Latin-square detective puzzle — coming soon',
+				description: 'A Latin-square detective puzzle',
+				themeColor: '#f4efe4',
+				backgroundColor: '#f4efe4',
 				basePath: '/pwarush/murdokupado/',
 				scope: '/pwarush/murdokupado/',
 				startUrl: '/pwarush/murdokupado/',

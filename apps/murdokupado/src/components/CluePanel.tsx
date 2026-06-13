@@ -18,7 +18,7 @@ const CluePanel: React.FC<CluePanelProps> = ({ scene }) => {
 
 	return (
 		<section className="flex flex-col gap-2">
-			<h3 className="font-hanken text-xs font-bold uppercase tracking-widest-premium text-secondary">
+			<h3 className="font-display text-xs font-bold uppercase tracking-widest-premium text-secondary">
 				{t('game.clues')}
 			</h3>
 			<ul className="flex flex-col gap-2">
@@ -30,7 +30,7 @@ const CluePanel: React.FC<CluePanelProps> = ({ scene }) => {
 								type="button"
 								data-testid={`clue-${index}`}
 								onClick={() => toggleClueCheck(index)}
-								className={`w-full rounded-DEFAULT border border-outline-variant px-4 py-3 text-left font-sans text-sm transition-colors ${
+								className={`w-full rounded-DEFAULT border border-outline-variant px-4 py-3 text-left font-display text-sm transition-colors ${
 									checked
 										? 'bg-surface-container text-secondary line-through'
 										: 'bg-surface-container-lowest text-on-surface'

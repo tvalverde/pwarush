@@ -129,7 +129,7 @@ const GameScreen: React.FC = () => {
 
 				<section className="flex flex-col gap-2">
 					<div className="flex items-center justify-between">
-						<h3 className="font-hanken text-xs font-bold uppercase tracking-widest-premium text-secondary">
+						<h3 className="font-display text-xs font-bold uppercase tracking-widest-premium text-secondary">
 							{t('game.suspects')}
 						</h3>
 						<button

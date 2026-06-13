@@ -91,7 +91,7 @@ const MainMenuScreen: React.FC = () => {
 	return (
 		<div className="flex h-full flex-col">
 			<header className="flex h-16 w-full items-center justify-center border-b border-outline-variant bg-surface-container-lowest px-5">
-				<h1 className="font-hanken text-xl font-extrabold uppercase tracking-widest-premium text-on-surface">
+				<h1 className="font-display text-xl font-bold uppercase tracking-widest-premium text-on-surface">
 					{t('main_menu.title')}
 				</h1>
 			</header>
@@ -128,7 +128,7 @@ const MainMenuScreen: React.FC = () => {
 				)}
 
 				<section className="space-y-4">
-					<h3 className="text-center font-hanken text-xs font-bold uppercase tracking-widest-premium text-secondary">
+					<h3 className="text-center font-display text-xs font-bold uppercase tracking-widest-premium text-secondary">
 						{t('main_menu.difficulty_label')}
 					</h3>
 					<div className="grid grid-cols-2 gap-3">
