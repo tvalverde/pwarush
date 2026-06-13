@@ -1,3 +1,4 @@
+import { exitAppFullscreen, requestAppFullscreen } from '@pwarush/core/utils';
 import { ArrowLeft, Eraser, RotateCcw } from 'lucide-react';
 import type React from 'react';
 import { useEffect } from 'react';
@@ -36,6 +37,16 @@ const GameScreen: React.FC = () => {
 		const id = setInterval(() => incrementTime(), 1000);
 		return () => clearInterval(id);
 	}, [incrementTime]);
+
+	// The board mounts already in fullscreen (requested during the Play gesture);
+	// this re-request is idempotent and only matters when the screen is reached by
+	// other means. Leaving the screen exits fullscreen.
+	useEffect(() => {
+		requestAppFullscreen();
+		return () => {
+			exitAppFullscreen();
+		};
+	}, []);
 
 	useEffect(() => {
 		if (lastResult) {

@@ -1,4 +1,5 @@
 import { Button } from '@pwarush/core/ui';
+import { requestAppFullscreen } from '@pwarush/core/utils';
 import { Play, PlayCircle } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
@@ -8,6 +9,10 @@ import { useGameStore } from '../store/gameStore';
 import type { Difficulty, GameSnapshot } from '../types';
 
 const DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'expert', 'master'];
+
+// Preload the game chunk during the Play gesture so navigation never falls back
+// to a Suspense placeholder while the menu is still on screen.
+const preloadGameScreen = () => import('./GameScreen').catch(() => {});
 
 const MainMenuScreen: React.FC = () => {
 	const selectedDifficulty = useGameStore((s) => s.selectedDifficulty);
@@ -36,16 +41,28 @@ const MainMenuScreen: React.FC = () => {
 		};
 	}, []);
 
+	// Fullscreen + chunk preload + generation run together while the menu is still
+	// painted (with its loading label), so entering the game never flashes a black
+	// fullscreen-transition frame nor a Suspense fallback on the destination screen.
 	const startNewGame = async () => {
 		setIsLoading(true);
 		try {
-			const { case: generated } = await generate(selectedDifficulty);
+			const [, , { case: generated }] = await Promise.all([
+				requestAppFullscreen(),
+				preloadGameScreen(),
+				generate(selectedDifficulty),
+			]);
 			initGame(generated);
 		} catch (error) {
 			console.error('Failed to generate case:', error);
 		} finally {
 			setIsLoading(false);
 		}
+	};
+
+	const resumeSavedGame = async (saved: GameSnapshot) => {
+		await Promise.all([requestAppFullscreen(), preloadGameScreen()]);
+		resumeGame(saved);
 	};
 
 	const handlePlay = () => {
@@ -56,7 +73,7 @@ const MainMenuScreen: React.FC = () => {
 				confirmText: t('main_menu.resume_prompt_confirm'),
 				cancelText: t('main_menu.resume_prompt_cancel'),
 				type: 'info',
-				onConfirm: () => resumeGame(savedGame),
+				onConfirm: () => resumeSavedGame(savedGame),
 				onCancel: startNewGame,
 			});
 			return;
@@ -95,7 +112,7 @@ const MainMenuScreen: React.FC = () => {
 							size="sm"
 							className="gap-2"
 							data-testid="resume-saved-game"
-							onClick={() => resumeGame(savedGame)}
+							onClick={() => resumeSavedGame(savedGame)}
 						>
 							<PlayCircle className="h-4 w-4" />
 							{t('main_menu.resume_prompt_confirm')}

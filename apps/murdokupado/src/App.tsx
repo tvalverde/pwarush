@@ -1,13 +1,16 @@
 import { Layout } from '@pwarush/core/ui';
+import { lazy, Suspense } from 'react';
 import AppConfirmDialog from './components/AppConfirmDialog';
-import GameScreen from './components/GameScreen';
-import MainMenuScreen from './components/MainMenuScreen';
-import ResultScreen from './components/ResultScreen';
 import { useAutoSave } from './hooks/useAutoSave';
 import { useGameStore } from './store/gameStore';
 
+const MainMenuScreen = lazy(() => import('./components/MainMenuScreen'));
+const GameScreen = lazy(() => import('./components/GameScreen'));
+const ResultScreen = lazy(() => import('./components/ResultScreen'));
+
 export default function App() {
 	const activeScreen = useGameStore((s) => s.activeScreen);
+	const t = useGameStore((s) => s.t);
 
 	useAutoSave();
 
@@ -24,7 +27,15 @@ export default function App() {
 
 	return (
 		<Layout>
-			{renderScreen()}
+			<Suspense
+				fallback={
+					<div className="flex h-full items-center justify-center font-hanken text-xs uppercase tracking-widest-premium text-secondary animate-pulse">
+						{t('app.loading')}
+					</div>
+				}
+			>
+				{renderScreen()}
+			</Suspense>
 			<AppConfirmDialog />
 		</Layout>
 	);

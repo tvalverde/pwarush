@@ -1,5 +1,8 @@
 export const translations = {
 	en: {
+		app: {
+			loading: 'Loading...',
+		},
 		main_menu: {
 			title: 'Murdokupado',
 			greeting: 'Hello,',
@@ -74,6 +77,9 @@ export const translations = {
 		},
 	},
 	es: {
+		app: {
+			loading: 'Cargando...',
+		},
 		main_menu: {
 			title: 'Murdokupado',
 			greeting: 'Hola,',
