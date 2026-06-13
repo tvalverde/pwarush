@@ -25,7 +25,20 @@ A warm, low-saturation paper scheme. Concrete `--color-*` values live in `src/in
 
 ### Room-region tints
 
-The case board paints each room with a distinct background so adjacent rooms read as separate map regions. These are Murdokupado-specific tokens (`--color-room-1..4` in `src/index.css`), assigned by room order; components reference only the generated `bg-room-*` utilities, never raw values (rule 4). The tints are warm file-folder tones with one cool "blueprint" among them for separation: manila, blueprint blue-grey, tan/ochre and sage ledger — distinguishable without competing with the ink grid lines or person tokens.
+The case board paints each room's floor with a distinct tint so adjacent rooms read as separate map regions. These are Murdokupado-specific tokens (`--color-room-1..4` in `src/index.css`), assigned by room order. The `FloorPlan` SVG consumes them directly as floor fills via `var(--color-room-*)` — the values live in the token layer, the component references the tokens, never raw hex (rule 4). The tints are warm file-folder tones with one cool "blueprint" among them for separation: manila, blueprint blue-grey, tan/ochre and sage ledger — distinguishable without competing with the ink wall lines or person tokens.
+
+### Illustrated board (crime-scene floor plan)
+
+The board is rendered as a **top-down ink floor plan**, derived procedurally from the scene geometry — no per-scene art, so it scales to any new scene for free. The render is split into two superimposed layers:
+
+- **`FloorPlan` (SVG, background, non-interactive):** room floors tinted by `--color-room-*`, **ink walls** (`var(--color-primary)`) traced along every edge between distinct regions (room borders, blocked-cell outlines and the outer perimeter), object glyphs, and a 45° ink hatch over blocked cells (rubble). Geometry comes from the pure `computeFloorPlan(scene)` (`src/engine/floorplan.ts`); the wall-tracing rule covers L-shaped and column-shaped rooms.
+- **Interaction layer (transparent button grid):** preserves hit-areas, keyboard focus and test hooks; renders the person tokens on top.
+
+**Top-down is a puzzle constraint, not a style choice:** clues read "in row 2 / column 3", so the row/column legibility of a Latin square must survive — an isometric view would destroy it.
+
+**Object glyphs** (`board/ObjectGlyph.tsx`): a Murdokupado-specific set of monochrome ink glyphs (one per `ObjectKind`), drawn in a 24×24 local viewBox in the sepia stroke (`var(--color-secondary)`), replacing the generic `lucide` icons on the board (lucide stays for app chrome). 
+
+**Person tokens** (`board/PersonToken.tsx`): a **case-file dossier card** — an ink-dark body (`--color-primary`) with a generic portrait silhouette and the initial set in the display face (Courier Prime), plus a deterministic per-person accent band (stable hash of the id over a few subdued paper-harmonised tones). The **victim** is drawn differently: a chalk-outline silhouette (`--color-error`, dashed) over paper, reading as "the body" — it is known case data, so distinguishing it is correct. Selection and the murderer reveal use a crimson (`--color-tertiary`) ring.
 
 ### Display face (typewriter)
 

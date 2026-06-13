@@ -5,8 +5,12 @@
 /* Scan @pwarush/core/ui components for Tailwind classes (v4 does not scan node_modules). */
 @source "../../../packages/core/src/ui";
 
-/* These utilities live on lazily-loaded screens; safelist them so they are always
-   emitted in the first CSS payload (no dev HMR timing race). */
+/* Safelisted so these are always emitted in the first CSS payload. font-display
+   lives on lazily-loaded screens (no dev HMR timing race). The bg-room-* classes
+   are NOT applied as classes anymore (the FloorPlan SVG fills floors via
+   var(--color-room-*)), but Tailwind v4 only emits a --color-* custom property
+   when some generated utility references it; safelisting bg-room-1..4 keeps the
+   room tint variables alive so the SVG var() references resolve. */
 @source inline("bg-room-1 bg-room-2 bg-room-3 bg-room-4 font-display");
 
 /*
@@ -97,10 +101,10 @@
 
 	/*
 	  Room-region tints — soft, low-saturation backgrounds assigned by room order
-	  so adjacent rooms read as distinct map regions. Components reference the
-	  generated bg-room-* utilities only; the values live here (rule 4). Provisional
-	  while the noir identity is pending; tuned for readable separation in the light
-	  scheme without competing with the black grid lines or person tokens.
+	  so adjacent rooms read as distinct map regions. Consumed by the FloorPlan SVG
+	  as floor fills via var(--color-room-*) (rule 4: the values live here, the
+	  component references the tokens). Tuned for readable separation in the light
+	  scheme without competing with the ink wall lines or person tokens.
 	*/
 	--color-room-1: #ece1cb;
 	--color-room-2: #d8e2e6;
