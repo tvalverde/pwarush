@@ -49,6 +49,29 @@ const FloorPlan: React.FC<{ scene: Scene }> = ({ scene }) => {
 				/>
 			))}
 
+			{Array.from({ length: Math.max(0, size - 1) }, (_, i) => i + 1).map((line) => (
+				<g key={`grid-${line}`}>
+					<line
+						data-grid=""
+						x1={line}
+						y1={0}
+						x2={line}
+						y2={size}
+						stroke="var(--color-outline-variant)"
+						strokeWidth={0.02}
+					/>
+					<line
+						data-grid=""
+						x1={0}
+						y1={line}
+						x2={size}
+						y2={line}
+						stroke="var(--color-outline-variant)"
+						strokeWidth={0.02}
+					/>
+				</g>
+			))}
+
 			{blocked.map((cell) => (
 				<rect
 					key={`blocked-${cell.r}-${cell.c}`}

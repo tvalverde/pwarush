@@ -36,6 +36,13 @@ describe('FloorPlan', () => {
 		expect(room1Rects.length).toBeGreaterThan(0);
 	});
 
+	it('draws a faint per-cell grid line for every interior division', () => {
+		const { container } = render(<FloorPlan scene={courtroom} />);
+		const gridLines = container.querySelectorAll('line[data-grid]');
+		// (size - 1) interior divisions per axis, both axes.
+		expect(gridLines).toHaveLength((courtroom.size - 1) * 2);
+	});
+
 	it('labels each room with its translated zone name', () => {
 		const { container } = render(<FloorPlan scene={courtroom} />);
 		const labels = container.querySelectorAll('text');
