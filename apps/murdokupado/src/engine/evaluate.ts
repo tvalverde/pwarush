@@ -1,8 +1,5 @@
+import { sameCell } from './grid';
 import type { CellRef, Clue, ClueEvaluation, PersonId, Placement, Room, Scene } from './types';
-
-function sameCell(a: CellRef, b: CellRef): boolean {
-	return a.r === b.r && a.c === b.c;
-}
 
 export function roomOf(scene: Scene, cell: CellRef): Room | undefined {
 	return scene.rooms.find((room) => room.cells.some((c) => sameCell(c, cell)));

@@ -1,0 +1,259 @@
+import { courtroom, shop } from '../data/scenes';
+import { evaluateClue, occupantsOfRoom } from './evaluate';
+import { isOccupiable } from './grid';
+import { createRng, pick, type Rng, shuffleInPlace } from './rng';
+import { countSolutions, solve } from './solver';
+import type { Case, CellRef, Clue, Difficulty, PersonId, Placement, Scene } from './types';
+
+const TIER_ORDER: Difficulty[] = ['beginner', 'intermediate', 'expert', 'master'];
+
+const PLACEMENT_RESAMPLE_LIMIT = 100;
+const GENERATION_ATTEMPT_LIMIT = 50;
+const OFFSET_BOUND = 2;
+
+interface VictimAssignment {
+	victimId: PersonId;
+	murdererId: PersonId;
+}
+
+interface SolvedScene extends VictimAssignment {
+	placement: Placement;
+}
+
+export function sceneForDifficulty(difficulty: Difficulty): Scene {
+	return difficulty === 'beginner' ? courtroom : shop;
+}
+
+/**
+ * Backtracking assignment of one occupiable cell per row with distinct columns,
+ * exploring columns in a shuffled order so the resulting permutation is random
+ * yet reproducible for a given RNG stream.
+ */
+function sampleAssignment(scene: Scene, rng: Rng): CellRef[] | null {
+	const usedCols = new Set<number>();
+	const assignment: CellRef[] = [];
+
+	const backtrack = (row: number): boolean => {
+		if (row === scene.size) {
+			return true;
+		}
+		const columns = shuffleInPlace(
+			Array.from({ length: scene.size }, (_, c) => c),
+			rng,
+		);
+		for (const c of columns) {
+			if (usedCols.has(c) || !isOccupiable(scene, { r: row, c })) {
+				continue;
+			}
+			usedCols.add(c);
+			assignment[row] = { r: row, c };
+			if (backtrack(row + 1)) {
+				return true;
+			}
+			usedCols.delete(c);
+		}
+		return false;
+	};
+
+	return backtrack(0) ? assignment : null;
+}
+
+export function samplePlacement(scene: Scene, rng: Rng): Placement {
+	const assignment = sampleAssignment(scene, rng);
+	if (!assignment) {
+		throw new Error(`Scene "${scene.id}" admits no permutation placement.`);
+	}
+	const people = shuffleInPlace(scene.cast.slice(), rng);
+	const placement: Placement = {};
+	people.forEach((person, index) => {
+		placement[person.id] = assignment[index];
+	});
+	return placement;
+}
+
+/**
+ * Lone-murderer invariant (§4.4): the victim must share a room with exactly one
+ * other person, who becomes the murderer. Returns every valid (victim, murderer)
+ * pairing so the caller can choose one uniformly.
+ */
+function victimAssignments(scene: Scene, placement: Placement): VictimAssignment[] {
+	const assignments: VictimAssignment[] = [];
+	for (const room of scene.rooms) {
+		const occupants = occupantsOfRoom(room, placement);
+		if (occupants.length === 2) {
+			assignments.push({ victimId: occupants[0], murdererId: occupants[1] });
+			assignments.push({ victimId: occupants[1], murdererId: occupants[0] });
+		}
+	}
+	return assignments;
+}
+
+function sampleSolvedScene(scene: Scene, rng: Rng): SolvedScene {
+	for (let attempt = 0; attempt < PLACEMENT_RESAMPLE_LIMIT; attempt++) {
+		const placement = samplePlacement(scene, rng);
+		const assignments = victimAssignments(scene, placement);
+		if (assignments.length > 0) {
+			return { placement, ...pick(assignments, rng) };
+		}
+	}
+	throw new Error(
+		`Scene "${scene.id}" never yielded a lone-murderer placement in ${PLACEMENT_RESAMPLE_LIMIT} samples.`,
+	);
+}
+
+function cellOf(placement: Placement, person: PersonId): CellRef {
+	const cell = placement[person];
+	if (!cell) {
+		throw new Error(`Placement is missing person "${person}".`);
+	}
+	return cell;
+}
+
+/**
+ * Every catalog clue that holds in the (complete) solution, bounded as in §4.2:
+ * offsets only within |d| <= 2, ordered pairs taken once (a before b in cast
+ * order). The full set always pins the placement uniquely because it includes
+ * `in_row` + `in_column` for every person.
+ */
+export function enumerateTrueClues(scene: Scene, placement: Placement): Clue[] {
+	const clues: Clue[] = [];
+	const cast = scene.cast;
+
+	for (const person of cast) {
+		const cell = cellOf(placement, person.id);
+		clues.push({ type: 'in_row', person: person.id, row: cell.r });
+		clues.push({ type: 'in_column', person: person.id, col: cell.c });
+		for (const room of scene.rooms) {
+			const inside = room.cells.some((c) => c.r === cell.r && c.c === cell.c);
+			clues.push(
+				inside
+					? { type: 'in_room', person: person.id, room: room.id }
+					: { type: 'not_in_room', person: person.id, room: room.id },
+			);
+		}
+		for (const object of scene.objects) {
+			const candidate: Clue = { type: 'beside_object', person: person.id, object: object.kind };
+			if (evaluateClue(candidate, scene, placement) === 'satisfied') {
+				clues.push(candidate);
+			}
+		}
+		const aloneCandidate: Clue = { type: 'alone', person: person.id };
+		if (evaluateClue(aloneCandidate, scene, placement) === 'satisfied') {
+			clues.push(aloneCandidate);
+		}
+	}
+
+	for (let i = 0; i < cast.length; i++) {
+		for (let j = i + 1; j < cast.length; j++) {
+			const a = cast[i].id;
+			const b = cast[j].id;
+			const cellA = cellOf(placement, a);
+			const cellB = cellOf(placement, b);
+
+			const pairCandidates: Clue[] = [
+				{ type: 'adjacent_to_person', a, b },
+				{ type: 'same_room', a, b },
+				{ type: 'alone_with', a, b },
+			];
+			for (const candidate of pairCandidates) {
+				if (evaluateClue(candidate, scene, placement) === 'satisfied') {
+					clues.push(candidate);
+				}
+			}
+
+			const dRow = cellA.r - cellB.r;
+			const dCol = cellA.c - cellB.c;
+			if (Math.abs(dRow) <= OFFSET_BOUND && Math.abs(dCol) <= OFFSET_BOUND) {
+				clues.push({ type: 'offset', a, b, dRow, dCol });
+			}
+		}
+	}
+
+	return clues;
+}
+
+/**
+ * A `same_room` or `alone_with` clue between the murderer and the victim would
+ * name the solution outright, so it is never included in a case (§4.4).
+ */
+function revealsKiller(clue: Clue, assignment: VictimAssignment): boolean {
+	if (clue.type !== 'same_room' && clue.type !== 'alone_with') {
+		return false;
+	}
+	const pair = new Set([clue.a, clue.b]);
+	return pair.has(assignment.murdererId) && pair.has(assignment.victimId);
+}
+
+/**
+ * Greedy pruning over a shuffled clue order: a clue is dropped iff the remaining
+ * set still admits exactly one solution. Passes repeat to a fixpoint so the
+ * result is locally minimal — no surviving clue can be removed on its own
+ * without losing uniqueness.
+ */
+function pruneClues(scene: Scene, clues: Clue[], rng: Rng): Clue[] {
+	let kept = shuffleInPlace(clues.slice(), rng);
+	let removedSomething = true;
+	while (removedSomething) {
+		removedSomething = false;
+		for (const clue of kept.slice()) {
+			const candidate = kept.filter((c) => c !== clue);
+			if (countSolutions(scene, candidate, 2) === 1) {
+				kept = candidate;
+				removedSomething = true;
+			}
+		}
+	}
+	return kept;
+}
+
+export function classifyDifficulty(scene: Scene, clues: Clue[]): Difficulty {
+	if (solve(scene, clues, { techniques: 'unary', propagateOnly: true }).placement) {
+		return 'beginner';
+	}
+	if (solve(scene, clues, { techniques: 'arc', propagateOnly: true }).placement) {
+		return 'intermediate';
+	}
+	const outcome = solve(scene, clues, { techniques: 'arc' });
+	if (outcome.placement && outcome.maxGuessDepth <= 2) {
+		return 'expert';
+	}
+	return 'master';
+}
+
+export function generateCase(scene: Scene, difficulty: Difficulty, seed: number): Case {
+	const rng = createRng(seed);
+	const targetIndex = TIER_ORDER.indexOf(difficulty);
+	let best: { value: Case; distance: number } | null = null;
+
+	for (let attempt = 0; attempt < GENERATION_ATTEMPT_LIMIT; attempt++) {
+		const solved = sampleSolvedScene(scene, rng);
+		const trueClues = enumerateTrueClues(scene, solved.placement).filter(
+			(clue) => !revealsKiller(clue, solved),
+		);
+		const clues = pruneClues(scene, trueClues, rng);
+		const classified = classifyDifficulty(scene, clues);
+		const value: Case = {
+			sceneId: scene.id,
+			people: scene.cast.slice(),
+			victimId: solved.victimId,
+			clues,
+			solution: solved.placement,
+			difficulty: classified,
+			murdererId: solved.murdererId,
+		};
+		if (classified === difficulty) {
+			return value;
+		}
+		const distance = Math.abs(TIER_ORDER.indexOf(classified) - targetIndex);
+		if (!best || distance < best.distance) {
+			best = { value, distance };
+		}
+	}
+
+	if (!best) {
+		throw new Error(
+			`Scene "${scene.id}" produced no case in ${GENERATION_ATTEMPT_LIMIT} attempts.`,
+		);
+	}
+	return best.value;
+}

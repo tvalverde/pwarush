@@ -1,4 +1,5 @@
 import { evaluateClue, neighbours, roomOf } from './evaluate';
+import { cellKey, occupiableCells, sameCell } from './grid';
 import type { CellRef, Clue, PersonId, Placement, Scene } from './types';
 
 export type PropagationLevel = 'unary' | 'arc';
@@ -12,28 +13,6 @@ export interface SolveOutcome {
 	placement: Placement | null;
 	usedSearch: boolean;
 	maxGuessDepth: number;
-}
-
-function sameCell(a: CellRef, b: CellRef): boolean {
-	return a.r === b.r && a.c === b.c;
-}
-
-function cellKey(cell: CellRef): number {
-	return cell.r * 1000 + cell.c;
-}
-
-function occupiableCells(scene: Scene): CellRef[] {
-	const cells: CellRef[] = [];
-	for (let r = 0; r < scene.size; r++) {
-		for (let c = 0; c < scene.size; c++) {
-			const blocked = scene.blockedCells.some((b) => sameCell(b, { r, c }));
-			const hasObject = scene.objects.some((o) => sameCell(o.cell, { r, c }));
-			if (!blocked && !hasObject) {
-				cells.push({ r, c });
-			}
-		}
-	}
-	return cells;
 }
 
 function besideObjectCells(scene: Scene, cells: CellRef[], object: string): CellRef[] {
