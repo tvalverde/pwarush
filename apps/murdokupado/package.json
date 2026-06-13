@@ -13,8 +13,10 @@
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.8",
 		"@pwarush/core": "*",
+		"dexie": "^4.4.3",
 		"react": "^19.2.5",
-		"react-dom": "^19.2.5"
+		"react-dom": "^19.2.5",
+		"zustand": "^4.5.7"
 	},
 	"devDependencies": {
 		"@tailwindcss/vite": "^4.3.0",
