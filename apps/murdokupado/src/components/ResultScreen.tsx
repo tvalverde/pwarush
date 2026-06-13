@@ -62,7 +62,9 @@ const ResultScreen: React.FC = () => {
 				<div className="flex justify-between border-t border-outline-variant pt-4 font-hanken text-sm text-on-surface">
 					<span>
 						{t('result.time_label')}:{' '}
-						<strong className="tabular-nums">{formatTime(lastResult.timeElapsed)}</strong>
+						<strong data-testid="result-time" className="tabular-nums">
+							{formatTime(lastResult.timeElapsed)}
+						</strong>
 					</span>
 					<span>
 						{t('result.mistakes_label')}: <strong>{lastResult.mistakes}</strong>

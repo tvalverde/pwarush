@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('app shell loads', async ({ page }) => {
-	await page.goto('/');
+	await page.goto('/pwarush/murdokupado/');
 	await expect(page.getByRole('heading', { name: /MURDOKUPADO/i })).toBeVisible();
 });
 
@@ -15,7 +15,7 @@ test('manifest is reachable and valid', async ({ page }) => {
 });
 
 test('service worker registers with correct scope', async ({ page }) => {
-	await page.goto('/');
+	await page.goto('/pwarush/murdokupado/');
 	const swScope = await page.evaluate(async () => {
 		const reg = await navigator.serviceWorker.ready;
 		return reg.scope;

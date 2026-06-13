@@ -26,6 +26,13 @@ const MainMenuScreen: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const { generate } = useMurdokuWorker();
 
+	// E2E-only deterministic seed: `?seed=N` forces a reproducible case so visual
+	// snapshots and the golden path are stable. Ignored outside E2E builds.
+	const e2eSeed =
+		import.meta.env.VITE_E2E === '1' && typeof window !== 'undefined'
+			? Number(new URLSearchParams(window.location.search).get('seed')) || undefined
+			: undefined;
+
 	useEffect(() => {
 		let cancelled = false;
 		db.gameState
@@ -50,7 +57,7 @@ const MainMenuScreen: React.FC = () => {
 			const [, , { case: generated }] = await Promise.all([
 				requestAppFullscreen(),
 				preloadGameScreen(),
-				generate(selectedDifficulty),
+				generate(selectedDifficulty, e2eSeed),
 			]);
 			initGame(generated);
 		} catch (error) {

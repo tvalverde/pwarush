@@ -48,6 +48,15 @@ export default defineConfig({
 			},
 		},
 		{
+			name: 'murdokupado-mobile',
+			testDir: './apps/murdokupado/e2e/specs',
+			use: {
+				...devices['Pixel 5'],
+				baseURL: 'http://localhost:5174/pwarush/murdokupado/',
+				trace: 'on-first-retry',
+			},
+		},
+		{
 			name: 'elfarsante-desktop',
 			testDir: './apps/elfarsante/e2e/specs',
 			use: {
@@ -84,6 +93,9 @@ export default defineConfig({
 			url: 'http://localhost:5174/pwarush/murdokupado/',
 			reuseExistingServer: !process.env.CI,
 			timeout: 120_000,
+			env: {
+				VITE_E2E: '1',
+			},
 		},
 		{
 			command:
