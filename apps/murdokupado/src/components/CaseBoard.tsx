@@ -23,14 +23,10 @@ const OBJECT_ICONS: Record<ObjectKind, LucideIcon> = {
 	puddle: Droplets,
 };
 
-// Distinct neutral tints so adjacent rooms read as separate regions. Rooms are
-// mapped by their order in the scene; semantic surface roles only (rule 4).
-const ROOM_TINTS = [
-	'bg-surface-container-lowest',
-	'bg-surface-container-low',
-	'bg-surface-container-high',
-	'bg-surface-container-highest',
-];
+// Distinct tints so adjacent rooms read as separate regions, mapped by room
+// order. Backed by the app's room-region palette tokens (rule 4: color lives in
+// the palette layer, components reference utilities only).
+const ROOM_TINTS = ['bg-room-1', 'bg-room-2', 'bg-room-3', 'bg-room-4'];
 
 const HATCH_STYLE: React.CSSProperties = {
 	backgroundImage:
