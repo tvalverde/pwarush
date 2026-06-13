@@ -54,6 +54,15 @@ export const translations = {
 			checkout: 'the checkout',
 			street: 'the street',
 		},
+		room_label: {
+			courtroom: 'Courtroom',
+			hallway: 'Hallway',
+			office: 'Office',
+			salesfloor: 'Sales Floor',
+			storage: 'Storage',
+			checkout: 'Checkout',
+			street: 'Street',
+		},
 		object: {
 			desk: 'desk',
 			bench: 'bench',
@@ -130,6 +139,15 @@ export const translations = {
 			storage: 'el almacén',
 			checkout: 'la caja',
 			street: 'la calle',
+		},
+		room_label: {
+			courtroom: 'Tribunal',
+			hallway: 'Pasillo',
+			office: 'Despacho',
+			salesfloor: 'Ventas',
+			storage: 'Almacén',
+			checkout: 'Caja',
+			street: 'Calle',
 		},
 		object: {
 			desk: 'el escritorio',

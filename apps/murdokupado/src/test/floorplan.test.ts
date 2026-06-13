@@ -138,6 +138,23 @@ describe('computeFloorPlan walls', () => {
 	});
 });
 
+describe('computeFloorPlan room centroids', () => {
+	it('emits one centroid per room at the center of its floor tiles', () => {
+		const plan = computeFloorPlan(courtroom);
+		expect(plan.rooms).toHaveLength(courtroom.rooms.length);
+
+		// Courtroom room (index 0) is the full 2x2 block (0,0)-(1,1): centroid (1,1).
+		const courtroomCentroid = plan.rooms.find((room) => room.roomIndex === 0);
+		expect(courtroomCentroid?.cx).toBeCloseTo(1);
+		expect(courtroomCentroid?.cy).toBeCloseTo(1);
+
+		// Office (index 2) excludes its blocked cell (2,0); centroid of (2,1),(3,0),(3,1).
+		const officeCentroid = plan.rooms.find((room) => room.roomIndex === 2);
+		expect(officeCentroid?.cx).toBeCloseTo(3.5 / 3);
+		expect(officeCentroid?.cy).toBeCloseTo(9.5 / 3);
+	});
+});
+
 describe('computeFloorPlan objects and blocked', () => {
 	it('mirrors scene objects and blocked cells', () => {
 		const plan = computeFloorPlan(shop);

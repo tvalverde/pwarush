@@ -2,6 +2,7 @@ import type React from 'react';
 import { useMemo } from 'react';
 import { computeFloorPlan } from '../../engine/floorplan';
 import type { Scene } from '../../engine/types';
+import { useGameStore } from '../../store/gameStore';
 import ObjectGlyph from './ObjectGlyph';
 
 const RUBBLE_PATTERN_ID = 'floorplan-rubble-hatch';
@@ -12,7 +13,10 @@ function roomFillToken(roomIndex: number): string {
 
 const FloorPlan: React.FC<{ scene: Scene }> = ({ scene }) => {
 	const plan = useMemo(() => computeFloorPlan(scene), [scene]);
-	const { size, floors, walls, objects, blocked } = plan;
+	const { size, floors, walls, objects, blocked, rooms } = plan;
+	const t = useGameStore((s) => s.t);
+	// Subscribe to language so labels re-render when it changes.
+	useGameStore((s) => s.language);
 
 	return (
 		<svg
@@ -54,6 +58,23 @@ const FloorPlan: React.FC<{ scene: Scene }> = ({ scene }) => {
 					height={1}
 					fill={`url(#${RUBBLE_PATTERN_ID})`}
 				/>
+			))}
+
+			{rooms.map((room) => (
+				<text
+					key={`label-${room.roomIndex}`}
+					x={room.cx}
+					y={room.cy}
+					textAnchor="middle"
+					dominantBaseline="central"
+					fontFamily="var(--font-display)"
+					fontSize={0.26}
+					fill="var(--color-on-surface-variant)"
+					opacity={0.5}
+					style={{ textTransform: 'uppercase', letterSpacing: '0.03px' }}
+				>
+					{t(`room_label.${scene.rooms[room.roomIndex].id}`)}
+				</text>
 			))}
 
 			{walls.map((wall) => (

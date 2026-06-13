@@ -20,12 +20,19 @@ export interface FloorObject {
 	c: number;
 }
 
+export interface RoomCentroid {
+	roomIndex: number;
+	cx: number;
+	cy: number;
+}
+
 export interface FloorPlan {
 	size: number;
 	floors: FloorTile[];
 	walls: WallSegment[];
 	objects: FloorObject[];
 	blocked: { r: number; c: number }[];
+	rooms: RoomCentroid[];
 }
 
 type Region = 'outside' | 'blocked' | number;
@@ -105,5 +112,15 @@ export function computeFloorPlan(scene: Scene): FloorPlan {
 
 	const blocked = scene.blockedCells.map((cell) => ({ r: cell.r, c: cell.c }));
 
-	return { size, floors, walls, objects, blocked };
+	// Zone-label anchor: the centroid of a room's floor tiles (blocked cells
+	// excluded so rubble does not skew it). Cell (r,c) centers at (c+0.5, r+0.5).
+	const rooms: RoomCentroid[] = scene.rooms.map((_, roomIndex) => {
+		const tiles = floors.filter((tile) => tile.roomIndex === roomIndex);
+		const count = tiles.length || 1;
+		const cx = tiles.reduce((sum, tile) => sum + tile.c + 0.5, 0) / count;
+		const cy = tiles.reduce((sum, tile) => sum + tile.r + 0.5, 0) / count;
+		return { roomIndex, cx, cy };
+	});
+
+	return { size, floors, walls, objects, blocked, rooms };
 }
