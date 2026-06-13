@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { CellRef, Scene } from '../engine/types';
+import type { CellRef, PersonId, Scene } from '../engine/types';
 import { useGameStore } from '../store/gameStore';
 import { personAt } from '../utils/caseState';
 import FloorPlan from './board/FloorPlan';
@@ -8,9 +8,16 @@ import PersonToken from './board/PersonToken';
 interface CaseBoardProps {
 	scene: Scene;
 	onCellTap: (cell: CellRef) => void;
+	targetCell?: CellRef | null;
+	onTokenPointerDown?: (personId: PersonId, e: React.PointerEvent) => void;
 }
 
-const CaseBoard: React.FC<CaseBoardProps> = ({ scene, onCellTap }) => {
+const CaseBoard: React.FC<CaseBoardProps> = ({
+	scene,
+	onCellTap,
+	targetCell = null,
+	onTokenPointerDown,
+}) => {
 	const activeCase = useGameStore((s) => s.activeCase);
 	const placement = useGameStore((s) => s.placement);
 	const selectedPersonId = useGameStore((s) => s.selectedPersonId);
@@ -40,6 +47,7 @@ const CaseBoard: React.FC<CaseBoardProps> = ({ scene, onCellTap }) => {
 					cols.map((c) => {
 						const blocked = isBlocked(r, c);
 						const occupant = personAt(placement, r, c);
+						const isTarget = targetCell?.r === r && targetCell?.c === c;
 
 						return (
 							<button
@@ -50,11 +58,12 @@ const CaseBoard: React.FC<CaseBoardProps> = ({ scene, onCellTap }) => {
 								onClick={() => !blocked && onCellTap({ r, c })}
 								className={`relative flex items-center justify-center ${
 									blocked ? 'cursor-not-allowed' : 'cursor-pointer'
-								}`}
+								} ${isTarget ? 'outline outline-2 -outline-offset-2 outline-[var(--color-tertiary)]' : ''}`}
 							>
 								{occupant && (
 									<span
 										data-testid={`token-${occupant}`}
+										onPointerDown={(e) => onTokenPointerDown?.(occupant, e)}
 										className="flex h-3/4 w-3/4 items-center justify-center"
 									>
 										<PersonToken

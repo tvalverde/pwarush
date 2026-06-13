@@ -1,10 +1,12 @@
 import { exitAppFullscreen, requestAppFullscreen } from '@pwarush/core/utils';
 import { ArrowLeft, Eraser, RotateCcw } from 'lucide-react';
 import type React from 'react';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import type { CellRef } from '../engine/types';
+import { useBoardDnd } from '../hooks/useBoardDnd';
 import { useGameStore } from '../store/gameStore';
 import { personAt, sceneOf } from '../utils/caseState';
+import PersonToken from './board/PersonToken';
 import CaseBoard from './CaseBoard';
 import CluePanel from './CluePanel';
 
@@ -33,6 +35,18 @@ const GameScreen: React.FC = () => {
 	const showDialog = useGameStore((s) => s.showDialog);
 	const t = useGameStore((s) => s.t);
 
+	const scene = activeCase ? sceneOf(activeCase) : null;
+
+	const isDroppable = useCallback(
+		(cell: CellRef): boolean =>
+			scene
+				? !scene.blockedCells.some((blocked) => blocked.r === cell.r && blocked.c === cell.c)
+				: false,
+		[scene],
+	);
+
+	const { dragState, startDrag, didDragRef } = useBoardDnd({ isDroppable });
+
 	useEffect(() => {
 		const id = setInterval(() => incrementTime(), 1000);
 		return () => clearInterval(id);
@@ -54,12 +68,20 @@ const GameScreen: React.FC = () => {
 		}
 	}, [lastResult, setScreen]);
 
-	if (!activeCase) return null;
-	const scene = sceneOf(activeCase);
+	if (!activeCase || !scene) return null;
 
 	const unplaced = activeCase.people.filter((person) => !placement[person.id]);
 
+	const consumeDragClick = (): boolean => {
+		if (didDragRef.current) {
+			didDragRef.current = false;
+			return true;
+		}
+		return false;
+	};
+
 	const handleCellTap = (cell: CellRef) => {
+		if (consumeDragClick()) return;
 		if (selectedPersonId) {
 			placePerson(selectedPersonId, cell);
 			return;
@@ -71,6 +93,7 @@ const GameScreen: React.FC = () => {
 	};
 
 	const handleTrayTap = (personId: string) => {
+		if (consumeDragClick()) return;
 		selectPerson(selectedPersonId === personId ? null : personId);
 	};
 
@@ -125,7 +148,12 @@ const GameScreen: React.FC = () => {
 			</header>
 
 			<main className="flex flex-1 flex-col gap-5 overflow-y-auto px-4 py-5">
-				<CaseBoard scene={scene} onCellTap={handleCellTap} />
+				<CaseBoard
+					scene={scene}
+					onCellTap={handleCellTap}
+					targetCell={dragState?.targetCell ?? null}
+					onTokenPointerDown={startDrag}
+				/>
 
 				<section className="flex flex-col gap-2">
 					<div className="flex items-center justify-between">
@@ -149,6 +177,7 @@ const GameScreen: React.FC = () => {
 								type="button"
 								key={person.id}
 								data-testid={`suspect-${person.id}`}
+								onPointerDown={(e) => startDrag(person.id, e)}
 								onClick={() => handleTrayTap(person.id)}
 								className={`flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors ${
 									selectedPersonId === person.id
@@ -167,6 +196,25 @@ const GameScreen: React.FC = () => {
 
 				<CluePanel scene={scene} />
 			</main>
+
+			{dragState &&
+				(() => {
+					const dragged = activeCase.people.find((person) => person.id === dragState.personId);
+					if (!dragged) return null;
+					return (
+						<div
+							data-testid="drag-ghost"
+							className="pointer-events-none fixed z-50 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center opacity-90"
+							style={{ left: dragState.x, top: dragState.y }}
+						>
+							<PersonToken
+								name={dragged.name}
+								personId={dragged.id}
+								variant={dragged.id === activeCase.victimId ? 'victim' : 'suspect'}
+							/>
+						</div>
+					);
+				})()}
 		</div>
 	);
 };
