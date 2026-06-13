@@ -1,5 +1,5 @@
 import { Button } from '@pwarush/core/ui';
-import { formatDuration } from '@pwarush/core/utils';
+import { formatDuration, requestAppFullscreen } from '@pwarush/core/utils';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { motion } from 'framer-motion';
 import { Home, Play, Trophy, User } from 'lucide-react';
@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import { db } from '../db/database';
 import { useSudokuWorker } from '../hooks/useSudokuWorker';
 import { useGameStore } from '../store/gameStore';
-import { requestAppFullscreen } from '../utils/fullscreen';
 import InstallModal from './InstallModal';
 
 const ResultScreen: React.FC = () => {

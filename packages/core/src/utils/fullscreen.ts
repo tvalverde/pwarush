@@ -1,10 +1,10 @@
-import { isIOS } from '@pwarush/core/utils';
+import { isIOS } from './device';
 
 /*
   Fullscreen transitions are async and consume the user-activation token, so
-  overlapping enter/exit calls (e.g. React StrictMode re-running the GameScreen
-  effect right after its cleanup) end in a racy final state: the cleanup's exit
-  lands after the remount's enter, and re-entering is then rejected for lack of
+  overlapping enter/exit calls (e.g. React StrictMode re-running a screen effect
+  right after its cleanup) end in a racy final state: the cleanup's exit lands
+  after the remount's enter, and re-entering is then rejected for lack of
   activation. Operations are serialized through a single promise chain and an
   operation only runs if it still matches the latest requested intent, so a
   stale exit scheduled between two enters is skipped instead of executed.

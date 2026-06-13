@@ -1,10 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-type FullscreenModule = typeof import('../utils/fullscreen');
+type FullscreenModule = typeof import('./fullscreen');
 
 const loadFreshModule = async (): Promise<FullscreenModule> => {
 	vi.resetModules();
-	return import('../utils/fullscreen');
+	return import('./fullscreen');
 };
 
 describe('fullscreen utils: last-intent-wins serialization', () => {
