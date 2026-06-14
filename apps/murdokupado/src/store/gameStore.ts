@@ -1,9 +1,10 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { db } from '../db/database';
+import { type HintResult, nextHint } from '../engine/hint';
 import type { Case, CellRef, PersonId, Placement } from '../engine/types';
 import type { Difficulty, GameSnapshot, Language, ScreenType } from '../types';
-import { isCaseSolved, personAt, violatedClueCount } from '../utils/caseState';
+import { isCaseSolved, personAt, sceneOf, violatedClueCount } from '../utils/caseState';
 import { translations } from '../utils/translations';
 
 export interface GameResult {
@@ -12,6 +13,7 @@ export interface GameResult {
 	difficulty: Difficulty;
 	murdererId: PersonId;
 	victimId: PersonId;
+	hintsUsed: number;
 }
 
 interface DialogState {
@@ -53,6 +55,8 @@ interface GameStore {
 	isPaused: boolean;
 	selectedPersonId: PersonId | null;
 	revealedMurderer: PersonId | null;
+	hintsUsed: number;
+	currentHint: HintResult | null;
 
 	initGame: (activeCase: Case) => void;
 	resumeGame: (snapshot: GameSnapshot) => void;
@@ -65,6 +69,9 @@ interface GameStore {
 	toggleClueCheck: (index: number) => void;
 	incrementTime: () => void;
 	setPaused: (paused: boolean) => void;
+	requestHint: () => void;
+	applyHint: () => void;
+	clearHint: () => void;
 }
 
 const getInitialLanguage = (): Language => {
@@ -93,6 +100,8 @@ export const useGameStore = create<GameStore>()(
 			isPaused: false,
 			selectedPersonId: null,
 			revealedMurderer: null,
+			hintsUsed: 0,
+			currentHint: null,
 
 			setScreen: (activeScreen) => set({ activeScreen }),
 
@@ -152,6 +161,8 @@ export const useGameStore = create<GameStore>()(
 					isPaused: false,
 					selectedPersonId: null,
 					revealedMurderer: null,
+					hintsUsed: 0,
+					currentHint: null,
 					selectedDifficulty: activeCase.difficulty,
 					activeScreen: 'game',
 					lastResult: null,
@@ -168,6 +179,8 @@ export const useGameStore = create<GameStore>()(
 					isPaused: false,
 					selectedPersonId: null,
 					revealedMurderer: null,
+					hintsUsed: snapshot.hintsUsed ?? 0,
+					currentHint: null,
 					selectedDifficulty: snapshot.difficulty,
 					activeScreen: 'game',
 					lastResult: null,
@@ -182,6 +195,8 @@ export const useGameStore = create<GameStore>()(
 					isPaused: false,
 					selectedPersonId: null,
 					revealedMurderer: null,
+					hintsUsed: 0,
+					currentHint: null,
 					lastResult: null,
 				}),
 
@@ -195,6 +210,8 @@ export const useGameStore = create<GameStore>()(
 					timeElapsed: 0,
 					selectedPersonId: null,
 					revealedMurderer: null,
+					hintsUsed: 0,
+					currentHint: null,
 				}),
 
 			selectPerson: (selectedPersonId) => set({ selectedPersonId }),
@@ -232,6 +249,7 @@ export const useGameStore = create<GameStore>()(
 							difficulty: activeCase.difficulty,
 							murdererId: activeCase.murdererId,
 							victimId: activeCase.victimId,
+							hintsUsed: state.hintsUsed,
 						},
 					});
 				}
@@ -268,6 +286,28 @@ export const useGameStore = create<GameStore>()(
 				})),
 
 			setPaused: (isPaused) => set({ isPaused }),
+
+			requestHint: () => {
+				const state = get();
+				if (!state.activeCase || state.currentHint) return;
+				const hint = nextHint(
+					sceneOf(state.activeCase),
+					state.activeCase.clues,
+					state.activeCase.solution,
+					state.placement,
+				);
+				if (!hint) return;
+				set({ currentHint: hint, hintsUsed: state.hintsUsed + 1 });
+			},
+
+			applyHint: () => {
+				const hint = get().currentHint;
+				if (!hint) return;
+				get().placePerson(hint.personId, hint.cell);
+				set({ currentHint: null });
+			},
+
+			clearHint: () => set({ currentHint: null }),
 		}),
 		{
 			name: 'murdokupado-game-storage',

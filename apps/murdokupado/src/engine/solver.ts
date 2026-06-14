@@ -399,3 +399,23 @@ export function countSolutions(scene: Scene, clues: Clue[], limit = 2): number {
 	countFrom(candidates, committed);
 	return Math.min(found, limit);
 }
+
+/**
+ * Constraint propagation from a partial set of committed people: returns the
+ * committed map after arc-consistency + exclusivity have committed any people
+ * whose cell becomes forced. Used by the hint engine to find the next logically
+ * deducible placement given what the player has correctly placed so far.
+ */
+export function deduce(
+	scene: Scene,
+	clues: Clue[],
+	committed: Map<PersonId, CellRef>,
+): Map<PersonId, CellRef> {
+	const candidates = initialCandidates(scene);
+	for (const [person, cell] of committed) {
+		candidates.set(person, [cell]);
+	}
+	const working = new Map(committed);
+	propagate(scene, clues, candidates, working, 'arc');
+	return working;
+}

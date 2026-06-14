@@ -38,4 +38,5 @@ export interface GameSnapshot {
 	mistakes: number;
 	isPaused: boolean;
 	difficulty: Difficulty;
+	hintsUsed?: number;
 }

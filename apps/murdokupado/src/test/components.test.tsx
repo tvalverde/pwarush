@@ -69,6 +69,15 @@ describe('GameScreen board', () => {
 		render(<GameScreen />);
 		expect(screen.getByTestId('clue-0')).toHaveTextContent('Mara was in the courtroom');
 	});
+
+	it('exposes a hint button that reveals the place/dismiss controls', () => {
+		render(<GameScreen />);
+		expect(screen.queryByTestId('hint-controls')).not.toBeInTheDocument();
+		fireEvent.click(screen.getByTestId('hint-button'));
+		expect(screen.getByTestId('hint-controls')).toBeInTheDocument();
+		expect(screen.getByTestId('hint-apply')).toBeInTheDocument();
+		expect(screen.getByTestId('hint-dismiss')).toBeInTheDocument();
+	});
 });
 
 describe('ResultScreen reveal', () => {
@@ -80,6 +89,7 @@ describe('ResultScreen reveal', () => {
 			difficulty: 'beginner',
 			murdererId: 'bo',
 			victimId: 'mara',
+			hintsUsed: 0,
 		});
 	});
 

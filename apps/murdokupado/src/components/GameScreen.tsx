@@ -1,5 +1,5 @@
 import { exitAppFullscreen, requestAppFullscreen } from '@pwarush/core/utils';
-import { ArrowLeft, Eraser, RotateCcw } from 'lucide-react';
+import { ArrowLeft, Eraser, Lightbulb, RotateCcw } from 'lucide-react';
 import type React from 'react';
 import { useCallback, useEffect } from 'react';
 import type { CellRef } from '../engine/types';
@@ -28,9 +28,13 @@ const GameScreen: React.FC = () => {
 	const timeElapsed = useGameStore((s) => s.timeElapsed);
 	const revealedMurderer = useGameStore((s) => s.revealedMurderer);
 	const selectedDifficulty = useGameStore((s) => s.selectedDifficulty);
+	const currentHint = useGameStore((s) => s.currentHint);
 	const selectPerson = useGameStore((s) => s.selectPerson);
 	const placePerson = useGameStore((s) => s.placePerson);
 	const erasePerson = useGameStore((s) => s.erasePerson);
+	const requestHint = useGameStore((s) => s.requestHint);
+	const applyHint = useGameStore((s) => s.applyHint);
+	const clearHint = useGameStore((s) => s.clearHint);
 	const incrementTime = useGameStore((s) => s.incrementTime);
 	const setScreen = useGameStore((s) => s.setScreen);
 	const restartGame = useGameStore((s) => s.restartGame);
@@ -150,7 +154,7 @@ const GameScreen: React.FC = () => {
 					<CaseBoard
 						scene={scene}
 						onCellTap={handleCellTap}
-						targetCell={dragState?.targetCell ?? null}
+						targetCell={dragState?.targetCell ?? currentHint?.cell ?? null}
 						onTokenPointerDown={startDrag}
 					/>
 					{revealedMurderer && (
@@ -171,35 +175,73 @@ const GameScreen: React.FC = () => {
 						<h3 className="font-display text-xs font-bold uppercase tracking-widest-premium text-secondary">
 							{t('game.suspects')}
 						</h3>
-						<button
-							type="button"
-							data-testid="erase-button"
-							onClick={handleErase}
-							disabled={!selectedPersonId || !placement[selectedPersonId]}
-							className="flex items-center gap-1 rounded-full px-3 py-1 font-hanken text-xs font-bold uppercase text-secondary transition-colors hover:bg-surface-container disabled:opacity-40"
-						>
-							<Eraser className="h-4 w-4" />
-							{t('game.erase')}
-						</button>
+						<div className="flex items-center gap-1">
+							<button
+								type="button"
+								data-testid="hint-button"
+								onClick={() => requestHint()}
+								className="flex items-center gap-1 rounded-full px-3 py-1 font-hanken text-xs font-bold uppercase text-secondary transition-colors hover:bg-surface-container"
+							>
+								<Lightbulb className="h-4 w-4" />
+								{t('game.hint')}
+							</button>
+							<button
+								type="button"
+								data-testid="erase-button"
+								onClick={handleErase}
+								disabled={!selectedPersonId || !placement[selectedPersonId]}
+								className="flex items-center gap-1 rounded-full px-3 py-1 font-hanken text-xs font-bold uppercase text-secondary transition-colors hover:bg-surface-container disabled:opacity-40"
+							>
+								<Eraser className="h-4 w-4" />
+								{t('game.erase')}
+							</button>
+						</div>
 					</div>
+
+					{currentHint && (
+						<div
+							data-testid="hint-controls"
+							className="flex items-center justify-end gap-2 rounded-DEFAULT border border-[var(--color-tertiary)] bg-surface-container-lowest px-3 py-2"
+						>
+							<button
+								type="button"
+								data-testid="hint-apply"
+								onClick={() => applyHint()}
+								className="rounded-full bg-primary px-4 py-1 font-hanken text-xs font-bold uppercase text-on-primary transition-colors hover:opacity-90"
+							>
+								{t('game.hint_place')}
+							</button>
+							<button
+								type="button"
+								data-testid="hint-dismiss"
+								onClick={() => clearHint()}
+								className="rounded-full px-4 py-1 font-hanken text-xs font-bold uppercase text-secondary transition-colors hover:bg-surface-container"
+							>
+								{t('game.hint_dismiss')}
+							</button>
+						</div>
+					)}
 					<div className="flex flex-wrap gap-2">
 						{unplaced.map((person) => {
 							const isSelected = selectedPersonId === person.id;
 							const isVictim = person.id === activeCase.victimId;
+							const isHinted = currentHint?.personId === person.id;
 							const borderClass = isVictim
 								? 'border-dashed border-error'
 								: isSelected
 									? 'border-transparent'
 									: 'border-outline-variant';
+							const hintClass = isHinted ? 'ring-2 ring-offset-1 ring-[var(--color-tertiary)]' : '';
 							return (
 								<button
 									type="button"
 									key={person.id}
 									data-testid={`suspect-${person.id}`}
 									data-victim={isVictim ? 'true' : undefined}
+									data-hinted={isHinted ? 'true' : undefined}
 									onPointerDown={(e) => startDrag(person.id, e)}
 									onClick={() => handleTrayTap(person.id)}
-									className={`flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors ${borderClass} ${
+									className={`flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors ${borderClass} ${hintClass} ${
 										isSelected
 											? 'bg-primary text-on-primary'
 											: 'bg-surface-container-lowest text-on-surface hover:bg-surface-container'

@@ -22,6 +22,16 @@ test.describe('Visual regression', () => {
 		await expect(page.getByTestId('case-board')).toHaveScreenshot('board-master.png');
 	});
 
+	test('hint active', async ({ page }) => {
+		await open(page, { seed: 1 });
+		await startCase(page, 'beginner');
+		await page.getByTestId('hint-button').click();
+		await expect(page.getByTestId('hint-controls')).toBeVisible();
+		await expect(page).toHaveScreenshot('hint-active.png', {
+			mask: [page.getByTestId('game-timer')],
+		});
+	});
+
 	test('game screen with portraits and grouped clues', async ({ page }) => {
 		await open(page, { seed: 1 });
 		await startCase(page, 'beginner');

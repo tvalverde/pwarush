@@ -69,6 +69,10 @@ const ResultScreen: React.FC = () => {
 					<span>
 						{t('result.mistakes_label')}: <strong>{lastResult.mistakes}</strong>
 					</span>
+					<span>
+						{t('result.hints_label')}:{' '}
+						<strong data-testid="result-hints">{lastResult.hintsUsed}</strong>
+					</span>
 				</div>
 			</div>
 

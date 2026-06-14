@@ -33,6 +33,7 @@ export const persistGame = async (state: GameStoreState): Promise<void> => {
 				mistakes: state.mistakes,
 				isPaused: state.isPaused,
 				difficulty: state.selectedDifficulty,
+				hintsUsed: state.hintsUsed,
 			};
 			if (existing?.id) {
 				await db.gameState.update(existing.id, data);
@@ -57,6 +58,7 @@ export const useAutoSave = () => {
 					timeElapsed: state.timeElapsed,
 					mistakes: state.mistakes,
 					isPaused: state.isPaused,
+					hintsUsed: state.hintsUsed,
 				}),
 			shouldSave: (state) => state.activeScreen === 'game' && state.activeCase !== null,
 			shouldClear: (state) => state.lastResult !== null || !state.hasActiveGame,

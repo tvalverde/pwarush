@@ -117,6 +117,66 @@ describe('toggleClueCheck', () => {
 	});
 });
 
+describe('hints', () => {
+	it('requestHint computes and counts a hint without placing anyone', () => {
+		useGameStore.getState().requestHint();
+		const state = useGameStore.getState();
+		expect(state.hintsUsed).toBe(1);
+		expect(state.currentHint).not.toBeNull();
+		expect(state.placement).toEqual({});
+	});
+
+	it('requestHint is a no-op while a hint is already pending', () => {
+		const { requestHint } = useGameStore.getState();
+		requestHint();
+		const first = useGameStore.getState().currentHint;
+		requestHint();
+		const state = useGameStore.getState();
+		expect(state.hintsUsed).toBe(1);
+		expect(state.currentHint).toBe(first);
+	});
+
+	it('applyHint places the hinted suspect on its cell and clears the hint', () => {
+		const { requestHint, applyHint } = useGameStore.getState();
+		requestHint();
+		const hint = useGameStore.getState().currentHint;
+		expect(hint).not.toBeNull();
+		applyHint();
+		const state = useGameStore.getState();
+		expect(state.placement[hint?.personId as string]).toEqual(hint?.cell);
+		expect(state.currentHint).toBeNull();
+		expect(state.hintsUsed).toBe(1);
+	});
+
+	it('clearHint discards the hint without placing anyone', () => {
+		const { requestHint, clearHint } = useGameStore.getState();
+		requestHint();
+		clearHint();
+		const state = useGameStore.getState();
+		expect(state.currentHint).toBeNull();
+		expect(state.placement).toEqual({});
+		expect(state.hintsUsed).toBe(1);
+	});
+
+	it('resets hint state on initGame', () => {
+		useGameStore.getState().requestHint();
+		useGameStore.getState().initGame(structuredClone(manualCase));
+		const state = useGameStore.getState();
+		expect(state.hintsUsed).toBe(0);
+		expect(state.currentHint).toBeNull();
+	});
+
+	it('records hintsUsed in lastResult when the case is solved', () => {
+		const { requestHint, placePerson } = useGameStore.getState();
+		requestHint();
+		placePerson('mara', { r: 0, c: 0 });
+		placePerson('bo', { r: 1, c: 1 });
+		placePerson('gemma', { r: 2, c: 2 });
+		placePerson('dee', { r: 3, c: 3 });
+		expect(useGameStore.getState().lastResult?.hintsUsed).toBe(1);
+	});
+});
+
 describe('store with a generated case', () => {
 	it('solves a real generated case by placing its solution', () => {
 		const generated = generateCase(courtroom, 'beginner', 11);
