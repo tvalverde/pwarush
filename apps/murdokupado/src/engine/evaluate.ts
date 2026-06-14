@@ -67,16 +67,6 @@ function evaluateBesideObject(
 
 export function evaluateClue(clue: Clue, scene: Scene, placement: Placement): ClueEvaluation {
 	switch (clue.type) {
-		case 'in_row': {
-			const cell = placement[clue.person];
-			if (!cell) return 'undecided';
-			return cell.r === clue.row ? 'satisfied' : 'violated';
-		}
-		case 'in_column': {
-			const cell = placement[clue.person];
-			if (!cell) return 'undecided';
-			return cell.c === clue.col ? 'satisfied' : 'violated';
-		}
 		case 'in_room': {
 			const cell = placement[clue.person];
 			if (!cell) return 'undecided';

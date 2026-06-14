@@ -73,8 +73,6 @@ export const translations = {
 			puddle: 'puddle',
 		},
 		clue: {
-			in_row: '{person} was in the {row} row',
-			in_column: '{person} was in the {col} column',
 			in_room: '{person} was in {room}',
 			not_in_room: '{person} was not in {room}',
 			beside_object: '{person} was beside the {object}',
@@ -159,8 +157,6 @@ export const translations = {
 			puddle: 'el charco',
 		},
 		clue: {
-			in_row: '{person} estaba en la {row} fila',
-			in_column: '{person} estaba en la {col} columna',
 			in_room: '{person} estaba en {room}',
 			not_in_room: '{person} no estaba en {room}',
 			beside_object: '{person} estaba junto a {object}',

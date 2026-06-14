@@ -39,8 +39,6 @@ export type Placement = Partial<Record<PersonId, CellRef>>;
 export type Difficulty = 'beginner' | 'intermediate' | 'expert' | 'master';
 
 export type Clue =
-	| { type: 'in_row'; person: PersonId; row: number }
-	| { type: 'in_column'; person: PersonId; col: number }
 	| { type: 'in_room'; person: PersonId; room: RoomId }
 	| { type: 'not_in_room'; person: PersonId; room: RoomId }
 	| { type: 'beside_object'; person: PersonId; object: ObjectKind }

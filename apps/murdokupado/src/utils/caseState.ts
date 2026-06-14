@@ -2,6 +2,24 @@ import { SCENES } from '../data/scenes';
 import { evaluateClue } from '../engine/evaluate';
 import type { Case, ClueEvaluation, PersonId, Placement, Scene } from '../engine/types';
 
+// Clue types the current catalogue can evaluate and render. A case persisted by
+// an older version may carry retired types (in_row / in_column); such a case can
+// no longer be shown, so callers (e.g. resuming a saved game) must skip it.
+const SUPPORTED_CLUE_TYPES = new Set<string>([
+	'in_room',
+	'not_in_room',
+	'beside_object',
+	'adjacent_to_person',
+	'alone',
+	'alone_with',
+	'same_room',
+	'offset',
+]);
+
+export function isCaseRenderable(activeCase: Case): boolean {
+	return activeCase.clues.every((clue) => SUPPORTED_CLUE_TYPES.has(clue.type));
+}
+
 export function sceneOf(activeCase: Case): Scene {
 	const scene = SCENES[activeCase.sceneId];
 	if (!scene) {

@@ -66,6 +66,18 @@ describe('enumerateTrueClues', () => {
 		expect(countSolutions(courtroom, clues, 2)).toBe(1);
 	});
 
+	it('no longer emits absolute row/column clues', () => {
+		const placement: Placement = {
+			mara: { r: 0, c: 0 },
+			bo: { r: 1, c: 1 },
+			gemma: { r: 2, c: 2 },
+			dee: { r: 3, c: 3 },
+		};
+		const clues = enumerateTrueClues(courtroom, placement);
+		expect(clues.some((clue) => clue.type === ('in_row' as Clue['type']))).toBe(false);
+		expect(clues.some((clue) => clue.type === ('in_column' as Clue['type']))).toBe(false);
+	});
+
 	it('emits offsets only within the |d| <= 2 bound', () => {
 		const placement: Placement = {
 			mara: { r: 0, c: 0 },
@@ -141,20 +153,16 @@ describe('generateCase — property run across tiers', () => {
 });
 
 describe('classifyDifficulty', () => {
-	it('rates an all-unary clue set as beginner', () => {
-		const placement: Placement = {
-			mara: { r: 0, c: 0 },
-			bo: { r: 1, c: 1 },
-			gemma: { r: 2, c: 2 },
-			dee: { r: 3, c: 3 },
-		};
-		const unaryOnly = enumerateTrueClues(courtroom, placement).filter(
-			(clue) =>
-				clue.type === 'in_row' ||
-				clue.type === 'in_column' ||
-				clue.type === 'in_room' ||
-				clue.type === 'not_in_room',
-		);
-		expect(classifyDifficulty(courtroom, unaryOnly)).toBe('beginner');
+	it('keeps beginner reachable from the spatial/relative catalogue and recognises it', () => {
+		// Removing absolute row/column clues must not make the easiest tier
+		// unreachable: some seed still classifies as beginner, and the classifier
+		// agrees on its clue set.
+		const beginner = Array.from({ length: 60 }, (_, i) => i + 1)
+			.map((seed) => generateCase(courtroom, 'beginner', seed))
+			.find((generated) => generated.difficulty === 'beginner');
+		expect(beginner).toBeDefined();
+		if (beginner) {
+			expect(classifyDifficulty(courtroom, beginner.clues)).toBe('beginner');
+		}
 	});
 });

@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { courtroom } from '../data/scenes';
 import { evaluateClue } from '../engine/evaluate';
+import { generateCase } from '../engine/generator';
 import { countSolutions, solve } from '../engine/solver';
 import type { CellRef, Clue, Placement, Scene } from '../engine/types';
 
@@ -68,13 +70,8 @@ function expectPermutation(placement: Placement): void {
 }
 
 describe('solve — unique solution', () => {
-	// Solution: p1=(0,0)A, p2=(1,2)B, p3=(2,1)C.
-	const clues: Clue[] = [
-		{ type: 'in_row', person: 'p1', row: 0 },
-		{ type: 'in_row', person: 'p2', row: 1 },
-		{ type: 'beside_object', person: 'p1', object: 'register' },
-		{ type: 'in_room', person: 'p2', room: 'roomB' },
-	];
+	// A single offset clue pins the whole permutation: p1=(0,0)A, p2=(1,2)B, p3=(2,1)C.
+	const clues: Clue[] = [{ type: 'offset', a: 'p1', b: 'p2', dRow: -1, dCol: -2 }];
 
 	it('finds the unique placement', () => {
 		const outcome = solve(testScene, clues);
@@ -94,9 +91,9 @@ describe('solve — unique solution', () => {
 
 describe('solve — contradictory clues', () => {
 	const clues: Clue[] = [
-		{ type: 'in_row', person: 'p1', row: 0 },
-		{ type: 'in_column', person: 'p1', col: 1 },
-		// (0,1) holds the register object, so it is not occupiable: no placement.
+		{ type: 'in_room', person: 'p1', room: 'roomA' },
+		{ type: 'not_in_room', person: 'p1', room: 'roomA' },
+		// A person cannot be both inside and outside roomA: no placement.
 	];
 
 	it('countSolutions is zero', () => {
@@ -120,21 +117,23 @@ describe('countSolutions — weak clues stop early', () => {
 	});
 });
 
-describe('propagateOnly — beginner solved by unary techniques', () => {
-	// Pin each person to a distinct row and column with unary clues only.
-	const clues: Clue[] = [
-		{ type: 'in_row', person: 'p1', row: 0 },
-		{ type: 'in_column', person: 'p1', col: 0 },
-		{ type: 'in_row', person: 'p2', row: 1 },
-		{ type: 'in_column', person: 'p2', col: 2 },
-	];
-
-	it('solves with unary + propagateOnly, no search', () => {
-		const outcome = solve(testScene, clues, { techniques: 'unary', propagateOnly: true });
+describe('propagateOnly — a beginner case is solved by arc propagation', () => {
+	// With absolute row/column clues gone, the easiest tier is solvable by arc
+	// propagation without search (no longer by pure unary). Use a real generated
+	// beginner case to assert that property.
+	it('solves a generated beginner with arc + propagateOnly, no search', () => {
+		const beginner = Array.from({ length: 60 }, (_, i) => i + 1)
+			.map((seed) => generateCase(courtroom, 'beginner', seed))
+			.find((generated) => generated.difficulty === 'beginner');
+		expect(beginner).toBeDefined();
+		if (!beginner) return;
+		const outcome = solve(courtroom, beginner.clues, {
+			techniques: 'arc',
+			propagateOnly: true,
+		});
 		expect(outcome.placement).not.toBeNull();
 		expect(outcome.usedSearch).toBe(false);
 		expect(outcome.maxGuessDepth).toBe(0);
-		expect(allSatisfied(clues, outcome.placement as Placement)).toBe(true);
 		expectPermutation(outcome.placement as Placement);
 	});
 });
@@ -187,7 +186,7 @@ describe('solve — real search needed', () => {
 
 describe('determinism', () => {
 	const clues: Clue[] = [
-		{ type: 'in_row', person: 'p1', row: 0 },
+		{ type: 'in_room', person: 'p1', room: 'roomA' },
 		{ type: 'in_room', person: 'p2', room: 'roomB' },
 	];
 

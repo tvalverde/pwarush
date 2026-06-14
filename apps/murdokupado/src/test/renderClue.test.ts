@@ -22,16 +22,6 @@ function makeT(lang: Language) {
 
 const cases: { clue: Clue; en: string; es: string }[] = [
 	{
-		clue: { type: 'in_row', person: 'mara', row: 1 },
-		en: 'Mara was in the second row',
-		es: 'Mara estaba en la segunda fila',
-	},
-	{
-		clue: { type: 'in_column', person: 'bo', col: 3 },
-		en: 'Bo was in the last column',
-		es: 'Bo estaba en la última columna',
-	},
-	{
 		clue: { type: 'in_room', person: 'gemma', room: 'office' },
 		en: 'Gemma was in the office',
 		es: 'Gemma estaba en el despacho',
@@ -68,8 +58,8 @@ const cases: { clue: Clue; en: string; es: string }[] = [
 	},
 	{
 		clue: { type: 'offset', a: 'mara', b: 'bo', dRow: -1, dCol: 2 },
-		en: 'Mara was 1 row north and 2 columns east of Bo',
-		es: 'Mara estaba 1 fila al norte y 2 columnas al este de Bo',
+		en: 'Mara was 1 cell north and 2 cells east of Bo',
+		es: 'Mara estaba 1 casilla al norte y 2 casillas al este de Bo',
 	},
 ];
 
@@ -83,10 +73,19 @@ describe('renderClue', () => {
 		});
 	}
 
-	it('uses singular and plural units in the offset phrase', () => {
+	it('uses singular and plural cell units in the offset phrase', () => {
 		const south: Clue = { type: 'offset', a: 'mara', b: 'bo', dRow: 2, dCol: -1 };
 		expect(renderClue(south, courtroom, makeT('en'), 'en')).toBe(
-			'Mara was 2 rows south and 1 column west of Bo',
+			'Mara was 2 cells south and 1 cell west of Bo',
 		);
+	});
+
+	it('never phrases clues in terms of absolute rows or columns', () => {
+		for (const { clue } of cases) {
+			const en = renderClue(clue, courtroom, makeT('en'), 'en');
+			const es = renderClue(clue, courtroom, makeT('es'), 'es');
+			expect(en).not.toMatch(/\brow\b|\bcolumn\b/);
+			expect(es).not.toMatch(/\bfila\b|\bcolumna\b/);
+		}
 	});
 });

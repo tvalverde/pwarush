@@ -4,9 +4,10 @@ import { generateCase } from '../engine/generator';
 import type { Case } from '../engine/types';
 import { useGameStore } from '../store/gameStore';
 
-// Fully pinned manual case: in_row + in_column for everyone, so the solution is
-// unique and reached only when each person sits on their solution cell. mara and
-// bo share the courtroom (victim + murderer); gemma and dee share the hallway.
+// Manual case with spatial clues, all true in the diagonal solution. mara and bo
+// share the courtroom (victim + murderer); gemma and dee share the hallway. Every
+// clue is satisfied when each person sits on their solution cell, so placing the
+// solution wins with no mistakes; mara's room clue is violated by an off-room cell.
 const manualCase: Case = {
 	sceneId: 'courtroom',
 	people: courtroom.cast,
@@ -20,14 +21,10 @@ const manualCase: Case = {
 		dee: { r: 3, c: 3 },
 	},
 	clues: [
-		{ type: 'in_row', person: 'mara', row: 0 },
-		{ type: 'in_column', person: 'mara', col: 0 },
-		{ type: 'in_row', person: 'bo', row: 1 },
-		{ type: 'in_column', person: 'bo', col: 1 },
-		{ type: 'in_row', person: 'gemma', row: 2 },
-		{ type: 'in_column', person: 'gemma', col: 2 },
-		{ type: 'in_row', person: 'dee', row: 3 },
-		{ type: 'in_column', person: 'dee', col: 3 },
+		{ type: 'in_room', person: 'mara', room: 'courtroom' },
+		{ type: 'in_room', person: 'bo', room: 'courtroom' },
+		{ type: 'in_room', person: 'gemma', room: 'hallway' },
+		{ type: 'same_room', a: 'gemma', b: 'dee' },
 	],
 };
 

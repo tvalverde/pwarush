@@ -69,32 +69,6 @@ describe('helpers', () => {
 	});
 });
 
-describe('in_row', () => {
-	const clue: Clue = { type: 'in_row', person: 'p1', row: 1 };
-	it('undecided before placement', () => {
-		expect(evaluate(clue, {})).toBe('undecided');
-	});
-	it('satisfied when in the row', () => {
-		expect(evaluate(clue, { p1: { r: 1, c: 0 } })).toBe('satisfied');
-	});
-	it('violated when in another row', () => {
-		expect(evaluate(clue, { p1: { r: 0, c: 0 } })).toBe('violated');
-	});
-});
-
-describe('in_column', () => {
-	const clue: Clue = { type: 'in_column', person: 'p1', col: 2 };
-	it('undecided before placement', () => {
-		expect(evaluate(clue, {})).toBe('undecided');
-	});
-	it('satisfied when in the column', () => {
-		expect(evaluate(clue, { p1: { r: 0, c: 2 } })).toBe('satisfied');
-	});
-	it('violated when in another column', () => {
-		expect(evaluate(clue, { p1: { r: 0, c: 0 } })).toBe('violated');
-	});
-});
-
 describe('in_room', () => {
 	const clue: Clue = { type: 'in_room', person: 'p1', room: 'roomB' };
 	it('undecided before placement', () => {

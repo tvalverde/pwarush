@@ -112,8 +112,9 @@ function cellOf(placement: Placement, person: PersonId): CellRef {
 /**
  * Every catalog clue that holds in the (complete) solution, bounded as in §4.2:
  * offsets only within |d| <= 2, ordered pairs taken once (a before b in cast
- * order). The full set always pins the placement uniquely because it includes
- * `in_row` + `in_column` for every person.
+ * order). Absolute row/column clues were removed from the catalogue, so the full
+ * set is no longer guaranteed to pin the placement uniquely; generateCase
+ * verifies uniqueness explicitly via the countSolutions guard.
  */
 export function enumerateTrueClues(scene: Scene, placement: Placement): Clue[] {
 	const clues: Clue[] = [];
@@ -121,8 +122,6 @@ export function enumerateTrueClues(scene: Scene, placement: Placement): Clue[] {
 
 	for (const person of cast) {
 		const cell = cellOf(placement, person.id);
-		clues.push({ type: 'in_row', person: person.id, row: cell.r });
-		clues.push({ type: 'in_column', person: person.id, col: cell.c });
 		for (const room of scene.rooms) {
 			const inside = room.cells.some((c) => c.r === cell.r && c.c === cell.c);
 			clues.push(
@@ -206,14 +205,20 @@ function pruneClues(scene: Scene, clues: Clue[], rng: Rng): Clue[] {
 	return kept;
 }
 
+/**
+ * Difficulty ladder over the spatial/relative catalogue (no absolute row/column
+ * clues). Those were the only clues solvable by pure unary propagation, so the
+ * easiest genuine tier is now "arc propagation without search". Higher tiers are
+ * graded by how deep the backtracking search must go.
+ */
 export function classifyDifficulty(scene: Scene, clues: Clue[]): Difficulty {
-	if (solve(scene, clues, { techniques: 'unary', propagateOnly: true }).placement) {
+	if (solve(scene, clues, { techniques: 'arc', propagateOnly: true }).placement) {
 		return 'beginner';
 	}
-	if (solve(scene, clues, { techniques: 'arc', propagateOnly: true }).placement) {
+	const outcome = solve(scene, clues, { techniques: 'arc' });
+	if (outcome.placement && outcome.maxGuessDepth <= 1) {
 		return 'intermediate';
 	}
-	const outcome = solve(scene, clues, { techniques: 'arc' });
 	if (outcome.placement && outcome.maxGuessDepth <= 2) {
 		return 'expert';
 	}
@@ -231,6 +236,11 @@ export function generateCase(scene: Scene, difficulty: Difficulty, seed: number)
 			(clue) => !revealsKiller(clue, solved),
 		);
 		const clues = pruneClues(scene, trueClues, rng);
+		// Without absolute row/column clues uniqueness is not structural, so discard
+		// any rare placement whose spatial/relative clues admit more than one solution.
+		if (countSolutions(scene, clues, 2) !== 1) {
+			continue;
+		}
 		const classified = classifyDifficulty(scene, clues);
 		const value: Case = {
 			sceneId: scene.id,

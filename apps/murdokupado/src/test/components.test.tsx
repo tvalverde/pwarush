@@ -19,7 +19,7 @@ const manualCase: Case = {
 		dee: { r: 3, c: 3 },
 	},
 	clues: [
-		{ type: 'in_row', person: 'mara', row: 0 },
+		{ type: 'in_room', person: 'mara', room: 'courtroom' },
 		{ type: 'same_room', a: 'gemma', b: 'dee' },
 	],
 };
@@ -59,7 +59,7 @@ describe('GameScreen board', () => {
 	it('renders the clue panel with rendered sentences', () => {
 		useGameStore.getState().setLanguage('en');
 		render(<GameScreen />);
-		expect(screen.getByTestId('clue-0')).toHaveTextContent('Mara was in the first row');
+		expect(screen.getByTestId('clue-0')).toHaveTextContent('Mara was in the courtroom');
 	});
 });
 

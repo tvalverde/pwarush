@@ -3,32 +3,15 @@ import type { Language } from '../types';
 
 type Translate = (path: string) => string;
 
-const ORDINALS: Record<Language, string[]> = {
-	en: ['first', 'second', 'third', 'fourth', 'fifth'],
-	es: ['primera', 'segunda', 'tercera', 'cuarta', 'quinta'],
-};
-
-const LAST_ORDINAL: Record<Language, string> = { en: 'last', es: 'última' };
-
 const DIRECTIONS: Record<Language, { north: string; south: string; east: string; west: string }> = {
 	en: { north: 'north', south: 'south', east: 'east', west: 'west' },
 	es: { north: 'al norte', south: 'al sur', east: 'al este', west: 'al oeste' },
 };
 
-const UNITS: Record<
-	Language,
-	{ row: string; rows: string; column: string; columns: string; and: string }
-> = {
-	en: { row: 'row', rows: 'rows', column: 'column', columns: 'columns', and: 'and' },
-	es: { row: 'fila', rows: 'filas', column: 'columna', columns: 'columnas', and: 'y' },
+const UNITS: Record<Language, { cell: string; cells: string; and: string }> = {
+	en: { cell: 'cell', cells: 'cells', and: 'and' },
+	es: { cell: 'casilla', cells: 'casillas', and: 'y' },
 };
-
-function ordinal(index: number, size: number, lang: Language): string {
-	if (index === size - 1) {
-		return LAST_ORDINAL[lang];
-	}
-	return ORDINALS[lang][index] ?? `${index + 1}`;
-}
 
 function interpolate(template: string, slots: Record<string, string>): string {
 	return template.replace(/\{(\w+)\}/g, (_, key: string) => slots[key] ?? `{${key}}`);
@@ -39,8 +22,8 @@ function offsetPhrase(dRow: number, dCol: number, lang: Language): string {
 	const directions = DIRECTIONS[lang];
 	const rowCount = Math.abs(dRow);
 	const colCount = Math.abs(dCol);
-	const rowWord = rowCount === 1 ? units.row : units.rows;
-	const colWord = colCount === 1 ? units.column : units.columns;
+	const rowWord = rowCount === 1 ? units.cell : units.cells;
+	const colWord = colCount === 1 ? units.cell : units.cells;
 	const rowDir = dRow < 0 ? directions.north : directions.south;
 	const colDir = dCol < 0 ? directions.west : directions.east;
 	return `${rowCount} ${rowWord} ${rowDir} ${units.and} ${colCount} ${colWord} ${colDir}`;
@@ -60,16 +43,6 @@ export function renderClue(clue: Clue, scene: Scene, t: Translate, lang: Languag
 	const template = t(`clue.${clue.type}`);
 
 	switch (clue.type) {
-		case 'in_row':
-			return interpolate(template, {
-				person: personName(clue.person),
-				row: ordinal(clue.row, scene.size, lang),
-			});
-		case 'in_column':
-			return interpolate(template, {
-				person: personName(clue.person),
-				col: ordinal(clue.col, scene.size, lang),
-			});
 		case 'in_room':
 		case 'not_in_room':
 			return interpolate(template, {

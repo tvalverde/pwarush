@@ -7,6 +7,7 @@ import { db } from '../db/database';
 import { useMurdokuWorker } from '../hooks/useMurdokuWorker';
 import { useGameStore } from '../store/gameStore';
 import type { Difficulty, GameSnapshot } from '../types';
+import { isCaseRenderable } from '../utils/caseState';
 
 const DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'expert', 'master'];
 
@@ -40,7 +41,17 @@ const MainMenuScreen: React.FC = () => {
 			.equals(0)
 			.first()
 			.then((saved) => {
-				if (!cancelled) setSavedGame(saved ?? null);
+				if (cancelled) return;
+				if (saved && !isCaseRenderable(saved.activeCase)) {
+					db.gameState
+						.where('playerId')
+						.equals(0)
+						.delete()
+						.catch(() => {});
+					setSavedGame(null);
+					return;
+				}
+				setSavedGame(saved ?? null);
 			})
 			.catch(() => {});
 		return () => {

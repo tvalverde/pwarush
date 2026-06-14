@@ -50,24 +50,6 @@ function applyUnaryFilters(scene: Scene, clues: Clue[], candidates: CandidateSet
 	const all = occupiableCells(scene);
 	for (const clue of clues) {
 		switch (clue.type) {
-			case 'in_row': {
-				const set = candidates.get(clue.person);
-				if (set)
-					candidates.set(
-						clue.person,
-						set.filter((cell) => cell.r === clue.row),
-					);
-				break;
-			}
-			case 'in_column': {
-				const set = candidates.get(clue.person);
-				if (set)
-					candidates.set(
-						clue.person,
-						set.filter((cell) => cell.c === clue.col),
-					);
-				break;
-			}
 			case 'in_room': {
 				const set = candidates.get(clue.person);
 				if (set) {
