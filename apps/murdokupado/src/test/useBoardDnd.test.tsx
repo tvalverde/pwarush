@@ -58,6 +58,7 @@ const TEST_CASE: Case = {
 	people: [{ id: 'alice', name: 'Alice' }],
 	victimId: 'victim',
 	clues: [],
+	narrators: [],
 	solution: {},
 	difficulty: 'beginner',
 	murdererId: 'alice',

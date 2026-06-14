@@ -26,6 +26,7 @@ const manualCase: Case = {
 		{ type: 'in_room', person: 'gemma', room: 'hallway' },
 		{ type: 'same_room', a: 'gemma', b: 'dee' },
 	],
+	narrators: ['bo', 'gemma', 'dee', 'bo'],
 };
 
 beforeEach(() => {

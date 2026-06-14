@@ -59,6 +59,9 @@ export interface Case {
 	people: Person[];
 	victimId: PersonId;
 	clues: Clue[];
+	// Parallel to `clues`: narrators[i] is the living suspect who gives clue[i] as a
+	// testimony. Every living suspect narrates at least one clue; the victim never does.
+	narrators: PersonId[];
 	solution: Placement;
 	difficulty: Difficulty;
 	murdererId: PersonId;

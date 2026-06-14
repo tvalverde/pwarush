@@ -227,6 +227,64 @@ function pruneClues(scene: Scene, clues: Clue[], rng: Rng): Clue[] {
 	return kept;
 }
 
+function clueSubjects(clue: Clue): PersonId[] {
+	return 'person' in clue ? [clue.person] : [clue.a, clue.b];
+}
+
+function clueKey(clue: Clue): string {
+	return JSON.stringify(clue);
+}
+
+/**
+ * Assigns each clue a living-suspect narrator (the victim never narrates),
+ * preferring narrators who are not the clue's subject and balancing the load. Every
+ * living suspect must end up with at least one testimony; if the minimal clue set
+ * leaves someone silent, a redundant true clue (also true, so uniqueness is intact)
+ * is added for them to narrate.
+ */
+function assignNarrators(
+	scene: Scene,
+	clues: Clue[],
+	trueClues: Clue[],
+	victimId: PersonId,
+	rng: Rng,
+): { clues: Clue[]; narrators: PersonId[] } {
+	const living = scene.cast.map((person) => person.id).filter((id) => id !== victimId);
+	const count = new Map<PersonId, number>(living.map((id) => [id, 0]));
+
+	const pickNarrator = (clue: Clue): PersonId => {
+		const subjects = new Set(clueSubjects(clue));
+		const shuffled = shuffleInPlace(living.slice(), rng);
+		const nonSubjects = shuffled.filter((id) => !subjects.has(id));
+		const pool = nonSubjects.length > 0 ? nonSubjects : shuffled;
+		pool.sort((a, b) => (count.get(a) ?? 0) - (count.get(b) ?? 0));
+		return pool[0];
+	};
+
+	const resultClues = clues.slice();
+	const narrators: PersonId[] = [];
+	for (const clue of resultClues) {
+		const narrator = pickNarrator(clue);
+		narrators.push(narrator);
+		count.set(narrator, (count.get(narrator) ?? 0) + 1);
+	}
+
+	const used = new Set(resultClues.map(clueKey));
+	for (const id of living) {
+		if ((count.get(id) ?? 0) > 0) continue;
+		const spare =
+			trueClues.find((clue) => !used.has(clueKey(clue)) && !clueSubjects(clue).includes(id)) ??
+			trueClues.find((clue) => !used.has(clueKey(clue)));
+		if (!spare) continue;
+		resultClues.push(spare);
+		narrators.push(id);
+		used.add(clueKey(spare));
+		count.set(id, 1);
+	}
+
+	return { clues: resultClues, narrators };
+}
+
 export function generateCase(scene: Scene, difficulty: Difficulty, seed: number): Case {
 	const rng = createRng(seed);
 
@@ -243,11 +301,19 @@ export function generateCase(scene: Scene, difficulty: Difficulty, seed: number)
 		if (countSolutions(scene, clues, 2) !== 1) {
 			continue;
 		}
+		const { clues: testimonies, narrators } = assignNarrators(
+			scene,
+			clues,
+			trueClues,
+			solved.victimId,
+			rng,
+		);
 		return {
 			sceneId: scene.id,
 			people: scene.cast.slice(),
 			victimId: solved.victimId,
-			clues,
+			clues: testimonies,
+			narrators,
 			solution: solved.placement,
 			difficulty,
 			murdererId: solved.murdererId,

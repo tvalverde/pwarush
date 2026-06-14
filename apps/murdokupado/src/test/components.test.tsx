@@ -22,6 +22,7 @@ const manualCase: Case = {
 		{ type: 'in_room', person: 'mara', room: 'courtroom' },
 		{ type: 'same_room', a: 'gemma', b: 'dee' },
 	],
+	narrators: ['bo', 'gemma'],
 };
 
 afterEach(() => {

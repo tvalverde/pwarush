@@ -151,10 +151,15 @@ describe('generateCase — property run across tiers', () => {
 					// Difficulty is the requested tier (set by board size, not classified).
 					expect(generated.difficulty).toBe(tier);
 
-					// Locally minimal: removing any single clue breaks uniqueness.
-					for (const clue of generated.clues) {
-						const without = generated.clues.filter((c) => c !== clue);
-						expect(countSolutions(scene, without, 2)).not.toBe(1);
+					// Narrators: one per clue, the victim never narrates, and every
+					// living suspect gives at least one testimony (coverage).
+					expect(generated.narrators).toHaveLength(generated.clues.length);
+					expect(generated.narrators).not.toContain(generated.victimId);
+					const living = scene.cast
+						.map((person) => person.id)
+						.filter((id) => id !== generated.victimId);
+					for (const id of living) {
+						expect(generated.narrators).toContain(id);
 					}
 				});
 			}

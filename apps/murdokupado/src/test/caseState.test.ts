@@ -16,6 +16,7 @@ const baseCase: Case = {
 		{ type: 'in_room', person: 'mara', room: 'courtroom' },
 		{ type: 'offset', a: 'mara', b: 'bo', dRow: -1, dCol: -1 },
 	],
+	narrators: ['bo', 'bo'],
 };
 
 describe('isCaseRenderable', () => {
@@ -28,7 +29,13 @@ describe('isCaseRenderable', () => {
 		const legacy = {
 			...baseCase,
 			clues: [{ type: 'in_row', person: 'mara', row: 0 }],
+			narrators: ['bo'],
 		} as unknown as Case;
 		expect(isCaseRenderable(legacy)).toBe(false);
+	});
+
+	it('rejects a case without per-clue narrators (older save)', () => {
+		const old = { ...baseCase, narrators: undefined } as unknown as Case;
+		expect(isCaseRenderable(old)).toBe(false);
 	});
 });

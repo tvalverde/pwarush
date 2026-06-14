@@ -17,6 +17,14 @@ const SUPPORTED_CLUE_TYPES = new Set<string>([
 ]);
 
 export function isCaseRenderable(activeCase: Case): boolean {
+	// Older saves predate per-clue narrators; without a narrator per clue the grouped
+	// clue panel cannot render, so treat such a case as not resumable.
+	if (
+		!Array.isArray(activeCase.narrators) ||
+		activeCase.narrators.length !== activeCase.clues.length
+	) {
+		return false;
+	}
 	return activeCase.clues.every((clue) => SUPPORTED_CLUE_TYPES.has(clue.type));
 }
 
