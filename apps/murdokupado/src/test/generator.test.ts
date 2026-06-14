@@ -91,6 +91,20 @@ describe('enumerateTrueClues', () => {
 		// (0,0)->(3,3) spans 3 cells, so that pair must be absent.
 		expect(offsets.some((o) => o.a === 'mara' && o.b === 'dee')).toBe(false);
 	});
+
+	it('emits exoneration clues only about the victim, never about the murderer', () => {
+		const generated = generateCase(mansion, 'intermediate', 3);
+		const trueClues = enumerateTrueClues(mansion, generated.solution, generated.victimId);
+		const exonerations = trueClues.filter(
+			(clue): clue is Extract<Clue, { type: 'not_alone_with' }> => clue.type === 'not_alone_with',
+		);
+		expect(exonerations.length).toBeGreaterThan(0);
+		for (const exoneration of exonerations) {
+			expect(exoneration.b).toBe(generated.victimId); // always about the victim
+			expect(exoneration.a).not.toBe(generated.murdererId); // never clears the killer
+			expect(exoneration.a).not.toBe(generated.victimId);
+		}
+	});
 });
 
 describe('generateCase — determinism', () => {

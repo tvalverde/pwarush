@@ -63,6 +63,7 @@ export function renderClue(clue: Clue, scene: Scene, t: Translate, lang: Languag
 		case 'adjacent_to_person':
 		case 'same_room':
 		case 'alone_with':
+		case 'not_alone_with':
 			return interpolate(template, {
 				a: personName(clue.a),
 				b: personName(clue.b),

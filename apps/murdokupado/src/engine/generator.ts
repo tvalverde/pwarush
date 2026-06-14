@@ -126,12 +126,24 @@ function cellOf(placement: Placement, person: PersonId): CellRef {
  * set is no longer guaranteed to pin the placement uniquely; generateCase
  * verifies uniqueness explicitly via the countSolutions guard.
  */
-export function enumerateTrueClues(scene: Scene, placement: Placement): Clue[] {
+export function enumerateTrueClues(
+	scene: Scene,
+	placement: Placement,
+	victimId?: PersonId,
+): Clue[] {
 	const clues: Clue[] = [];
 	const cast = scene.cast;
 
 	for (const person of cast) {
 		const cell = cellOf(placement, person.id);
+		// Exoneration clue: only ever about the victim (every non-murderer is "not
+		// alone with the victim"), so it points the player away from a suspect.
+		if (victimId && person.id !== victimId) {
+			const exonerate: Clue = { type: 'not_alone_with', a: person.id, b: victimId };
+			if (evaluateClue(exonerate, scene, placement) === 'satisfied') {
+				clues.push(exonerate);
+			}
+		}
 		for (const room of scene.rooms) {
 			const inside = room.cells.some((c) => c.r === cell.r && c.c === cell.c);
 			clues.push(
@@ -220,7 +232,7 @@ export function generateCase(scene: Scene, difficulty: Difficulty, seed: number)
 
 	for (let attempt = 0; attempt < GENERATION_ATTEMPT_LIMIT; attempt++) {
 		const solved = sampleSolvedScene(scene, rng);
-		const trueClues = enumerateTrueClues(scene, solved.placement).filter(
+		const trueClues = enumerateTrueClues(scene, solved.placement, solved.victimId).filter(
 			(clue) => !revealsKiller(clue, solved),
 		);
 		const clues = pruneClues(scene, trueClues, rng);

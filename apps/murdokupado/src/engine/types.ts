@@ -50,6 +50,7 @@ export type Clue =
 	| { type: 'adjacent_to_person'; a: PersonId; b: PersonId }
 	| { type: 'alone'; person: PersonId }
 	| { type: 'alone_with'; a: PersonId; b: PersonId }
+	| { type: 'not_alone_with'; a: PersonId; b: PersonId }
 	| { type: 'same_room'; a: PersonId; b: PersonId }
 	| { type: 'offset'; a: PersonId; b: PersonId; dRow: number; dCol: number };
 

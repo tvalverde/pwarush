@@ -221,3 +221,18 @@ describe('alone_with', () => {
 		expect(evaluate(clue, placement)).toBe('satisfied');
 	});
 });
+
+describe('not_alone_with (negation of alone_with)', () => {
+	const clue: Clue = { type: 'not_alone_with', a: 'p1', b: 'p2' };
+	it('violated when the pair is alone together in a sealed room', () => {
+		const placement: Placement = { p1: { r: 2, c: 0 }, p2: { r: 2, c: 1 }, p3: { r: 0, c: 2 } };
+		expect(evaluate(clue, placement)).toBe('violated');
+	});
+	it('satisfied when the pair sits in different rooms', () => {
+		const placement: Placement = { p1: { r: 0, c: 0 }, p2: { r: 0, c: 2 }, p3: { r: 1, c: 1 } };
+		expect(evaluate(clue, placement)).toBe('satisfied');
+	});
+	it('undecided before both are placed', () => {
+		expect(evaluate(clue, { p1: { r: 0, c: 0 } })).toBe('undecided');
+	});
+});

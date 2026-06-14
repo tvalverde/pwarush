@@ -65,6 +65,42 @@ function evaluateBesideObject(
 	return found ? 'satisfied' : 'violated';
 }
 
+function evaluateAloneWith(
+	scene: Scene,
+	placement: Placement,
+	a: PersonId,
+	b: PersonId,
+): ClueEvaluation {
+	const cellA = placement[a];
+	const cellB = placement[b];
+	if (cellA) {
+		const roomA = roomOf(scene, cellA);
+		if (roomA) {
+			const occupants = occupantsOfRoom(roomA, placement);
+			const intruder = occupants.some((personId) => personId !== a && personId !== b);
+			if (intruder) return 'violated';
+		}
+	}
+	if (cellA && cellB) {
+		const roomA = roomOf(scene, cellA);
+		const roomB = roomOf(scene, cellB);
+		if (roomA && roomB && roomA.id !== roomB.id) return 'violated';
+	}
+	if (!cellA || !cellB) return 'undecided';
+	const room = roomOf(scene, cellA);
+	if (!room) return 'undecided';
+	const occupants = occupantsOfRoom(room, placement);
+	const exactPair = occupants.length === 2 && occupants.includes(a) && occupants.includes(b);
+	if (!exactPair) return 'violated';
+	return isRoomSealed(scene, room, placement) ? 'satisfied' : 'undecided';
+}
+
+function negateEvaluation(evaluation: ClueEvaluation): ClueEvaluation {
+	if (evaluation === 'satisfied') return 'violated';
+	if (evaluation === 'violated') return 'satisfied';
+	return 'undecided';
+}
+
 export function evaluateClue(clue: Clue, scene: Scene, placement: Placement): ClueEvaluation {
 	switch (clue.type) {
 		case 'in_room': {
@@ -110,30 +146,9 @@ export function evaluateClue(clue: Clue, scene: Scene, placement: Placement): Cl
 			if (occupants.length > 1) return 'violated';
 			return isRoomSealed(scene, room, placement) ? 'satisfied' : 'undecided';
 		}
-		case 'alone_with': {
-			const cellA = placement[clue.a];
-			const cellB = placement[clue.b];
-			if (cellA) {
-				const roomA = roomOf(scene, cellA);
-				if (roomA) {
-					const occupants = occupantsOfRoom(roomA, placement);
-					const intruder = occupants.some((personId) => personId !== clue.a && personId !== clue.b);
-					if (intruder) return 'violated';
-				}
-			}
-			if (cellA && cellB) {
-				const roomA = roomOf(scene, cellA);
-				const roomB = roomOf(scene, cellB);
-				if (roomA && roomB && roomA.id !== roomB.id) return 'violated';
-			}
-			if (!cellA || !cellB) return 'undecided';
-			const room = roomOf(scene, cellA);
-			if (!room) return 'undecided';
-			const occupants = occupantsOfRoom(room, placement);
-			const exactPair =
-				occupants.length === 2 && occupants.includes(clue.a) && occupants.includes(clue.b);
-			if (!exactPair) return 'violated';
-			return isRoomSealed(scene, room, placement) ? 'satisfied' : 'undecided';
-		}
+		case 'alone_with':
+			return evaluateAloneWith(scene, placement, clue.a, clue.b);
+		case 'not_alone_with':
+			return negateEvaluation(evaluateAloneWith(scene, placement, clue.a, clue.b));
 	}
 }

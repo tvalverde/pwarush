@@ -57,6 +57,11 @@ const cases: { clue: Clue; en: string; es: string }[] = [
 		es: 'Gemma estaba en la misma sala que Dee',
 	},
 	{
+		clue: { type: 'not_alone_with', a: 'mara', b: 'bo' },
+		en: 'Mara was not alone with Bo',
+		es: 'Mara no estaba a solas con Bo',
+	},
+	{
 		clue: { type: 'offset', a: 'mara', b: 'bo', dRow: -1, dCol: 2 },
 		en: 'Mara was 1 cell north and 2 cells east of Bo',
 		es: 'Mara estaba 1 casilla al norte y 2 casillas al este de Bo',
