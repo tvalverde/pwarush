@@ -22,6 +22,15 @@ test.describe('Visual regression', () => {
 		await expect(page.getByTestId('case-board')).toHaveScreenshot('board-master.png');
 	});
 
+	test('game screen with portraits and grouped clues', async ({ page }) => {
+		await open(page, { seed: 1 });
+		await startCase(page, 'beginner');
+		// Full screen: tray portraits + clue panel grouped by narrator. Mask the timer.
+		await expect(page).toHaveScreenshot('game-screen.png', {
+			mask: [page.getByTestId('game-timer')],
+		});
+	});
+
 	test('case-solved overlay', async ({ page }) => {
 		await open(page, { seed: 1 });
 		await startCase(page, 'beginner');

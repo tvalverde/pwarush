@@ -7,6 +7,7 @@ import { useBoardDnd } from '../hooks/useBoardDnd';
 import { useGameStore } from '../store/gameStore';
 import { personAt, sceneOf } from '../utils/caseState';
 import PersonToken from './board/PersonToken';
+import Portrait from './board/Portrait';
 import CaseBoard from './CaseBoard';
 import CaseSolvedOverlay from './CaseSolvedOverlay';
 import CluePanel from './CluePanel';
@@ -205,13 +206,17 @@ const GameScreen: React.FC = () => {
 									}`}
 								>
 									<span
-										className={`flex h-6 w-6 items-center justify-center rounded-full font-hanken text-xs font-black uppercase ${
+										className={`flex h-7 w-7 items-center justify-center overflow-hidden rounded-full ${
 											isVictim
-												? 'bg-error-container text-on-error-container'
+												? 'bg-error-container text-error'
 												: 'bg-secondary-container text-on-secondary-container'
 										}`}
 									>
-										{person.name.charAt(0)}
+										<Portrait
+											personId={person.id}
+											gender={person.gender}
+											className="h-full w-full"
+										/>
 									</span>
 									{person.name}
 								</button>
