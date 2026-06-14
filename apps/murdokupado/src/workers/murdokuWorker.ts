@@ -20,7 +20,7 @@ function randomSeed(): number {
 
 export function generateCaseForRequest(difficulty: Difficulty, seed?: number): GeneratedResponse {
 	const resolvedSeed = seed ?? randomSeed();
-	const scene = sceneForDifficulty(difficulty);
+	const scene = sceneForDifficulty(difficulty, resolvedSeed);
 	const value = generateCase(scene, difficulty, resolvedSeed);
 	return { id: 0, type: 'GENERATED', payload: { case: value, seed: resolvedSeed } };
 }

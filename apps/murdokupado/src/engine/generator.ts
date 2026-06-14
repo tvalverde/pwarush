@@ -1,4 +1,13 @@
-import { courtroom, hotel, mansion, theater } from '../data/scenes';
+import {
+	casino,
+	clinic,
+	courtroom,
+	gallery,
+	hotel,
+	mansion,
+	museum,
+	theater,
+} from '../data/scenes';
 import { evaluateClue, occupantsOfRoom } from './evaluate';
 import { isOccupiable } from './grid';
 import { createRng, pick, type Rng, shuffleInPlace } from './rng';
@@ -19,19 +28,18 @@ interface SolvedScene extends VictimAssignment {
 }
 
 // Difficulty maps to board size: bigger boards mean more people and more space to
-// reason about. (shop 5×5 stays authored as a fixture / for resuming old saves but
-// is no longer assigned to a tier.)
-export function sceneForDifficulty(difficulty: Difficulty): Scene {
-	switch (difficulty) {
-		case 'beginner':
-			return courtroom; // 4×4
-		case 'intermediate':
-			return mansion; // 6×6
-		case 'expert':
-			return theater; // 7×7
-		case 'master':
-			return hotel; // 9×9
-	}
+// reason about. Each tier has one or more scenes of that size; a case picks one by
+// seed for variety. (shop 5×5 stays authored as a fixture / for old saves, untiered.)
+const SCENES_BY_DIFFICULTY: Record<Difficulty, Scene[]> = {
+	beginner: [courtroom, gallery], // 4×4
+	intermediate: [mansion, clinic], // 6×6
+	expert: [theater, museum], // 7×7
+	master: [hotel, casino], // 9×9
+};
+
+export function sceneForDifficulty(difficulty: Difficulty, seed?: number): Scene {
+	const scenes = SCENES_BY_DIFFICULTY[difficulty];
+	return seed === undefined ? scenes[0] : scenes[Math.abs(seed) % scenes.length];
 }
 
 /**

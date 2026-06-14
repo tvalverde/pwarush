@@ -127,11 +127,11 @@ describe('generateCase — property run across tiers', () => {
 	const SEEDS = Array.from({ length: 8 }, (_, i) => i + 1);
 
 	for (const tier of TIERS) {
-		const scene = sceneForDifficulty(tier);
-
 		describe(`tier "${tier}"`, () => {
 			for (const seed of SEEDS) {
-				it(`seed ${seed} yields a sound, unique, minimal case`, () => {
+				it(`seed ${seed} yields a sound, unique case`, () => {
+					// Rotate scenes by seed so every scene of the tier is exercised.
+					const scene = sceneForDifficulty(tier, seed);
 					const generated = generateCase(scene, tier, seed);
 
 					expect(generated.sceneId).toBe(scene.id);

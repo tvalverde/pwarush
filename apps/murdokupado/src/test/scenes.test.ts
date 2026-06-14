@@ -1,5 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import { courtroom, hotel, mansion, SCENES, shop, theater } from '../data/scenes';
+import {
+	casino,
+	clinic,
+	courtroom,
+	gallery,
+	hotel,
+	mansion,
+	museum,
+	SCENES,
+	shop,
+	theater,
+} from '../data/scenes';
 import type { CellRef, Scene } from '../engine/types';
 import { validateScene } from '../engine/validateScene';
 
@@ -40,6 +51,10 @@ describe.each([
 	['mansion', mansion],
 	['theater', theater],
 	['hotel', hotel],
+	['gallery', gallery],
+	['clinic', clinic],
+	['museum', museum],
+	['casino', casino],
 ])('scene %s', (_name, scene) => {
 	it('passes validateScene', () => {
 		expect(validateScene(scene)).toEqual([]);
@@ -66,9 +81,13 @@ describe.each([
 describe('SCENES record', () => {
 	it('exposes every authored scene keyed by id', () => {
 		expect(Object.keys(SCENES).sort()).toEqual([
+			'casino',
+			'clinic',
 			'courtroom',
+			'gallery',
 			'hotel',
 			'mansion',
+			'museum',
 			'shop',
 			'theater',
 		]);
@@ -76,5 +95,9 @@ describe('SCENES record', () => {
 		expect(SCENES.mansion).toBe(mansion);
 		expect(SCENES.theater).toBe(theater);
 		expect(SCENES.hotel).toBe(hotel);
+		expect(SCENES.gallery).toBe(gallery);
+		expect(SCENES.clinic).toBe(clinic);
+		expect(SCENES.museum).toBe(museum);
+		expect(SCENES.casino).toBe(casino);
 	});
 });
