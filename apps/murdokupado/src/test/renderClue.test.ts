@@ -44,7 +44,7 @@ const cases: { clue: Clue; en: string; es: string }[] = [
 	{
 		clue: { type: 'alone', person: 'dee' },
 		en: 'Dee was alone',
-		es: 'Dee estaba solo',
+		es: 'Dee estaba sola',
 	},
 	{
 		clue: { type: 'alone_with', a: 'mara', b: 'bo' },
@@ -77,6 +77,16 @@ describe('renderClue', () => {
 		const south: Clue = { type: 'offset', a: 'mara', b: 'bo', dRow: 2, dCol: -1 };
 		expect(renderClue(south, courtroom, makeT('en'), 'en')).toBe(
 			'Mara was 2 cells south and 1 cell west of Bo',
+		);
+	});
+
+	it('agrees gender in the Spanish alone clue', () => {
+		// Dee is feminine, Bo is masculine in the courtroom cast.
+		expect(renderClue({ type: 'alone', person: 'dee' }, courtroom, makeT('es'), 'es')).toBe(
+			'Dee estaba sola',
+		);
+		expect(renderClue({ type: 'alone', person: 'bo' }, courtroom, makeT('es'), 'es')).toBe(
+			'Bo estaba solo',
 		);
 	});
 

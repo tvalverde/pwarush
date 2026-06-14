@@ -182,25 +182,41 @@ const GameScreen: React.FC = () => {
 						</button>
 					</div>
 					<div className="flex flex-wrap gap-2">
-						{unplaced.map((person) => (
-							<button
-								type="button"
-								key={person.id}
-								data-testid={`suspect-${person.id}`}
-								onPointerDown={(e) => startDrag(person.id, e)}
-								onClick={() => handleTrayTap(person.id)}
-								className={`flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors ${
-									selectedPersonId === person.id
-										? 'border-transparent bg-primary text-on-primary'
-										: 'border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container'
-								}`}
-							>
-								<span className="flex h-6 w-6 items-center justify-center rounded-full bg-secondary-container font-hanken text-xs font-black uppercase text-on-secondary-container">
-									{person.name.charAt(0)}
-								</span>
-								{person.name}
-							</button>
-						))}
+						{unplaced.map((person) => {
+							const isSelected = selectedPersonId === person.id;
+							const isVictim = person.id === activeCase.victimId;
+							const borderClass = isVictim
+								? 'border-dashed border-error'
+								: isSelected
+									? 'border-transparent'
+									: 'border-outline-variant';
+							return (
+								<button
+									type="button"
+									key={person.id}
+									data-testid={`suspect-${person.id}`}
+									data-victim={isVictim ? 'true' : undefined}
+									onPointerDown={(e) => startDrag(person.id, e)}
+									onClick={() => handleTrayTap(person.id)}
+									className={`flex items-center gap-2 rounded-full border px-4 py-2 font-sans text-sm transition-colors ${borderClass} ${
+										isSelected
+											? 'bg-primary text-on-primary'
+											: 'bg-surface-container-lowest text-on-surface hover:bg-surface-container'
+									}`}
+								>
+									<span
+										className={`flex h-6 w-6 items-center justify-center rounded-full font-hanken text-xs font-black uppercase ${
+											isVictim
+												? 'bg-error-container text-on-error-container'
+												: 'bg-secondary-container text-on-secondary-container'
+										}`}
+									>
+										{person.name.charAt(0)}
+									</span>
+									{person.name}
+								</button>
+							);
+						})}
 					</div>
 				</section>
 

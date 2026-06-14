@@ -56,6 +56,13 @@ describe('GameScreen board', () => {
 		expect(screen.queryByTestId('suspect-mara')).not.toBeInTheDocument();
 	});
 
+	it('marks the victim in the suspect tray', () => {
+		render(<GameScreen />);
+		// manualCase victim is mara; suspects carry the data-victim flag.
+		expect(screen.getByTestId('suspect-mara')).toHaveAttribute('data-victim', 'true');
+		expect(screen.getByTestId('suspect-dee')).not.toHaveAttribute('data-victim');
+	});
+
 	it('renders the clue panel with rendered sentences', () => {
 		useGameStore.getState().setLanguage('en');
 		render(<GameScreen />);

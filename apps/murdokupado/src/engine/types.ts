@@ -8,9 +8,14 @@ export interface CellRef {
 	c: number;
 }
 
+export type Gender = 'masculine' | 'feminine';
+
 export interface Person {
 	id: PersonId;
 	name: string;
+	// Grammatical gender for clue agreement (e.g. Spanish "solo"/"sola"). Optional:
+	// when absent, renderers fall back to the masculine form.
+	gender?: Gender;
 }
 
 export interface Room {

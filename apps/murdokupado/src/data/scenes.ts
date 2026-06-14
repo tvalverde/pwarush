@@ -49,10 +49,10 @@ export const courtroom: Scene = {
 		{ r: 2, c: 0 },
 	],
 	cast: [
-		{ id: 'mara', name: 'Mara' },
-		{ id: 'bo', name: 'Bo' },
-		{ id: 'gemma', name: 'Gemma' },
-		{ id: 'dee', name: 'Dee' },
+		{ id: 'mara', name: 'Mara', gender: 'feminine' },
+		{ id: 'bo', name: 'Bo', gender: 'masculine' },
+		{ id: 'gemma', name: 'Gemma', gender: 'feminine' },
+		{ id: 'dee', name: 'Dee', gender: 'feminine' },
 	],
 };
 
@@ -121,11 +121,11 @@ export const shop: Scene = {
 		{ r: 2, c: 0 },
 	],
 	cast: [
-		{ id: 'rex', name: 'Rex' },
-		{ id: 'ash', name: 'Ash' },
-		{ id: 'vera', name: 'Vera' },
-		{ id: 'nell', name: 'Nell' },
-		{ id: 'otto', name: 'Otto' },
+		{ id: 'rex', name: 'Rex', gender: 'masculine' },
+		{ id: 'ash', name: 'Ash', gender: 'masculine' },
+		{ id: 'vera', name: 'Vera', gender: 'feminine' },
+		{ id: 'nell', name: 'Nell', gender: 'feminine' },
+		{ id: 'otto', name: 'Otto', gender: 'masculine' },
 	],
 };
 

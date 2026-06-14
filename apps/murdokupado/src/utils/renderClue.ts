@@ -1,7 +1,13 @@
-import type { Clue, Scene } from '../engine/types';
+import type { Clue, Gender, Scene } from '../engine/types';
 import type { Language } from '../types';
 
 type Translate = (path: string) => string;
+
+// Gendered form of "alone" per language. English has no agreement; Spanish does.
+const ALONE: Record<Language, Record<Gender, string>> = {
+	en: { masculine: 'alone', feminine: 'alone' },
+	es: { masculine: 'solo', feminine: 'sola' },
+};
 
 const DIRECTIONS: Record<Language, { north: string; south: string; east: string; west: string }> = {
 	en: { north: 'north', south: 'south', east: 'east', west: 'west' },
@@ -61,8 +67,13 @@ export function renderClue(clue: Clue, scene: Scene, t: Translate, lang: Languag
 				a: personName(clue.a),
 				b: personName(clue.b),
 			});
-		case 'alone':
-			return interpolate(template, { person: personName(clue.person) });
+		case 'alone': {
+			const gender = scene.cast.find((person) => person.id === clue.person)?.gender ?? 'masculine';
+			return interpolate(template, {
+				person: personName(clue.person),
+				alone: ALONE[lang][gender],
+			});
+		}
 		case 'offset':
 			return interpolate(template, {
 				a: personName(clue.a),
