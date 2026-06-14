@@ -44,6 +44,7 @@ export const translations = {
 			mistakes_label: 'Mistakes',
 			new_case: 'NEW CASE',
 			home: 'MAIN MENU',
+			reveal_continue: 'OPEN THE CASE FILE',
 		},
 		room: {
 			courtroom: 'the courtroom',
@@ -128,6 +129,7 @@ export const translations = {
 			mistakes_label: 'Errores',
 			new_case: 'NUEVO CASO',
 			home: 'MENÚ PRINCIPAL',
+			reveal_continue: 'ABRIR EL EXPEDIENTE',
 		},
 		room: {
 			courtroom: 'la sala del tribunal',

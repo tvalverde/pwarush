@@ -29,9 +29,16 @@ test.describe('Golden path: solving a seeded case', () => {
 		const info = await readActiveCase(page);
 		await placeSolution(page, info);
 
-		await expect(page.getByTestId('result-screen')).toBeVisible();
 		const murdererName = info.people.find((person) => person.id === info.murdererId)?.name;
 		expect(murdererName).toBeTruthy();
+
+		// Solving reveals the murderer on the board overlay first; opening the case
+		// file then leads to the result summary.
+		await expect(page.getByTestId('case-solved-overlay')).toBeVisible();
+		await expect(page.getByTestId('overlay-murderer')).toHaveText(murdererName as string);
+		await page.getByTestId('reveal-continue').click();
+
+		await expect(page.getByTestId('result-screen')).toBeVisible();
 		await expect(page.getByTestId('murderer-name')).toHaveText(murdererName as string);
 	});
 });

@@ -8,6 +8,7 @@ import { useGameStore } from '../store/gameStore';
 import { personAt, sceneOf } from '../utils/caseState';
 import PersonToken from './board/PersonToken';
 import CaseBoard from './CaseBoard';
+import CaseSolvedOverlay from './CaseSolvedOverlay';
 import CluePanel from './CluePanel';
 
 const formatTime = (seconds: number): string => {
@@ -24,7 +25,7 @@ const GameScreen: React.FC = () => {
 	const selectedPersonId = useGameStore((s) => s.selectedPersonId);
 	const mistakes = useGameStore((s) => s.mistakes);
 	const timeElapsed = useGameStore((s) => s.timeElapsed);
-	const lastResult = useGameStore((s) => s.lastResult);
+	const revealedMurderer = useGameStore((s) => s.revealedMurderer);
 	const selectedDifficulty = useGameStore((s) => s.selectedDifficulty);
 	const selectPerson = useGameStore((s) => s.selectPerson);
 	const placePerson = useGameStore((s) => s.placePerson);
@@ -62,15 +63,11 @@ const GameScreen: React.FC = () => {
 		};
 	}, []);
 
-	useEffect(() => {
-		if (lastResult) {
-			setScreen('result');
-		}
-	}, [lastResult, setScreen]);
-
 	if (!activeCase || !scene) return null;
 
 	const unplaced = activeCase.people.filter((person) => !placement[person.id]);
+	const nameOf = (id: string): string =>
+		activeCase.people.find((person) => person.id === id)?.name ?? id;
 
 	const consumeDragClick = (): boolean => {
 		if (didDragRef.current) {
@@ -148,12 +145,25 @@ const GameScreen: React.FC = () => {
 			</header>
 
 			<main className="flex flex-1 flex-col gap-5 overflow-y-auto px-4 py-5">
-				<CaseBoard
-					scene={scene}
-					onCellTap={handleCellTap}
-					targetCell={dragState?.targetCell ?? null}
-					onTokenPointerDown={startDrag}
-				/>
+				<div className="relative">
+					<CaseBoard
+						scene={scene}
+						onCellTap={handleCellTap}
+						targetCell={dragState?.targetCell ?? null}
+						onTokenPointerDown={startDrag}
+					/>
+					{revealedMurderer && (
+						<CaseSolvedOverlay
+							title={t('result.solved_title')}
+							murdererLabel={t('result.murderer_label')}
+							murdererName={nameOf(revealedMurderer)}
+							victimLabel={t('result.victim_label')}
+							victimName={nameOf(activeCase.victimId)}
+							continueLabel={t('result.reveal_continue')}
+							onContinue={() => setScreen('result')}
+						/>
+					)}
+				</div>
 
 				<section className="flex flex-col gap-2">
 					<div className="flex items-center justify-between">
