@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { courtroom, SCENES, shop } from '../data/scenes';
+import { courtroom, hotel, mansion, SCENES, shop, theater } from '../data/scenes';
 import type { CellRef, Scene } from '../engine/types';
 import { validateScene } from '../engine/validateScene';
 
@@ -37,6 +37,9 @@ function admitsPermutationPlacement(scene: Scene): boolean {
 describe.each([
 	['courtroom', courtroom],
 	['shop', shop],
+	['mansion', mansion],
+	['theater', theater],
+	['hotel', hotel],
 ])('scene %s', (_name, scene) => {
 	it('passes validateScene', () => {
 		expect(validateScene(scene)).toEqual([]);
@@ -61,9 +64,17 @@ describe.each([
 });
 
 describe('SCENES record', () => {
-	it('exposes both authored scenes keyed by id', () => {
-		expect(Object.keys(SCENES).sort()).toEqual(['courtroom', 'shop']);
+	it('exposes every authored scene keyed by id', () => {
+		expect(Object.keys(SCENES).sort()).toEqual([
+			'courtroom',
+			'hotel',
+			'mansion',
+			'shop',
+			'theater',
+		]);
 		expect(SCENES.courtroom).toBe(courtroom);
-		expect(SCENES.shop).toBe(shop);
+		expect(SCENES.mansion).toBe(mansion);
+		expect(SCENES.theater).toBe(theater);
+		expect(SCENES.hotel).toBe(hotel);
 	});
 });

@@ -1,12 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { courtroom, shop } from '../data/scenes';
+import { courtroom, hotel, mansion, theater } from '../data/scenes';
 import { evaluateClue, occupantsOfRoom, roomOf } from '../engine/evaluate';
-import {
-	classifyDifficulty,
-	enumerateTrueClues,
-	generateCase,
-	sceneForDifficulty,
-} from '../engine/generator';
+import { enumerateTrueClues, generateCase, sceneForDifficulty } from '../engine/generator';
 import { countSolutions } from '../engine/solver';
 import type { Case, Clue, Difficulty, Placement, Scene } from '../engine/types';
 
@@ -46,10 +41,10 @@ describe('sceneForDifficulty', () => {
 		expect(sceneForDifficulty('beginner')).toBe(courtroom);
 	});
 
-	it('maps the higher tiers to the 5x5 shop', () => {
-		expect(sceneForDifficulty('intermediate')).toBe(shop);
-		expect(sceneForDifficulty('expert')).toBe(shop);
-		expect(sceneForDifficulty('master')).toBe(shop);
+	it('maps each higher tier to its own larger scene', () => {
+		expect(sceneForDifficulty('intermediate')).toBe(mansion); // 6×6
+		expect(sceneForDifficulty('expert')).toBe(theater); // 7×7
+		expect(sceneForDifficulty('master')).toBe(hotel); // 9×9
 	});
 });
 
@@ -106,14 +101,16 @@ describe('generateCase — determinism', () => {
 	});
 
 	it('different seeds explore different cases', () => {
-		const a = generateCase(shop, 'intermediate', 1);
-		const b = generateCase(shop, 'intermediate', 2);
+		const a = generateCase(mansion, 'intermediate', 1);
+		const b = generateCase(mansion, 'intermediate', 2);
 		expect(a).not.toEqual(b);
 	});
 });
 
 describe('generateCase — property run across tiers', () => {
-	const SEEDS = Array.from({ length: 25 }, (_, i) => i + 1);
+	// Kept small: the master tier is a 9×9 scene (~1 s/case), so a large sweep would
+	// dominate the unit run. 8 seeds × 4 tiers still exercises every scene broadly.
+	const SEEDS = Array.from({ length: 8 }, (_, i) => i + 1);
 
 	for (const tier of TIERS) {
 		const scene = sceneForDifficulty(tier);
@@ -137,9 +134,8 @@ describe('generateCase — property run across tiers', () => {
 					// The clue set never names the killer pair directly.
 					expect(generated.clues.some((clue) => revealsKillerPair(clue, generated))).toBe(false);
 
-					// Stored difficulty is the genuine classification of the clue set.
-					expect(generated.difficulty).toBe(classifyDifficulty(scene, generated.clues));
-					expect(TIERS).toContain(generated.difficulty);
+					// Difficulty is the requested tier (set by board size, not classified).
+					expect(generated.difficulty).toBe(tier);
 
 					// Locally minimal: removing any single clue breaks uniqueness.
 					for (const clue of generated.clues) {
@@ -150,19 +146,4 @@ describe('generateCase — property run across tiers', () => {
 			}
 		});
 	}
-});
-
-describe('classifyDifficulty', () => {
-	it('keeps beginner reachable from the spatial/relative catalogue and recognises it', () => {
-		// Removing absolute row/column clues must not make the easiest tier
-		// unreachable: some seed still classifies as beginner, and the classifier
-		// agrees on its clue set.
-		const beginner = Array.from({ length: 60 }, (_, i) => i + 1)
-			.map((seed) => generateCase(courtroom, 'beginner', seed))
-			.find((generated) => generated.difficulty === 'beginner');
-		expect(beginner).toBeDefined();
-		if (beginner) {
-			expect(classifyDifficulty(courtroom, beginner.clues)).toBe('beginner');
-		}
-	});
 });

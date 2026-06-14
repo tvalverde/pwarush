@@ -1,11 +1,9 @@
-import { courtroom, shop } from '../data/scenes';
+import { courtroom, hotel, mansion, theater } from '../data/scenes';
 import { evaluateClue, occupantsOfRoom } from './evaluate';
 import { isOccupiable } from './grid';
 import { createRng, pick, type Rng, shuffleInPlace } from './rng';
-import { countSolutions, solve } from './solver';
+import { countSolutions } from './solver';
 import type { Case, CellRef, Clue, Difficulty, PersonId, Placement, Scene } from './types';
-
-const TIER_ORDER: Difficulty[] = ['beginner', 'intermediate', 'expert', 'master'];
 
 const PLACEMENT_RESAMPLE_LIMIT = 100;
 const GENERATION_ATTEMPT_LIMIT = 50;
@@ -20,8 +18,20 @@ interface SolvedScene extends VictimAssignment {
 	placement: Placement;
 }
 
+// Difficulty maps to board size: bigger boards mean more people and more space to
+// reason about. (shop 5×5 stays authored as a fixture / for resuming old saves but
+// is no longer assigned to a tier.)
 export function sceneForDifficulty(difficulty: Difficulty): Scene {
-	return difficulty === 'beginner' ? courtroom : shop;
+	switch (difficulty) {
+		case 'beginner':
+			return courtroom; // 4×4
+		case 'intermediate':
+			return mansion; // 6×6
+		case 'expert':
+			return theater; // 7×7
+		case 'master':
+			return hotel; // 9×9
+	}
 }
 
 /**
@@ -205,30 +215,8 @@ function pruneClues(scene: Scene, clues: Clue[], rng: Rng): Clue[] {
 	return kept;
 }
 
-/**
- * Difficulty ladder over the spatial/relative catalogue (no absolute row/column
- * clues). Those were the only clues solvable by pure unary propagation, so the
- * easiest genuine tier is now "arc propagation without search". Higher tiers are
- * graded by how deep the backtracking search must go.
- */
-export function classifyDifficulty(scene: Scene, clues: Clue[]): Difficulty {
-	if (solve(scene, clues, { techniques: 'arc', propagateOnly: true }).placement) {
-		return 'beginner';
-	}
-	const outcome = solve(scene, clues, { techniques: 'arc' });
-	if (outcome.placement && outcome.maxGuessDepth <= 1) {
-		return 'intermediate';
-	}
-	if (outcome.placement && outcome.maxGuessDepth <= 2) {
-		return 'expert';
-	}
-	return 'master';
-}
-
 export function generateCase(scene: Scene, difficulty: Difficulty, seed: number): Case {
 	const rng = createRng(seed);
-	const targetIndex = TIER_ORDER.indexOf(difficulty);
-	let best: { value: Case; distance: number } | null = null;
 
 	for (let attempt = 0; attempt < GENERATION_ATTEMPT_LIMIT; attempt++) {
 		const solved = sampleSolvedScene(scene, rng);
@@ -236,34 +224,25 @@ export function generateCase(scene: Scene, difficulty: Difficulty, seed: number)
 			(clue) => !revealsKiller(clue, solved),
 		);
 		const clues = pruneClues(scene, trueClues, rng);
-		// Without absolute row/column clues uniqueness is not structural, so discard
-		// any rare placement whose spatial/relative clues admit more than one solution.
+		// Difficulty is fixed by the scene's board size (see sceneForDifficulty), not
+		// by solving technique, so we keep the first locally-minimal clue set that pins
+		// a unique solution and tag it with the requested tier. Without absolute
+		// row/column clues uniqueness is not structural, hence the explicit guard.
 		if (countSolutions(scene, clues, 2) !== 1) {
 			continue;
 		}
-		const classified = classifyDifficulty(scene, clues);
-		const value: Case = {
+		return {
 			sceneId: scene.id,
 			people: scene.cast.slice(),
 			victimId: solved.victimId,
 			clues,
 			solution: solved.placement,
-			difficulty: classified,
+			difficulty,
 			murdererId: solved.murdererId,
 		};
-		if (classified === difficulty) {
-			return value;
-		}
-		const distance = Math.abs(TIER_ORDER.indexOf(classified) - targetIndex);
-		if (!best || distance < best.distance) {
-			best = { value, distance };
-		}
 	}
 
-	if (!best) {
-		throw new Error(
-			`Scene "${scene.id}" produced no case in ${GENERATION_ATTEMPT_LIMIT} attempts.`,
-		);
-	}
-	return best.value;
+	throw new Error(
+		`Scene "${scene.id}" produced no unique case in ${GENERATION_ATTEMPT_LIMIT} attempts.`,
+	);
 }

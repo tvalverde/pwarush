@@ -16,6 +16,12 @@ test.describe('Visual regression', () => {
 		await expect(page.getByTestId('case-board')).toHaveScreenshot('board-mid.png');
 	});
 
+	test('board master 9x9', async ({ page }) => {
+		await open(page, { seed: 1 });
+		await startCase(page, 'master');
+		await expect(page.getByTestId('case-board')).toHaveScreenshot('board-master.png');
+	});
+
 	test('case-solved overlay', async ({ page }) => {
 		await open(page, { seed: 1 });
 		await startCase(page, 'beginner');

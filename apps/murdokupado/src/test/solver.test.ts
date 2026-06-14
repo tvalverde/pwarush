@@ -1,7 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { courtroom } from '../data/scenes';
 import { evaluateClue } from '../engine/evaluate';
-import { generateCase } from '../engine/generator';
 import { countSolutions, solve } from '../engine/solver';
 import type { CellRef, Clue, Placement, Scene } from '../engine/types';
 
@@ -114,27 +112,6 @@ describe('countSolutions — weak clues stop early', () => {
 
 	it('respects a higher limit', () => {
 		expect(countSolutions(testScene, [], 5)).toBe(5);
-	});
-});
-
-describe('propagateOnly — a beginner case is solved by arc propagation', () => {
-	// With absolute row/column clues gone, the easiest tier is solvable by arc
-	// propagation without search (no longer by pure unary). Use a real generated
-	// beginner case to assert that property.
-	it('solves a generated beginner with arc + propagateOnly, no search', () => {
-		const beginner = Array.from({ length: 60 }, (_, i) => i + 1)
-			.map((seed) => generateCase(courtroom, 'beginner', seed))
-			.find((generated) => generated.difficulty === 'beginner');
-		expect(beginner).toBeDefined();
-		if (!beginner) return;
-		const outcome = solve(courtroom, beginner.clues, {
-			techniques: 'arc',
-			propagateOnly: true,
-		});
-		expect(outcome.placement).not.toBeNull();
-		expect(outcome.usedSearch).toBe(false);
-		expect(outcome.maxGuessDepth).toBe(0);
-		expectPermutation(outcome.placement as Placement);
 	});
 });
 
