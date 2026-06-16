@@ -11,23 +11,44 @@ interface CluePanelProps {
 const CluePanel: React.FC<CluePanelProps> = ({ scene }) => {
 	const activeCase = useGameStore((s) => s.activeCase);
 	const checkedClues = useGameStore((s) => s.checkedClues);
+	const clueOrder = useGameStore((s) => s.clueOrder);
 	const toggleClueCheck = useGameStore((s) => s.toggleClueCheck);
 	const language = useGameStore((s) => s.language);
 	const t = useGameStore((s) => s.t);
 
 	if (!activeCase) return null;
 
+	// Display position of each clue: checked clues sink to the bottom of their group.
+	const positionOf = new Map(clueOrder.map((clueIndex, position) => [clueIndex, position]));
+
 	// Group each clue (kept at its original index for test hooks + check state) under
-	// the suspect who narrates it, in cast order; the victim never narrates.
+	// the suspect who narrates it, in cast order; the victim never narrates. Within a
+	// group, clues follow the global display order (checked ones last). A narrator whose
+	// every clue is checked sinks its whole block below the still-active narrators.
+	const isFullyChecked = (indices: number[]): boolean =>
+		indices.every((index) => checkedClues.includes(index));
+
 	const groups = activeCase.people
 		.filter((person) => person.id !== activeCase.victimId)
 		.map((person) => ({
 			person,
 			indices: activeCase.clues
 				.map((_, index) => index)
-				.filter((index) => activeCase.narrators[index] === person.id),
+				.filter((index) => activeCase.narrators[index] === person.id)
+				.sort((a, b) => (positionOf.get(a) ?? 0) - (positionOf.get(b) ?? 0)),
 		}))
-		.filter((group) => group.indices.length > 0);
+		.filter((group) => group.indices.length > 0)
+		.sort((a, b) => {
+			const aFull = isFullyChecked(a.indices);
+			const bFull = isFullyChecked(b.indices);
+			if (aFull !== bFull) return aFull ? 1 : -1;
+			if (aFull && bFull) {
+				const aPos = positionOf.get(a.indices[a.indices.length - 1]) ?? 0;
+				const bPos = positionOf.get(b.indices[b.indices.length - 1]) ?? 0;
+				return aPos - bPos;
+			}
+			return 0;
+		});
 
 	return (
 		<section className="flex flex-col gap-3">

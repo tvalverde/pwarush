@@ -78,6 +78,22 @@ describe('GameScreen board', () => {
 		expect(screen.getByTestId('hint-apply')).toBeInTheDocument();
 		expect(screen.getByTestId('hint-dismiss')).toBeInTheDocument();
 	});
+
+	it("sinks a narrator's whole block once all its clues are checked", () => {
+		const { container } = render(<GameScreen />);
+		const clueOrderInDom = (): string[] =>
+			Array.from(container.querySelectorAll('[data-testid^="clue-"]')).map((el) =>
+				el.getAttribute('data-testid'),
+			) as string[];
+		// manualCase: clue-0 narrated by bo, clue-1 by gemma. bo is listed first.
+		expect(clueOrderInDom()).toEqual(['clue-0', 'clue-1']);
+		// Checking bo's only clue fully completes his block, sinking it below gemma.
+		fireEvent.click(screen.getByTestId('clue-0'));
+		expect(clueOrderInDom()).toEqual(['clue-1', 'clue-0']);
+		// Unchecking floats bo's block back above gemma.
+		fireEvent.click(screen.getByTestId('clue-0'));
+		expect(clueOrderInDom()).toEqual(['clue-0', 'clue-1']);
+	});
 });
 
 describe('ResultScreen reveal', () => {

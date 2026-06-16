@@ -50,6 +50,7 @@ interface GameStore {
 	activeCase: Case | null;
 	placement: Placement;
 	checkedClues: number[];
+	clueOrder: number[];
 	mistakes: number;
 	timeElapsed: number;
 	isPaused: boolean;
@@ -81,6 +82,16 @@ const getInitialLanguage = (): Language => {
 
 const DEFAULT_DIFFICULTY: Difficulty = 'beginner';
 
+const range = (count: number): number[] => Array.from({ length: count }, (_, index) => index);
+
+// Rebuilds the display order for a resumed game: unchecked clues keep their natural
+// order at the front, checked clues sink to the back (in the order they were checked).
+const orderWithCheckedLast = (count: number, checked: number[]): number[] => {
+	const unchecked = range(count).filter((index) => !checked.includes(index));
+	const checkedInOrder = checked.filter((index) => index < count);
+	return [...unchecked, ...checkedInOrder];
+};
+
 export const useGameStore = create<GameStore>()(
 	persist(
 		(set, get) => ({
@@ -95,6 +106,7 @@ export const useGameStore = create<GameStore>()(
 			activeCase: null,
 			placement: {},
 			checkedClues: [],
+			clueOrder: [],
 			mistakes: 0,
 			timeElapsed: 0,
 			isPaused: false,
@@ -156,6 +168,7 @@ export const useGameStore = create<GameStore>()(
 					activeCase,
 					placement: {},
 					checkedClues: [],
+					clueOrder: range(activeCase.clues.length),
 					mistakes: 0,
 					timeElapsed: 0,
 					isPaused: false,
@@ -174,6 +187,7 @@ export const useGameStore = create<GameStore>()(
 					activeCase: snapshot.activeCase,
 					placement: snapshot.placement,
 					checkedClues: snapshot.checkedClues,
+					clueOrder: orderWithCheckedLast(snapshot.activeCase.clues.length, snapshot.checkedClues),
 					mistakes: snapshot.mistakes,
 					timeElapsed: snapshot.timeElapsed,
 					isPaused: false,
@@ -187,9 +201,10 @@ export const useGameStore = create<GameStore>()(
 				}),
 
 			restartGame: () =>
-				set({
+				set((state) => ({
 					placement: {},
 					checkedClues: [],
+					clueOrder: range(state.activeCase?.clues.length ?? 0),
 					mistakes: 0,
 					timeElapsed: 0,
 					isPaused: false,
@@ -198,7 +213,7 @@ export const useGameStore = create<GameStore>()(
 					hintsUsed: 0,
 					currentHint: null,
 					lastResult: null,
-				}),
+				})),
 
 			clearActiveGame: () =>
 				set({
@@ -206,6 +221,7 @@ export const useGameStore = create<GameStore>()(
 					activeCase: null,
 					placement: {},
 					checkedClues: [],
+					clueOrder: [],
 					mistakes: 0,
 					timeElapsed: 0,
 					selectedPersonId: null,
@@ -274,11 +290,16 @@ export const useGameStore = create<GameStore>()(
 			},
 
 			toggleClueCheck: (index) =>
-				set((state) => ({
-					checkedClues: state.checkedClues.includes(index)
-						? state.checkedClues.filter((i) => i !== index)
-						: [...state.checkedClues, index],
-				})),
+				set((state) => {
+					const willCheck = !state.checkedClues.includes(index);
+					const checkedClues = willCheck
+						? [...state.checkedClues, index]
+						: state.checkedClues.filter((i) => i !== index);
+					const rest = state.clueOrder.filter((i) => i !== index);
+					// Checking sinks the clue to the bottom; unchecking floats it back to the top.
+					const clueOrder = willCheck ? [...rest, index] : [index, ...rest];
+					return { checkedClues, clueOrder };
+				}),
 
 			incrementTime: () =>
 				set((state) => ({

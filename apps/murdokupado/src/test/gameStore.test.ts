@@ -115,6 +115,25 @@ describe('toggleClueCheck', () => {
 		useGameStore.getState().toggleClueCheck(2);
 		expect(useGameStore.getState().checkedClues).toEqual([]);
 	});
+
+	it('starts with the natural clue order', () => {
+		// manualCase has 4 clues.
+		expect(useGameStore.getState().clueOrder).toEqual([0, 1, 2, 3]);
+	});
+
+	it('sinks a checked clue to the end of the order', () => {
+		useGameStore.getState().toggleClueCheck(1);
+		expect(useGameStore.getState().clueOrder).toEqual([0, 2, 3, 1]);
+	});
+
+	it('floats an unchecked clue back to the start of the order', () => {
+		const { toggleClueCheck } = useGameStore.getState();
+		toggleClueCheck(1);
+		toggleClueCheck(2);
+		expect(useGameStore.getState().clueOrder).toEqual([0, 3, 1, 2]);
+		toggleClueCheck(1);
+		expect(useGameStore.getState().clueOrder).toEqual([1, 0, 3, 2]);
+	});
 });
 
 describe('hints', () => {
