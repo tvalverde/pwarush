@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { courtroom, shop } from '../data/scenes';
-import { computeFloorPlan, type WallSegment } from '../engine/floorplan';
+import { computeFloorPlan, resolveFloorMaterial, type WallSegment } from '../engine/floorplan';
 import type { Scene } from '../engine/types';
 
 function hasSegment(walls: WallSegment[], segment: WallSegment): boolean {
@@ -37,6 +37,45 @@ describe('computeFloorPlan floors', () => {
 		expect(checkoutTile?.roomIndex).toBe(2);
 		const streetTile = shopPlan.floors.find((tile) => tile.r === 4 && tile.c === 4);
 		expect(streetTile?.roomIndex).toBe(3);
+	});
+});
+
+describe('resolveFloorMaterial', () => {
+	it('honors a room that declares an explicit floor', () => {
+		const scene: Scene = {
+			id: 'mat-test',
+			size: 1,
+			rooms: [{ id: 'r', nameKey: 'room.r', cells: [{ r: 0, c: 0 }], floor: 'marble' }],
+			objects: [],
+			blockedCells: [],
+			cast: [],
+		};
+		expect(resolveFloorMaterial(scene, 0)).toBe('marble');
+	});
+
+	it('falls back to a deterministic material by room index when absent', () => {
+		const room = (id: string) => ({ id, nameKey: `room.${id}`, cells: [] });
+		const scene: Scene = {
+			id: 'fallback-test',
+			size: 3,
+			rooms: [room('a'), room('b'), room('c'), room('d'), room('e')],
+			objects: [],
+			blockedCells: [],
+			cast: [],
+		};
+		// Cycle: wood, tile, carpet, stone, then wraps back to wood.
+		expect(resolveFloorMaterial(scene, 0)).toBe('wood');
+		expect(resolveFloorMaterial(scene, 1)).toBe('tile');
+		expect(resolveFloorMaterial(scene, 2)).toBe('carpet');
+		expect(resolveFloorMaterial(scene, 3)).toBe('stone');
+		expect(resolveFloorMaterial(scene, 4)).toBe('wood');
+	});
+
+	it('tags every computed floor tile with its room material', () => {
+		const plan = computeFloorPlan(courtroom);
+		for (const tile of plan.floors) {
+			expect(tile.material).toBe(resolveFloorMaterial(courtroom, tile.roomIndex));
+		}
 	});
 });
 

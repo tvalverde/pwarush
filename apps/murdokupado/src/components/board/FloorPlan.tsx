@@ -3,9 +3,13 @@ import { useMemo } from 'react';
 import { computeFloorPlan } from '../../engine/floorplan';
 import type { Scene } from '../../engine/types';
 import { useGameStore } from '../../store/gameStore';
+import FloorTextureDefs, { floorPatternId } from './floorTextures';
 import ObjectGlyph from './ObjectGlyph';
 
 const RUBBLE_PATTERN_ID = 'floorplan-rubble-hatch';
+// Keeps the ink texture readable as a hint of surface, never competing with tokens,
+// labels or walls drawn on top.
+const FLOOR_TEXTURE_OPACITY = 0.35;
 
 function roomFillToken(roomIndex: number): string {
 	return `var(--color-room-${(roomIndex % 4) + 1})`;
@@ -36,6 +40,7 @@ const FloorPlan: React.FC<{ scene: Scene }> = ({ scene }) => {
 					<rect width={0.2} height={0.2} fill="var(--color-surface-dim)" />
 					<line x1={0} y1={0} x2={0} y2={0.2} stroke="var(--color-primary)" strokeWidth={0.04} />
 				</pattern>
+				<FloorTextureDefs />
 			</defs>
 
 			{floors.map((tile) => (
@@ -46,6 +51,19 @@ const FloorPlan: React.FC<{ scene: Scene }> = ({ scene }) => {
 					width={1}
 					height={1}
 					fill={roomFillToken(tile.roomIndex)}
+				/>
+			))}
+
+			{floors.map((tile) => (
+				<rect
+					key={`texture-${tile.r}-${tile.c}`}
+					data-floor-texture={tile.material}
+					x={tile.c}
+					y={tile.r}
+					width={1}
+					height={1}
+					fill={`url(#${floorPatternId(tile.material)})`}
+					opacity={FLOOR_TEXTURE_OPACITY}
 				/>
 			))}
 

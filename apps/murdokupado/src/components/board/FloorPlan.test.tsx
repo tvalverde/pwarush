@@ -36,6 +36,18 @@ describe('FloorPlan', () => {
 		expect(room1Rects.length).toBeGreaterThan(0);
 	});
 
+	it('overlays one ink texture rect per floor tile', () => {
+		const plan = computeFloorPlan(courtroom);
+		const { container } = render(<FloorPlan scene={courtroom} />);
+		const textureRects = container.querySelectorAll('rect[data-floor-texture]');
+		expect(textureRects).toHaveLength(plan.floors.length);
+		// Each texture rect references a floor-texture pattern by its material.
+		for (const rect of Array.from(textureRects)) {
+			const material = rect.getAttribute('data-floor-texture');
+			expect(rect.getAttribute('fill')).toBe(`url(#floor-texture-${material})`);
+		}
+	});
+
 	it('draws a faint per-cell grid line for every interior division', () => {
 		const { container } = render(<FloorPlan scene={courtroom} />);
 		const gridLines = container.querySelectorAll('line[data-grid]');

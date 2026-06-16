@@ -3,6 +3,11 @@ export type RoomId = string;
 
 export type ObjectKind = 'bench' | 'desk' | 'flag' | 'register' | 'shelf' | 'plant' | 'puddle';
 
+// Floor surface of a room, used purely for presentation (a subtle ink texture drawn
+// over the room tint). Optional per room; renderers fall back to a deterministic
+// material by room index when absent.
+export type FloorMaterial = 'wood' | 'tile' | 'carpet' | 'stone' | 'marble' | 'grass' | 'water';
+
 export interface CellRef {
 	r: number;
 	c: number;
@@ -22,6 +27,8 @@ export interface Room {
 	id: RoomId;
 	nameKey: string;
 	cells: CellRef[];
+	// Presentation-only floor surface. When absent, the renderer picks one by index.
+	floor?: FloorMaterial;
 }
 
 export interface SceneObject {

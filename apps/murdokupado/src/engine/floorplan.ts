@@ -1,10 +1,19 @@
 import { sameCell } from './grid';
-import type { CellRef, ObjectKind, Scene } from './types';
+import type { CellRef, FloorMaterial, ObjectKind, Scene } from './types';
+
+// Deterministic fallback when a room declares no `floor`: cycles materials by room
+// index so unannotated scenes still read as varied surfaces.
+const FALLBACK_FLOOR: FloorMaterial[] = ['wood', 'tile', 'carpet', 'stone'];
+
+export function resolveFloorMaterial(scene: Scene, roomIndex: number): FloorMaterial {
+	return scene.rooms[roomIndex]?.floor ?? FALLBACK_FLOOR[roomIndex % FALLBACK_FLOOR.length];
+}
 
 export interface FloorTile {
 	r: number;
 	c: number;
 	roomIndex: number;
+	material: FloorMaterial;
 }
 
 export interface WallSegment {
@@ -68,7 +77,7 @@ export function computeFloorPlan(scene: Scene): FloorPlan {
 		for (let c = 0; c < size; c++) {
 			const region = regionOf(scene, { r, c });
 			if (typeof region === 'number' && region !== -1) {
-				floors.push({ r, c, roomIndex: region });
+				floors.push({ r, c, roomIndex: region, material: resolveFloorMaterial(scene, region) });
 			}
 		}
 	}

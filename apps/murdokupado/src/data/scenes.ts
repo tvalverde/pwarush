@@ -7,6 +7,7 @@ export const courtroom: Scene = {
 		{
 			id: 'courtroom',
 			nameKey: 'room.courtroom',
+			floor: 'wood',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -17,6 +18,7 @@ export const courtroom: Scene = {
 		{
 			id: 'hallway',
 			nameKey: 'room.hallway',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -31,6 +33,7 @@ export const courtroom: Scene = {
 		{
 			id: 'office',
 			nameKey: 'room.office',
+			floor: 'carpet',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -63,6 +66,7 @@ export const shop: Scene = {
 		{
 			id: 'salesfloor',
 			nameKey: 'room.salesfloor',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -75,6 +79,7 @@ export const shop: Scene = {
 		{
 			id: 'storage',
 			nameKey: 'room.storage',
+			floor: 'stone',
 			cells: [
 				{ r: 0, c: 3 },
 				{ r: 0, c: 4 },
@@ -85,6 +90,7 @@ export const shop: Scene = {
 		{
 			id: 'checkout',
 			nameKey: 'room.checkout',
+			floor: 'tile',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -99,6 +105,7 @@ export const shop: Scene = {
 		{
 			id: 'street',
 			nameKey: 'room.street',
+			floor: 'stone',
 			cells: [
 				{ r: 3, c: 3 },
 				{ r: 3, c: 4 },
@@ -136,6 +143,7 @@ export const mansion: Scene = {
 		{
 			id: 'hall',
 			nameKey: 'room.hall',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -146,6 +154,7 @@ export const mansion: Scene = {
 		{
 			id: 'kitchen',
 			nameKey: 'room.kitchen',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -156,6 +165,7 @@ export const mansion: Scene = {
 		{
 			id: 'library',
 			nameKey: 'room.library',
+			floor: 'wood',
 			cells: [
 				{ r: 0, c: 4 },
 				{ r: 0, c: 5 },
@@ -166,6 +176,7 @@ export const mansion: Scene = {
 		{
 			id: 'ballroom',
 			nameKey: 'room.ballroom',
+			floor: 'wood',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -184,6 +195,7 @@ export const mansion: Scene = {
 		{
 			id: 'garden',
 			nameKey: 'room.garden',
+			floor: 'grass',
 			cells: [
 				{ r: 4, c: 0 },
 				{ r: 4, c: 1 },
@@ -196,6 +208,7 @@ export const mansion: Scene = {
 		{
 			id: 'cellar',
 			nameKey: 'room.cellar',
+			floor: 'stone',
 			cells: [
 				{ r: 4, c: 3 },
 				{ r: 4, c: 4 },
@@ -232,6 +245,7 @@ export const theater: Scene = {
 		{
 			id: 'lobby',
 			nameKey: 'room.lobby',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -242,6 +256,7 @@ export const theater: Scene = {
 		{
 			id: 'boxoffice',
 			nameKey: 'room.boxoffice',
+			floor: 'wood',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -252,6 +267,7 @@ export const theater: Scene = {
 		{
 			id: 'foyer',
 			nameKey: 'room.foyer',
+			floor: 'carpet',
 			cells: [
 				{ r: 0, c: 4 },
 				{ r: 0, c: 5 },
@@ -264,6 +280,7 @@ export const theater: Scene = {
 		{
 			id: 'stage',
 			nameKey: 'room.stage',
+			floor: 'wood',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -284,6 +301,7 @@ export const theater: Scene = {
 		{
 			id: 'backstage',
 			nameKey: 'room.backstage',
+			floor: 'stone',
 			cells: [
 				{ r: 4, c: 0 },
 				{ r: 4, c: 1 },
@@ -296,6 +314,7 @@ export const theater: Scene = {
 		{
 			id: 'dressingroom',
 			nameKey: 'room.dressingroom',
+			floor: 'carpet',
 			cells: [
 				{ r: 4, c: 3 },
 				{ r: 4, c: 4 },
@@ -310,6 +329,7 @@ export const theater: Scene = {
 		{
 			id: 'balcony',
 			nameKey: 'room.balcony',
+			floor: 'wood',
 			cells: [
 				{ r: 6, c: 0 },
 				{ r: 6, c: 1 },
@@ -349,6 +369,7 @@ export const hotel: Scene = {
 		{
 			id: 'reception',
 			nameKey: 'room.reception',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -359,6 +380,7 @@ export const hotel: Scene = {
 		{
 			id: 'bar',
 			nameKey: 'room.bar',
+			floor: 'wood',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -371,6 +393,7 @@ export const hotel: Scene = {
 		{
 			id: 'restaurant',
 			nameKey: 'room.restaurant',
+			floor: 'carpet',
 			cells: [
 				{ r: 0, c: 5 },
 				{ r: 0, c: 6 },
@@ -385,6 +408,7 @@ export const hotel: Scene = {
 		{
 			id: 'lobby',
 			nameKey: 'room.lobby',
+			floor: 'marble',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -401,6 +425,7 @@ export const hotel: Scene = {
 		{
 			id: 'corridor',
 			nameKey: 'room.corridor',
+			floor: 'carpet',
 			cells: [
 				{ r: 2, c: 5 },
 				{ r: 2, c: 6 },
@@ -415,6 +440,7 @@ export const hotel: Scene = {
 		{
 			id: 'ballroom',
 			nameKey: 'room.ballroom',
+			floor: 'wood',
 			cells: [
 				{ r: 4, c: 0 },
 				{ r: 4, c: 1 },
@@ -431,6 +457,7 @@ export const hotel: Scene = {
 		{
 			id: 'conference',
 			nameKey: 'room.conference',
+			floor: 'carpet',
 			cells: [
 				{ r: 4, c: 5 },
 				{ r: 4, c: 6 },
@@ -445,6 +472,7 @@ export const hotel: Scene = {
 		{
 			id: 'pool',
 			nameKey: 'room.pool',
+			floor: 'water',
 			cells: [
 				{ r: 6, c: 0 },
 				{ r: 6, c: 1 },
@@ -459,6 +487,7 @@ export const hotel: Scene = {
 		{
 			id: 'gym',
 			nameKey: 'room.gym',
+			floor: 'wood',
 			cells: [
 				{ r: 6, c: 4 },
 				{ r: 6, c: 5 },
@@ -471,6 +500,7 @@ export const hotel: Scene = {
 		{
 			id: 'spa',
 			nameKey: 'room.spa',
+			floor: 'tile',
 			cells: [
 				{ r: 6, c: 7 },
 				{ r: 6, c: 8 },
@@ -481,6 +511,7 @@ export const hotel: Scene = {
 		{
 			id: 'rooftop',
 			nameKey: 'room.rooftop',
+			floor: 'stone',
 			cells: [
 				{ r: 8, c: 0 },
 				{ r: 8, c: 1 },
@@ -524,6 +555,7 @@ export const gallery: Scene = {
 		{
 			id: 'entrance',
 			nameKey: 'room.entrance',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -534,6 +566,7 @@ export const gallery: Scene = {
 		{
 			id: 'vault',
 			nameKey: 'room.vault',
+			floor: 'stone',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -544,6 +577,7 @@ export const gallery: Scene = {
 		{
 			id: 'atrium',
 			nameKey: 'room.atrium',
+			floor: 'marble',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -576,6 +610,7 @@ export const clinic: Scene = {
 		{
 			id: 'triage',
 			nameKey: 'room.triage',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -586,6 +621,7 @@ export const clinic: Scene = {
 		{
 			id: 'dispensary',
 			nameKey: 'room.dispensary',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -596,6 +632,7 @@ export const clinic: Scene = {
 		{
 			id: 'radiology',
 			nameKey: 'room.radiology',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 4 },
 				{ r: 0, c: 5 },
@@ -606,6 +643,7 @@ export const clinic: Scene = {
 		{
 			id: 'ward',
 			nameKey: 'room.ward',
+			floor: 'carpet',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -624,6 +662,7 @@ export const clinic: Scene = {
 		{
 			id: 'pathlab',
 			nameKey: 'room.pathlab',
+			floor: 'tile',
 			cells: [
 				{ r: 4, c: 0 },
 				{ r: 4, c: 1 },
@@ -636,6 +675,7 @@ export const clinic: Scene = {
 		{
 			id: 'surgery',
 			nameKey: 'room.surgery',
+			floor: 'tile',
 			cells: [
 				{ r: 4, c: 3 },
 				{ r: 4, c: 4 },
@@ -670,6 +710,7 @@ export const museum: Scene = {
 		{
 			id: 'lobbyhall',
 			nameKey: 'room.lobbyhall',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -680,6 +721,7 @@ export const museum: Scene = {
 		{
 			id: 'giftshop',
 			nameKey: 'room.giftshop',
+			floor: 'wood',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -690,6 +732,7 @@ export const museum: Scene = {
 		{
 			id: 'rotunda',
 			nameKey: 'room.rotunda',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 4 },
 				{ r: 0, c: 5 },
@@ -702,6 +745,7 @@ export const museum: Scene = {
 		{
 			id: 'paintings',
 			nameKey: 'room.paintings',
+			floor: 'wood',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -722,6 +766,7 @@ export const museum: Scene = {
 		{
 			id: 'antiquities',
 			nameKey: 'room.antiquities',
+			floor: 'stone',
 			cells: [
 				{ r: 4, c: 0 },
 				{ r: 4, c: 1 },
@@ -734,6 +779,7 @@ export const museum: Scene = {
 		{
 			id: 'workshop',
 			nameKey: 'room.workshop',
+			floor: 'wood',
 			cells: [
 				{ r: 4, c: 3 },
 				{ r: 4, c: 4 },
@@ -748,6 +794,7 @@ export const museum: Scene = {
 		{
 			id: 'courtyard',
 			nameKey: 'room.courtyard',
+			floor: 'grass',
 			cells: [
 				{ r: 6, c: 0 },
 				{ r: 6, c: 1 },
@@ -787,6 +834,7 @@ export const casino: Scene = {
 		{
 			id: 'entrancehall',
 			nameKey: 'room.entrancehall',
+			floor: 'marble',
 			cells: [
 				{ r: 0, c: 0 },
 				{ r: 0, c: 1 },
@@ -797,6 +845,7 @@ export const casino: Scene = {
 		{
 			id: 'cage',
 			nameKey: 'room.cage',
+			floor: 'tile',
 			cells: [
 				{ r: 0, c: 2 },
 				{ r: 0, c: 3 },
@@ -809,6 +858,7 @@ export const casino: Scene = {
 		{
 			id: 'parlor',
 			nameKey: 'room.parlor',
+			floor: 'carpet',
 			cells: [
 				{ r: 0, c: 5 },
 				{ r: 0, c: 6 },
@@ -823,6 +873,7 @@ export const casino: Scene = {
 		{
 			id: 'pitfloor',
 			nameKey: 'room.pitfloor',
+			floor: 'carpet',
 			cells: [
 				{ r: 2, c: 0 },
 				{ r: 2, c: 1 },
@@ -839,6 +890,7 @@ export const casino: Scene = {
 		{
 			id: 'pokerroom',
 			nameKey: 'room.pokerroom',
+			floor: 'wood',
 			cells: [
 				{ r: 2, c: 5 },
 				{ r: 2, c: 6 },
@@ -853,6 +905,7 @@ export const casino: Scene = {
 		{
 			id: 'slots',
 			nameKey: 'room.slots',
+			floor: 'carpet',
 			cells: [
 				{ r: 4, c: 0 },
 				{ r: 4, c: 1 },
@@ -869,6 +922,7 @@ export const casino: Scene = {
 		{
 			id: 'lounge',
 			nameKey: 'room.lounge',
+			floor: 'wood',
 			cells: [
 				{ r: 4, c: 5 },
 				{ r: 4, c: 6 },
@@ -883,6 +937,7 @@ export const casino: Scene = {
 		{
 			id: 'countingroom',
 			nameKey: 'room.countingroom',
+			floor: 'stone',
 			cells: [
 				{ r: 6, c: 0 },
 				{ r: 6, c: 1 },
@@ -895,6 +950,7 @@ export const casino: Scene = {
 		{
 			id: 'buffet',
 			nameKey: 'room.buffet',
+			floor: 'tile',
 			cells: [
 				{ r: 6, c: 3 },
 				{ r: 6, c: 4 },
@@ -909,6 +965,7 @@ export const casino: Scene = {
 		{
 			id: 'terrace',
 			nameKey: 'room.terrace',
+			floor: 'grass',
 			cells: [
 				{ r: 6, c: 7 },
 				{ r: 6, c: 8 },
