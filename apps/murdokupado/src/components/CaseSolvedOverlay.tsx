@@ -1,4 +1,4 @@
-import { Button } from '@pwarush/core/ui';
+import { BoardOverlay, Button } from '@pwarush/core/ui';
 import { ShieldAlert } from 'lucide-react';
 import type React from 'react';
 
@@ -26,9 +26,9 @@ const CaseSolvedOverlay: React.FC<CaseSolvedOverlayProps> = ({
 	continueLabel,
 	onContinue,
 }) => (
-	<div
+	<BoardOverlay
 		data-testid="case-solved-overlay"
-		className="absolute inset-0 z-40 flex flex-col items-center justify-center gap-5 rounded-DEFAULT bg-surface/85 p-6 text-center backdrop-blur-sm"
+		className="z-40 gap-5 rounded-DEFAULT bg-surface/85 p-6 text-center backdrop-blur-sm"
 	>
 		<ShieldAlert className="h-12 w-12 text-tertiary" />
 		<h2 className="font-display text-2xl font-bold uppercase tracking-widest-premium text-on-surface">
@@ -59,7 +59,7 @@ const CaseSolvedOverlay: React.FC<CaseSolvedOverlayProps> = ({
 		>
 			{continueLabel}
 		</Button>
-	</div>
+	</BoardOverlay>
 );
 
 export default CaseSolvedOverlay;

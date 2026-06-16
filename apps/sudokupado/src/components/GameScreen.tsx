@@ -1,3 +1,4 @@
+import { BoardOverlay } from '@pwarush/core/ui';
 import { exitAppFullscreen, formatDuration, requestAppFullscreen } from '@pwarush/core/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, Eraser, Lightbulb, Pause, Pencil, Play, RotateCcw, Trophy } from 'lucide-react';
@@ -318,30 +319,28 @@ const GameScreen: React.FC = () => {
 					<SudokuBoard />
 					<AnimatePresence>
 						{isVictory && (
-							<motion.div
-								initial={{ opacity: 0, scale: 0.5 }}
-								animate={{ opacity: 1, scale: 1 }}
-								className="absolute inset-0 z-50 flex flex-col items-center justify-center pointer-events-none"
-							>
-								<motion.div
-									animate={{
-										rotateY: [0, 360],
-										scale: [1, 1.2, 1],
-									}}
-									transition={{ duration: 1.5, repeat: Infinity }}
-									className="bg-surface-container-lowest/90 backdrop-blur-lg p-8 rounded-3xl border-4 border-success shadow-2xl flex flex-col items-center gap-6"
-								>
-									<Trophy className="w-16 h-16 text-on-success-container" />
-									<motion.h2
-										initial={{ y: 20, opacity: 0 }}
-										animate={{ y: 0, opacity: 1 }}
-										transition={{ delay: 0.5 }}
-										className="font-hanken text-3xl font-black text-on-success-container tracking-widest-premium"
+							<BoardOverlay interactive={false} className="z-50">
+								<motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
+									<motion.div
+										animate={{
+											rotateY: [0, 360],
+											scale: [1, 1.2, 1],
+										}}
+										transition={{ duration: 1.5, repeat: Infinity }}
+										className="bg-surface-container-lowest/90 backdrop-blur-lg p-8 rounded-3xl border-4 border-success shadow-2xl flex flex-col items-center gap-6"
 									>
-										{t('game.victory')}
-									</motion.h2>
+										<Trophy className="w-16 h-16 text-on-success-container" />
+										<motion.h2
+											initial={{ y: 20, opacity: 0 }}
+											animate={{ y: 0, opacity: 1 }}
+											transition={{ delay: 0.5 }}
+											className="font-hanken text-3xl font-black text-on-success-container tracking-widest-premium"
+										>
+											{t('game.victory')}
+										</motion.h2>
+									</motion.div>
 								</motion.div>
-							</motion.div>
+							</BoardOverlay>
 						)}
 					</AnimatePresence>
 					{isPaused && !isVictory && (
