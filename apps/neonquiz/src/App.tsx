@@ -3,7 +3,9 @@ import { lazy, Suspense } from 'react';
 import { useAutoSave } from './hooks/useAutoSave';
 import { useBootstrap } from './hooks/useBootstrap';
 import { useFailedQuestionLog } from './hooks/useFailedQuestionLog';
+import { useGameHistory } from './hooks/useGameHistory';
 import { useQuestionUsagePersistence } from './hooks/useQuestionUsagePersistence';
+import { useSoundEffects } from './hooks/useSoundEffects';
 import { useGameStore } from './store/gameStore';
 
 const SetupLobbyScreen = lazy(() => import('./components/SetupLobbyScreen'));
@@ -17,6 +19,8 @@ export default function App() {
 	useAutoSave();
 	useFailedQuestionLog();
 	useQuestionUsagePersistence();
+	useGameHistory();
+	useSoundEffects();
 
 	const loading = (
 		<div className="flex h-full items-center justify-center font-display text-xs uppercase tracking-widest-premium text-primary animate-pulse">

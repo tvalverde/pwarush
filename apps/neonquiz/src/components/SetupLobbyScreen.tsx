@@ -1,5 +1,5 @@
 import { Button } from '@pwarush/core/ui';
-import { BookOpen, Plus, Settings, X } from 'lucide-react';
+import { BookOpen, Plus, Settings, Trophy, X } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
@@ -7,6 +7,7 @@ import { PLAYER_SHAPES, type PlayerLevel, type PlayerShape } from '../types';
 import { playerAccent } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 import FlashcardsScreen from './FlashcardsScreen';
+import HistoryScreen from './HistoryScreen';
 import SettingsScreen from './SettingsScreen';
 
 const LEVELS: PlayerLevel[] = ['KID', 'ADULT'];
@@ -21,6 +22,7 @@ const SetupLobbyScreen: React.FC = () => {
 	const [name, setName] = useState('');
 	const [level, setLevel] = useState<PlayerLevel>('KID');
 	const [showFlashcards, setShowFlashcards] = useState(false);
+	const [showHistory, setShowHistory] = useState(false);
 	const [showSettings, setShowSettings] = useState(false);
 
 	const usedShapes = new Set(drafts.map((d) => d.shape));
@@ -41,6 +43,7 @@ const SetupLobbyScreen: React.FC = () => {
 	const removePlayer = (index: number) => setDrafts(drafts.filter((_, i) => i !== index));
 
 	if (showFlashcards) return <FlashcardsScreen onClose={() => setShowFlashcards(false)} />;
+	if (showHistory) return <HistoryScreen onClose={() => setShowHistory(false)} />;
 	if (showSettings) return <SettingsScreen onClose={() => setShowSettings(false)} />;
 
 	return (
@@ -52,15 +55,26 @@ const SetupLobbyScreen: React.FC = () => {
 				<p className="font-hanken text-xs uppercase tracking-wide-premium text-on-surface-variant">
 					{t('lobby.subtitle')}
 				</p>
-				<button
-					type="button"
-					data-testid="open-flashcards"
-					onClick={() => setShowFlashcards(true)}
-					className="absolute right-4 top-4 flex items-center gap-1 rounded-full border border-outline-variant px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-on-surface-variant hover:text-primary"
-				>
-					<BookOpen className="h-3.5 w-3.5" />
-					{t('flashcards.open')}
-				</button>
+				<div className="absolute right-4 top-4 flex items-center gap-3">
+					<button
+						type="button"
+						aria-label={t('history.open')}
+						data-testid="open-history"
+						onClick={() => setShowHistory(true)}
+						className="text-on-surface-variant hover:text-tertiary"
+					>
+						<Trophy className="h-5 w-5" />
+					</button>
+					<button
+						type="button"
+						aria-label={t('flashcards.open')}
+						data-testid="open-flashcards"
+						onClick={() => setShowFlashcards(true)}
+						className="text-on-surface-variant hover:text-primary"
+					>
+						<BookOpen className="h-5 w-5" />
+					</button>
+				</div>
 				<button
 					type="button"
 					aria-label={t('settings.open')}

@@ -1,0 +1,13 @@
+import { expect, test } from '@playwright/test';
+
+test('the Hall of Fame opens from the lobby', async ({ page }) => {
+	await page.goto('/pwarush/neonquiz/');
+	await page.getByTestId('open-history').click();
+	await expect(page.getByTestId('history-screen')).toBeVisible();
+});
+
+test('settings expose the sound toggle', async ({ page }) => {
+	await page.goto('/pwarush/neonquiz/');
+	await page.getByTestId('open-settings').click();
+	await expect(page.getByTestId('toggle-sound')).toBeVisible();
+});

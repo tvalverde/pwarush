@@ -5,5 +5,10 @@ import { db } from './database';
  * The static question bank is left intact (it is content, not user data).
  */
 export const wipeAllData = async (): Promise<void> => {
-	await Promise.all([db.gameSession.clear(), db.failedQuestions.clear(), db.questionUsage.clear()]);
+	await Promise.all([
+		db.gameSession.clear(),
+		db.failedQuestions.clear(),
+		db.questionUsage.clear(),
+		db.gameHistory.clear(),
+	]);
 };

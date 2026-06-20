@@ -1,6 +1,6 @@
 import { createDatabase } from '@pwarush/core/persistence';
 import type { Table } from 'dexie';
-import type { FailedQuestionEntry, GameSession, Question } from '../types';
+import type { FailedQuestionEntry, GameHistoryEntry, GameSession, Question } from '../types';
 
 export interface QuestionUsageRow {
 	id: number;
@@ -12,6 +12,7 @@ interface NeonquizTables {
 	gameSession: Table<GameSession, number>;
 	failedQuestions: Table<FailedQuestionEntry, number>;
 	questionUsage: Table<QuestionUsageRow, number>;
+	gameHistory: Table<GameHistoryEntry, number>;
 }
 
 const V1 = {
@@ -31,11 +32,17 @@ const V3 = {
 	questionUsage: 'id',
 };
 
+// v4 adds the game-history log (Hall of Fame).
+const V4 = {
+	...V3,
+	gameHistory: '++id, date',
+};
+
 export const SESSION_ID = 1;
 export const USAGE_ID = 1;
 
 export const db = createDatabase<NeonquizTables>({
 	name: 'NeonquizDB',
-	versions: [{ stores: V1 }, { stores: V2 }, { stores: V3 }],
+	versions: [{ stores: V1 }, { stores: V2 }, { stores: V3 }, { stores: V4 }],
 	exposeAs: { key: '__db', enabled: import.meta.env.VITE_E2E === '1' },
 });

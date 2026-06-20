@@ -54,9 +54,11 @@ interface GameStore {
 	hiddenOptions: number[];
 	lockedOptions: number[];
 	answerRevealed: boolean;
+	soundEnabled: boolean;
 
 	t: (path: string) => string;
 	setLanguage: (language: Language) => void;
+	setSoundEnabled: (enabled: boolean) => void;
 
 	loadBank: (questions: Question[], usedIds?: number[]) => void;
 	startGame: (drafts: PlayerDraft[]) => void;
@@ -93,6 +95,16 @@ const FRESH_WILDCARDS = (): WildcardUsage => ({
 // Forced to Spanish until the question bank exists in other languages (the i18n infra and the
 // `en` translations are kept for that future).
 const getInitialLanguage = (): Language => 'es';
+
+const SOUND_KEY = 'neonquiz:sound';
+const getInitialSound = (): boolean => {
+	if (typeof localStorage === 'undefined') return true;
+	return localStorage.getItem(SOUND_KEY) !== 'off';
+};
+const persistSound = (enabled: boolean): void => {
+	if (typeof localStorage === 'undefined') return;
+	localStorage.setItem(SOUND_KEY, enabled ? 'on' : 'off');
+};
 
 const createPlayer = (draft: PlayerDraft, index: number): Player => ({
 	id: `p${index}-${draft.shape}`,
@@ -155,6 +167,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	bank: [],
 	bankSize: 0,
 	usedQuestionIds: [],
+	soundEnabled: getInitialSound(),
 	...FRESH_GAME,
 
 	t: (path) => {
@@ -172,6 +185,11 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	},
 
 	setLanguage: (language) => set({ language }),
+
+	setSoundEnabled: (enabled) => {
+		persistSound(enabled);
+		set({ soundEnabled: enabled });
+	},
 
 	loadBank: (questions, usedIds = []) => {
 		set({ bank: questions, bankSize: questions.length, usedQuestionIds: usedIds });
@@ -243,8 +261,17 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		});
 	},
 
-	resetApp: () =>
-		set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, usedQuestionIds: [], ...FRESH_GAME }),
+	resetApp: () => {
+		persistSound(true);
+		set({
+			phase: 'LOBBY',
+			players: [],
+			currentPlayerIndex: 0,
+			usedQuestionIds: [],
+			soundEnabled: true,
+			...FRESH_GAME,
+		});
+	},
 
 	// At the start of a turn a challenger already standing on the Nexus with every Spark
 	// re-enters the Conclave (the KID retry rule); everyone else rolls.

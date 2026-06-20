@@ -76,6 +76,16 @@ export interface FailedQuestionEntry {
 	failedAt: number;
 }
 
+export interface GameHistoryEntry {
+	id?: number;
+	winnerName: string;
+	winnerShape: PlayerShape;
+	winnerColor: string;
+	players: number;
+	turns: number;
+	date: number;
+}
+
 export type GamePhase =
 	| 'LOBBY'
 	| 'TURN_TRANSITION'

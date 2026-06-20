@@ -80,12 +80,22 @@ describe('game & data management', () => {
 		expect(useGameStore.getState().usedQuestionIds).toEqual([]);
 	});
 
-	it('resetApp clears the game and the question usage', () => {
+	it('resetApp clears the game, question usage and restores sound', () => {
 		useGameStore.setState({ usedQuestionIds: [1, 2] });
+		useGameStore.getState().setSoundEnabled(false);
 		useGameStore.getState().resetApp();
 		const s = useGameStore.getState();
 		expect(s.phase).toBe('LOBBY');
 		expect(s.players).toHaveLength(0);
 		expect(s.usedQuestionIds).toEqual([]);
+		expect(s.soundEnabled).toBe(true);
+	});
+
+	it('setSoundEnabled toggles and persists the preference', () => {
+		useGameStore.getState().setSoundEnabled(false);
+		expect(useGameStore.getState().soundEnabled).toBe(false);
+		expect(localStorage.getItem('neonquiz:sound')).toBe('off');
+		useGameStore.getState().setSoundEnabled(true);
+		expect(localStorage.getItem('neonquiz:sound')).toBe('on');
 	});
 });

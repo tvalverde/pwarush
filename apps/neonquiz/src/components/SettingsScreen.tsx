@@ -17,6 +17,8 @@ type Pending = 'questions' | 'app';
 const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 	const resetQuestionUsage = useGameStore((s) => s.resetQuestionUsage);
 	const resetApp = useGameStore((s) => s.resetApp);
+	const soundEnabled = useGameStore((s) => s.soundEnabled);
+	const setSoundEnabled = useGameStore((s) => s.setSoundEnabled);
 	const t = useGameStore((s) => s.t);
 	const [pending, setPending] = useState<Pending | null>(null);
 
@@ -50,6 +52,24 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 			</header>
 
 			<main className="flex flex-1 flex-col gap-3 px-5 py-6">
+				<div className="flex items-center justify-between rounded-lg border border-outline-variant bg-surface-container-low p-4">
+					<span className="font-hanken text-sm font-bold text-on-surface">
+						{t('settings.sound')}
+					</span>
+					<button
+						type="button"
+						data-testid="toggle-sound"
+						aria-pressed={soundEnabled}
+						onClick={() => setSoundEnabled(!soundEnabled)}
+						className={`rounded-full border px-4 py-1.5 font-hanken text-xs font-bold uppercase tracking-wide-premium ${
+							soundEnabled
+								? 'border-primary bg-primary-container text-on-surface'
+								: 'border-outline-variant bg-surface-container text-on-surface-variant'
+						}`}
+					>
+						{soundEnabled ? t('settings.sound_on') : t('settings.sound_off')}
+					</button>
+				</div>
 				<button
 					type="button"
 					data-testid="reset-questions"
