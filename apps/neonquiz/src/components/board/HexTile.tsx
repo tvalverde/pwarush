@@ -30,19 +30,24 @@ const HexTile: React.FC<HexTileProps> = ({ node, isValid, dimmed, nexusActive, o
 		const points = hexPolygonPoints(x, y, NEXUS_RADIUS);
 		const nexusClass = [
 			nexusActive ? 'nq-nexus nq-nexus-active' : 'nq-nexus',
+			isValid ? 'nq-valid' : '',
 			dimmed ? 'nq-dim' : '',
 		]
 			.join(' ')
 			.trim();
 		return (
-			<g className={nexusClass}>
+			<g className={nexusClass || undefined}>
+				{/* glass hex — clickable when entering the Nexus is a legal move */}
 				<polygon
 					points={points}
 					fill="url(#nq-glass)"
-					stroke="#9cf6ff"
-					strokeWidth={1.6}
+					stroke={isValid ? 'var(--color-on-surface)' : '#9cf6ff'}
+					strokeWidth={isValid ? 2.6 : 1.6}
 					opacity={nexusActive ? 1 : 0.55}
 					filter={nexusActive ? 'url(#nq-glow)' : undefined}
+					style={isValid ? { cursor: 'pointer' } : undefined}
+					data-testid={isValid ? `move-${node.id}` : undefined}
+					onClick={isValid ? () => onMove(node.id) : undefined}
 				/>
 				<circle
 					cx={x}
@@ -51,8 +56,14 @@ const HexTile: React.FC<HexTileProps> = ({ node, isValid, dimmed, nexusActive, o
 					fill="url(#nq-core)"
 					opacity={nexusActive ? 1 : 0.5}
 					filter={nexusActive ? 'url(#nq-glow)' : undefined}
+					pointerEvents="none"
 				/>
-				<polygon points={sparkle(x, y, NEXUS_RADIUS * 0.42)} fill="#ffffff" opacity={0.92} />
+				<polygon
+					points={sparkle(x, y, NEXUS_RADIUS * 0.42)}
+					fill="#ffffff"
+					opacity={0.92}
+					pointerEvents="none"
+				/>
 			</g>
 		);
 	}

@@ -56,6 +56,18 @@ describe('NeonBoard tile interaction (regression)', () => {
 		expect(queryByTestId('move-1')).not.toBeNull();
 	});
 
+	// Regression: the Nexus tile had no move testid/onClick, so a player with all six
+	// Sparks could never tap it to enter the Conclave.
+	it('makes the Nexus tile clickable when entering it is a legal move', () => {
+		const board = buildFamiliarBoard();
+		const onMove = vi.fn();
+		const { getByTestId } = render(
+			<NeonBoard board={board} players={[player]} validMoves={[0]} onMove={onMove} nexusActive />,
+		);
+		fireEvent.click(getByTestId('move-0'));
+		expect(onMove).toHaveBeenCalledWith(0);
+	});
+
 	it('renders the board as hexagonal tiles over a backdrop', () => {
 		const board = buildFamiliarBoard();
 		const { container } = render(

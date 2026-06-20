@@ -20,7 +20,11 @@ test('lobby to first answered question (pass-and-play loop)', async ({ page }) =
 	await page.locator('[data-testid^="move-"]').first().click();
 	await expect(page.getByTestId('question-overlay')).toBeVisible();
 
-	// Answer and continue the loop.
-	await page.getByTestId('answer-0').click();
+	// Answer correctly (read the index from the store) so the loop continues.
+	const correctIndex = await page.evaluate(() => {
+		const store = (window as unknown as { __useGameStore: any }).__useGameStore;
+		return store.getState().activeQuestion.correctAnswerIndex as number;
+	});
+	await page.getByTestId(`answer-${correctIndex}`).click();
 	await expect(page.getByTestId('continue-feedback')).toBeVisible();
 });
