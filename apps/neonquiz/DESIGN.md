@@ -53,3 +53,24 @@ for titles, the turn indicator and category labels to carry the arcade/neon tone
 Players are identified by one of six geometric shapes (`ShapeGlyph`): triangle, square,
 pentagon, hexagon, circle, rhombus — rendered as neon-stroked SVG glyphs, one per player,
 unique within a match.
+
+## Board
+
+The board is a **flat-top hexagonal honeycomb** of glass tiles floating over a deep-space
+backdrop (radial vignette + a faint, slowly twinkling starfield). It is static — the whole
+board fits the viewBox, so there is no pan/zoom and a tap on a tile moves there.
+
+- **Tiles** are dark translucent glass (`#nq-glass` radial gradient) with a per-category neon
+  rim and a subtle inner tint of the same colour. A single shared glow filter (`#nq-glow`)
+  is reserved for emphasised elements (Spark/Nexus/legal moves) to keep mobile performant.
+- **Hierarchy by size:** normal tiles are the smallest; **Spark Nodes** are larger, drawn as
+  faceted gems with a sparkle; the **Nexus** is the largest — a radiant cyan/white core that
+  is dimmed while locked and lights up once the active player holds all six Sparks.
+- **Legal-move feedback:** after a roll, valid tiles light from within in their category colour
+  (stronger rim + pulse), the connecting path glows and animates a neon trail, and **every other
+  tile dims back** so the available moves are unmistakable.
+- **Tokens** are haloed glass discs carrying the player's shape glyph, in a per-player accent,
+  that glide between tile centres.
+- **Motion principle:** lively but tasteful — breathe (Spark/Nexus), pulse (legal tiles), trail
+  (path), twinkle (stars), dice pop and victory rings. **All motion is gated by
+  `prefers-reduced-motion`**, degrading to static high-contrast highlights.

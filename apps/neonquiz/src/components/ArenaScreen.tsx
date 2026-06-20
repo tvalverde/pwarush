@@ -66,7 +66,13 @@ const ArenaScreen: React.FC = () => {
 			</header>
 
 			<main className="relative flex-1 overflow-hidden">
-				<NeonBoard board={board} players={players} validMoves={validMoves} onMove={moveTo} />
+				<NeonBoard
+					board={board}
+					players={players}
+					validMoves={validMoves}
+					onMove={moveTo}
+					nexusActive={player.sparks.length === CATEGORIES.length}
+				/>
 				{(phase === 'QUESTION_ACTIVE' || phase === 'FEEDBACK' || phase === 'CONCLAVE_QUESTION') && (
 					<QuestionOverlay />
 				)}

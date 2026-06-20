@@ -1,14 +1,26 @@
 import type React from 'react';
 import type { Board, Player } from '../../types';
-import { categoryColor } from '../../utils/categories';
-import ShapeGlyph from './ShapeGlyph';
+import BoardBackground from './BoardBackground';
+import BoardDefs from './BoardDefs';
+import HexTile from './HexTile';
+import PlayerToken from './PlayerToken';
 
 interface NeonBoardProps {
 	board: Board;
 	players: Player[];
 	validMoves: number[];
 	onMove: (nodeId: number) => void;
+	nexusActive: boolean;
 }
+
+const PLAYER_ACCENTS = [
+	'var(--color-cat-cyan)',
+	'var(--color-cat-crimson)',
+	'var(--color-cat-gold)',
+	'var(--color-cat-emerald)',
+	'var(--color-cat-orange)',
+	'var(--color-cat-violet)',
+];
 
 const tokenOffset = (index: number, total: number): { dx: number; dy: number } => {
 	if (total <= 1) return { dx: 0, dy: 0 };
@@ -17,100 +29,84 @@ const tokenOffset = (index: number, total: number): { dx: number; dy: number } =
 };
 
 /**
- * Static SVG board. The whole 43-node Familiar board fits the viewBox, so there is no
- * pan/zoom: every node is always visible and a tap on a highlighted tile moves there.
- * (Pan/zoom was removed in H1 because pointer capture stole the tile click; deferred.)
+ * Static SVG board: a flat-top hexagonal honeycomb of glass tiles over a deep-space
+ * backdrop. The whole board fits the viewBox (no pan/zoom), and a tap on a highlighted
+ * tile moves there. Light connectors trace the graph; those touching a legal destination
+ * glow to guide the move.
  */
-const NeonBoard: React.FC<NeonBoardProps> = ({ board, players, validMoves, onMove }) => {
+const NeonBoard: React.FC<NeonBoardProps> = ({
+	board,
+	players,
+	validMoves,
+	onMove,
+	nexusActive,
+}) => {
 	const validSet = new Set(validMoves);
+	const hasValidMoves = validSet.size > 0;
 
-	const occupants = new Map<number, Player[]>();
-	for (const player of players) {
+	const occupants = new Map<number, { player: Player; accent: string }[]>();
+	players.forEach((player, index) => {
+		const entry = { player, accent: PLAYER_ACCENTS[index % PLAYER_ACCENTS.length] };
 		const list = occupants.get(player.position) ?? [];
-		list.push(player);
+		list.push(entry);
 		occupants.set(player.position, list);
-	}
+	});
 
 	return (
-		<svg data-testid="neon-board" viewBox="-120 -120 240 240" className="h-full w-full">
+		<svg data-testid="neon-board" viewBox="-135 -135 270 270" className="h-full w-full">
 			<title>Neon Quiz board</title>
+			<BoardDefs />
+			<BoardBackground />
 
-			{board.nodes.map((node) =>
-				node.connectedNodeIds
-					.filter((other) => other > node.id)
-					.map((other) => {
-						const target = board.nodes[other];
-						return (
-							<line
-								key={`${node.id}-${other}`}
-								x1={node.x}
-								y1={node.y}
-								x2={target.x}
-								y2={target.y}
-								stroke="var(--color-outline)"
-								strokeWidth={1.2}
-								opacity={0.5}
-							/>
-						);
-					}),
-			)}
+			<g>
+				{board.nodes.flatMap((node) =>
+					node.connectedNodeIds
+						.filter((other) => other > node.id)
+						.map((other) => {
+							const target = board.nodes[other];
+							const active = validSet.has(node.id) || validSet.has(other);
+							return (
+								<line
+									key={`${node.id}-${other}`}
+									x1={node.x}
+									y1={node.y}
+									x2={target.x}
+									y2={target.y}
+									className={active ? 'nq-link nq-link-active' : 'nq-link'}
+									stroke={active ? 'var(--color-primary)' : 'var(--color-on-surface-variant)'}
+									strokeWidth={active ? 3 : 1.6}
+									opacity={active ? 1 : 0.45}
+									filter={active ? 'url(#nq-glow)' : undefined}
+								/>
+							);
+						}),
+				)}
+			</g>
 
-			{board.nodes.map((node) => {
-				const isValid = validSet.has(node.id);
-				const color = categoryColor(node.category);
-				const radius = node.type === 'NEXUS' ? 13 : node.type === 'SPARK_NODE' ? 10 : 6.5;
-				return (
-					<g key={node.id}>
-						{node.type === 'SPARK_NODE' && (
-							<circle
-								cx={node.x}
-								cy={node.y}
-								r={radius + 3}
-								fill="none"
-								stroke={color}
-								strokeWidth={1.5}
-								opacity={0.6}
-							/>
-						)}
-						<circle
-							cx={node.x}
-							cy={node.y}
-							r={isValid ? radius + 2 : radius}
-							fill={node.type === 'NEXUS' ? 'var(--color-surface-container-highest)' : color}
-							stroke={isValid ? 'var(--color-on-surface)' : color}
-							strokeWidth={isValid ? 2.5 : 1}
-							opacity={node.type === 'NORMAL' && !isValid ? 0.85 : 1}
-							style={isValid ? { cursor: 'pointer' } : undefined}
-							data-testid={isValid ? `move-${node.id}` : undefined}
-							onClick={isValid ? () => onMove(node.id) : undefined}
-						/>
-						{node.type === 'NEXUS' && (
-							<text
-								x={node.x}
-								y={node.y + 3}
-								textAnchor="middle"
-								fontSize={7}
-								fill="var(--color-on-surface)"
-								pointerEvents="none"
-							>
-								★
-							</text>
-						)}
-					</g>
-				);
-			})}
+			{board.nodes.map((node) => (
+				<HexTile
+					key={node.id}
+					node={node}
+					isValid={validSet.has(node.id)}
+					dimmed={hasValidMoves && !validSet.has(node.id)}
+					nexusActive={nexusActive}
+					onMove={onMove}
+				/>
+			))}
 
 			<g pointerEvents="none">
 				{[...occupants.entries()].flatMap(([position, list]) => {
 					const node = board.nodes[position];
-					return list.map((player, index) => {
+					return list.map((entry, index) => {
 						const { dx, dy } = tokenOffset(index, list.length);
 						return (
-							<g key={player.id} transform={`translate(${node.x + dx} ${node.y + dy})`}>
-								<foreignObject x={-8} y={-8} width={16} height={16}>
-									<ShapeGlyph shape={player.shape} size={16} color="var(--color-on-surface)" />
-								</foreignObject>
-							</g>
+							<PlayerToken
+								key={entry.player.id}
+								player={entry.player}
+								accent={entry.accent}
+								x={node.x + dx}
+								y={node.y + dy}
+							/>
 						);
 					});
 				})}

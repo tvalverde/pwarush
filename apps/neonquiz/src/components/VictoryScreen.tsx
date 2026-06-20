@@ -26,9 +26,11 @@ const VictoryScreen: React.FC = () => {
 
 			<div className="flex flex-col items-center gap-4">
 				<span
-					className="rounded-full p-4"
+					className="relative rounded-full p-4"
 					style={{ boxShadow: '0 0 32px 4px var(--color-tertiary)' }}
 				>
+					<span className="nq-rings" aria-hidden="true" />
+					<span className="nq-rings nq-rings-delay" aria-hidden="true" />
 					<ShapeGlyph shape={winner.shape} size={88} color="var(--color-tertiary)" />
 				</span>
 				<p className="font-display text-2xl font-bold uppercase tracking-wide-premium text-on-surface">

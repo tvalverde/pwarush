@@ -41,4 +41,23 @@ describe('buildFamiliarBoard', () => {
 	it('throws on an unknown node id', () => {
 		expect(() => getNode(board, 999)).toThrow();
 	});
+
+	it('lays every tile on a distinct hex cell (no overlaps)', () => {
+		const positions = new Set(
+			board.nodes.map((node) => `${node.x.toFixed(3)},${node.y.toFixed(3)}`),
+		);
+		expect(positions.size).toBe(board.nodes.length);
+	});
+
+	it('keeps connected tiles at a uniform hex spacing', () => {
+		const distances = board.nodes.flatMap((node) =>
+			node.connectedNodeIds
+				.filter((other) => other > node.id)
+				.map((other) => Math.hypot(node.x - board.nodes[other].x, node.y - board.nodes[other].y)),
+		);
+		const first = distances[0];
+		for (const d of distances) {
+			expect(d).toBeCloseTo(first, 3);
+		}
+	});
 });

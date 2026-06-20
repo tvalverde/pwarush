@@ -44,22 +44,23 @@ const Dice: React.FC<DiceProps> = ({ value, size = 56 }) => {
 	const pips = value ? PIPS[value] : [];
 	return (
 		<svg
+			key={value ?? 'empty'}
 			viewBox="0 0 3 3"
 			width={size}
 			height={size}
 			role="img"
 			aria-label={value ? `Dice showing ${value}` : 'Dice'}
-			className="rounded-md"
+			className="nq-dice"
 		>
 			<rect
-				x={0}
-				y={0}
-				width={3}
-				height={3}
-				rx={0.5}
+				x={0.1}
+				y={0.1}
+				width={2.8}
+				height={2.8}
+				rx={0.18}
 				fill="var(--color-surface-container-high)"
 				stroke="var(--color-primary)"
-				strokeWidth={0.08}
+				strokeWidth={0.12}
 			/>
 			{pips.map(([col, row]) => (
 				<circle

@@ -5,15 +5,11 @@ import {
 	type NodeType,
 	type TriviaCategory,
 } from '../types';
+import { type Axial, addAxial, axialToPixel, HEX_DIRECTIONS, scaleAxial } from './hex';
 
 export const NEXUS_ID = 0;
-const VERTEX_RADIUS = 100;
-const SPOKE_RADII = [28, 56, 84];
-const RING_FRACTIONS = [0.25, 0.5, 0.75];
-
-const degToRad = (deg: number): number => (deg * Math.PI) / 180;
-
-const vertexAngle = (categoryIndex: number): number => degToRad(-90 + categoryIndex * 60);
+const SPOKE_LENGTH = 3; // NORMAL tiles between the Nexus and each Spark vertex
+const VERTEX_DISTANCE = SPOKE_LENGTH + 1; // ring radius (4) — the Spark vertices sit on it
 
 interface NodeBuilder {
 	id: number;
@@ -25,20 +21,18 @@ interface NodeBuilder {
 }
 
 /**
- * Builds the reduced "Familiar" board: a central Nexus, six color-coded spokes of
- * three NORMAL tiles each, and an outer ring whose six vertices are the Spark Nodes
- * (one per category), joined by mixed-category NORMAL tiles. Pure and deterministic.
+ * Builds the reduced "Familiar" board on a flat-top hexagonal lattice: a central Nexus,
+ * six color-coded spokes of three NORMAL tiles running out along the six hex directions,
+ * six Spark Node vertices on the outer ring (one per category), and the ring's
+ * mixed-category NORMAL tiles joining consecutive vertices. The graph topology is identical
+ * to the radial layout — only the tile coordinates change. Pure and deterministic.
  */
 export const buildFamiliarBoard = (): Board => {
 	const nodes: NodeBuilder[] = [];
 
-	const addNode = (
-		type: NodeType,
-		category: TriviaCategory | null,
-		x: number,
-		y: number,
-	): number => {
+	const addNode = (type: NodeType, category: TriviaCategory | null, axial: Axial): number => {
 		const id = nodes.length;
+		const { x, y } = axialToPixel(axial);
 		nodes.push({ id, type, category, x, y, connectedNodeIds: [] });
 		return id;
 	};
@@ -48,48 +42,37 @@ export const buildFamiliarBoard = (): Board => {
 		if (!nodes[b].connectedNodeIds.includes(a)) nodes[b].connectedNodeIds.push(a);
 	};
 
-	addNode('NEXUS', null, 0, 0); // NEXUS_ID === 0
+	addNode('NEXUS', null, { q: 0, r: 0 }); // NEXUS_ID === 0
 
 	const vertexIds: number[] = [];
-	const spokeInnerIds: number[] = [];
 
 	CATEGORIES.forEach((category, c) => {
-		const angle = vertexAngle(c);
-		const cos = Math.cos(angle);
-		const sin = Math.sin(angle);
+		const spokeDir = HEX_DIRECTIONS[c];
 
 		let previous = NEXUS_ID;
-		let innermost = -1;
-		SPOKE_RADII.forEach((radius) => {
-			const id = addNode('NORMAL', category, radius * cos, radius * sin);
-			if (innermost === -1) innermost = id;
+		for (let step = 1; step <= SPOKE_LENGTH; step++) {
+			const id = addNode('NORMAL', category, scaleAxial(spokeDir, step));
 			connect(previous, id);
 			previous = id;
-		});
+		}
 
-		const vertexId = addNode('SPARK_NODE', category, VERTEX_RADIUS * cos, VERTEX_RADIUS * sin);
+		const vertexId = addNode('SPARK_NODE', category, scaleAxial(spokeDir, VERTEX_DISTANCE));
 		connect(previous, vertexId);
 		vertexIds.push(vertexId);
-		spokeInnerIds.push(innermost);
 	});
 
-	// Outer ring: mixed-category NORMAL tiles linking consecutive Spark vertices.
+	// Outer ring: each edge walks from a Spark vertex toward the next along hex direction c+2,
+	// placing the mixed-category NORMAL tiles that tile the honeycomb's perimeter.
 	CATEGORIES.forEach((_, c) => {
-		const startAngle = vertexAngle(c);
-		const endAngle = vertexAngle(c + 1);
+		const corner = scaleAxial(HEX_DIRECTIONS[c], VERTEX_DISTANCE);
+		const edgeStep = HEX_DIRECTIONS[(c + 2) % CATEGORIES.length];
 		let previous = vertexIds[c];
-		RING_FRACTIONS.forEach((fraction, t) => {
-			const angle = startAngle + (endAngle - startAngle) * fraction;
-			const ringCategory = CATEGORIES[(c + t + 1) % CATEGORIES.length];
-			const id = addNode(
-				'NORMAL',
-				ringCategory,
-				VERTEX_RADIUS * Math.cos(angle),
-				VERTEX_RADIUS * Math.sin(angle),
-			);
+		for (let step = 1; step <= SPOKE_LENGTH; step++) {
+			const ringCategory = CATEGORIES[(c + step) % CATEGORIES.length];
+			const id = addNode('NORMAL', ringCategory, addAxial(corner, scaleAxial(edgeStep, step)));
 			connect(previous, id);
 			previous = id;
-		});
+		}
 		connect(previous, vertexIds[(c + 1) % CATEGORIES.length]);
 	});
 

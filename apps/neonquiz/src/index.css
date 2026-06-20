@@ -147,3 +147,133 @@ body,
 body {
 	@apply bg-background text-on-background font-sans antialiased select-none;
 }
+
+/* ── Board motion — "lively but tasteful". All gated by prefers-reduced-motion below. ── */
+
+/* Player token glide between tile centres. */
+.nq-token {
+	transition: transform 340ms cubic-bezier(0.4, 0.8, 0.3, 1);
+}
+
+/* Breathing glow on Spark Nodes and the unlocked Nexus. */
+.nq-spark {
+	animation: nq-breathe 2.6s ease-in-out infinite;
+}
+.nq-nexus-active {
+	animation: nq-breathe 2s ease-in-out infinite;
+}
+@keyframes nq-breathe {
+	0%,
+	100% {
+		opacity: 0.82;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+/* Pulse on legal-destination tiles. */
+.nq-valid {
+	animation: nq-valid-pulse 1.5s ease-in-out infinite;
+}
+@keyframes nq-valid-pulse {
+	0%,
+	100% {
+		opacity: 0.55;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+/* Tiles fade back while a legal destination is highlighted, so valid moves pop. */
+.nq-spark,
+.nq-nexus,
+.nq-valid {
+	transition: opacity 220ms ease;
+}
+.nq-dim {
+	opacity: 0.22;
+	animation: none;
+	transition: opacity 220ms ease;
+}
+
+/* Neon trail flowing along connectors that lead to a legal destination. */
+.nq-link-active {
+	stroke-dasharray: 4 6;
+	animation: nq-trail 0.8s linear infinite;
+}
+@keyframes nq-trail {
+	to {
+		stroke-dashoffset: -10;
+	}
+}
+
+/* Faint twinkle on the starfield. */
+.nq-starfield circle {
+	animation: nq-twinkle 4.5s ease-in-out infinite;
+}
+@keyframes nq-twinkle {
+	0%,
+	100% {
+		opacity: 0.25;
+	}
+	50% {
+		opacity: 0.7;
+	}
+}
+
+/* Dice settle when a new face appears. */
+.nq-dice {
+	animation: nq-dice-pop 320ms ease-out;
+}
+@keyframes nq-dice-pop {
+	0% {
+		transform: scale(0.7) rotate(-18deg);
+		opacity: 0.4;
+	}
+	100% {
+		transform: scale(1) rotate(0deg);
+		opacity: 1;
+	}
+}
+
+/* Expanding victory rings. */
+.nq-rings {
+	position: absolute;
+	inset: 0;
+	border-radius: 9999px;
+	border: 2px solid var(--color-tertiary);
+	animation: nq-rings 1.8s ease-out infinite;
+}
+.nq-rings-delay {
+	animation-delay: 0.9s;
+}
+@keyframes nq-rings {
+	0% {
+		transform: scale(0.6);
+		opacity: 0.8;
+	}
+	100% {
+		transform: scale(2.2);
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nq-token {
+		transition: none;
+	}
+	.nq-spark,
+	.nq-nexus-active,
+	.nq-valid,
+	.nq-link-active,
+	.nq-starfield circle,
+	.nq-dice,
+	.nq-rings {
+		animation: none;
+	}
+	.nq-link-active {
+		stroke-dasharray: none;
+	}
+}

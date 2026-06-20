@@ -19,7 +19,13 @@ describe('NeonBoard tile interaction (regression)', () => {
 		const board = buildFamiliarBoard();
 		const onMove = vi.fn();
 		const { getByTestId } = render(
-			<NeonBoard board={board} players={[player]} validMoves={[1, 5]} onMove={onMove} />,
+			<NeonBoard
+				board={board}
+				players={[player]}
+				validMoves={[1, 5]}
+				onMove={onMove}
+				nexusActive={false}
+			/>,
 		);
 
 		fireEvent.click(getByTestId('move-1'));
@@ -34,10 +40,34 @@ describe('NeonBoard tile interaction (regression)', () => {
 		const board = buildFamiliarBoard();
 		const onMove = vi.fn();
 		const { queryByTestId } = render(
-			<NeonBoard board={board} players={[player]} validMoves={[1]} onMove={onMove} />,
+			<NeonBoard
+				board={board}
+				players={[player]}
+				validMoves={[1]}
+				onMove={onMove}
+				nexusActive={false}
+			/>,
 		);
 
 		expect(queryByTestId('move-2')).toBeNull();
 		expect(queryByTestId('move-1')).not.toBeNull();
+	});
+
+	it('renders the board as hexagonal tiles over a backdrop', () => {
+		const board = buildFamiliarBoard();
+		const { container } = render(
+			<NeonBoard
+				board={board}
+				players={[player]}
+				validMoves={[]}
+				onMove={vi.fn()}
+				nexusActive={false}
+			/>,
+		);
+
+		// One polygon per non-Nexus tile (the Nexus is drawn as a core), so plenty of hexes.
+		expect(container.querySelectorAll('polygon').length).toBeGreaterThan(board.nodes.length);
+		// Deep-space backdrop present.
+		expect(container.querySelector('rect[fill="url(#nq-space)"]')).not.toBeNull();
 	});
 });
