@@ -1,51 +1,43 @@
-import type { Question, TargetAudience, TriviaCategory } from '../types';
+import type { PlayerLevel, Question, TargetAudience, TriviaCategory } from '../types';
 
-const isEligibleForKid = (audience: TargetAudience): boolean =>
-	audience === 'KID' || audience === 'BOTH';
+const isEligible = (audience: TargetAudience, level: PlayerLevel): boolean =>
+	audience === 'BOTH' || audience === level;
 
-export interface QuestionPool {
-	draw: (category: TriviaCategory, rng?: () => number) => Question | null;
-	remaining: (category: TriviaCategory) => number;
+export interface DrawResult {
+	question: Question | null;
+	used: Set<number>;
 }
 
 /**
- * In-memory pool of KID-eligible questions (audience KID or BOTH). Draws a random
- * unused question per category and silently resets that category's used set once it
- * is exhausted, granting infinite replayability within a session.
+ * Picks a random unused question of `category` eligible for `level`, tracking used questions
+ * globally by id. When every eligible question of the category is used, that category's marks
+ * are cleared (auto-reset) so play never runs dry. Pure: returns the chosen question and the
+ * next `used` set (the input is not mutated).
  */
-export const createQuestionPool = (questions: readonly Question[]): QuestionPool => {
-	const byCategory = new Map<TriviaCategory, Question[]>();
-	for (const question of questions) {
-		if (!isEligibleForKid(question.targetAudience)) continue;
-		const bucket = byCategory.get(question.category) ?? [];
-		bucket.push(question);
-		byCategory.set(question.category, bucket);
+export const drawQuestion = (
+	bank: readonly Question[],
+	category: TriviaCategory,
+	level: PlayerLevel,
+	used: ReadonlySet<number>,
+	rng: () => number = Math.random,
+): DrawResult => {
+	const eligible = bank.filter(
+		(q) => q.category === category && isEligible(q.targetAudience, level) && q.id !== undefined,
+	);
+	if (eligible.length === 0) return { question: null, used: new Set(used) };
+
+	let next = new Set(used);
+	let available = eligible.filter((q) => !next.has(q.id as number));
+	if (available.length === 0) {
+		// Auto-reset: clear used marks for the whole category, then everything is available again.
+		const categoryIds = new Set(
+			bank.filter((q) => q.category === category).map((q) => q.id as number),
+		);
+		next = new Set([...next].filter((id) => !categoryIds.has(id)));
+		available = eligible;
 	}
 
-	const usedIndices = new Map<TriviaCategory, Set<number>>();
-
-	const draw = (category: TriviaCategory, rng: () => number = Math.random): Question | null => {
-		const bucket = byCategory.get(category);
-		if (!bucket || bucket.length === 0) return null;
-
-		let used = usedIndices.get(category);
-		if (!used) {
-			used = new Set();
-			usedIndices.set(category, used);
-		}
-		if (used.size >= bucket.length) used.clear();
-
-		const available = bucket.map((_, index) => index).filter((index) => !used.has(index));
-		const pick = available[Math.floor(rng() * available.length)];
-		used.add(pick);
-		return bucket[pick];
-	};
-
-	const remaining = (category: TriviaCategory): number => {
-		const total = byCategory.get(category)?.length ?? 0;
-		const used = usedIndices.get(category)?.size ?? 0;
-		return total - used;
-	};
-
-	return { draw, remaining };
+	const pick = available[Math.floor(rng() * available.length)];
+	next.add(pick.id as number);
+	return { question: pick, used: next };
 };

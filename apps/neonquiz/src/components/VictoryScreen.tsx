@@ -3,6 +3,7 @@ import type React from 'react';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
+import { playerAccent } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 
 const VictoryScreen: React.FC = () => {
@@ -13,7 +14,8 @@ const VictoryScreen: React.FC = () => {
 	const t = useGameStore((s) => s.t);
 
 	const winner = winnerIndex !== null ? players[winnerIndex] : null;
-	if (!winner) return null;
+	if (!winner || winnerIndex === null) return null;
+	const accent = playerAccent(winnerIndex);
 
 	return (
 		<div
@@ -25,13 +27,10 @@ const VictoryScreen: React.FC = () => {
 			</h2>
 
 			<div className="flex flex-col items-center gap-4">
-				<span
-					className="relative rounded-full p-4"
-					style={{ boxShadow: '0 0 32px 4px var(--color-tertiary)' }}
-				>
+				<span className="relative rounded-full p-4" style={{ boxShadow: `0 0 32px 4px ${accent}` }}>
 					<span className="nq-rings" aria-hidden="true" />
 					<span className="nq-rings nq-rings-delay" aria-hidden="true" />
-					<ShapeGlyph shape={winner.shape} size={88} color="var(--color-tertiary)" />
+					<ShapeGlyph shape={winner.shape} size={88} color={accent} />
 				</span>
 				<p className="font-display text-2xl font-bold uppercase tracking-wide-premium text-on-surface">
 					{winner.name}

@@ -8,9 +8,11 @@ const player: Player = {
 	id: 'p0-TRIANGLE',
 	name: 'Ada',
 	shape: 'TRIANGLE',
+	level: 'KID',
 	position: 0,
 	sparks: [],
 	usedWildcards: { fiftyFifty: false, change: false, secondChance: false },
+	pendingConclaveCategory: null,
 };
 
 describe('NeonBoard tile interaction (regression)', () => {

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { calculateValidMoves } from '../engine/boardEngine';
 import { buildFamiliarBoard, getNode, NEXUS_ID } from '../engine/boardFactory';
-import { createQuestionPool, type QuestionPool } from '../engine/questionPool';
+import { drawQuestion } from '../engine/questionPool';
 import { rollDie } from '../engine/rng';
 import {
 	type Board,
@@ -10,6 +10,7 @@ import {
 	type GameSession,
 	type Language,
 	type Player,
+	type PlayerLevel,
 	type PlayerShape,
 	type Question,
 	type TriviaCategory,
@@ -29,6 +30,7 @@ export interface AnswerOutcome {
 export interface PlayerDraft {
 	name: string;
 	shape: PlayerShape;
+	level: PlayerLevel;
 }
 
 interface GameStore {
@@ -42,7 +44,9 @@ interface GameStore {
 	activeNodeId: number | null;
 	activeQuestion: Question | null;
 	lastOutcome: AnswerOutcome | null;
+	bank: Question[];
 	bankSize: number;
+	usedQuestionIds: number[];
 	turnCount: number;
 	conclaveCategory: TriviaCategory | null;
 	isConclave: boolean;
@@ -54,10 +58,15 @@ interface GameStore {
 	t: (path: string) => string;
 	setLanguage: (language: Language) => void;
 
-	loadBank: (questions: Question[]) => void;
+	loadBank: (questions: Question[], usedIds?: number[]) => void;
 	startGame: (drafts: PlayerDraft[]) => void;
-	hydrate: (session: GameSession, questions: Question[]) => void;
+	hydrate: (session: GameSession, questions: Question[], usedIds?: number[]) => void;
 	resetGame: () => void;
+	resetQuestionUsage: () => void;
+	restartGame: () => void;
+	abandonGame: () => void;
+	removePlayer: (playerId: string) => void;
+	resetApp: () => void;
 
 	confirmTurnTransition: () => void;
 	rollDice: (roll?: number) => void;
@@ -71,6 +80,8 @@ interface GameStore {
 	useChange: () => void;
 	useSecondChance: () => void;
 	revealAnswer: () => void;
+	revealAdultAnswer: () => void;
+	gradeAdultAnswer: (correct: boolean) => void;
 }
 
 const FRESH_WILDCARDS = (): WildcardUsage => ({
@@ -79,28 +90,29 @@ const FRESH_WILDCARDS = (): WildcardUsage => ({
 	secondChance: false,
 });
 
-let pool: QuestionPool = createQuestionPool([]);
-
-const getInitialLanguage = (): Language => {
-	if (typeof navigator === 'undefined') return 'es';
-	return navigator.language.split('-')[0] === 'en' ? 'en' : 'es';
-};
+// Forced to Spanish until the question bank exists in other languages (the i18n infra and the
+// `en` translations are kept for that future).
+const getInitialLanguage = (): Language => 'es';
 
 const createPlayer = (draft: PlayerDraft, index: number): Player => ({
 	id: `p${index}-${draft.shape}`,
 	name: draft.name,
 	shape: draft.shape,
+	level: draft.level,
 	position: NEXUS_ID,
 	sparks: [],
 	usedWildcards: FRESH_WILDCARDS(),
+	pendingConclaveCategory: null,
 });
 
 // Backfills fields added in later milestones so sessions saved by an earlier version
-// resume cleanly (e.g. pre-H4 players have no `usedWildcards`).
+// resume cleanly (pre-H4 players have no `usedWildcards`; pre-H5 have no `level`).
 const normalizePlayer = (player: Player): Player => ({
 	...player,
+	level: player.level ?? 'KID',
 	sparks: player.sparks ?? [],
 	usedWildcards: player.usedWildcards ?? FRESH_WILDCARDS(),
+	pendingConclaveCategory: player.pendingConclaveCategory ?? null,
 });
 
 const hasAllSparks = (player: Player): boolean => player.sparks.length >= SPARKS_TO_WIN;
@@ -140,7 +152,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	board: buildFamiliarBoard(),
 	players: [],
 	currentPlayerIndex: 0,
+	bank: [],
 	bankSize: 0,
+	usedQuestionIds: [],
 	...FRESH_GAME,
 
 	t: (path) => {
@@ -159,9 +173,8 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
 	setLanguage: (language) => set({ language }),
 
-	loadBank: (questions) => {
-		pool = createQuestionPool(questions);
-		set({ bankSize: questions.length });
+	loadBank: (questions, usedIds = []) => {
+		set({ bank: questions, bankSize: questions.length, usedQuestionIds: usedIds });
 	},
 
 	startGame: (drafts) =>
@@ -173,19 +186,65 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			...FRESH_GAME,
 		}),
 
-	hydrate: (session, questions) => {
-		pool = createQuestionPool(questions);
+	hydrate: (session, questions, usedIds = []) => {
 		set({
 			board: buildFamiliarBoard(),
+			bank: questions,
+			bankSize: questions.length,
+			usedQuestionIds: usedIds,
 			players: session.players.map(normalizePlayer),
 			currentPlayerIndex: session.currentPlayerIndex,
 			phase: 'TURN_TRANSITION',
-			bankSize: questions.length,
 			...FRESH_GAME,
 		});
 	},
 
 	resetGame: () => set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME }),
+
+	resetQuestionUsage: () => set({ usedQuestionIds: [] }),
+
+	abandonGame: () => set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME }),
+
+	// Same roster, fresh state. Does NOT touch question usage.
+	restartGame: () =>
+		set((state) => ({
+			board: buildFamiliarBoard(),
+			players: state.players.map((player) => ({
+				...player,
+				position: NEXUS_ID,
+				sparks: [],
+				usedWildcards: FRESH_WILDCARDS(),
+				pendingConclaveCategory: null,
+			})),
+			currentPlayerIndex: 0,
+			phase: 'TURN_TRANSITION',
+			...FRESH_GAME,
+		})),
+
+	// A single player leaves; the rest continue. If fewer than two remain, the game ends.
+	removePlayer: (playerId) => {
+		const state = get();
+		const removedIndex = state.players.findIndex((p) => p.id === playerId);
+		if (removedIndex === -1) return;
+		const players = state.players.filter((p) => p.id !== playerId);
+		if (players.length < 2) {
+			set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME });
+			return;
+		}
+		const shifted =
+			removedIndex < state.currentPlayerIndex
+				? state.currentPlayerIndex - 1
+				: state.currentPlayerIndex;
+		set({
+			players,
+			currentPlayerIndex: shifted % players.length,
+			phase: 'TURN_TRANSITION',
+			...FRESH_GAME,
+		});
+	},
+
+	resetApp: () =>
+		set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, usedQuestionIds: [], ...FRESH_GAME }),
 
 	// At the start of a turn a challenger already standing on the Nexus with every Spark
 	// re-enters the Conclave (the KID retry rule); everyone else rolls.
@@ -216,15 +275,41 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			index === state.currentPlayerIndex ? { ...player, position: nodeId } : player,
 		);
 		const node = getNode(state.board, nodeId);
+		const current = players[state.currentPlayerIndex];
 
 		if (node.type === 'NEXUS') {
-			set({ players, validMoves: [], dice: null, phase: 'CONCLAVE_VOTE' });
+			// A pending Conclave (an ADULT challenger who was expelled) resumes straight at the
+			// final question with the already-voted category; otherwise the rivals vote first.
+			const pending = current.pendingConclaveCategory;
+			if (pending) {
+				const cleared = players.map((player, index) =>
+					index === state.currentPlayerIndex
+						? { ...player, pendingConclaveCategory: null }
+						: player,
+				);
+				set({
+					players: cleared,
+					validMoves: [],
+					dice: null,
+					conclaveCategory: pending,
+					phase: 'CONCLAVE_HANDOFF',
+				});
+			} else {
+				set({ players, validMoves: [], dice: null, phase: 'CONCLAVE_VOTE' });
+			}
 			return;
 		}
 
-		const question = node.category ? pool.draw(node.category) : null;
+		if (!node.category) return;
+		const { question, used } = drawQuestion(
+			state.bank,
+			node.category,
+			current.level,
+			new Set(state.usedQuestionIds),
+		);
 		set({
 			players,
+			usedQuestionIds: [...used],
 			validMoves: [],
 			activeNodeId: nodeId,
 			activeQuestion: question,
@@ -298,9 +383,35 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 					isConclave: false,
 				});
 			} else {
-				// KID rule: the challenger keeps every Spark and stays on the Nexus; the
-				// Conclave reopens on their next turn (via confirmTurnTransition).
-				set({ activeQuestion: null, lastOutcome: null, isConclave: false, conclaveCategory: null });
+				const challenger = state.players[state.currentPlayerIndex];
+				if (challenger.level === 'ADULT') {
+					// ADULT rule: expelled from the Nexus to an adjacent spoke tile; must travel
+					// back, then retries the final question directly (no re-vote).
+					const exitTile = getNode(state.board, NEXUS_ID).connectedNodeIds[0];
+					const players = state.players.map((player, index) =>
+						index === state.currentPlayerIndex
+							? { ...player, position: exitTile, pendingConclaveCategory: state.conclaveCategory }
+							: player,
+					);
+					set({
+						players,
+						activeQuestion: null,
+						lastOutcome: null,
+						isConclave: false,
+						answerRevealed: false,
+						conclaveCategory: null,
+					});
+				} else {
+					// KID rule: keeps every Spark and stays on the Nexus; the Conclave reopens
+					// on their next turn (via confirmTurnTransition).
+					set({
+						activeQuestion: null,
+						lastOutcome: null,
+						isConclave: false,
+						answerRevealed: false,
+						conclaveCategory: null,
+					});
+				}
 				advanceTurn(set);
 			}
 			return;
@@ -327,12 +438,21 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		set({ conclaveCategory: category, phase: 'CONCLAVE_HANDOFF' }),
 
 	confirmConclaveHandoff: () => {
-		const category = get().conclaveCategory;
+		const state = get();
+		const category = state.conclaveCategory;
 		if (!category) return;
+		const { question, used } = drawQuestion(
+			state.bank,
+			category,
+			state.players[state.currentPlayerIndex].level,
+			new Set(state.usedQuestionIds),
+		);
 		set({
-			activeQuestion: pool.draw(category),
+			activeQuestion: question,
+			usedQuestionIds: [...used],
 			activeNodeId: null,
 			isConclave: true,
+			answerRevealed: false,
 			phase: 'CONCLAVE_QUESTION',
 		});
 	},
@@ -358,8 +478,15 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		const question = state.activeQuestion;
 		if (state.phase !== 'QUESTION_ACTIVE' || !question || player.usedWildcards.change) return;
 
+		const { question: swapped, used } = drawQuestion(
+			state.bank,
+			question.category,
+			player.level,
+			new Set(state.usedQuestionIds),
+		);
 		set({
-			activeQuestion: pool.draw(question.category) ?? question,
+			activeQuestion: swapped ?? question,
+			usedQuestionIds: [...used],
 			hiddenOptions: [],
 			lockedOptions: [],
 			players: markWildcard(state.players, state.currentPlayerIndex, 'change'),
@@ -390,6 +517,64 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
 	// Declining the 2nd chance reveals the correct answer (for learning) before the turn passes.
 	revealAnswer: () => set({ answerRevealed: true }),
+
+	// ADULT flow: read → reveal the correct answer → self-grade ("I was right" / "I failed").
+	revealAdultAnswer: () => {
+		const state = get();
+		if (state.phase !== 'QUESTION_ACTIVE' && state.phase !== 'CONCLAVE_QUESTION') return;
+		set({ answerRevealed: true });
+	},
+
+	gradeAdultAnswer: (correct) => {
+		const state = get();
+		const question = state.activeQuestion;
+		if (!question) return;
+		if (state.phase !== 'QUESTION_ACTIVE' && state.phase !== 'CONCLAVE_QUESTION') return;
+
+		if (state.isConclave) {
+			set({
+				phase: 'FEEDBACK',
+				answerRevealed: true,
+				lastOutcome: {
+					correct,
+					selectedIndex: -1,
+					correctIndex: question.correctAnswerIndex,
+					collectedSpark: null,
+				},
+			});
+			return;
+		}
+
+		const nodeId = state.activeNodeId;
+		if (nodeId === null) return;
+		const node = getNode(state.board, nodeId);
+		let collectedSpark: TriviaCategory | null = null;
+		let players = state.players;
+
+		if (correct && node.type === 'SPARK_NODE' && node.category) {
+			const current = state.players[state.currentPlayerIndex];
+			if (!current.sparks.includes(node.category)) {
+				collectedSpark = node.category;
+				players = state.players.map((player, index) =>
+					index === state.currentPlayerIndex
+						? { ...player, sparks: [...player.sparks, node.category as TriviaCategory] }
+						: player,
+				);
+			}
+		}
+
+		set({
+			players,
+			phase: 'FEEDBACK',
+			answerRevealed: true,
+			lastOutcome: {
+				correct,
+				selectedIndex: -1,
+				correctIndex: question.correctAnswerIndex,
+				collectedSpark,
+			},
+		});
+	},
 }));
 
 const markWildcard = (players: Player[], index: number, key: keyof WildcardUsage): Player[] =>

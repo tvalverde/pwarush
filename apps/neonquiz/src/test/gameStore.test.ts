@@ -6,7 +6,7 @@ import { CATEGORIES, type GameSession, type Question } from '../types';
 const bank: Question[] = CATEGORIES.map((category, index) => ({
 	id: index + 1,
 	category,
-	targetAudience: 'KID',
+	targetAudience: 'BOTH', // eligible for both KID and ADULT players
 	questionText: `Q ${category}`,
 	option0: 'right',
 	option1: 'wrong',
@@ -15,18 +15,18 @@ const bank: Question[] = CATEGORIES.map((category, index) => ({
 	correctAnswerIndex: 0,
 }));
 
-const start = () => {
+const start = (level: 'KID' | 'ADULT' = 'KID') => {
 	const store = useGameStore.getState();
 	store.resetGame();
 	store.loadBank(bank);
 	store.startGame([
-		{ name: 'Ada', shape: 'TRIANGLE' },
-		{ name: 'Bob', shape: 'SQUARE' },
+		{ name: 'Ada', shape: 'TRIANGLE', level },
+		{ name: 'Bob', shape: 'SQUARE', level },
 	]);
 };
 
 describe('gameStore turn loop', () => {
-	beforeEach(start);
+	beforeEach(() => start());
 
 	it('starts at the first player in the transition phase', () => {
 		const s = useGameStore.getState();
@@ -105,7 +105,7 @@ describe('gameStore turn loop', () => {
 });
 
 describe('gameStore victory loop (Conclave)', () => {
-	beforeEach(start);
+	beforeEach(() => start());
 
 	// Places player 0 on a spoke tile next to the Nexus, holding all six Sparks.
 	const armChallenger = (): number => {
@@ -189,7 +189,7 @@ describe('gameStore victory loop (Conclave)', () => {
 });
 
 describe('gameStore KID wildcards', () => {
-	beforeEach(start);
+	beforeEach(() => start());
 
 	const openQuestion = () => {
 		useGameStore.getState().confirmTurnTransition();
@@ -279,5 +279,76 @@ describe('gameStore session migration (regression)', () => {
 			secondChance: false,
 		});
 		expect(players[1].usedWildcards.fiftyFifty).toBe(false);
+		// pre-H5 sessions have no level / pendingConclaveCategory either
+		expect(players[0].level).toBe('KID');
+		expect(players[0].pendingConclaveCategory).toBeNull();
+	});
+});
+
+describe('gameStore ADULT flow', () => {
+	beforeEach(() => start('ADULT'));
+
+	const openAdultQuestion = () => {
+		useGameStore.getState().confirmTurnTransition();
+		useGameStore.getState().rollDice(1);
+		useGameStore.getState().moveTo(useGameStore.getState().validMoves[0]);
+		expect(useGameStore.getState().phase).toBe('QUESTION_ACTIVE');
+		expect(useGameStore.getState().activeQuestion).not.toBeNull();
+	};
+
+	it('grants another roll when an ADULT self-grades a correct answer', () => {
+		openAdultQuestion();
+		useGameStore.getState().revealAdultAnswer();
+		expect(useGameStore.getState().answerRevealed).toBe(true);
+		useGameStore.getState().gradeAdultAnswer(true);
+		expect(useGameStore.getState().phase).toBe('FEEDBACK');
+		useGameStore.getState().continueAfterFeedback();
+		const s = useGameStore.getState();
+		expect(s.phase).toBe('ROLLING_DICE');
+		expect(s.currentPlayerIndex).toBe(0);
+	});
+
+	it('passes the turn when an ADULT self-grades a failure', () => {
+		openAdultQuestion();
+		useGameStore.getState().gradeAdultAnswer(false);
+		useGameStore.getState().continueAfterFeedback();
+		const s = useGameStore.getState();
+		expect(s.phase).toBe('TURN_TRANSITION');
+		expect(s.currentPlayerIndex).toBe(1);
+	});
+
+	it('expels an ADULT challenger from the Nexus on a Conclave failure and retries without re-voting', () => {
+		// Arrange: ADULT player 0 with all six Sparks on a tile next to the Nexus.
+		const board = useGameStore.getState().board;
+		const spokeInner = board.nodes.find(
+			(node) => node.type === 'NORMAL' && node.connectedNodeIds.includes(NEXUS_ID),
+		);
+		const players = useGameStore
+			.getState()
+			.players.map((player, index) =>
+				index === 0 ? { ...player, sparks: [...CATEGORIES], position: spokeInner!.id } : player,
+			);
+		useGameStore.setState({ players, currentPlayerIndex: 0, phase: 'TURN_TRANSITION' });
+
+		useGameStore.getState().confirmTurnTransition();
+		useGameStore.getState().rollDice(1);
+		useGameStore.getState().moveTo(NEXUS_ID);
+		expect(useGameStore.getState().phase).toBe('CONCLAVE_VOTE');
+		useGameStore.getState().voteConclaveCategory('CYAN_SCI');
+		useGameStore.getState().confirmConclaveHandoff();
+		useGameStore.getState().gradeAdultAnswer(false); // fail the final question
+		useGameStore.getState().continueAfterFeedback();
+
+		const afterFail = useGameStore.getState();
+		expect(afterFail.players[0].position).not.toBe(NEXUS_ID); // expelled
+		expect(afterFail.players[0].pendingConclaveCategory).toBe('CYAN_SCI');
+
+		// Return to the Nexus → straight to the handoff (no re-vote).
+		useGameStore.setState({ currentPlayerIndex: 0 });
+		useGameStore.getState().confirmTurnTransition();
+		useGameStore.getState().rollDice(1);
+		useGameStore.getState().moveTo(NEXUS_ID);
+		expect(useGameStore.getState().phase).toBe('CONCLAVE_HANDOFF');
+		expect(useGameStore.getState().players[0].pendingConclaveCategory).toBeNull();
 	});
 });

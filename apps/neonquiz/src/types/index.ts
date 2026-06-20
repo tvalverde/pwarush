@@ -57,13 +57,17 @@ export interface WildcardUsage {
 	secondChance: boolean;
 }
 
+export type PlayerLevel = 'KID' | 'ADULT';
+
 export interface Player {
 	id: string;
 	name: string;
 	shape: PlayerShape;
+	level: PlayerLevel;
 	position: number;
 	sparks: TriviaCategory[];
 	usedWildcards: WildcardUsage;
+	pendingConclaveCategory: TriviaCategory | null;
 }
 
 export interface FailedQuestionEntry {

@@ -1,11 +1,15 @@
 import { Button } from '@pwarush/core/ui';
-import { BookOpen, Plus, X } from 'lucide-react';
+import { BookOpen, Plus, Settings, X } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
-import { PLAYER_SHAPES, type PlayerShape } from '../types';
+import { PLAYER_SHAPES, type PlayerLevel, type PlayerShape } from '../types';
+import { playerAccent } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 import FlashcardsScreen from './FlashcardsScreen';
+import SettingsScreen from './SettingsScreen';
+
+const LEVELS: PlayerLevel[] = ['KID', 'ADULT'];
 
 const MAX_PLAYERS = 6;
 const MIN_PLAYERS = 2;
@@ -15,7 +19,9 @@ const SetupLobbyScreen: React.FC = () => {
 	const t = useGameStore((s) => s.t);
 	const [drafts, setDrafts] = useState<PlayerDraft[]>([]);
 	const [name, setName] = useState('');
+	const [level, setLevel] = useState<PlayerLevel>('KID');
 	const [showFlashcards, setShowFlashcards] = useState(false);
+	const [showSettings, setShowSettings] = useState(false);
 
 	const usedShapes = new Set(drafts.map((d) => d.shape));
 	const availableShapes = PLAYER_SHAPES.filter((shape) => !usedShapes.has(shape));
@@ -28,13 +34,14 @@ const SetupLobbyScreen: React.FC = () => {
 	const addPlayer = () => {
 		if (!canAdd || !activeShape) return;
 		const trimmed = name.trim() || `${t('lobby.player_name')} ${drafts.length + 1}`;
-		setDrafts([...drafts, { name: trimmed.slice(0, 10), shape: activeShape }]);
+		setDrafts([...drafts, { name: trimmed.slice(0, 10), shape: activeShape, level }]);
 		setName('');
 	};
 
 	const removePlayer = (index: number) => setDrafts(drafts.filter((_, i) => i !== index));
 
 	if (showFlashcards) return <FlashcardsScreen onClose={() => setShowFlashcards(false)} />;
+	if (showSettings) return <SettingsScreen onClose={() => setShowSettings(false)} />;
 
 	return (
 		<div className="flex h-full flex-col">
@@ -54,6 +61,15 @@ const SetupLobbyScreen: React.FC = () => {
 					<BookOpen className="h-3.5 w-3.5" />
 					{t('flashcards.open')}
 				</button>
+				<button
+					type="button"
+					aria-label={t('settings.open')}
+					data-testid="open-settings"
+					onClick={() => setShowSettings(true)}
+					className="absolute left-4 top-4 text-on-surface-variant hover:text-primary"
+				>
+					<Settings className="h-5 w-5" />
+				</button>
 			</header>
 
 			<main className="flex flex-1 flex-col gap-5 overflow-y-auto px-5 py-6">
@@ -65,8 +81,11 @@ const SetupLobbyScreen: React.FC = () => {
 							className="flex items-center justify-between rounded-full border border-outline-variant bg-surface-container px-4 py-3"
 						>
 							<span className="flex items-center gap-3">
-								<ShapeGlyph shape={draft.shape} size={22} color="var(--color-primary)" />
+								<ShapeGlyph shape={draft.shape} size={22} color={playerAccent(index)} />
 								<span className="font-hanken text-sm font-bold text-on-surface">{draft.name}</span>
+								<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
+									{t(`lobby.level_${draft.level.toLowerCase()}`)}
+								</span>
 							</span>
 							<button
 								type="button"
@@ -105,7 +124,24 @@ const SetupLobbyScreen: React.FC = () => {
 											: 'border-outline-variant bg-surface-container'
 									}`}
 								>
-									<ShapeGlyph shape={option} size={20} color="var(--color-on-surface)" />
+									<ShapeGlyph shape={option} size={20} color={playerAccent(drafts.length)} />
+								</button>
+							))}
+						</div>
+						<div className="flex gap-2" data-testid="level-toggle">
+							{LEVELS.map((option) => (
+								<button
+									type="button"
+									key={option}
+									data-testid={`level-${option}`}
+									onClick={() => setLevel(option)}
+									className={`flex-1 rounded-full border px-4 py-2 font-hanken text-xs font-bold uppercase tracking-wide-premium transition-colors ${
+										level === option
+											? 'border-primary bg-primary-container text-on-surface'
+											: 'border-outline-variant bg-surface-container text-on-surface-variant'
+									}`}
+								>
+									{t(`lobby.level_${option.toLowerCase()}`)}
 								</button>
 							))}
 						</div>

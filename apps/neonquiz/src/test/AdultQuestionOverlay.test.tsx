@@ -1,0 +1,50 @@
+import { fireEvent, render } from '@testing-library/react';
+import { beforeEach, describe, expect, it } from 'vitest';
+import AdultQuestionOverlay from '../components/AdultQuestionOverlay';
+import { useGameStore } from '../store/gameStore';
+import { CATEGORIES, type Question } from '../types';
+
+const bank: Question[] = CATEGORIES.map((category, index) => ({
+	id: index + 1,
+	category,
+	targetAudience: 'BOTH',
+	questionText: `Q ${category}`,
+	option0: 'the right one',
+	option1: 'nope',
+	option2: 'nope',
+	option3: 'nope',
+	correctAnswerIndex: 0,
+}));
+
+const openAdultQuestion = () => {
+	const s = useGameStore.getState();
+	s.resetGame();
+	s.loadBank(bank);
+	s.startGame([
+		{ name: 'Ada', shape: 'TRIANGLE', level: 'ADULT' },
+		{ name: 'Bob', shape: 'SQUARE', level: 'ADULT' },
+	]);
+	useGameStore.getState().confirmTurnTransition();
+	useGameStore.getState().rollDice(1);
+	useGameStore.getState().moveTo(useGameStore.getState().validMoves[0]);
+};
+
+describe('AdultQuestionOverlay', () => {
+	beforeEach(openAdultQuestion);
+
+	it('hides the answer until the adult reveals it, then offers self-grading', () => {
+		const { getByTestId, queryByTestId } = render(<AdultQuestionOverlay />);
+		expect(getByTestId('adult-reveal')).toBeInTheDocument();
+		expect(queryByTestId('adult-correct')).toBeNull();
+
+		fireEvent.click(getByTestId('adult-reveal'));
+		expect(getByTestId('adult-correct')).toBeInTheDocument();
+		expect(getByTestId('adult-failed')).toBeInTheDocument();
+		expect(getByTestId('adult-question-overlay').textContent).toContain('the right one');
+	});
+
+	it('shows a countdown while reading', () => {
+		const { getByTestId } = render(<AdultQuestionOverlay />);
+		expect(getByTestId('adult-timer')).toBeInTheDocument();
+	});
+});

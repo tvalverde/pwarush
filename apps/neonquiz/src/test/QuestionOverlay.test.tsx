@@ -21,8 +21,8 @@ const openWrongAnswer = () => {
 	s.resetGame();
 	s.loadBank(bank);
 	s.startGame([
-		{ name: 'Ada', shape: 'TRIANGLE' },
-		{ name: 'Bob', shape: 'SQUARE' },
+		{ name: 'Ada', shape: 'TRIANGLE', level: 'KID' },
+		{ name: 'Bob', shape: 'SQUARE', level: 'KID' },
 	]);
 	useGameStore.getState().confirmTurnTransition();
 	useGameStore.getState().rollDice(1);

@@ -1,8 +1,13 @@
 import { Button } from '@pwarush/core/ui';
+import { Menu } from 'lucide-react';
 import type React from 'react';
+import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
+import { playerAccent } from '../utils/players';
+import AdultQuestionOverlay from './AdultQuestionOverlay';
+import ArenaMenu from './ArenaMenu';
 import NeonBoard from './board/NeonBoard';
 import ShapeGlyph from './board/ShapeGlyph';
 import ConclaveHandoffScreen from './ConclaveHandoffScreen';
@@ -43,6 +48,7 @@ const ArenaScreen: React.FC = () => {
 	const moveTo = useGameStore((s) => s.moveTo);
 	const skipTurn = useGameStore((s) => s.skipTurn);
 	const t = useGameStore((s) => s.t);
+	const [showMenu, setShowMenu] = useState(false);
 
 	const player = players[currentPlayerIndex];
 	if (!player) return null;
@@ -54,7 +60,7 @@ const ArenaScreen: React.FC = () => {
 		<div className="relative flex h-full flex-col">
 			<header className="flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest px-4 py-3">
 				<span className="flex items-center gap-2">
-					<ShapeGlyph shape={player.shape} size={22} color="var(--color-primary)" />
+					<ShapeGlyph shape={player.shape} size={22} color={playerAccent(currentPlayerIndex)} />
 					<span className="flex flex-col">
 						<span className="font-display text-[9px] uppercase tracking-widest-premium text-on-surface-variant">
 							{t('arena.turn_of')}
@@ -62,7 +68,18 @@ const ArenaScreen: React.FC = () => {
 						<span className="font-hanken text-sm font-bold text-on-surface">{player.name}</span>
 					</span>
 				</span>
-				<SparkTrack collected={player.sparks} />
+				<span className="flex items-center gap-3">
+					<SparkTrack collected={player.sparks} />
+					<button
+						type="button"
+						aria-label={t('menu.open')}
+						data-testid="open-menu"
+						onClick={() => setShowMenu(true)}
+						className="text-on-surface-variant hover:text-primary"
+					>
+						<Menu className="h-5 w-5" />
+					</button>
+				</span>
 			</header>
 
 			<main className="relative flex-1 overflow-hidden">
@@ -73,9 +90,8 @@ const ArenaScreen: React.FC = () => {
 					onMove={moveTo}
 					nexusActive={player.sparks.length === CATEGORIES.length}
 				/>
-				{(phase === 'QUESTION_ACTIVE' || phase === 'FEEDBACK' || phase === 'CONCLAVE_QUESTION') && (
-					<QuestionOverlay />
-				)}
+				{(phase === 'QUESTION_ACTIVE' || phase === 'FEEDBACK' || phase === 'CONCLAVE_QUESTION') &&
+					(player.level === 'ADULT' ? <AdultQuestionOverlay /> : <QuestionOverlay />)}
 				{phase === 'TURN_TRANSITION' && <TurnTransitionScreen />}
 				{phase === 'CONCLAVE_VOTE' && <ConclaveVoteScreen />}
 				{phase === 'CONCLAVE_HANDOFF' && <ConclaveHandoffScreen />}
@@ -115,6 +131,8 @@ const ArenaScreen: React.FC = () => {
 					</Button>
 				)}
 			</footer>
+
+			{showMenu && <ArenaMenu onClose={() => setShowMenu(false)} />}
 		</div>
 	);
 };

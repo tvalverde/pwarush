@@ -1,5 +1,6 @@
 import type React from 'react';
 import type { Board, Player } from '../../types';
+import { playerAccent } from '../../utils/players';
 import BoardBackground from './BoardBackground';
 import BoardDefs from './BoardDefs';
 import HexTile from './HexTile';
@@ -12,15 +13,6 @@ interface NeonBoardProps {
 	onMove: (nodeId: number) => void;
 	nexusActive: boolean;
 }
-
-const PLAYER_ACCENTS = [
-	'var(--color-cat-cyan)',
-	'var(--color-cat-crimson)',
-	'var(--color-cat-gold)',
-	'var(--color-cat-emerald)',
-	'var(--color-cat-orange)',
-	'var(--color-cat-violet)',
-];
 
 const tokenOffset = (index: number, total: number): { dx: number; dy: number } => {
 	if (total <= 1) return { dx: 0, dy: 0 };
@@ -46,7 +38,7 @@ const NeonBoard: React.FC<NeonBoardProps> = ({
 
 	const occupants = new Map<number, { player: Player; accent: string }[]>();
 	players.forEach((player, index) => {
-		const entry = { player, accent: PLAYER_ACCENTS[index % PLAYER_ACCENTS.length] };
+		const entry = { player, accent: playerAccent(index) };
 		const list = occupants.get(player.position) ?? [];
 		list.push(entry);
 		occupants.set(player.position, list);
