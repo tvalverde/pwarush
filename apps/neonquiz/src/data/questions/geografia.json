@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué continente se encuentra el desierto del Sahara?",
+		"option0": "Asia",
+		"option1": "África",
+		"option2": "Oceanía",
+		"option3": "América del Sur",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Canadá?",
+		"option0": "Toronto",
+		"option1": "Montreal",
+		"option2": "Vancouver",
+		"option3": "Ottawa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país europeo tiene una forma característica de bota?",
+		"option0": "Italia",
+		"option1": "Grecia",
+		"option2": "España",
+		"option3": "Portugal",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el océano más grande del mundo?",
+		"option0": "Océano Atlántico",
+		"option1": "Océano Índico",
+		"option2": "Océano Pacífico",
+		"option3": "Océano Ártico",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se encuentra la antigua ciudad de Machu Picchu?",
+		"option0": "Chile",
+		"option1": "Perú",
+		"option2": "Colombia",
+		"option3": "Bolivia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Australia?",
+		"option0": "Sídney",
+		"option1": "Melbourne",
+		"option2": "Brisbane",
+		"option3": "Canberra",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué país del mundo cuenta con el mayor número de islas en su territorio?",
+		"option0": "Filipinas",
+		"option1": "Indonesia",
+		"option2": "Suecia",
+		"option3": "Canadá",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el pico más alto de España?",
+		"option0": "El Teide",
+		"option1": "El Mulhacén",
+		"option2": "El Aneto",
+		"option3": "El Veleta",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué estrecho separa el continente europeo del africano?",
+		"option0": "Estrecho de Bering",
+		"option1": "Estrecho de Gibraltar",
+		"option2": "Estrecho de Magallanes",
+		"option3": "Estrecho de Ormuz",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Islandia?",
+		"option0": "Oslo",
+		"option1": "Helsinki",
+		"option2": "Reikiavik",
+		"option3": "Copenhague",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué país actual se encuentra la histórica ciudad de Petra?",
+		"option0": "Egipto",
+		"option1": "Siria",
+		"option2": "Irak",
+		"option3": "Jordania",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el país más pequeño del mundo por extensión territorial?",
+		"option0": "Ciudad del Vaticano",
+		"option1": "Mónaco",
+		"option2": "San Marino",
+		"option3": "Liechtenstein",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué río atraviesa la ciudad de Londres?",
+		"option0": "Sena",
+		"option1": "Támesis",
+		"option2": "Danubio",
+		"option3": "Rin",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué continente se encuentra el Gran Cañón del Colorado?",
+		"option0": "Europa",
+		"option1": "Asia",
+		"option2": "América del Norte",
+		"option3": "América del Sur",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el lago más profundo de la Tierra?",
+		"option0": "Lago Baikal",
+		"option1": "Lago Superior",
+		"option2": "Lago Victoria",
+		"option3": "Lago Tanganica",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué país europeo tiene frontera con un total de nueve naciones?",
+		"option0": "Francia",
+		"option1": "Polonia",
+		"option2": "Suiza",
+		"option3": "Alemania",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la capital de Portugal?",
+		"option0": "Oporto",
+		"option1": "Lisboa",
+		"option2": "Faro",
+		"option3": "Coímbra",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué comunidad autónoma española pertenecen las islas de Lanzarote y Fuerteventura?",
+		"option0": "Islas Canarias",
+		"option1": "Islas Baleares",
+		"option2": "Andalucía",
+		"option3": "Murcia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la montaña más alta del mundo sobre el nivel del mar?",
+		"option0": "K2",
+		"option1": "Kangchenjunga",
+		"option2": "Monte Everest",
+		"option3": "Kilimanjaro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país es conocido popularmente como 'El país del sol naciente'?",
+		"option0": "China",
+		"option1": "Japón",
+		"option2": "Corea del Sur",
+		"option3": "Tailandia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué dos grandes océanos están conectados por el Canal de Panamá?",
+		"option0": "Índico y Pacífico",
+		"option1": "Atlántico e Índico",
+		"option2": "Ártico y Antártico",
+		"option3": "Atlántico y Pacífico",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Turquía?",
+		"option0": "Ankara",
+		"option1": "Estambul",
+		"option2": "Esmirna",
+		"option3": "Antalya",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se puede visitar la Gran Barrera de Coral?",
+		"option0": "Brasil",
+		"option1": "México",
+		"option2": "Australia",
+		"option3": "Madagascar",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué país africano era conocido antiguamente con el nombre de Abisinia?",
+		"option0": "Egipto",
+		"option1": "Etiopía",
+		"option2": "Nigeria",
+		"option3": "Sudáfrica",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es considerado el punto más bajo de la superficie terrestre?",
+		"option0": "Valle de la Muerte",
+		"option1": "Depresión de Afar",
+		"option2": "Mar Caspio",
+		"option3": "Mar Muerto",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué río es considerado el más caudaloso del mundo?",
+		"option0": "Río Nilo",
+		"option1": "Río Amazonas",
+		"option2": "Río Misisipi",
+		"option3": "Río Yangtsé",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el país con mayor superficie de América del Sur?",
+		"option0": "Argentina",
+		"option1": "Colombia",
+		"option2": "Perú",
+		"option3": "Brasil",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la isla más grande del mundo (sin considerar los continentes)?",
+		"option0": "Groenlandia",
+		"option1": "Madagascar",
+		"option2": "Borneo",
+		"option3": "Nueva Guinea",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué país se encuentra el desierto de Atacama, conocido por ser el más árido del planeta?",
+		"option0": "México",
+		"option1": "Australia",
+		"option2": "Chile",
+		"option3": "Namibia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué ciudad italiana es mundialmente famosa por sus canales y por carecer de carreteras para coches?",
+		"option0": "Milán",
+		"option1": "Florencia",
+		"option2": "Venecia",
+		"option3": "Nápoles",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué lago, situado en los Andes entre Perú y Bolivia, es el lago navegable más alto del mundo?",
+		"option0": "Lago Titicaca",
+		"option1": "Lago Victoria",
+		"option2": "Lago Como",
+		"option3": "Lago Eyre",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué cordillera sirve de frontera natural entre España y Francia?",
+		"option0": "Los Alpes",
+		"option1": "Los Apeninos",
+		"option2": "Los Pirineos",
+		"option3": "Cordillera Cantábrica",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se encuentra el emblemático monte Fuji?",
+		"option0": "China",
+		"option1": "Japón",
+		"option2": "Vietnam",
+		"option3": "Indonesia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué río atraviesa la ciudad de París?",
+		"option0": "Río Loira",
+		"option1": "Río Ródano",
+		"option2": "Río Sena",
+		"option3": "Río Garona",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Frente a las costas de qué continente se sitúa la isla de Madagascar?",
+		"option0": "Asia",
+		"option1": "África",
+		"option2": "América",
+		"option3": "Oceanía",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Noruega?",
+		"option0": "Estocolmo",
+		"option1": "Copenhague",
+		"option2": "Oslo",
+		"option3": "Helsinki",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué país africano se encuentra el monte Kilimanjaro?",
+		"option0": "Kenia",
+		"option1": "Tanzania",
+		"option2": "Uganda",
+		"option3": "Etiopía",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué conjunto de países pertenecen Bélgica, los Países Bajos y Luxemburgo?",
+		"option0": "Escandinavia",
+		"option1": "Magreb",
+		"option2": "Benelux",
+		"option3": "Balcanes",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pequeña nación del sudeste asiático es a la vez una isla, una ciudad y un estado independiente?",
+		"option0": "Singapur",
+		"option1": "Maldivas",
+		"option2": "Sri Lanka",
+		"option3": "Taiwán",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué río es históricamente conocido por ser vital para el desarrollo de la civilización del Antiguo Egipto?",
+		"option0": "Río Éufrates",
+		"option1": "Río Tigris",
+		"option2": "Río Nilo",
+		"option3": "Río Congo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué continente se extienden las Montañas Rocosas (o Rockies)?",
+		"option0": "Europa",
+		"option1": "Asia",
+		"option2": "América del Norte",
+		"option3": "América del Sur",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Entre qué dos países se extiende principalmente el desierto del Gobi?",
+		"option0": "China y Mongolia",
+		"option1": "India y Pakistán",
+		"option2": "Arabia Saudí e Irak",
+		"option3": "Irán y Afganistán",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué mar se encuentran las islas griegas de Santorini y Mykonos?",
+		"option0": "Mar Adriático",
+		"option1": "Mar Egeo",
+		"option2": "Mar Tirreno",
+		"option3": "Mar Caspio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Nueva Zelanda?",
+		"option0": "Auckland",
+		"option1": "Christchurch",
+		"option2": "Wellington",
+		"option3": "Dunedin",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué río atraviesa un mayor número de países en el mundo (un total de diez)?",
+		"option0": "Río Rin",
+		"option1": "Río Danubio",
+		"option2": "Río Volga",
+		"option3": "Río Ural",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué capital latinoamericana fue construida sobre las ruinas de la antigua ciudad azteca de Tenochtitlan?",
+		"option0": "Bogotá",
+		"option1": "Lima",
+		"option2": "Ciudad de México",
+		"option3": "Quito",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál de estos países es conocido por su neutralidad histórica y por no tener salida al mar en el corazón de Europa?",
+		"option0": "Suiza",
+		"option1": "Grecia",
+		"option2": "Noruega",
+		"option3": "Italia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país construyó una muralla de miles de kilómetros para protegerse de las invasiones desde el norte?",
+		"option0": "Rusia",
+		"option1": "India",
+		"option2": "China",
+		"option3": "Irán",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Marruecos?",
+		"option0": "Marrakech",
+		"option1": "Rabat",
+		"option2": "Casablanca",
+		"option3": "Tánger",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué país pertenecen las Islas Galápagos, famosas por su biodiversidad única?",
+		"option0": "Colombia",
+		"option1": "Chile",
+		"option2": "Ecuador",
+		"option3": "Costa Rica",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el pico más alto del continente americano, situado en la cordillera de los Andes?",
+		"option0": "Monte McKinley",
+		"option1": "Monte Logan",
+		"option2": "Pico de Orizaba",
+		"option3": "Aconcagua",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué línea imaginaria divide a la Tierra en los hemisferios Norte y Sur?",
+		"option0": "Meridiano de Greenwich",
+		"option1": "Ecuador",
+		"option2": "Trópico de Cáncer",
+		"option3": "Trópico de Capricornio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la capital de Argentina, conocida como la cuna del tango?",
+		"option0": "Rosario",
+		"option1": "Córdoba",
+		"option2": "Buenos Aires",
+		"option3": "Mendoza",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país asiático se encuentra el Taj Mahal, una de las maravillas del mundo?",
+		"option0": "India",
+		"option1": "Tailandia",
+		"option2": "Pakistán",
+		"option3": "Bangladesh",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el estado más extenso por superficie de los Estados Unidos?",
+		"option0": "Texas",
+		"option1": "California",
+		"option2": "Alaska",
+		"option3": "Montana",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué mar baña las costas del sur de Europa, el norte de África y el oeste de Asia?",
+		"option0": "Mar Negro",
+		"option1": "Mar Mediterráneo",
+		"option2": "Mar del Norte",
+		"option3": "Mar Báltico",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Tailandia?",
+		"option0": "Hanoi",
+		"option1": "Yakarta",
+		"option2": "Manila",
+		"option3": "Bangkok",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué océano separa el continente americano de Europa y África?",
+		"option0": "Océano Atlántico",
+		"option1": "Océano Índico",
+		"option2": "Océano Pacífico",
+		"option3": "Océano Antártico",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad brasileña se encuentra la famosa estatua del Cristo Redentor?",
+		"option0": "São Paulo",
+		"option1": "Brasilia",
+		"option2": "Río de Janeiro",
+		"option3": "Salvador de Bahía",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Suecia?",
+		"option0": "Oslo",
+		"option1": "Estocolmo",
+		"option2": "Helsinki",
+		"option3": "Copenhague",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la capital de Egipto?",
+		"option0": "Alejandría",
+		"option1": "Lúxor",
+		"option2": "Giza",
+		"option3": "El Cairo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué ciudad turca es conocida por ser la única en el mundo situada entre dos continentes?",
+		"option0": "Estambul",
+		"option1": "Ankara",
+		"option2": "Antalya",
+		"option3": "Bursa",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué país superó recientemente a China como el más poblado del mundo?",
+		"option0": "Estados Unidos",
+		"option1": "Indonesia",
+		"option2": "India",
+		"option3": "Brasil",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de la República de Irlanda?",
+		"option0": "Belfast",
+		"option1": "Dublín",
+		"option2": "Cork",
+		"option3": "Galway",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad europea se puede visitar el anfiteatro romano conocido como el Coliseo?",
+		"option0": "Atenas",
+		"option1": "Madrid",
+		"option2": "París",
+		"option3": "Roma",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué mar separa el noreste de África de la península arábiga?",
+		"option0": "Mar Rojo",
+		"option1": "Mar Caspio",
+		"option2": "Mar Muerto",
+		"option3": "Mar Arábigo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el país con mayor extensión territorial (superficie) del planeta?",
+		"option0": "Canadá",
+		"option1": "China",
+		"option2": "Rusia",
+		"option3": "Estados Unidos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país británico se encuentra el monumento megalítico de Stonehenge?",
+		"option0": "Gales",
+		"option1": "Inglaterra",
+		"option2": "Escocia",
+		"option3": "Irlanda del Norte",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Corea del Sur?",
+		"option0": "Busan",
+		"option1": "Pionyang",
+		"option2": "Incheon",
+		"option3": "Seúl",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la capital de Grecia?",
+		"option0": "Atenas",
+		"option1": "Tesalónica",
+		"option2": "Esparta",
+		"option3": "Heraclión",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué cordillera europea se encuentra el famoso monte Cervino (o Matterhorn)?",
+		"option0": "Los Pirineos",
+		"option1": "Los Cárpatos",
+		"option2": "Los Alpes",
+		"option3": "Los Balcanes",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país es famoso por sus profundos valles excavados por glaciares llamados fiordos?",
+		"option0": "Dinamarca",
+		"option1": "Noruega",
+		"option2": "Países Bajos",
+		"option3": "Bélgica",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué país se encuentra el Salto Ángel, considerada la caída de agua más alta del mundo?",
+		"option0": "Brasil",
+		"option1": "Guyana",
+		"option2": "Colombia",
+		"option3": "Venezuela",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el único estado de los Estados Unidos que es geográficamente un archipiélago?",
+		"option0": "Hawái",
+		"option1": "Florida",
+		"option2": "Rhode Island",
+		"option3": "Puerto Rico",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de la República Checa?",
+		"option0": "Varsovia",
+		"option1": "Bratislava",
+		"option2": "Praga",
+		"option3": "Budapest",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el lago de agua dulce más grande del mundo en términos de superficie?",
+		"option0": "Lago Superior",
+		"option1": "Lago Michigan",
+		"option2": "Lago Hurón",
+		"option3": "Lago Erie",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué sistema montañoso es tradicionalmente considerado la frontera natural entre Europa y Asia?",
+		"option0": "Los Alpes",
+		"option1": "Los Cárpatos",
+		"option2": "Los Montes Urales",
+		"option3": "El Cáucaso",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país europeo es famoso por tener gran parte de su territorio por debajo del nivel del mar?",
+		"option0": "Dinamarca",
+		"option1": "Países Bajos",
+		"option2": "Bélgica",
+		"option3": "Luxemburgo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el pico más alto del continente europeo, ubicado en la cordillera del Cáucaso?",
+		"option0": "Mont Blanc",
+		"option1": "Monte Olimpo",
+		"option2": "Monte Rosa",
+		"option3": "Monte Elbrus",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país nórdico es conocido como 'la tierra de los mil lagos'?",
+		"option0": "Finlandia",
+		"option1": "Islandia",
+		"option2": "Suecia",
+		"option3": "Noruega",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la capital del país que conecta América del Sur con América Central?",
+		"option0": "San José",
+		"option1": "Managua",
+		"option2": "Ciudad de Panamá",
+		"option3": "Bogotá",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el lago más grande del continente africano por extensión?",
+		"option0": "Lago Alberto",
+		"option1": "Lago Victoria",
+		"option2": "Lago Malaui",
+		"option3": "Lago Chad",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país norteamericano se localiza la península de Yucatán?",
+		"option0": "Canadá",
+		"option1": "Guatemala",
+		"option2": "Estados Unidos",
+		"option3": "México",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cuerpo de agua es considerado la masa de agua interior más grande del mundo (un lago salado)?",
+		"option0": "Mar Caspio",
+		"option1": "Mar de Aral",
+		"option2": "Mar Muerto",
+		"option3": "Lago Saltón",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la capital de Perú, situada en la costa central del país?",
+		"option0": "Cusco",
+		"option1": "Arequipa",
+		"option2": "Lima",
+		"option3": "Trujillo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué ciudad europea es la capital de Austria y fue el centro del Imperio Austrohúngaro?",
+		"option0": "Salzburgo",
+		"option1": "Viena",
+		"option2": "Graz",
+		"option3": "Innsbruck",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué mar se encuentran las Antillas Mayores, que incluyen islas como Cuba y Jamaica?",
+		"option0": "Mar Rojo",
+		"option1": "Mar del Norte",
+		"option2": "Mar Báltico",
+		"option3": "Mar Caribe",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cerca de qué ciudad italiana se encuentra el volcán Vesubio, famoso por destruir Pompeya?",
+		"option0": "Nápoles",
+		"option1": "Palermo",
+		"option2": "Roma",
+		"option3": "Génova",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué estrecho separa el extremo oriental de Rusia del extremo occidental de Alaska?",
+		"option0": "Estrecho de Cook",
+		"option1": "Estrecho de Bass",
+		"option2": "Estrecho de Bering",
+		"option3": "Estrecho de Hudson",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Polonia, ciudad que fue casi totalmente reconstruida tras la Segunda Guerra Mundial?",
+		"option0": "Cracovia",
+		"option1": "Varsovia",
+		"option2": "Gdansk",
+		"option3": "Breslavia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué río atraviesa la India y es considerado sagrado por los hindúes?",
+		"option0": "Río Indo",
+		"option1": "Río Mekong",
+		"option2": "Río Brahmaputra",
+		"option3": "Río Ganges",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama la segunda montaña más alta del mundo, situada en la cordillera del Karakórum?",
+		"option0": "K2",
+		"option1": "Makalu",
+		"option2": "Lhotse",
+		"option3": "Annapurna",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué continente se encuentran las impresionantes Cataratas Victoria?",
+		"option0": "Oceanía",
+		"option1": "Asia",
+		"option2": "África",
+		"option3": "América del Sur",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el nombre del cabo situado en el extremo sur de Chile, conocido por sus difíciles condiciones de navegación?",
+		"option0": "Cabo de Buena Esperanza",
+		"option1": "Cabo de Hornos",
+		"option2": "Cabo Norte",
+		"option3": "Cabo de Gata",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué ciudad es la capital de Suiza, aunque a menudo se confunde con Zúrich o Ginebra?",
+		"option0": "Basilea",
+		"option1": "Lausana",
+		"option2": "Lucerna",
+		"option3": "Berna",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué continente rodea al Polo Sur y está cubierto casi totalmente por hielo?",
+		"option0": "Antártida",
+		"option1": "Ártico",
+		"option2": "Groenlandia",
+		"option3": "Oceanía",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capital de Bélgica y sede administrativa de la Unión Europea?",
+		"option0": "Amberes",
+		"option1": "Gante",
+		"option2": "Bruselas",
+		"option3": "Lieja",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la actual capital de Alemania, situada en la parte oriental del país?",
+		"option0": "Múnich",
+		"option1": "Berlín",
+		"option2": "Hamburgo",
+		"option3": "Fráncfort",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué paso marítimo natural al sur de Chile comunica los océanos Atlántico y Pacífico?",
+		"option0": "Canal de Suez",
+		"option1": "Estrecho de Ormuz",
+		"option2": "Estrecho de Malaca",
+		"option3": "Estrecho de Magallanes",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el río más largo de Europa, que desemboca en el mar Caspio?",
+		"option0": "Río Volga",
+		"option1": "Río Rin",
+		"option2": "Río Danubio",
+		"option3": "Río Vístula",
+		"correctAnswerIndex": 0
+	}
+]

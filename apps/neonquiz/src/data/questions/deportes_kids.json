@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos jugadores de un mismo equipo juegan en el campo en un partido de fútbol?",
+		"option0": "5",
+		"option1": "11",
+		"option2": "7",
+		"option3": "9",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es la tarjeta que usa el árbitro para expulsar a un jugador del partido?",
+		"option0": "Roja",
+		"option1": "Azul",
+		"option2": "Verde",
+		"option3": "Amarilla",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el lugar donde se practican deportes como la natación o el waterpolo?",
+		"option0": "Campo",
+		"option1": "Pista",
+		"option2": "Piscina",
+		"option3": "Estadio",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos aros de colores tiene la bandera oficial de los Juegos Olímpicos?",
+		"option0": "3",
+		"option1": "4",
+		"option2": "6",
+		"option3": "5",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deporte practica el famoso deportista español Rafael Nadal?",
+		"option0": "Tenis",
+		"option1": "Fútbol",
+		"option2": "Baloncesto",
+		"option3": "Golf",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte hay que encestar un balón en una canasta para ganar puntos?",
+		"option0": "Balonmano",
+		"option1": "Baloncesto",
+		"option2": "Voleibol",
+		"option3": "Rugby",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué calzado especial se utiliza para deslizarse por una pista de hielo?",
+		"option0": "Zapatillas",
+		"option1": "Botas de agua",
+		"option2": "Patines",
+		"option3": "Sandalias",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto utilizan los jugadores de tenis para golpear la pelota?",
+		"option0": "Bate",
+		"option1": "Palo",
+		"option2": "Guante",
+		"option3": "Raqueta",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué metal es la medalla que recibe el ganador que queda en el primer puesto?",
+		"option0": "Oro",
+		"option1": "Plata",
+		"option2": "Bronce",
+		"option3": "Hierro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el jugador de fútbol que puede usar las manos dentro de su área?",
+		"option0": "Delantero",
+		"option1": "Portero",
+		"option2": "Defensa",
+		"option3": "Capitán",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte se compite corriendo en una pista, saltando vallas o lanzando peso?",
+		"option0": "Ciclismo",
+		"option1": "Natación",
+		"option2": "Atletismo",
+		"option3": "Esgrima",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué vehículo utilizan los ciclistas en carreras como el Tour de Francia?",
+		"option0": "Moto",
+		"option1": "Patinete",
+		"option2": "Coche",
+		"option3": "Bicicleta",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte se utiliza un bate de madera o metal para golpear una pelota?",
+		"option0": "Béisbol",
+		"option1": "Hockey",
+		"option2": "Golf",
+		"option3": "Fútbol americano",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama cuando un jugador de baloncesto introduce el balón por el aro?",
+		"option0": "Gol",
+		"option1": "Canasta",
+		"option2": "Punto",
+		"option3": "Mate",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color suele ser la pelota en un partido de tenis profesional?",
+		"option0": "Roja",
+		"option1": "Blanca",
+		"option2": "Amarilla",
+		"option3": "Azul",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué llevan los boxeadores en las manos para protegerse y golpear?",
+		"option0": "Vendas",
+		"option1": "Anillos",
+		"option2": "Muñequeras",
+		"option3": "Guantes",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántas ruedas tiene una bicicleta de carreras de las que se usan en las Olimpiadas?",
+		"option0": "Dos",
+		"option1": "Tres",
+		"option2": "Cuatro",
+		"option3": "Una",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el estilo de natación en el que nadas mirando hacia el techo?",
+		"option0": "Mariposa",
+		"option1": "Espalda",
+		"option2": "Braza",
+		"option3": "Crol",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte los competidores usan una espada larga y fina y llevan una careta?",
+		"option0": "Boxeo",
+		"option1": "Karate",
+		"option2": "Esgrima",
+		"option3": "Judo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deporte consiste en deslizarse sobre una tabla por encima de las olas del mar?",
+		"option0": "Esquí",
+		"option1": "Patinaje",
+		"option2": "Vela",
+		"option3": "Surf",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué ciudad española se celebraron los Juegos Olímpicos en el año 1992?",
+		"option0": "Barcelona",
+		"option1": "Madrid",
+		"option2": "Sevilla",
+		"option3": "Valencia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el suelo sobre el que se juega un partido de tenis?",
+		"option0": "Campo",
+		"option1": "Pista",
+		"option2": "Tapete",
+		"option3": "Ring",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deporte consiste en golpear una bolita con un palo para meterla en un hoyo?",
+		"option0": "Tenis",
+		"option1": "Béisbol",
+		"option2": "Golf",
+		"option3": "Hockey",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántas partes o tiempos tiene normalmente un partido de fútbol?",
+		"option0": "Cuatro",
+		"option1": "Tres",
+		"option2": "Cinco",
+		"option3": "Dos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el color del cinturón que llevan los expertos de más nivel en Karate?",
+		"option0": "Negro",
+		"option1": "Blanco",
+		"option2": "Amarillo",
+		"option3": "Naranja",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué país es el famoso futbolista Lionel Messi?",
+		"option0": "Brasil",
+		"option1": "Argentina",
+		"option2": "España",
+		"option3": "Francia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto separa los dos campos en un partido de voleibol?",
+		"option0": "Una pared",
+		"option1": "Una línea de cal",
+		"option2": "Una red alta",
+		"option3": "Una valla de madera",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color son tradicionalmente los coches de carreras de la marca Ferrari?",
+		"option0": "Rojo",
+		"option1": "Azul",
+		"option2": "Amarillo",
+		"option3": "Negro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué forma tiene el balón que se utiliza para jugar al rugby?",
+		"option0": "Redonda",
+		"option1": "Cuadrada",
+		"option2": "Ovalada",
+		"option3": "Triangular",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la tabla con cuatro ruedas pequeñas que se usa para hacer trucos y saltos?",
+		"option0": "Patinete",
+		"option1": "Bicicleta",
+		"option2": "Esquís",
+		"option3": "Monopatín",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué herramienta utilizan los arqueros para disparar flechas a una diana?",
+		"option0": "Arco",
+		"option1": "Bate",
+		"option2": "Palo",
+		"option3": "Escopeta",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la persona que monta un caballo en una carrera de velocidad?",
+		"option0": "Piloto",
+		"option1": "Jinete",
+		"option2": "Capitán",
+		"option3": "Ciclista",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué tipo de superficie se practica el deporte del esquí?",
+		"option0": "Arena",
+		"option1": "Césped",
+		"option2": "Nieve",
+		"option3": "Asfalto",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el objeto con plumas que se golpea en el bádminton en lugar de una pelota?",
+		"option0": "Pájaro",
+		"option1": "Vuelo",
+		"option2": "Pelotita",
+		"option3": "Volante",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la colchoneta sobre la que se practican deportes como el judo o el kárate?",
+		"option0": "Tatami",
+		"option1": "Alfombra",
+		"option2": "Cancha",
+		"option3": "Ring",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos años hay que esperar normalmente entre un Mundial de Fútbol y el siguiente?",
+		"option0": "2 años",
+		"option1": "4 años",
+		"option2": "1 año",
+		"option3": "6 años",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte del cuerpo NO pueden usar los jugadores de fútbol (excepto el portero)?",
+		"option0": "La cabeza",
+		"option1": "Las rodillas",
+		"option2": "Las manos",
+		"option3": "Los pies",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el palo de madera que se pasan los corredores en una carrera de relevos?",
+		"option0": "Bate",
+		"option1": "Vara",
+		"option2": "Pértiga",
+		"option3": "Testigo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué utilizan los nadadores para proteger sus ojos y ver mejor bajo el agua?",
+		"option0": "Gafas de natación",
+		"option1": "Máscaras",
+		"option2": "Cascos",
+		"option3": "Lentes de sol",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el objetivo principal en el juego de los bolos?",
+		"option0": "Meter canasta",
+		"option1": "Derribar los pinos",
+		"option2": "Saltar una valla",
+		"option3": "Correr muy rápido",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué material caen los atletas que practican el salto de longitud?",
+		"option0": "Agua",
+		"option1": "Colchoneta",
+		"option2": "Arena",
+		"option3": "Césped",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el uniforme blanco que se suele usar para practicar kárate?",
+		"option0": "Camiseta",
+		"option1": "Chándal",
+		"option2": "Bata",
+		"option3": "Karategui",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deporte consiste en subir por paredes de roca o muros con presas de colores?",
+		"option0": "Escalada",
+		"option1": "Senderismo",
+		"option2": "Salto",
+		"option3": "Gimnasia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso jugador español de baloncesto triunfó durante muchos años en la NBA?",
+		"option0": "Fernando Alonso",
+		"option1": "Pau Gasol",
+		"option2": "Iker Casillas",
+		"option3": "Dani Olmo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la barra horizontal que los saltadores de altura deben pasar sin tirar?",
+		"option0": "Valla",
+		"option1": "Palo",
+		"option2": "Listón",
+		"option3": "Cuerda",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué se necesita para impulsar una canoa o piragua por el agua?",
+		"option0": "Un motor",
+		"option1": "Las manos",
+		"option2": "Velas",
+		"option3": "Un remo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la barra estrecha por la que caminan y saltan las gimnastas?",
+		"option0": "Barra de equilibrio",
+		"option1": "Pasarela",
+		"option2": "Puente",
+		"option3": "Línea",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte se utiliza una pequeña pala de madera para golpear una pelota muy ligera sobre una mesa?",
+		"option0": "Pádel",
+		"option1": "Tenis de mesa",
+		"option2": "Squash",
+		"option3": "Bádminton",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deporte se juega dentro de una piscina intentando meter un balón en la portería contraria?",
+		"option0": "Natación",
+		"option1": "Buceo",
+		"option2": "Waterpolo",
+		"option3": "Surf",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué nacionalidad es el famoso jugador de fútbol Cristiano Ronaldo?",
+		"option0": "Español",
+		"option1": "Italiano",
+		"option2": "Brasileño",
+		"option3": "Portugués",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué joven tenista español ha ganado torneos importantes como Wimbledon y el US Open?",
+		"option0": "Carlos Alcaraz",
+		"option1": "Pau Gasol",
+		"option2": "Marc Márquez",
+		"option3": "Fernando Alonso",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es el maillot que lleva el líder de la carrera en el Tour de Francia?",
+		"option0": "Verde",
+		"option1": "Rojo",
+		"option2": "Amarillo",
+		"option3": "Blanco",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué protección es obligatoria llevar en la cabeza al montar en bicicleta o patinar?",
+		"option0": "Gorra",
+		"option1": "Sombrero",
+		"option2": "Pañuelo",
+		"option3": "Casco",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte se utilizan objetos como la cinta, el aro, las mazas o la pelota?",
+		"option0": "Judo",
+		"option1": "Gimnasia rítmica",
+		"option2": "Esgrima",
+		"option3": "Natación",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el 'balón' plano y negro que se usa para jugar al hockey sobre hielo?",
+		"option0": "Disco o puck",
+		"option1": "Cubo",
+		"option2": "Anillo",
+		"option3": "Plato",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué competición de coches corre el piloto español Fernando Alonso?",
+		"option0": "MotoGP",
+		"option1": "Rally",
+		"option2": "Fórmula 1",
+		"option3": "Karting",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famosa futbolista española ha ganado el premio Balón de Oro?",
+		"option0": "Carolina Marín",
+		"option1": "Mireia Belmonte",
+		"option2": "Ruth Beitia",
+		"option3": "Aitana Bonmatí",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto largo y flexible usan los atletas para saltar por encima de una barra muy alta?",
+		"option0": "Trampolín",
+		"option1": "Pértiga",
+		"option2": "Escalera",
+		"option3": "Cuerda",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos deportes diferentes se combinan en una prueba de Triatlón?",
+		"option0": "Tres",
+		"option1": "Dos",
+		"option2": "Cinco",
+		"option3": "Cuatro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte se intenta meter el balón en una portería usando solo las manos?",
+		"option0": "Balonmano",
+		"option1": "Baloncesto",
+		"option2": "Voleibol",
+		"option3": "Tenis",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte compite el campeón español Marc Márquez?",
+		"option0": "Ciclismo",
+		"option1": "Natación",
+		"option2": "Esquí",
+		"option3": "Motociclismo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama al maestro o profesor en las artes marciales como el Karate?",
+		"option0": "Entrenador",
+		"option1": "Sensei",
+		"option2": "Árbitro",
+		"option3": "Capitán",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte los atletas bailan sobre el hielo al ritmo de la música?",
+		"option0": "Surf",
+		"option1": "Ballet",
+		"option2": "Patinaje artístico",
+		"option3": "Gimnasia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué utilizan los esquiadores en las manos para ayudarse a impulsarse y mantener el equilibrio?",
+		"option0": "Bastones",
+		"option1": "Palas",
+		"option2": "Remos",
+		"option3": "Raquetas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos hoyos tiene normalmente un recorrido completo de un campo de golf?",
+		"option0": "10",
+		"option1": "5",
+		"option2": "20",
+		"option3": "18",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el lanzamiento que se hace en baloncesto tras una falta y sin oposición?",
+		"option0": "Triple",
+		"option1": "Tiro libre",
+		"option2": "Bandeja",
+		"option3": "Mate",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué instrumento usa el árbitro para detener el juego o indicar una falta?",
+		"option0": "Campana",
+		"option1": "Bocina",
+		"option2": "Silbato",
+		"option3": "Tambor",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto con forma de lanza lanzan los atletas lo más lejos posible?",
+		"option0": "Jabalina",
+		"option1": "Flecha",
+		"option2": "Bate",
+		"option3": "Martillo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué prenda de tela elástica se ponen los nadadores en la cabeza para recogerse el pelo?",
+		"option0": "Casco",
+		"option1": "Pañuelo",
+		"option2": "Cinta",
+		"option3": "Gorro",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el saque que se hace desde la esquina del campo en fútbol?",
+		"option0": "Saque de banda",
+		"option1": "Córner",
+		"option2": "Penalti",
+		"option3": "Saque de meta",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Sobre qué superficie se juega el famoso torneo de tenis de Wimbledon?",
+		"option0": "Tierra batida",
+		"option1": "Cemento",
+		"option2": "Hierba o césped",
+		"option3": "Arena",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de traje especial usan los surfistas para no pasar frío en el agua?",
+		"option0": "Neopreno",
+		"option1": "Chándal",
+		"option2": "Impermeable",
+		"option3": "Bata",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿A qué deporte pertenece la campeona olímpica española Carolina Marín?",
+		"option0": "Tenis",
+		"option1": "Voleibol",
+		"option2": "Ping-pong",
+		"option3": "Bádminton",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿A qué distancia está el punto de penalti de la portería en el fútbol?",
+		"option0": "5 metros",
+		"option1": "11 metros",
+		"option2": "20 metros",
+		"option3": "2 metros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el evento final más importante del fútbol americano en Estados Unidos?",
+		"option0": "Mundial",
+		"option1": "Copa del Rey",
+		"option2": "Super Bowl",
+		"option3": "Gran Premio",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famosa jugadora de fútbol española ha ganado dos veces el Balón de Oro?",
+		"option0": "Carolina Marín",
+		"option1": "Alexia Putellas",
+		"option2": "Mireia Belmonte",
+		"option3": "Ona Carbonell",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Por qué es famoso el deportista Usain Bolt?",
+		"option0": "Por ser el hombre más rápido del mundo",
+		"option1": "Por ser un gran nadador",
+		"option2": "Por jugar muy bien al golf",
+		"option3": "Por ganar carreras de motos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Sobre qué superficie se juega siempre un partido de vóley playa?",
+		"option0": "Césped",
+		"option1": "Hielo",
+		"option2": "Arena",
+		"option3": "Madera",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la liga de baloncesto más famosa del mundo, que se juega en Estados Unidos?",
+		"option0": "FIFA",
+		"option1": "ATP",
+		"option2": "Fórmula 1",
+		"option3": "NBA",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué consiste el deporte de 'saltos' en los Juegos Olímpicos?",
+		"option0": "Lanzarse a una piscina desde un trampolín",
+		"option1": "Saltar con una cuerda muy larga",
+		"option2": "Brincar sobre una cama elástica",
+		"option3": "Saltar muros con una bicicleta",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué es un 'Maratón' en el mundo del atletismo?",
+		"option0": "Un salto muy alto",
+		"option1": "Una carrera de pie muy larga",
+		"option2": "Un lanzamiento de disco",
+		"option3": "Una carrera de obstáculos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué tipo de Juegos Olímpicos se compite en deportes como el esquí o el snowboard?",
+		"option0": "Juegos de Verano",
+		"option1": "Juegos de Primavera",
+		"option2": "Juegos de Invierno",
+		"option3": "Juegos de Otoño",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos puntos vale una canasta en baloncesto si se lanza desde muy lejos, por fuera de la línea?",
+		"option0": "1 punto",
+		"option1": "5 puntos",
+		"option2": "2 puntos",
+		"option3": "3 puntos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país nació el deporte de lucha llamado Sumo, donde los luchadores son muy grandes?",
+		"option0": "Japón",
+		"option1": "China",
+		"option2": "Brasil",
+		"option3": "España",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el juego de mesa que imita al fútbol con figuras de jugadores unidas a barras?",
+		"option0": "Parchís",
+		"option1": "Futbolín",
+		"option2": "Billar",
+		"option3": "Ajedrez",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deporte combina natación, danza y música en una piscina?",
+		"option0": "Waterpolo",
+		"option1": "Buceo",
+		"option2": "Natación artística",
+		"option3": "Surf",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el deporte en el que bajas montañas de nieve sobre una única tabla ancha?",
+		"option0": "Patinaje",
+		"option1": "Trineo",
+		"option2": "Esquí",
+		"option3": "Snowboard",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué ciudad termina siempre la última etapa de la carrera ciclista Tour de Francia?",
+		"option0": "París",
+		"option1": "Lyon",
+		"option2": "Marsella",
+		"option3": "Burdeos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué deportista tiene el récord de ser el nadador con más medallas olímpicas de la historia?",
+		"option0": "Rafael Nadal",
+		"option1": "Michael Phelps",
+		"option2": "Usain Bolt",
+		"option3": "Pau Gasol",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el juego en el que dos equipos tiran de los extremos de una cuerda para ganar?",
+		"option0": "Escondite",
+		"option1": "Balón prisionero",
+		"option2": "Soga-tira",
+		"option3": "Carrera de sacos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el lugar diseñado con rampas y pistas para montar en monopatín o patines?",
+		"option0": "Polideportivo",
+		"option1": "Estadio",
+		"option2": "Circuito",
+		"option3": "Skatepark",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué deporte se utiliza un bate y se intenta golpear una pelota para correr entre tres palos llamados 'wickets'?",
+		"option0": "Cricket",
+		"option1": "Hockey",
+		"option2": "Rugby",
+		"option3": "Tenis",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el objetivo principal en un combate de Judo?",
+		"option0": "Dar patadas altas",
+		"option1": "Derribar al oponente al suelo",
+		"option2": "Golpear con los puños",
+		"option3": "Usar una espada",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué llevan puesto los jugadores de fútbol americano para proteger sus hombros y pecho?",
+		"option0": "Chaleco",
+		"option1": "Armadura",
+		"option2": "Hombreras",
+		"option3": "Mochila",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el deporte en el que vas de pie sobre una tabla de surf y te impulsas con un remo?",
+		"option0": "Windsurf",
+		"option1": "Kitesurf",
+		"option2": "Vela",
+		"option3": "Paddle Surf",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "En boxeo, ¿hasta qué número cuenta el árbitro cuando un luchador cae al suelo antes de terminar el combate?",
+		"option0": "Hasta 10",
+		"option1": "Hasta 3",
+		"option2": "Hasta 100",
+		"option3": "Hasta 5",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué frase se usa en tenis para decir que un jugador solo necesita ganar un punto más para llevarse el partido?",
+		"option0": "Punto de oro",
+		"option1": "Punto de partido",
+		"option2": "Punto final",
+		"option3": "Punto de saque",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el circuito cerrado y circular donde los ciclistas corren a mucha velocidad?",
+		"option0": "Autódromo",
+		"option1": "Hipódromo",
+		"option2": "Velódromo",
+		"option3": "Estadio",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Quién es la gimnasta de Estados Unidos famosa por ganar muchísimas medallas de oro y hacer saltos increíbles?",
+		"option0": "Aitana Bonmatí",
+		"option1": "Carolina Marín",
+		"option2": "Mireia Belmonte",
+		"option3": "Simone Biles",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué debe hacer un jugador de baloncesto con el balón mientras se desplaza por la pista?",
+		"option0": "Botarlo contra el suelo",
+		"option1": "Llevarlo bajo el brazo",
+		"option2": "Pasarlo con el pie",
+		"option3": "Esconderlo en la camiseta",
+		"correctAnswerIndex": 0
+	}
+]

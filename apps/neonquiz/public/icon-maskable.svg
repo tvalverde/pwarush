@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Maskable variant: same mark scaled into the central safe zone (Android
+       crops to a circle), paper fills the full bleed. -->
+  <rect width="512" height="512" fill="#f4efe4"/>
+  <g transform="translate(256 256) scale(0.74) translate(-256 -256)">
+    <circle cx="226" cy="226" r="118" fill="#fffdf7"/>
+    <rect x="166" y="166" width="60" height="60" fill="#8c1c13"/>
+    <g stroke="#241c15" stroke-width="8" stroke-linecap="square" fill="none">
+      <rect x="166" y="166" width="120" height="120"/>
+      <line x1="226" y1="166" x2="226" y2="286"/>
+      <line x1="166" y1="226" x2="286" y2="226"/>
+    </g>
+    <circle cx="226" cy="226" r="118" fill="none" stroke="#241c15" stroke-width="36"/>
+    <line x1="304" y1="304" x2="404" y2="404" stroke="#241c15" stroke-width="52" stroke-linecap="round"/>
+  </g>
+</svg>

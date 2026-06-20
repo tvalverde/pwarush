@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es el dinosaurio Yoshi, el famoso compañero de Mario?",
+		"option0": "Rojo",
+		"option1": "Verde",
+		"option2": "Azul",
+		"option3": "Amarillo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es el famoso personaje Mickey Mouse?",
+		"option0": "Un ratón",
+		"option1": "Un gato",
+		"option2": "Un perro",
+		"option3": "Un conejo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la comida favorita de las Tortugas Ninja?",
+		"option0": "Hamburguesas",
+		"option1": "Espaguetis",
+		"option2": "Ensalada",
+		"option3": "Pizza",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el muñeco de nieve que aparece en la película 'Frozen'?",
+		"option0": "Sven",
+		"option1": "Kristoff",
+		"option2": "Olaf",
+		"option3": "Hans",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué película de dibujos aparece un coche de carreras llamado Rayo McQueen?",
+		"option0": "Cars",
+		"option1": "Toy Story",
+		"option2": "Aviones",
+		"option3": "Monstruos S.A.",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Simba en la película 'El Rey León'?",
+		"option0": "Un tigre",
+		"option1": "Un león",
+		"option2": "Un leopardo",
+		"option3": "Un gato",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el vaquero que es el mejor amigo de Buzz Lightyear?",
+		"option0": "Jessie",
+		"option1": "Sid",
+		"option2": "Woody",
+		"option3": "Rex",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué fruta les encanta comer a los simpáticos Minions?",
+		"option0": "Manzana",
+		"option1": "Pera",
+		"option2": "Plátano",
+		"option3": "Fresa",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el nombre del Pokémon amarillo que lanza rayos eléctricos?",
+		"option0": "Charmander",
+		"option1": "Bulbasaur",
+		"option2": "Squirtle",
+		"option3": "Pikachu",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Dónde vive el personaje Bob Esponja?",
+		"option0": "En una roca",
+		"option1": "En una piña",
+		"option2": "En un barco",
+		"option3": "En una cueva",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la perrita azul de la serie que tiene una hermana llamada Bingo?",
+		"option0": "Bluey",
+		"option1": "Lassie",
+		"option2": "Skye",
+		"option3": "Peppa",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto usa Harry Potter para hacer magia y lanzar hechizos?",
+		"option0": "Un sombrero",
+		"option1": "Una capa",
+		"option2": "Una varita",
+		"option3": "Un libro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Quién es el hermano mayor de Luigi en los videojuegos de Nintendo?",
+		"option0": "Bowser",
+		"option1": "Mario",
+		"option2": "Wario",
+		"option3": "Toad",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el ogro verde que vive en un pantano?",
+		"option0": "Shrek",
+		"option1": "Hulk",
+		"option2": "Sulley",
+		"option3": "Fiona",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Sonic, el personaje azul que corre muy rápido?",
+		"option0": "Un gato",
+		"option1": "Un perro",
+		"option2": "Un conejo",
+		"option3": "Un erizo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el pez payaso que se pierde en el océano en una película de Pixar?",
+		"option0": "Dory",
+		"option1": "Bruce",
+		"option2": "Nemo",
+		"option3": "Crush",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué princesa tiene un pelo mágicamente largo y vive encerrada en una torre?",
+		"option0": "Bella",
+		"option1": "Rapunzel",
+		"option2": "Cenicienta",
+		"option3": "Ariel",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué superhéroe utiliza telarañas para balancearse entre los edificios?",
+		"option0": "Spider-Man",
+		"option1": "Batman",
+		"option2": "Iron Man",
+		"option3": "Superman",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la estrella de mar que es el mejor amigo de Bob Esponja?",
+		"option0": "Calamardo",
+		"option1": "Patricio",
+		"option2": "Arenita",
+		"option3": "Gary",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué instrumento musical toca Miguel en la película 'Coco'?",
+		"option0": "El piano",
+		"option1": "La flauta",
+		"option2": "La batería",
+		"option3": "La guitarra",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es la cerdita Peppa Pig?",
+		"option0": "Roja",
+		"option1": "Blanca",
+		"option2": "Rosa",
+		"option3": "Lila",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el videojuego de construcción hecho de bloques cuadrados?",
+		"option0": "Minecraft",
+		"option1": "Fortnite",
+		"option2": "Roblox",
+		"option3": "Tetris",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué princesa pierde un zapato de cristal cuando huye del baile a medianoche?",
+		"option0": "Blancanieves",
+		"option1": "Aurora",
+		"option2": "Cenicienta",
+		"option3": "Mulán",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el genio azul que vive dentro de una lámpara mágica?",
+		"option0": "Jafar",
+		"option1": "Abú",
+		"option2": "Iago",
+		"option3": "Genio",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "En la película 'Del Revés' (Inside Out), ¿qué emoción es de color azul?",
+		"option0": "Alegría",
+		"option1": "Tristeza",
+		"option2": "Miedo",
+		"option3": "Ira",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de criatura es Stitch en la película 'Lilo & Stitch'?",
+		"option0": "Un perro",
+		"option1": "Un extraterrestre",
+		"option2": "Un conejo",
+		"option3": "Un oso",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué superhéroe lleva un escudo redondo con una estrella en el centro?",
+		"option0": "Iron Man",
+		"option1": "Hulk",
+		"option2": "Thor",
+		"option3": "Capitán América",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color son las gafas de Mirabel en la película 'Encanto'?",
+		"option0": "Verdes",
+		"option1": "Rojas",
+		"option2": "Azules",
+		"option3": "Amarillas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué es Baymax en la película 'Big Hero 6'?",
+		"option0": "Un gato",
+		"option1": "Un robot inflable",
+		"option2": "Un fantasma",
+		"option3": "Un globo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿A qué especie de dragón pertenece Desdentao (Toothless)?",
+		"option0": "Furia Nocturna",
+		"option1": "Nader Mortífero",
+		"option2": "Grito Mortal",
+		"option3": "Pesadilla Monstruosa",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la comida favorita del oso Po en 'Kung Fu Panda'?",
+		"option0": "Sopa de fideos",
+		"option1": "Ensalada",
+		"option2": "Galletas",
+		"option3": "Fruta",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Buster Moon, el protagonista de la película '¡Canta!'?",
+		"option0": "Un cerdo",
+		"option1": "Un gorila",
+		"option2": "Un koala",
+		"option3": "Un ratón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es Kirby, el personaje de los videojuegos que puede absorber enemigos?",
+		"option0": "Azul",
+		"option1": "Amarillo",
+		"option2": "Verde",
+		"option3": "Rosa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto recoge Donkey Kong en sus niveles de videojuegos?",
+		"option0": "Plátanos",
+		"option1": "Manzanas",
+		"option2": "Monedas",
+		"option3": "Diamantes",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el objeto que usan los entrenadores Pokémon para atrapar criaturas?",
+		"option0": "Superbola",
+		"option1": "Poké Ball",
+		"option2": "Atrapa-Pokémon",
+		"option3": "Caja Mágica",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "En el juego 'Among Us', ¿cómo se llama el jugador que debe sabotear a la tripulación?",
+		"option0": "Capitán",
+		"option1": "Detective",
+		"option2": "Impostor",
+		"option3": "Fantasma",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Tom Nook en el juego 'Animal Crossing'?",
+		"option0": "Un perro",
+		"option1": "Un gato",
+		"option2": "Un mapache",
+		"option3": "Un conejo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el trabajo de Chase en 'La Patrulla Canina'?",
+		"option0": "Bombero",
+		"option1": "Policía",
+		"option2": "Constructor",
+		"option3": "Piloto",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el compañero de Ladybug en sus misiones?",
+		"option0": "Cat Noir",
+		"option1": "Spider-Boy",
+		"option2": "Hawk Moth",
+		"option3": "Plagg",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el hada que siempre acompaña a Peter Pan?",
+		"option0": "Flora",
+		"option1": "Fauna",
+		"option2": "Primavera",
+		"option3": "Campanilla",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué le crece a Pinocho cada vez que dice una mentira?",
+		"option0": "Las orejas",
+		"option1": "El pelo",
+		"option2": "La nariz",
+		"option3": "Las manos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la comida favorita del osito Winnie the Pooh?",
+		"option0": "Miel",
+		"option1": "Mermelada",
+		"option2": "Chocolate",
+		"option3": "Queso",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué plato de pasta le encanta comer al gato Garfield?",
+		"option0": "Espaguetis",
+		"option1": "Macarrones",
+		"option2": "Lasaña",
+		"option3": "Raviolis",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es el Maestro Shifu en las películas de 'Kung Fu Panda'?",
+		"option0": "Un ratón",
+		"option1": "Un panda rojo",
+		"option2": "Un gato montés",
+		"option3": "Un zorro",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué arma utiliza la princesa Mérida en la película 'Brave'?",
+		"option0": "Una espada",
+		"option1": "Un escudo",
+		"option2": "Un arco y flechas",
+		"option3": "Una lanza",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el superpoder de Dash en la película 'Los Increíbles'?",
+		"option0": "Invisibilidad",
+		"option1": "Súper fuerza",
+		"option2": "Volar",
+		"option3": "Súper velocidad",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la hermana de Elsa en la película 'Frozen'?",
+		"option0": "Anna",
+		"option1": "Bella",
+		"option2": "Ariel",
+		"option3": "Jasmín",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué lanzan los personajes en el videojuego 'Splatoon'?",
+		"option0": "Agua",
+		"option1": "Tinta de colores",
+		"option2": "Bolas de fuego",
+		"option3": "Pintura blanca",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el gato malvado del brujo Gárgamel en 'Los Pitufos'?",
+		"option0": "Fígaro",
+		"option1": "Tom",
+		"option2": "Azrael",
+		"option3": "Silvestre",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué raza es Scooby-Doo, el famoso perro que resuelve misterios?",
+		"option0": "Dálmata",
+		"option1": "Gran Danés",
+		"option2": "Caniche",
+		"option3": "Pastor Alemán",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué se dedica a recoger y limpiar el robot Wall-E en su película?",
+		"option0": "Basura",
+		"option1": "Estrellas",
+		"option2": "Arena",
+		"option3": "Nubes",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De quién es hija Mavis en la película 'Hotel Transilvania'?",
+		"option0": "De Frankenstein",
+		"option1": "Del Hombre Lobo",
+		"option2": "De Drácula",
+		"option3": "De la Momia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos ojos tiene Mike Wazowski en la película 'Monstruos S.A.'?",
+		"option0": "Tres",
+		"option1": "Uno",
+		"option2": "Dos",
+		"option3": "Ninguno",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Sebastián en la película 'La Sirenita'?",
+		"option0": "Un pez",
+		"option1": "Un pulpo",
+		"option2": "Un caballito de mar",
+		"option3": "Un cangrejo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Judy Hopps, la protagonista de la película 'Zootrópolis'?",
+		"option0": "Una coneja",
+		"option1": "Una zorrita",
+		"option2": "Una gata",
+		"option3": "Una osa",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué persigue siempre la ardilla Scrat en las películas de 'Ice Age'?",
+		"option0": "Una manzana",
+		"option1": "Una castaña",
+		"option2": "Una bellota",
+		"option3": "Una moneda",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto mágico usa el semidiós Maui para transformarse en animal?",
+		"option0": "Una espada",
+		"option1": "Un anzuelo",
+		"option2": "Un martillo",
+		"option3": "Un remo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué utiliza el señor Fredricksen para hacer volar su casa en la película 'Up'?",
+		"option0": "Cohetes",
+		"option1": "Alas",
+		"option2": "Ventiladores",
+		"option3": "Globos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es la espada láser del maestro Yoda en 'Star Wars'?",
+		"option0": "Verde",
+		"option1": "Roja",
+		"option2": "Azul",
+		"option3": "Amarilla",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animales son Skipper, Kowalski y Rico en la película 'Madagascar'?",
+		"option0": "Monos",
+		"option1": "Cebras",
+		"option2": "Pingüinos",
+		"option3": "Jirafas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "En el juego 'Fortnite', ¿qué animal aparece en las cajas de suministros especiales?",
+		"option0": "Un caballo",
+		"option1": "Una llama",
+		"option2": "Un burro",
+		"option3": "Un unicornio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué les gusta mucho hacer a los personajes de la película 'Trolls'?",
+		"option0": "Volar",
+		"option1": "Nadar",
+		"option2": "Cazar",
+		"option3": "Darse abrazos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "En 'La Bella y la Bestia', ¿en qué objeto está convertido el mayordomo Lumière?",
+		"option0": "Un candelabro",
+		"option1": "Un reloj",
+		"option2": "Una tetera",
+		"option3": "Una taza",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la hermana gemela de Dipper en la serie 'Gravity Falls'?",
+		"option0": "Wendy",
+		"option1": "Pacífica",
+		"option2": "Mabel",
+		"option3": "Candy",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué objeto está hecho Forky, el personaje de 'Toy Story 4'?",
+		"option0": "De una cuchara",
+		"option1": "De un tenedor",
+		"option2": "De un cuchillo",
+		"option3": "De un plato",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué tipo es el Pokémon Charizard?",
+		"option0": "Agua",
+		"option1": "Planta",
+		"option2": "Eléctrico",
+		"option3": "Fuego",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Pascal, el mejor amigo de Rapunzel en 'Enredados'?",
+		"option0": "Un camaleón",
+		"option1": "Un lagarto",
+		"option2": "Una rana",
+		"option3": "Una serpiente",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Abu, el fiel compañero de Aladdín?",
+		"option0": "Un loro",
+		"option1": "Un perro",
+		"option2": "Un mono",
+		"option3": "Un tigre",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué forma tienen los divertidos personajes del videojuego 'Fall Guys'?",
+		"option0": "De estrella",
+		"option1": "De alubia",
+		"option2": "De cubo",
+		"option3": "De bola",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Sven en las películas de 'Frozen'?",
+		"option0": "Un caballo",
+		"option1": "Un lobo",
+		"option2": "Un oso",
+		"option3": "Un reno",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal persigue al Capitán Garfio para intentar comérselo?",
+		"option0": "Un cocodrilo",
+		"option1": "Un tiburón",
+		"option2": "Una ballena",
+		"option3": "Un pulpo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Timón en la película 'El Rey León'?",
+		"option0": "Un jabalí",
+		"option1": "Un mono",
+		"option2": "Un suricato",
+		"option3": "Una hiena",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué hay que usar para poder volar en el mundo de Peter Pan?",
+		"option0": "Agua mágica",
+		"option1": "Polvos de hada",
+		"option2": "Caramelos",
+		"option3": "Arena",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Perry en la serie 'Phineas y Ferb'?",
+		"option0": "Un pato",
+		"option1": "Un castor",
+		"option2": "Una nutria",
+		"option3": "Un ornitorrinco",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Pluto, el famoso compañero de Mickey Mouse?",
+		"option0": "Un perro",
+		"option1": "Un gato",
+		"option2": "Un ratón",
+		"option3": "Un pato",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿En qué animal se convierte la niña Mei Lee en la película 'Red' cuando se pone nerviosa?",
+		"option0": "Un gato gigante",
+		"option1": "Un oso panda rojo",
+		"option2": "Un perro peludo",
+		"option3": "Un tigre de bengala",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el jabalí que siempre acompaña a Timón en 'El Rey León'?",
+		"option0": "Pumbaa",
+		"option1": "Banzai",
+		"option2": "Mufasa",
+		"option3": "Rafiki",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué criatura verde y silenciosa explota si te acercas demasiado en Minecraft?",
+		"option0": "Un Zombie",
+		"option1": "Un Esqueleto",
+		"option2": "Un Creeper",
+		"option3": "Un Araña",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el valiente héroe que viste de verde en el juego 'The Legend of Zelda'?",
+		"option0": "Zelda",
+		"option1": "Ganon",
+		"option2": "Falcon",
+		"option3": "Link",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el gato del Team Rocket que puede hablar en la serie Pokémon?",
+		"option0": "Meowth",
+		"option1": "Persian",
+		"option2": "Gengar",
+		"option3": "Mew",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "En la película 'Luca', ¿qué son realmente Luca y su amigo Alberto cuando tocan el agua?",
+		"option0": "Tiburones",
+		"option1": "Monstruos marinos",
+		"option2": "Sirenas",
+		"option3": "Delfines",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la princesa del Reino Champiñón que siempre viste un traje de color rosa?",
+		"option0": "Princesa Daisy",
+		"option1": "Princesa Rosalina",
+		"option2": "Princesa Peach",
+		"option3": "Princesa Zelda",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Marty, la mejor amiga del león Alex en 'Madagascar'?",
+		"option0": "Una cebra",
+		"option1": "Una jirafa",
+		"option2": "Un hipopótamo",
+		"option3": "Un mono",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el perro amarillo de 'Hora de Aventuras' que puede estirar su cuerpo?",
+		"option0": "Finn",
+		"option1": "BMO",
+		"option2": "Gunter",
+		"option3": "Jake",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es el camión de bomberos que conduce Marshall en 'La Patrulla Canina'?",
+		"option0": "Azul",
+		"option1": "Rojo",
+		"option2": "Verde",
+		"option3": "Amarillo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el villano con nariz larga que cuida de Agnes, Edith y Margo?",
+		"option0": "Vector",
+		"option1": "Balthazar",
+		"option2": "Gru",
+		"option3": "Dr. Nefario",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Slinky, el juguete de 'Toy Story' que tiene un muelle en medio?",
+		"option0": "Un perro",
+		"option1": "Un gato",
+		"option2": "Una serpiente",
+		"option3": "Un caballo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué poder mágico usa la reina Elsa para crear castillos y nieve?",
+		"option0": "Poder del fuego",
+		"option1": "Poder del viento",
+		"option2": "Poder del agua",
+		"option3": "Poder del hielo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Sid en las divertidas películas de 'Ice Age'?",
+		"option0": "Un mamut",
+		"option1": "Un perezoso",
+		"option2": "Un tigre",
+		"option3": "Un castor",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto mágico usan Aladdín y la princesa Jasmín para viajar por los cielos?",
+		"option0": "Un paraguas",
+		"option1": "Un dragón",
+		"option2": "Una alfombra mágica",
+		"option3": "Una nube",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es el jefe del grupo en la película 'Los Tipos Malos'?",
+		"option0": "Un lobo",
+		"option1": "Una serpiente",
+		"option2": "Un tiburón",
+		"option3": "Una piraña",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el pez cirujano azul que habla con las ballenas y olvida todo?",
+		"option0": "Marlin",
+		"option1": "Dory",
+		"option2": "Nemo",
+		"option3": "Squirt",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el reloj que usa Ben 10 para transformarse en 10 alienígenas?",
+		"option0": "Omnitrix",
+		"option1": "Multireloj",
+		"option2": "Astro-reloj",
+		"option3": "Tecno-mando",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estos Pokémon es pequeño, de color naranja y tiene fuego en la punta de la cola?",
+		"option0": "Pikachu",
+		"option1": "Squirtle",
+		"option2": "Bulbasaur",
+		"option3": "Charmander",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué material brillante y azul es el más resistente para hacer armaduras en Minecraft?",
+		"option0": "Hierro",
+		"option1": "Oro",
+		"option2": "Diamante",
+		"option3": "Piedra",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el don especial de Camilo Madrigal en la película 'Encanto'?",
+		"option0": "Hablar con animales",
+		"option1": "Cambiar de forma",
+		"option2": "Tener súper fuerza",
+		"option3": "Hacer crecer flores",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el mejor amigo de Sonic que es un zorro con dos colas?",
+		"option0": "Knuckles",
+		"option1": "Shadow",
+		"option2": "Amy",
+		"option3": "Tails",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es Gumball, el gato protagonista de 'El asombroso mundo de Gumball'?",
+		"option0": "Azul",
+		"option1": "Gris",
+		"option2": "Naranja",
+		"option3": "Blanco",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué nombre le da Ariel a un tenedor cuando lo encuentra en 'La Sirenita'?",
+		"option0": "Peine",
+		"option1": "Cachivache",
+		"option2": "Pinchador",
+		"option3": "Tenenedor",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto te hace invencible y brillar con colores en los juegos de 'Mario Kart'?",
+		"option0": "El caparazón azul",
+		"option1": "El champiñón",
+		"option2": "La estrella",
+		"option3": "El plátano",
+		"correctAnswerIndex": 2
+	}
+]

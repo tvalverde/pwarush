@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué le crece a Pinocho cuando dice una mentira?",
+		"option0": "Las orejas",
+		"option1": "Los pies",
+		"option2": "La nariz",
+		"option3": "El pelo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué color obtienes si mezclas pintura azul con pintura amarilla?",
+		"option0": "Morado",
+		"option1": "Verde",
+		"option2": "Naranja",
+		"option3": "Rosa",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿De qué material es el zapato que pierde Cenicienta en el baile?",
+		"option0": "Cristal",
+		"option1": "Oro",
+		"option2": "Hierro",
+		"option3": "Plástico",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos enanitos viven con Blancanieves?",
+		"option0": "Cinco",
+		"option1": "Diez",
+		"option2": "Tres",
+		"option3": "Siete",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿A quién lleva una cestita con comida Caperucita Roja?",
+		"option0": "A su tía",
+		"option1": "A su abuelita",
+		"option2": "A su profesora",
+		"option3": "Al lobo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿En qué animal se convierte el Patito Feo cuando crece?",
+		"option0": "En un gallo",
+		"option1": "En un águila",
+		"option2": "En un cisne",
+		"option3": "En un pavo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué sopla el lobo para derribar las casas de los tres cerditos?",
+		"option0": "Aire de sus pulmones",
+		"option1": "Un silbato",
+		"option2": "Un ventilador",
+		"option3": "Una trompeta",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Dónde vive el Genio de la película y el cuento de Aladino?",
+		"option0": "En una cueva",
+		"option1": "En una alfombra",
+		"option2": "En un sombrero",
+		"option3": "En una lámpara",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tiene muy, muy largo la princesa Rapunzel?",
+		"option0": "El pelo",
+		"option1": "Las uñas",
+		"option2": "Los brazos",
+		"option3": "El cuello",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el niño que nunca quería crecer y vivía en Nunca Jamás?",
+		"option0": "Gulliver",
+		"option1": "Peter Pan",
+		"option2": "Hércules",
+		"option3": "Simbad",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿De qué está hecha la casa que encuentran Hansel y Gretel en el bosque?",
+		"option0": "De piedra",
+		"option1": "De paja",
+		"option2": "De dulces y chocolate",
+		"option3": "De cristal",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estos colores NO es un color primario?",
+		"option0": "Azul",
+		"option1": "Rojo",
+		"option2": "Amarillo",
+		"option3": "Verde",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal ayuda a su amo usando un par de botas y mucha astucia?",
+		"option0": "Un perro",
+		"option1": "Un gato",
+		"option2": "Un burro",
+		"option3": "Un ratón",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué usa un pintor para mezclar sus colores antes de pintar?",
+		"option0": "Un plato",
+		"option1": "Un cubo",
+		"option2": "Una paleta",
+		"option3": "Una servilleta",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué dejó caer Pulgarcito para encontrar el camino de vuelta a casa?",
+		"option0": "Migas de pan",
+		"option1": "Monedas",
+		"option2": "Flores",
+		"option3": "Juguetes",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué color se forma si mezclas pintura roja con pintura blanca?",
+		"option0": "Gris",
+		"option1": "Naranja",
+		"option2": "Lila",
+		"option3": "Rosa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Con qué instrumento musical atraía a los ratones el Flautista de Hamelín?",
+		"option0": "Un tambor",
+		"option1": "Una guitarra",
+		"option2": "Una flauta",
+		"option3": "Un piano",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la sirena protagonista que quiere tener piernas?",
+		"option0": "Bella",
+		"option1": "Ariel",
+		"option2": "Jasmín",
+		"option3": "Tiana",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es el mejor amigo de Pinocho y le sirve de conciencia?",
+		"option0": "Pepe Grillo",
+		"option1": "Bugs Bunny",
+		"option2": "El Gato con Botas",
+		"option3": "Mickey Mouse",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto usa un pintor para aplicar la pintura sobre el lienzo?",
+		"option0": "Un lápiz",
+		"option1": "Una goma",
+		"option2": "Una regla",
+		"option3": "Un pincel",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿En qué cuento una princesa se pincha con un huso y se queda dormida?",
+		"option0": "Caperucita Roja",
+		"option1": "La Bella Durmiente",
+		"option2": "La Cenicienta",
+		"option3": "Blancanieves",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal le gana una carrera a la liebre por ser más constante?",
+		"option0": "El caracol",
+		"option1": "El elefante",
+		"option2": "La tortuga",
+		"option3": "El perro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué buscaba Dorothy siguiendo el camino de baldosas amarillas?",
+		"option0": "Al Mago de Oz",
+		"option1": "Un tesoro",
+		"option2": "Una heladería",
+		"option3": "A sus padres",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué flor es mágica en el cuento de 'La Bella y la Bestia'?",
+		"option0": "Margarita",
+		"option1": "Tulipán",
+		"option2": "Girasol",
+		"option3": "Rosa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el lugar donde se guardan y enseñan cuadros famosos?",
+		"option0": "Biblioteca",
+		"option1": "Museo",
+		"option2": "Cine",
+		"option3": "Gimnasio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el cuadro más famoso del mundo donde sale una mujer con una sonrisa misteriosa?",
+		"option0": "La Gioconda (Mona Lisa)",
+		"option1": "La Sirenita",
+		"option2": "La Reina de Corazones",
+		"option3": "La Bella Durmiente",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿A través de qué objeto cae Alicia para llegar al País de las Maravillas?",
+		"option0": "Un armario",
+		"option1": "Un espejo",
+		"option2": "Una madriguera de conejo",
+		"option3": "Un pozo de agua",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué planta gigante crece en el jardín de Juanito cuando planta unas semillas mágicas?",
+		"option0": "Un rosal rojo",
+		"option1": "Una planta de habichuelas",
+		"option2": "Un manzano de oro",
+		"option3": "Un pino de Navidad",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte de su cuerpo usa el elefante Dumbo para poder volar por el cielo?",
+		"option0": "Su trompa",
+		"option1": "Sus patas",
+		"option2": "Su cola",
+		"option3": "Sus orejas",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿De dónde tiene que sacar el joven Arturo la espada mágica para demostrar que es el rey?",
+		"option0": "De una piedra",
+		"option1": "Del fondo del mar",
+		"option2": "De una caja fuerte",
+		"option3": "De un árbol",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿En la casa de qué animales entra Ricitos de Oro y se come su sopa?",
+		"option0": "De tres cerditos",
+		"option1": "De tres lobos",
+		"option2": "De tres osos",
+		"option3": "De tres conejos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el niño que fue criado por una manada de lobos en la selva?",
+		"option0": "Tarzán",
+		"option1": "Mowgli",
+		"option2": "Simba",
+		"option3": "Bambi",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el arma favorita de Robin Hood para ayudar a los pobres en el bosque?",
+		"option0": "Una espada de hierro",
+		"option1": "Un martillo grande",
+		"option2": "Un arco y flechas",
+		"option3": "Un escudo de oro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Dónde vive el Principito antes de viajar a la Tierra?",
+		"option0": "En la Luna",
+		"option1": "En un barco pirata",
+		"option2": "En un castillo de nubes",
+		"option3": "En un pequeño asteroide",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué color obtienes si mezclas pintura roja con pintura amarilla?",
+		"option0": "Naranja",
+		"option1": "Verde",
+		"option2": "Marrón",
+		"option3": "Gris",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué color se forma al mezclar pintura azul con pintura roja?",
+		"option0": "Amarillo",
+		"option1": "Morado",
+		"option2": "Turquesa",
+		"option3": "Blanco",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el arte japonés de hacer figuras como pájaros o barcos doblando papel?",
+		"option0": "Dibujo",
+		"option1": "Costura",
+		"option2": "Origami",
+		"option3": "Collage",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color son las manchas que tienen los perros dálmatas en su pelaje?",
+		"option0": "Azules",
+		"option1": "Rojas",
+		"option2": "Verdes",
+		"option3": "Negras",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto mágico usa Mary Poppins para poder volar por encima de las casas?",
+		"option0": "Un paraguas",
+		"option1": "Una escoba",
+		"option2": "Una alfombra",
+		"option3": "Unas botas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a una pintura o foto donde solo aparece la cara de una persona?",
+		"option0": "Paisaje",
+		"option1": "Retrato",
+		"option2": "Estatua",
+		"option3": "Mural",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a un cuadro que muestra cosas de la naturaleza como montañas o ríos?",
+		"option0": "Bodegón",
+		"option1": "Dibujo animado",
+		"option2": "Paisaje",
+		"option3": "Escritura",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué flores de color amarillo intenso pintó muchas veces el artista Vincent van Gogh?",
+		"option0": "Rosas",
+		"option1": "Margaritas",
+		"option2": "Tulipanes",
+		"option3": "Girasoles",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál era el trabajo de Geppetto, el hombre que fabricó a Pinocho?",
+		"option0": "Carpintero",
+		"option1": "Cocinero",
+		"option2": "Bombero",
+		"option3": "Médico",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el libro donde pegamos nuestras fotos o guardamos nuestros dibujos?",
+		"option0": "Diccionario",
+		"option1": "Álbum",
+		"option2": "Agenda",
+		"option3": "Mapa",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Contra qué objetos grandes y con aspas luchaba Don Quijote pensando que eran gigantes?",
+		"option0": "Aviones",
+		"option1": "Farolas",
+		"option2": "Molinos de viento",
+		"option3": "Torres de castillos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué comida italiana comparten la Dama y el Vagabundo en el callejón?",
+		"option0": "Pizza",
+		"option1": "Lasaña",
+		"option2": "Helado",
+		"option3": "Espaguetis",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿De qué material suelen estar hechas las estatuas blancas y duras de los museos?",
+		"option0": "Mármol",
+		"option1": "Plastilina",
+		"option2": "Cartón",
+		"option3": "Goma",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la tierra blanda que usamos para modelar figuras y que luego se seca?",
+		"option0": "Arena",
+		"option1": "Arcilla",
+		"option2": "Harina",
+		"option3": "Azúcar",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los palitos de colores hechos de cera que sirven para pintar?",
+		"option0": "Bolígrafos",
+		"option1": "Pinceles",
+		"option2": "Ceras",
+		"option3": "Tizas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el soporte de madera donde los pintores apoyan su cuadro para pintar?",
+		"option0": "Silla",
+		"option1": "Mesa",
+		"option2": "Estantería",
+		"option3": "Caballete",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿En qué lugar de naturaleza vive la niña Heidi con su abuelito?",
+		"option0": "En la playa",
+		"option1": "En las montañas",
+		"option2": "En el desierto",
+		"option3": "En una selva",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto de color brillante hay que encontrar para visitar la fábrica de chocolate de Willy Wonka?",
+		"option0": "Una llave de plata",
+		"option1": "Un anillo de diamantes",
+		"option2": "Una moneda de cobre",
+		"option3": "Un billete dorado",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué nota la princesa debajo de muchos colchones en su famoso cuento?",
+		"option0": "Un guisante",
+		"option1": "Una piedra",
+		"option2": "Un juguete",
+		"option3": "Una moneda",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo es el traje nuevo del Emperador según los sastres mentirosos?",
+		"option0": "Rojo brillante",
+		"option1": "Invisible",
+		"option2": "Lleno de espejos",
+		"option3": "Muy pesado",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la niña muy fuerte que tiene trenzas pelirrojas y vive con un caballo y un mono?",
+		"option0": "Pippi Calzaslargas",
+		"option1": "Matilda",
+		"option2": "Mulan",
+		"option3": "Vaiana",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de animal es Bambi?",
+		"option0": "Un conejo",
+		"option1": "Un zorro",
+		"option2": "Un ciervo",
+		"option3": "Un oso",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la tela blanca que usan los pintores para hacer sus cuadros al óleo?",
+		"option0": "Papel de seda",
+		"option1": "Cartulina",
+		"option2": "Lienzo",
+		"option3": "Pizarra",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la comida favorita del osito Winnie the Pooh?",
+		"option0": "Bocadillos de queso",
+		"option1": "Miel",
+		"option2": "Manzanas",
+		"option3": "Pescado",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué color se obtiene si mezclas pintura blanca con pintura negra?",
+		"option0": "Gris",
+		"option1": "Marrón",
+		"option2": "Lila",
+		"option3": "Verde oscuro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los globos de texto donde hablan los personajes de un cómic?",
+		"option0": "Nubes",
+		"option1": "Bocadillos",
+		"option2": "Círculos",
+		"option3": "Mensajeros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿A través de qué mueble entran los niños al mundo mágico de Narnia?",
+		"option0": "Una cama",
+		"option1": "Una mesa",
+		"option2": "Un armario",
+		"option3": "Un arcón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué técnica artística usa trozos pequeños de piedras o vidrios de colores para formar un dibujo?",
+		"option0": "Escultura",
+		"option1": "Mosaico",
+		"option2": "Grabado",
+		"option3": "Acuarela",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿En qué época del año se suele representar el cuento de 'El Cascanueces'?",
+		"option0": "En verano",
+		"option1": "En primavera",
+		"option2": "En Halloween",
+		"option3": "En Navidad",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué insecto trabaja mucho recogiendo comida para el invierno en una famosa fábula?",
+		"option0": "La hormiga",
+		"option1": "La cigarra",
+		"option2": "La mariposa",
+		"option3": "La mosca",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Sobre qué fruta disparó Guillermo Tell una flecha con su ballesta?",
+		"option0": "Una sandía",
+		"option1": "Una naranja",
+		"option2": "Una manzana",
+		"option3": "Una pera",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Baloo, el mejor amigo de Mowgli en 'El libro de la selva'?",
+		"option0": "Una pantera",
+		"option1": "Un oso",
+		"option2": "Un tigre",
+		"option3": "Un mono",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿A qué país llega Gulliver donde todas las personas son muchísimo más pequeñas que él?",
+		"option0": "Lilliput",
+		"option1": "Nunca Jamás",
+		"option2": "Oz",
+		"option3": "El País de las Maravillas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Dónde pintaban los hombres de la Prehistoria sus dibujos de animales?",
+		"option0": "En lienzos",
+		"option1": "En las paredes de las cuevas",
+		"option2": "En libretas",
+		"option3": "En tablas de madera",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama cuando un artista se pinta un cuadro de sí mismo?",
+		"option0": "Paisaje",
+		"option1": "Bodegón",
+		"option2": "Autorretrato",
+		"option3": "Mural",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el dibujo que exagera los rasgos de una persona para que sea gracioso?",
+		"option0": "Caricatura",
+		"option1": "Fotografía",
+		"option2": "Mapa",
+		"option3": "Plano",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal NO forma parte de 'Los músicos de Bremen'?",
+		"option0": "Un burro",
+		"option1": "Un perro",
+		"option2": "Un gato",
+		"option3": "Un elefante",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué hay que dejar debajo de la almohada para que el Ratón Pérez te traiga un regalo?",
+		"option0": "Un zapato",
+		"option1": "Un diente",
+		"option2": "Un dibujo",
+		"option3": "Un caramelo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿A qué animal le tiene mucho miedo el malvado Capitán Garfio?",
+		"option0": "A un cocodrilo",
+		"option1": "A un tiburón",
+		"option2": "A una ballena",
+		"option3": "A un pulpo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué se le rompe a la lechera en su camino al mercado mientras sueña despierta?",
+		"option0": "El vestido",
+		"option1": "La cesta",
+		"option2": "El cántaro de leche",
+		"option3": "Los zapatos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte del cuerpo del Gato de Cheshire es la última en desaparecer en el aire?",
+		"option0": "Su cola",
+		"option1": "Sus orejas",
+		"option2": "Sus patas",
+		"option3": "Su sonrisa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué le falta al famoso 'Soldadito de Plomo' en el cuento de Andersen?",
+		"option0": "Un brazo",
+		"option1": "Una pierna",
+		"option2": "Un ojo",
+		"option3": "Una oreja",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué poder especial tiene la niña Matilda en su libro?",
+		"option0": "Puede hacerse invisible",
+		"option1": "Puede volar por el cielo",
+		"option2": "Tiene una fuerza gigante",
+		"option3": "Mueve objetos con la mente",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué marca tiene Harry Potter en su frente?",
+		"option0": "Una cicatriz de rayo",
+		"option1": "Una mancha verde",
+		"option2": "Un tatuaje de estrella",
+		"option3": "Una marca de nacimiento",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animales usa la Reina de Corazones como mazos para jugar al croquet?",
+		"option0": "Pingüinos",
+		"option1": "Gatos",
+		"option2": "Flamencos",
+		"option3": "Cigüeñas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué le da la malvada madrastra a Blancanieves para que se quede dormida?",
+		"option0": "Una manzana envenenada",
+		"option1": "Una pera mágica",
+		"option2": "Un trozo de pastel",
+		"option3": "Una uva morada",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el dibujo rápido hecho a lápiz antes de hacer la pintura final?",
+		"option0": "Mural",
+		"option1": "Óleo",
+		"option2": "Boceto",
+		"option3": "Acuarela",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué colores debes mezclar para obtener el color turquesa?",
+		"option0": "Rojo y blanco",
+		"option1": "Amarillo y azul",
+		"option2": "Negro y rojo",
+		"option3": "Azul y verde",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Quién escribió las aventuras de Don Quijote de la Mancha?",
+		"option0": "Gloria Fuertes",
+		"option1": "Miguel de Cervantes",
+		"option2": "Federico García Lorca",
+		"option3": "Lope de Vega",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo logra el pequeño ratón salvar al león en su fábula?",
+		"option0": "Llamando a la policía",
+		"option1": "Asustando a los cazadores",
+		"option2": "Royendo las cuerdas de una red",
+		"option3": "Cavando un túnel",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Shere Khan, el enemigo de Mowgli en el 'Libro de la Selva'?",
+		"option0": "Un tigre",
+		"option1": "Un lobo",
+		"option2": "Una serpiente",
+		"option3": "Un oso",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿A qué casa pertenece Harry Potter en la escuela Hogwarts?",
+		"option0": "Slytherin",
+		"option1": "Gryffindor",
+		"option2": "Hufflepuff",
+		"option3": "Ravenclaw",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el niño que gana el último billete dorado para ver a Willy Wonka?",
+		"option0": "Tom",
+		"option1": "Augustus",
+		"option2": "Mike",
+		"option3": "Charlie",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a una escultura que solo muestra la cabeza y los hombros de una persona?",
+		"option0": "Busto",
+		"option1": "Columna",
+		"option2": "Pirámide",
+		"option3": "Relieve",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el perro blanco que siempre acompaña a Tintín?",
+		"option0": "Pluto",
+		"option1": "Snoopy",
+		"option2": "Milú",
+		"option3": "Idéfix",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántas moscas decía el Sastrecillo Valiente que había matado de un solo golpe?",
+		"option0": "Tres",
+		"option1": "Siete",
+		"option2": "Diez",
+		"option3": "Cien",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué herramienta metálica usa un escultor para tallar la piedra golpeándola con un mazo?",
+		"option0": "Pincel",
+		"option1": "Rodillo",
+		"option2": "Tijeras",
+		"option3": "Cincel",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es Platero en el famoso libro de Juan Ramón Jiménez?",
+		"option0": "Un burro",
+		"option1": "Un caballo",
+		"option2": "Un perro",
+		"option3": "Un gato",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los colores como el rojo, el naranja y el amarillo que nos recuerdan al sol?",
+		"option0": "Colores fríos",
+		"option1": "Colores oscuros",
+		"option2": "Colores cálidos",
+		"option3": "Colores invisibles",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a los colores como el azul o el verde que nos recuerdan al agua o al hielo?",
+		"option0": "Colores fuertes",
+		"option1": "Colores fríos",
+		"option2": "Colores alegres",
+		"option3": "Colores tierra",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué palabras mágicas dice Alí Babá para entrar en la cueva de los ladrones?",
+		"option0": "¡Hola, cueva!",
+		"option1": "¡Entra ya!",
+		"option2": "¡Puerta, ábrete!",
+		"option3": "¡Ábrete, Sésamo!",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es el pequeño Stuart Little?",
+		"option0": "Un ratón",
+		"option1": "Un hámster",
+		"option2": "Un pájaro",
+		"option3": "Una ardilla",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué nombre recibe el cuadro hecho pegando recortes de papel, fotos o telas?",
+		"option0": "Retrato",
+		"option1": "Bodegón",
+		"option2": "Collage",
+		"option3": "Escultura",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto de la princesa cae en el pozo y lo recupera una rana?",
+		"option0": "Un zapato de cristal",
+		"option1": "Una bola de oro",
+		"option2": "Un anillo de plata",
+		"option3": "Una corona de flores",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Qué beben los galos Astérix y Obélix para ser super fuertes?",
+		"option0": "Un chocolate",
+		"option1": "Un zumo de naranja",
+		"option2": "Una sopa de verduras",
+		"option3": "Una poción mágica",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la persona que hace los dibujos que aparecen en los libros infantiles?",
+		"option0": "Ilustrador",
+		"option1": "Escritor",
+		"option2": "Editor",
+		"option3": "Imprenta",
+		"correctAnswerIndex": 0
+	}
+]

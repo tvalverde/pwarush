@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import "@pwarush/core/pwa.css";
+
+/* Scan @pwarush/core/ui components for Tailwind classes (v4 does not scan node_modules). */
+@source "../../../packages/core/src/ui";
+
+/* Always emit the category tint variables — the board SVG references them via var(). */
+@source inline("bg-cat-emerald bg-cat-crimson bg-cat-violet bg-cat-cyan bg-cat-gold bg-cat-orange font-display");
+
+/*
+  Neon Quiz identity — opts OUT of @pwarush/core/theme.css (like El Farsante) to keep
+  a dark cyberpunk/neon scheme. The semantic color contract (token names) still lives
+  in packages/core/DESIGN.md; only the values diverge here, plus the six category
+  tints. The color-free tokens that core UI components rely on (fonts, tracking, radii,
+  container) are redeclared below since theme.css is not imported. Brand narrative in
+  apps/neonquiz/DESIGN.md.
+*/
+@theme {
+	/* Typography — shared body/UI faces + neon display face */
+	--font-sans: "Inter Variable", Inter, sans-serif;
+	--font-hanken: "Hanken Grotesk Variable", "Hanken Grotesk", sans-serif;
+	--font-display: "Orbitron", "Hanken Grotesk", sans-serif;
+
+	--tracking-widest-premium: 0.15em;
+	--tracking-wide-premium: 0.1em;
+
+	--radius-sm: 0.5rem;
+	--radius: 1rem;
+	--radius-md: 1.5rem;
+	--radius-lg: 2rem;
+	--radius-xl: 3rem;
+
+	--container-container: 448px;
+
+	--animate-shake: shake 0.2s ease-in-out 0s 2;
+
+	@keyframes shake {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		25% {
+			transform: translateX(-4px);
+		}
+		75% {
+			transform: translateX(4px);
+		}
+	}
+
+	/* Surfaces — near-black with cool tint */
+	--color-background: #0a0a0f;
+	--color-on-background: #e6f0ff;
+	--color-surface: #0a0a0f;
+	--color-surface-dim: #07070b;
+	--color-surface-bright: #1c1c28;
+	--color-surface-container-lowest: #050508;
+	--color-surface-container-low: #101019;
+	--color-surface-container: #14141f;
+	--color-surface-container-high: #1c1c2a;
+	--color-surface-container-highest: #242435;
+	--color-surface-variant: #2a2a3d;
+	--color-on-surface: #e6f0ff;
+	--color-on-surface-variant: #aab4cc;
+	--color-inverse-surface: #e6f0ff;
+	--color-inverse-on-surface: #14141f;
+	--color-surface-tint: #00f0ff;
+
+	--color-outline: #4a4a66;
+	--color-outline-variant: #2a2a3d;
+
+	/* Primary — cyan neon */
+	--color-primary: #00f0ff;
+	--color-on-primary: #00131a;
+	--color-primary-container: #00343d;
+	--color-on-primary-container: #9cf6ff;
+	--color-inverse-primary: #006b75;
+	--color-primary-fixed: #9cf6ff;
+	--color-primary-fixed-dim: #00daf3;
+	--color-on-primary-fixed: #001417;
+	--color-on-primary-fixed-variant: #004f58;
+
+	/* Secondary — magenta neon */
+	--color-secondary: #ff2a8d;
+	--color-on-secondary: #2a0014;
+	--color-secondary-container: #4a0026;
+	--color-on-secondary-container: #ffc2dd;
+	--color-secondary-fixed: #ffc2dd;
+	--color-secondary-fixed-dim: #ff86b8;
+	--color-on-secondary-fixed: #2a0014;
+	--color-on-secondary-fixed-variant: #66002f;
+
+	/* Tertiary — gold neon */
+	--color-tertiary: #ffcc00;
+	--color-on-tertiary: #221a00;
+	--color-tertiary-container: #4a3a00;
+	--color-on-tertiary-container: #ffe58f;
+	--color-tertiary-fixed: #ffe58f;
+	--color-tertiary-fixed-dim: #f3c700;
+	--color-on-tertiary-fixed: #221a00;
+	--color-on-tertiary-fixed-variant: #5a4600;
+
+	/* Error / danger */
+	--color-error: #ff5470;
+	--color-on-error: #2a000a;
+	--color-error-container: #5a0018;
+	--color-on-error-container: #ffd9e0;
+
+	/* Extended feedback roles */
+	--color-success: #00ff88;
+	--color-on-success: #00391d;
+	--color-success-container: #00522c;
+	--color-on-success-container: #a8ffd2;
+	--color-warning: #ffcc00;
+	--color-on-warning: #221a00;
+	--color-warning-container: #4a3a00;
+	--color-on-warning-container: #ffe58f;
+	--color-info: #00e5ff;
+	--color-on-info: #00363d;
+	--color-info-container: #004f58;
+	--color-on-info-container: #9cf0ff;
+
+	/* Category tints — the six neon trivia families (doc colors) */
+	--color-cat-emerald: #00ff66;
+	--color-cat-crimson: #ff0055;
+	--color-cat-violet: #9900ff;
+	--color-cat-cyan: #00ffff;
+	--color-cat-gold: #ffcc00;
+	--color-cat-orange: #ff6600;
+}
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-outline-variant, currentcolor);
+	}
+}
+
+html,
+body,
+#root {
+	min-height: 100svh;
+}
+
+body {
+	@apply bg-background text-on-background font-sans antialiased select-none;
+}

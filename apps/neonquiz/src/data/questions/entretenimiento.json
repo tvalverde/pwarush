@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el perro alebrije que acompaña a Miguel en la película 'Coco'?",
+		"option0": "Héctor",
+		"option1": "Pepita",
+		"option2": "Dante",
+		"option3": "Panteón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cineasta dirigió el clásico del cine de suspense 'Psicosis' en 1960?",
+		"option0": "Alfred Hitchcock",
+		"option1": "Stanley Kubrick",
+		"option2": "Orson Welles",
+		"option3": "John Ford",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué criatura eléctrica es el compañero inseparable de Ash Ketchum en la serie 'Pokémon'?",
+		"option0": "Charmander",
+		"option1": "Pikachu",
+		"option2": "Bulbasaur",
+		"option3": "Squirtle",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué serie de televisión se utiliza frecuentemente la frase 'Se acerca el invierno'?",
+		"option0": "Vikingos",
+		"option1": "The Witcher",
+		"option2": "El Señor de los Anillos",
+		"option3": "Juego de Tronos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién es la cantante estadounidense conocida por éxitos como 'Shake It Off' y 'Blank Space'?",
+		"option0": "Taylor Swift",
+		"option1": "Katy Perry",
+		"option2": "Ariana Grande",
+		"option3": "Lady Gaga",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el héroe vestido de verde que protagoniza la saga de videojuegos 'The Legend of Zelda'?",
+		"option0": "Zelda",
+		"option1": "Ganon",
+		"option2": "Link",
+		"option3": "Navi",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué género musical es el tema central sobre el que gira la película 'La La Land'?",
+		"option0": "Rock n' Roll",
+		"option1": "Jazz",
+		"option2": "Música Clásica",
+		"option3": "Blues",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué famoso estudio de animación japonés es el responsable de la película 'El viaje de Chihiro'?",
+		"option0": "Toei Animation",
+		"option1": "Madhouse",
+		"option2": "MAPPA",
+		"option3": "Studio Ghibli",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién es el cineasta que creó la épica saga espacial conocida como 'Star Wars'?",
+		"option0": "Steven Spielberg",
+		"option1": "George Lucas",
+		"option2": "Ridley Scott",
+		"option3": "James Cameron",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Con qué número de código es conocido mundialmente el agente secreto James Bond?",
+		"option0": "007",
+		"option1": "001",
+		"option2": "700",
+		"option3": "009",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué famoso músico británico compuso las canciones originales para la película de Disney 'El Rey León'?",
+		"option0": "Phil Collins",
+		"option1": "David Bowie",
+		"option2": "Elton John",
+		"option3": "Paul McCartney",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué película de acción y ciencia ficción se pronuncia la icónica frase 'Sayonara, baby'?",
+		"option0": "RoboCop",
+		"option1": "Desafío Total",
+		"option2": "Predator",
+		"option3": "Terminator 2: el juicio final",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál de los siguientes personajes NO forma parte del grupo principal de la serie 'Friends'?",
+		"option0": "Phoebe",
+		"option1": "Barney",
+		"option2": "Chandler",
+		"option3": "Ross",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál fue el primer largometraje de animación producido por Walt Disney en 1937?",
+		"option0": "Blancanieves y los siete enanitos",
+		"option1": "Pinocho",
+		"option2": "Fantasía",
+		"option3": "Dumbo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién es el carismático vocalista principal de la legendaria banda de rock 'The Rolling Stones'?",
+		"option0": "Keith Richards",
+		"option1": "Robert Plant",
+		"option2": "Mick Jagger",
+		"option3": "Freddie Mercury",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué compañía japonesa de videojuegos pertenece el famoso fontanero Super Mario?",
+		"option0": "Sega",
+		"option1": "Sony",
+		"option2": "Capcom",
+		"option3": "Nintendo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el hobbit encargado de llevar el Anillo Único al Monte del Destino?",
+		"option0": "Samwise Gamgee",
+		"option1": "Frodo Bolsón",
+		"option2": "Bilbo Bolsón",
+		"option3": "Peregrin Tuk",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién es el dibujante y productor estadounidense que creó la serie animada 'Los Simpson'?",
+		"option0": "Matt Groening",
+		"option1": "Seth MacFarlane",
+		"option2": "Butch Hartman",
+		"option3": "Mike Judge",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿De qué país es originaria la película 'Parásitos', ganadora del Oscar a Mejor Película en 2020?",
+		"option0": "Japón",
+		"option1": "China",
+		"option2": "Corea del Sur",
+		"option3": "Tailandia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué actor recibió un Oscar póstumo por su interpretación del Joker en 'El Caballero Oscuro'?",
+		"option0": "Joaquin Phoenix",
+		"option1": "Heath Ledger",
+		"option2": "Jack Nicholson",
+		"option3": "Jared Leto",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué plataforma de contenidos bajo demanda es la responsable de la serie 'Stranger Things'?",
+		"option0": "HBO Max",
+		"option1": "Disney+",
+		"option2": "Amazon Prime Video",
+		"option3": "Netflix",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la hermana pequeña de la reina Elsa en la película 'Frozen'?",
+		"option0": "Anna",
+		"option1": "Olaf",
+		"option2": "Kristoff",
+		"option3": "Sven",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la videoconsola doméstica más vendida de todos los tiempos hasta la fecha?",
+		"option0": "Wii",
+		"option1": "Xbox 360",
+		"option2": "PlayStation 2",
+		"option3": "Nintendo Entertainment System",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién fue el ex-miembro de The Beatles que compuso y cantó la canción 'Imagine'?",
+		"option0": "Paul McCartney",
+		"option1": "John Lennon",
+		"option2": "George Harrison",
+		"option3": "Ringo Starr",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué director estuvo al mando de la exitosa película 'Titanic' estrenada en 1997?",
+		"option0": "Christopher Nolan",
+		"option1": "Martin Scorsese",
+		"option2": "Quentin Tarantino",
+		"option3": "James Cameron",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué cantante se le conoce mundialmente con el sobrenombre del 'Rey del Pop'?",
+		"option0": "Elvis Presley",
+		"option1": "Prince",
+		"option2": "Michael Jackson",
+		"option3": "Freddie Mercury",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué tipo de criatura fantástica es Shrek en su exitosa saga de películas?",
+		"option0": "Un trol",
+		"option1": "Un gigante",
+		"option2": "Un ogro",
+		"option3": "Un duende",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el musical con más tiempo en cartelera en la historia de Broadway?",
+		"option0": "El Fantasma de la Ópera",
+		"option1": "Los Miserables",
+		"option2": "Chicago",
+		"option3": "Wicked",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué casa de la escuela Hogwarts pertenece el personaje Draco Malfoy?",
+		"option0": "Gryffindor",
+		"option1": "Ravenclaw",
+		"option2": "Hufflepuff",
+		"option3": "Slytherin",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué metal ficticio es el componente principal del escudo del Capitán América?",
+		"option0": "Adamantium",
+		"option1": "Vibranium",
+		"option2": "Kriptonita",
+		"option3": "Mithril",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué apodo recibió el cantante Frank Sinatra debido a la particularidad y elegancia de su voz?",
+		"option0": "El Rey",
+		"option1": "El Duque",
+		"option2": "La Voz",
+		"option3": "El Maestro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En el videojuego clásico Pac-Man, ¿qué debe comer el protagonista para poder asustar y comerse a los fantasmas?",
+		"option0": "Cerezas",
+		"option1": "Píldoras de energía",
+		"option2": "Monedas",
+		"option3": "Estrellas",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En la película 'E.T., el extraterrestre', ¿qué caramelos utiliza Elliott para atraer al alienígena?",
+		"option0": "Skittles",
+		"option1": "M&M's",
+		"option2": "Reese's Pieces",
+		"option3": "Gominolas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué grupo musical femenino se dio a conocer Beyoncé antes de lanzar su carrera en solitario?",
+		"option0": "Spice Girls",
+		"option1": "TLC",
+		"option2": "Destiny's Child",
+		"option3": "The Pussycat Dolls",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el eterno compañero masculino de la muñeca Barbie?",
+		"option0": "Ken",
+		"option1": "Ryan",
+		"option2": "Brad",
+		"option3": "Steven",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la profesión original de Walter White antes de cambiar de vida en la serie 'Breaking Bad'?",
+		"option0": "Abogado",
+		"option1": "Policía",
+		"option2": "Médico",
+		"option3": "Profesor de química",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la criatura verde y explosiva que acecha a los jugadores en el videojuego 'Minecraft'?",
+		"option0": "Enderman",
+		"option1": "Creeper",
+		"option2": "Ghast",
+		"option3": "Zombie",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad estadounidense se encuentra 'Graceland', la famosa mansión que perteneció a Elvis Presley?",
+		"option0": "Memphis",
+		"option1": "Nashville",
+		"option2": "Nueva Orleans",
+		"option3": "Las Vegas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el objeto arqueológico que Indiana Jones busca en la película 'En busca del arca perdida'?",
+		"option0": "El Santo Grial",
+		"option1": "La Calavera de Cristal",
+		"option2": "El Arca de la Alianza",
+		"option3": "Las Piedras de Sankara",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué festival de música de 1985 realizó la banda Queen su icónica actuación de 20 minutos?",
+		"option0": "Woodstock",
+		"option1": "Coachella",
+		"option2": "Glastonbury",
+		"option3": "Live Aid",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué tipo de fruta vive Bob Esponja en el fondo del Océano Pacífico?",
+		"option0": "Una manzana",
+		"option1": "Una piña",
+		"option2": "Un coco",
+		"option3": "Un melón",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué actriz ostenta el récord de mayor número de nominaciones a los Premios Oscar en la historia?",
+		"option0": "Meryl Streep",
+		"option1": "Katharine Hepburn",
+		"option2": "Cate Blanchett",
+		"option3": "Judi Dench",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué país era originario Alekséi Pázhitnov, el ingeniero informático que creó el videojuego 'Tetris'?",
+		"option0": "Estados Unidos",
+		"option1": "Japón",
+		"option2": "Alemania",
+		"option3": "Unión Soviética",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué actor interpretó al patriarca Vito Corleone en la primera entrega cinematográfica de 'El Padrino'?",
+		"option0": "Al Pacino",
+		"option1": "Marlon Brando",
+		"option2": "Robert De Niro",
+		"option3": "James Caan",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué color es Sonic, el erizo más rápido de la historia de los videojuegos?",
+		"option0": "Rojo",
+		"option1": "Verde",
+		"option2": "Azul",
+		"option3": "Amarillo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad se desarrolla principalmente la trama de la mítica comedia de situación 'Seinfeld'?",
+		"option0": "Chicago",
+		"option1": "Los Ángeles",
+		"option2": "Nueva York",
+		"option3": "Boston",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué famosa frase suele decir Buzz Lightyear en las películas de 'Toy Story'?",
+		"option0": "¡A jugar!",
+		"option1": "¡Hasta la vista!",
+		"option2": "¡Corre como el viento!",
+		"option3": "¡Al infinito y más allá!",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Con qué canción ganó el grupo sueco ABBA el Festival de Eurovisión en el año 1974?",
+		"option0": "Waterloo",
+		"option1": "Dancing Queen",
+		"option2": "Mamma Mia",
+		"option3": "Fernando",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué insecto conservado en ámbar es la fuente del ADN en la película 'Parque Jurásico'?",
+		"option0": "Una hormiga",
+		"option1": "Un mosquito",
+		"option2": "Una abeja",
+		"option3": "Un escarabajo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "En la película 'Pulp Fiction', ¿qué contiene el misterioso maletín que los protagonistas deben recuperar?",
+		"option0": "Lingotes de oro",
+		"option1": "Diamantes",
+		"option2": "Nunca se revela su contenido",
+		"option3": "Un arma nuclear",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Bajo qué identidad civil combate el crimen el superhéroe Spider-Man?",
+		"option0": "Bruce Wayne",
+		"option1": "Peter Parker",
+		"option2": "Clark Kent",
+		"option3": "Tony Stark",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué icónico alter ego creó el músico David Bowie para su álbum de 1972?",
+		"option0": "The Thin White Duke",
+		"option1": "Major Tom",
+		"option2": "Aladdin Sane",
+		"option3": "Ziggy Stardust",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama la empresa papelera donde transcurre la acción en la serie 'The Office'?",
+		"option0": "Dunder Mifflin",
+		"option1": "Wernham Hogg",
+		"option2": "Initech",
+		"option3": "Pied Piper",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué especie de pez pertenece el protagonista de la película de Pixar 'Buscando a Nemo'?",
+		"option0": "Pez cirujano",
+		"option1": "Pez ángel",
+		"option2": "Pez payaso",
+		"option3": "Pez globo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué modelo de coche fue transformado en una máquina del tiempo en 'Regreso al Futuro'?",
+		"option0": "Ford Mustang",
+		"option1": "DeLorean DMC-12",
+		"option2": "Chevrolet Camaro",
+		"option3": "Pontiac Firebird",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué caracteriza los títulos de los álbumes de estudio de la cantante británica Adele?",
+		"option0": "Son nombres de colores",
+		"option1": "Son nombres de ciudades",
+		"option2": "Son su edad al grabarlos",
+		"option3": "Son nombres de planetas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién dirigió la película de ciencia ficción 'Origen' (Inception), protagonizada por Leonardo DiCaprio?",
+		"option0": "Christopher Nolan",
+		"option1": "Denis Villeneuve",
+		"option2": "David Fincher",
+		"option3": "Steven Spielberg",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué empresa es la desarrolladora del exitoso videojuego de construcción y batalla 'Fortnite'?",
+		"option0": "Ubisoft",
+		"option1": "Activision",
+		"option2": "Electronic Arts",
+		"option3": "Epic Games",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué país representó Céline Dion cuando ganó el Festival de Eurovisión en 1988?",
+		"option0": "Canadá",
+		"option1": "Suiza",
+		"option2": "Francia",
+		"option3": "Bélgica",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En la saga 'Harry Potter', ¿en qué andén de la estación King's Cross se toma el expreso a Hogwarts?",
+		"option0": "Andén 7 y 1/2",
+		"option1": "Andén 10",
+		"option2": "Andén 9 y 3/4",
+		"option3": "Andén 8 y 1/4",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el villano (y luego héroe) que lidera a los Minions en 'Gru, mi villano favorito'?",
+		"option0": "Gru",
+		"option1": "Vector",
+		"option2": "Nefario",
+		"option3": "Balthazar",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué película de 1975 se dice la famosa frase: 'Vas a necesitar un barco más grande'?",
+		"option0": "Moby Dick",
+		"option1": "Tiburón",
+		"option2": "Titanic",
+		"option3": "Waterworld",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué joven artista estadounidense saltó a la fama mundial con el sencillo 'Bad Guy' en 2019?",
+		"option0": "Olivia Rodrigo",
+		"option1": "Dua Lipa",
+		"option2": "Miley Cyrus",
+		"option3": "Billie Eilish",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué editor y escritor de cómics era famoso por aparecer brevemente en casi todas las películas de Marvel?",
+		"option0": "Stan Lee",
+		"option1": "Jack Kirby",
+		"option2": "Steve Ditko",
+		"option3": "Bob Kane",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué colores son las dos píldoras que Morfeo ofrece a Neo en la película 'Matrix'?",
+		"option0": "Verde y amarilla",
+		"option1": "Blanca y negra",
+		"option2": "Roja y azul",
+		"option3": "Violeta y naranja",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué artista musical se le otorga tradicionalmente el título honorífico de 'Reina del Pop'?",
+		"option0": "Britney Spears",
+		"option1": "Madonna",
+		"option2": "Cher",
+		"option3": "Cyndi Lauper",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el nombre real del personaje conocido popularmente como 'Baby Yoda'?",
+		"option0": "Din Djarin",
+		"option1": "Yaddle",
+		"option2": "Moff Gideon",
+		"option3": "Grogu",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la serie de videojuegos de lucha que reúne a personajes de Nintendo como Kirby, Link y Samus?",
+		"option0": "Super Smash Bros.",
+		"option1": "Mario Party",
+		"option2": "Mario Kart",
+		"option3": "Nintendo All-Stars",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el personaje femenino que interpreta Olivia Newton-John en la película 'Grease'?",
+		"option0": "Rizzo",
+		"option1": "Frenchy",
+		"option2": "Sandy Olsson",
+		"option3": "Marty Maraschino",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuántos jugadores comienzan la competición en la serie coreana 'El Juego del Calamar'?",
+		"option0": "100",
+		"option1": "456",
+		"option2": "500",
+		"option3": "225",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En la película 'El Rey León', ¿cuál es el significado de la expresión suajili 'Hakuna Matata'?",
+		"option0": "No hay problema",
+		"option1": "Vive el momento",
+		"option2": "Somos amigos",
+		"option3": "Caza con sigilo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama la cafetería donde se reunían habitualmente los protagonistas de la serie 'Friends'?",
+		"option0": "MacLaren's Pub",
+		"option1": "The Cheesecake Factory",
+		"option2": "Monk's Diner",
+		"option3": "Central Perk",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Con qué compara la vida el personaje de Forrest Gump al principio de su película?",
+		"option0": "Con un camino largo",
+		"option1": "Con una caja de bombones",
+		"option2": "Con una pluma al viento",
+		"option3": "Con un juego de béisbol",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué ave es el símbolo de la rebelión en la trilogía de 'Los Juegos del Hambre'?",
+		"option0": "Fénix",
+		"option1": "Águila",
+		"option2": "Sinsajo",
+		"option3": "Halcón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el coche modificado que utilizan los protagonistas en la película 'Los Cazafantasmas'?",
+		"option0": "Ecto-1",
+		"option1": "Ghost-Mobile",
+		"option2": "Mystery Machine",
+		"option3": "Batmóvil",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué color son los zapatos mágicos que Dorothy utiliza en 'El Mago de Oz' para volver a casa?",
+		"option0": "Azul cobalto",
+		"option1": "Verde esmeralda",
+		"option2": "Plateado brillante",
+		"option3": "Rojo rubí",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad británica se formó la legendaria banda de rock The Beatles en 1960?",
+		"option0": "Liverpool",
+		"option1": "Manchester",
+		"option2": "Londres",
+		"option3": "Birmingham",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué objeto prismático aparece en la portada del famoso álbum 'The Dark Side of the Moon' de Pink Floyd?",
+		"option0": "Una pirámide de cristal",
+		"option1": "Un prisma triangular",
+		"option2": "Un espejo cóncavo",
+		"option3": "Un diamante en bruto",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la expresión característica que Sheldon Cooper utiliza en 'The Big Bang Theory' tras hacer una broma?",
+		"option0": "¡Eureka!",
+		"option1": "¡Victoria!",
+		"option2": "¡Bazinga! (¡Zas en toda la boca!)",
+		"option3": "¡Bingo!",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el planeta de origen de los Na'vi en la superproducción 'Avatar'?",
+		"option0": "Cybertron",
+		"option1": "Pandora",
+		"option2": "Tatooine",
+		"option3": "Krypton",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cantante protagonizó junto a Kevin Costner la película romántica 'El guardaespaldas'?",
+		"option0": "Whitney Houston",
+		"option1": "Mariah Carey",
+		"option2": "Tina Turner",
+		"option3": "Céline Dion",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué frase tiene grabada el vaquero Woody en su caja de voz en la película 'Toy Story'?",
+		"option0": "¡Soy el sheriff!",
+		"option1": "¡Al ataque, muchachos!",
+		"option2": "¡Hasta el infinito!",
+		"option3": "¡Hay una serpiente en mi bota!",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En la película de Pixar 'Inside Out' (Del revés), ¿de qué color es el personaje que representa a Alegría?",
+		"option0": "Verde",
+		"option1": "Amarillo",
+		"option2": "Azul",
+		"option3": "Rojo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se conoce en España al personaje 'Kermit the Frog' de los teleñecos (The Muppets)?",
+		"option0": "Rana René",
+		"option1": "Rana Saltarina",
+		"option2": "Rana Gustavo",
+		"option3": "Rana Pepe",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué instrumento musical protagoniza el estridente sonido de la famosa escena de la ducha en 'Psicosis'?",
+		"option0": "Violines",
+		"option1": "Trompetas",
+		"option2": "Pianos",
+		"option3": "Tambores",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En el universo de Star Wars, ¿a qué especie pertenece el peludo y leal compañero Chewbacca?",
+		"option0": "Ewok",
+		"option1": "Jawa",
+		"option2": "Hutt",
+		"option3": "Wookiee",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el arma mágica que obliga a decir la verdad a quien es atrapado por Wonder Woman?",
+		"option0": "La Espada de Atenea",
+		"option1": "El Escudo Sagrado",
+		"option2": "El Lazo de la Verdad",
+		"option3": "El Brazalete de Zeus",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál de estas frases es un insulto clásico que Bart suele decir a Homer en 'Los Simpson'?",
+		"option0": "¡Multiplícate por cero!",
+		"option1": "¡Vete a pasear!",
+		"option2": "¡No me hables!",
+		"option3": "¡Eres un carcamal!",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál era el segundo nombre del 'Rey del Rock', Elvis Presley?",
+		"option0": "James",
+		"option1": "Aaron",
+		"option2": "William",
+		"option3": "Robert",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llaman los dos miembros humanos principales del Team Rocket en la serie 'Pokémon'?",
+		"option0": "Brock y Misty",
+		"option1": "Ash y Gary",
+		"option2": "Butch y Cassidy",
+		"option3": "Jessie y James",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuáles son los colores principales de la armadura clásica de Iron Man?",
+		"option0": "Azul y blanco",
+		"option1": "Negro y plateado",
+		"option2": "Rojo y dorado",
+		"option3": "Verde y morado",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué prenda de vestir es la favorita y obligatoria para Barney Stinson en 'Cómo conocí a vuestra madre'?",
+		"option0": "Traje (Suit up!)",
+		"option1": "Chaqueta de cuero",
+		"option2": "Vaqueros",
+		"option3": "Esmoquin",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la comida favorita del conejo Bugs Bunny en los dibujos animados de Looney Tunes?",
+		"option0": "Lechuga",
+		"option1": "Zanahoria",
+		"option2": "Manzana",
+		"option3": "Queso",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "En la película 'El Rey León', ¿cuál es el parentesco de Scar con respecto al pequeño Simba?",
+		"option0": "Es su padre",
+		"option1": "Es su hermano",
+		"option2": "Es su abuelo",
+		"option3": "Es su tío",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la princesa que gobierna el Reino Champiñón en la saga de Super Mario?",
+		"option0": "Princesa Daisy",
+		"option1": "Princesa Estela",
+		"option2": "Princesa Peach",
+		"option3": "Princesa Pauline",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el apellido de la familia protagonista en el musical clásico 'Sonrisas y Lágrimas'?",
+		"option0": "Von Trapp",
+		"option1": "Von Bismarck",
+		"option2": "Von Sidow",
+		"option3": "Von Weber",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué tipo de animal del bosque corresponde el personaje de Winnie the Pooh?",
+		"option0": "Un conejo",
+		"option1": "Un oso",
+		"option2": "Un cerdito",
+		"option3": "Un tigre",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "En 'Juego de Tronos', ¿cómo se llama la espada pequeña y afilada que Jon Nieve regala a Arya Stark?",
+		"option0": "Hielo",
+		"option1": "Garra",
+		"option2": "Guardajuramentos",
+		"option3": "Aguja",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué hora exacta deja de funcionar el hechizo del hada madrina de la Cenicienta?",
+		"option0": "A las 10 de la noche",
+		"option1": "Al amanecer",
+		"option2": "A las 12 de la noche",
+		"option3": "A las 9 de la noche",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué instrumento musical toca con gran destreza el detective Sherlock Holmes en sus momentos de reflexión?",
+		"option0": "El violín",
+		"option1": "El piano",
+		"option2": "La flauta",
+		"option3": "El violonchelo",
+		"correctAnswerIndex": 0
+	}
+]

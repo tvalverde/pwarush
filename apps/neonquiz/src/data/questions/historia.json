@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué año llegó Cristóbal Colón por primera vez al continente americano?",
+		"option0": "1482",
+		"option1": "1492",
+		"option2": "1502",
+		"option3": "1498",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué tratado dividió el Nuevo Mundo entre España y Portugal en 1494?",
+		"option0": "Tratado de Versalles",
+		"option1": "Tratado de Utrecht",
+		"option2": "Tratado de Tordesillas",
+		"option3": "Tratado de Zaragoza",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál era la civilización que construyó las grandes pirámides de Guiza?",
+		"option0": "La egipcia",
+		"option1": "La romana",
+		"option2": "La griega",
+		"option3": "La azteca",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué acontecimiento histórico marcó el fin de la Edad Media en el año 1453?",
+		"option0": "El descubrimiento de América",
+		"option1": "La caída de Constantinopla",
+		"option2": "La invención de la imprenta",
+		"option3": "La muerte de Carlomagno",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién fue el primer ser humano en caminar sobre la Luna en 1969?",
+		"option0": "Yuri Gagarin",
+		"option1": "Buzz Aldrin",
+		"option2": "Neil Armstrong",
+		"option3": "Michael Collins",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llamaba el archiduque cuyo asesinato en Sarajevo desencadenó la Primera Guerra Mundial?",
+		"option0": "Francisco Fernando",
+		"option1": "Leopoldo II",
+		"option2": "Federico el Grande",
+		"option3": "Guillermo II",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se originaron los Juegos Olímpicos de la Antigüedad?",
+		"option0": "Italia",
+		"option1": "Egipto",
+		"option2": "Grecia",
+		"option3": "Francia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué año comenzó la Revolución Francesa con la toma de la Bastilla?",
+		"option0": "1776",
+		"option1": "1812",
+		"option2": "1789",
+		"option3": "1799",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué famoso barco se hundió tras chocar con un iceberg en su viaje inaugural en 1912?",
+		"option0": "Britannic",
+		"option1": "Lusitania",
+		"option2": "Santa María",
+		"option3": "Titanic",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién fue el líder de la Revolución Rusa de 1917 y fundador de la Unión Soviética?",
+		"option0": "Iósif Stalin",
+		"option1": "Vladimir Lenin",
+		"option2": "León Trotski",
+		"option3": "Mijaíl Gorbachov",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué pueblo guerrero del norte de Europa navegaba en barcos llamados 'drakkar'?",
+		"option0": "Los romanos",
+		"option1": "Los fenicios",
+		"option2": "Los vikingos",
+		"option3": "Los cartagineses",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué documento de 1215 limitó por primera vez el poder de la monarquía inglesa?",
+		"option0": "La Carta Magna",
+		"option1": "La Constitución de Cádiz",
+		"option2": "La Declaración de Derechos",
+		"option3": "El Código de Hammurabi",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién fue la última reina del Antiguo Egipto, conocida por su relación con Julio César?",
+		"option0": "Nefertiti",
+		"option1": "Hatshepsut",
+		"option2": "Cleopatra",
+		"option3": "Isis",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué explorador portugués lideró la primera expedición que dio la vuelta al mundo (aunque murió antes de terminarla)?",
+		"option0": "Vasco de Gama",
+		"option1": "Fernando de Magallanes",
+		"option2": "Juan Sebastián Elcano",
+		"option3": "Bartolomé Díaz",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué muro dividió la ciudad de Berlín durante casi 30 años hasta su caída en 1989?",
+		"option0": "Muro de la Paz",
+		"option1": "Muro de la Verguenza",
+		"option2": "Muro de Berlín",
+		"option3": "Muro de Hierro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál fue la batalla final donde Napoleón Bonaparte fue derrotado definitivamente?",
+		"option0": "Batalla de Austerlitz",
+		"option1": "Batalla de Waterloo",
+		"option2": "Batalla de Trafalgar",
+		"option3": "Batalla de Leipzig",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué idioma hablaban los antiguos romanos?",
+		"option0": "Griego",
+		"option1": "Italiano",
+		"option2": "Latín",
+		"option3": "Francés",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad se firmó la Declaración de Independencia de los Estados Unidos en 1776?",
+		"option0": "Nueva York",
+		"option1": "Washington D.C.",
+		"option2": "Filadelfia",
+		"option3": "Boston",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién inventó la imprenta de tipos móviles en Europa a mediados del siglo XV?",
+		"option0": "Leonardo da Vinci",
+		"option1": "Isaac Newton",
+		"option2": "Johannes Gutenberg",
+		"option3": "Galileo Galilei",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué civilización pertenecía el famoso Código de leyes de Hammurabi?",
+		"option0": "Persa",
+		"option1": "Babilónica",
+		"option2": "Asiria",
+		"option3": "Hitita",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué civilización precolombina habitaba principalmente en el actual México y fundó Tenochtitlan?",
+		"option0": "Incas",
+		"option1": "Mayas",
+		"option2": "Aztecas",
+		"option3": "Moches",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién fue el primer presidente de los Estados Unidos?",
+		"option0": "Thomas Jefferson",
+		"option1": "Abraham Lincoln",
+		"option2": "George Washington",
+		"option3": "Benjamin Franklin",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llamaba el gran conquistador macedonio que creó uno de los imperios más grandes de la antigüedad?",
+		"option0": "Julio César",
+		"option1": "Alejandro Magno",
+		"option2": "Aníbal",
+		"option3": "Pericles",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se conoce al periodo de tensión política entre EE. UU. y la URSS tras la Segunda Guerra Mundial?",
+		"option0": "Guerra de Secesión",
+		"option1": "Guerra de los Cien Años",
+		"option2": "Guerra Fría",
+		"option3": "Guerra de Trincheras",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué estructura defensiva fue construida en China para protegerse de las invasiones de los pueblos nómadas?",
+		"option0": "La Gran Muralla",
+		"option1": "La Torre de Porcelana",
+		"option2": "El Muro de Adriano",
+		"option3": "La Ciudad Prohibida",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué activista estadounidense se negó a ceder su asiento en un autobús en 1955, impulsando el movimiento por los derechos civiles?",
+		"option0": "Harriet Tubman",
+		"option1": "Sojourner Truth",
+		"option2": "Rosa Parks",
+		"option3": "Coretta Scott King",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el sistema de escritura desarrollado por los antiguos sumerios, considerado uno de los más antiguos del mundo?",
+		"option0": "Cuneiforme",
+		"option1": "Jeroglífico",
+		"option2": "Demótico",
+		"option3": "Lineal B",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué líder militar y político es conocido como el 'Libertador' de varias naciones de América del Sur?",
+		"option0": "José de San Martín",
+		"option1": "Bernardo O'Higgins",
+		"option2": "Francisco de Miranda",
+		"option3": "Simón Bolívar",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué famoso viajero veneciano del siglo XIII escribió sobre sus aventuras en la corte de Kublai Khan en China?",
+		"option0": "Cristóbal Colón",
+		"option1": "Marco Polo",
+		"option2": "Américo Vespucio",
+		"option3": "Ibn Battuta",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué joven heroína francesa del siglo XV se la conoce como 'La Doncella de Orleans'?",
+		"option0": "Juana de Arco",
+		"option1": "María Antonieta",
+		"option2": "Catalina de Médici",
+		"option3": "Leonor de Aquitania",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quiénes realizaron el primer vuelo controlado y motorizado de la historia en 1903?",
+		"option0": "Los hermanos Montgolfier",
+		"option1": "Los hermanos Lumière",
+		"option2": "Los hermanos Wright",
+		"option3": "Los hermanos Kellogg",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué líder indio encabezó la 'Marcha de la Sal' como protesta no violenta contra el dominio británico?",
+		"option0": "Jawaharlal Nehru",
+		"option1": "Mahatma Gandhi",
+		"option2": "Indira Gandhi",
+		"option3": "Subhas Chandra Bose",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llamaba la clase guerrera de la nobleza militar en el Japón feudal?",
+		"option0": "Ninja",
+		"option1": "Shogun",
+		"option2": "Ronin",
+		"option3": "Samurái",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué país comenzó la Revolución Industrial a finales del siglo XVIII?",
+		"option0": "Gran Bretaña",
+		"option1": "Francia",
+		"option2": "Alemania",
+		"option3": "Estados Unidos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién pasó 27 años en prisión antes de convertirse en el primer presidente negro de Sudáfrica en 1994?",
+		"option0": "Desmond Tutu",
+		"option1": "Kofi Annan",
+		"option2": "Nelson Mandela",
+		"option3": "Steve Biko",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué civilización precolombina construyó la famosa pirámide de Kukulcán en Chichén Itzá?",
+		"option0": "Inca",
+		"option1": "Maya",
+		"option2": "Olmeca",
+		"option3": "Tolteca",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué rey de los francos fue coronado como el primer Emperador del Sacro Imperio Romano Germánico en el año 800?",
+		"option0": "Clodoveo I",
+		"option1": "Carlos Martel",
+		"option2": "Pipino el Breve",
+		"option3": "Carlomagno",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién fue la primera persona en ganar dos premios Nobel en distintos campos científicos (Física y Química)?",
+		"option0": "Marie Curie",
+		"option1": "Rosalind Franklin",
+		"option2": "Ada Lovelace",
+		"option3": "Dorothy Hodgkin",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué año se produjo la caída oficial del Imperio Romano de Occidente?",
+		"option0": "313 d.C.",
+		"option1": "1492 d.C.",
+		"option2": "476 d.C.",
+		"option3": "1066 d.C.",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué antigua red de rutas comerciales conectaba el este de Asia con el mundo mediterráneo?",
+		"option0": "La Ruta de las Especias",
+		"option1": "La Ruta de la Seda",
+		"option2": "El Camino del Inca",
+		"option3": "La Vía Apia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién fue la primera mujer aviadora en cruzar sola el océano Atlántico en 1932?",
+		"option0": "Bessie Coleman",
+		"option1": "Harriet Quimby",
+		"option2": "Valentina Tereshkova",
+		"option3": "Amelia Earhart",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué antiguo pueblo marinero del Mediterráneo es famoso por haber creado el primer alfabeto fonético?",
+		"option0": "Fenicios",
+		"option1": "Cartagineses",
+		"option2": "Minoicos",
+		"option3": "Etruscos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país actual se encuentra la antigua ciudad inca de Machu Picchu?",
+		"option0": "Chile",
+		"option1": "Colombia",
+		"option2": "Perú",
+		"option3": "Bolivia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué arqueólogo británico descubrió la tumba intacta del faraón Tutankamón en 1922?",
+		"option0": "Arthur Evans",
+		"option1": "Howard Carter",
+		"option2": "Hiram Bingham",
+		"option3": "Heinrich Schliemann",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién unificó a las tribus nómadas del noreste de Asia para fundar el Imperio mongol en el siglo XIII?",
+		"option0": "Kublai Kan",
+		"option1": "Tamerlán",
+		"option2": "Atila el Huno",
+		"option3": "Gengis Kan",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué objeto histórico fue clave para descifrar los jeroglíficos egipcios gracias a sus inscripciones en tres idiomas?",
+		"option0": "Piedra de Rosetta",
+		"option1": "Obelisco de Axum",
+		"option2": "Estela de Hammurabi",
+		"option3": "Papiro de Turín",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llamaba el movimiento que luchó por el derecho al voto de las mujeres a principios del siglo XX?",
+		"option0": "Ilustración",
+		"option1": "Renacimiento",
+		"option2": "Sufragismo",
+		"option3": "Abolicionismo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pandemia asoló Europa en el siglo XIV, reduciendo drásticamente la población del continente?",
+		"option0": "Gripe Española",
+		"option1": "Peste Negra",
+		"option2": "Cólera",
+		"option3": "Viruela",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué inventor se le atribuye históricamente la patente del teléfono en 1876?",
+		"option0": "Thomas Edison",
+		"option1": "Nikola Tesla",
+		"option2": "Guglielmo Marconi",
+		"option3": "Alexander Graham Bell",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién fue el presidente de los Estados Unidos durante la Guerra de Secesión y autor de la Proclamación de Emancipación?",
+		"option0": "Abraham Lincoln",
+		"option1": "Andrew Jackson",
+		"option2": "Ulysses S. Grant",
+		"option3": "Theodore Roosevelt",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué emperador de Malí es considerado uno de los hombres más ricos de la historia debido a sus vastas reservas de oro?",
+		"option0": "Sundiata Keïta",
+		"option1": "Mansa Musa",
+		"option2": "Askia el Grande",
+		"option3": "Sonni Alí",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué mujer se le conoce como 'La dama de la lámpara' por su labor como enfermera en la Guerra de Crimea?",
+		"option0": "Clara Barton",
+		"option1": "Elizabeth Blackwell",
+		"option2": "Florence Nightingale",
+		"option3": "Edith Cavell",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién descubrió accidentalmente la penicilina en 1928, revolucionando la medicina moderna?",
+		"option0": "Alexander Fleming",
+		"option1": "Louis Pasteur",
+		"option2": "Robert Koch",
+		"option3": "Edward Jenner",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué rey persa fundó el Imperio Aqueménida y es recordado por su respeto a las costumbres de los pueblos conquistados?",
+		"option0": "Darío I",
+		"option1": "Jerjes I",
+		"option2": "Artajerjes",
+		"option3": "Ciro el Grande",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llamaba el camino que recorrían los colonos estadounidenses hacia el oeste en busca de tierras en el siglo XIX?",
+		"option0": "La Senda de Santa Fe",
+		"option1": "La Ruta de Oregón",
+		"option2": "El Camino Real",
+		"option3": "La Ruta 66",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué polímata estadounidense inventó el pararrayos y participó en la redacción de la Declaración de Independencia?",
+		"option0": "Thomas Jefferson",
+		"option1": "Benjamin Franklin",
+		"option2": "John Adams",
+		"option3": "Alexander Hamilton",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué proceso histórico puso fin al shogunato y restauró el poder imperial en Japón en 1868?",
+		"option0": "La Restauración Meiji",
+		"option1": "La Rebelión Satsuma",
+		"option2": "El Periodo Edo",
+		"option3": "La Era Taisho",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué almirante chino lideró siete grandes expediciones navales por el Océano Índico durante la dinastía Ming?",
+		"option0": "Sun Tzu",
+		"option1": "Zheng He",
+		"option2": "Cao Cao",
+		"option3": "Kublai Kan",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué ingeniero escocés perfeccionó la máquina de vapor, siendo clave para el inicio de la Revolución Industrial?",
+		"option0": "George Stephenson",
+		"option1": "Robert Fulton",
+		"option2": "James Watt",
+		"option3": "Richard Arkwright",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué emperatriz gobernó Rusia durante 34 años en el siglo XVIII, expandiendo significativamente sus fronteras?",
+		"option0": "Catalina la Grande",
+		"option1": "Isabel I",
+		"option2": "Ana de Rusia",
+		"option3": "Alejandra Fiódorovna",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué cuevas del Desierto de Judea se encontraron en 1947 los famosos manuscritos antiguos conocidos como Rollos del Mar Muerto?",
+		"option0": "Cuevas de Altamira",
+		"option1": "Cuevas de Qumrán",
+		"option2": "Cuevas de Lascaux",
+		"option3": "Cuevas de Ajanta",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál era el nombre del barco que transportó a los Peregrinos desde Inglaterra hasta América en 1620?",
+		"option0": "The Endeavour",
+		"option1": "The Beagle",
+		"option2": "The Mayflower",
+		"option3": "The Bounty",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué primer ministro británico lideró al Reino Unido durante la mayor parte de la Segunda Guerra Mundial?",
+		"option0": "Neville Chamberlain",
+		"option1": "Winston Churchill",
+		"option2": "Clement Attlee",
+		"option3": "Anthony Eden",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué gran desastre destruyó gran parte de la capital de Inglaterra en el año 1666?",
+		"option0": "La Gran Peste",
+		"option1": "El Terremoto de Londres",
+		"option2": "El Gran Incendio de Londres",
+		"option3": "La Inundación del Támesis",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué monarca francés fue conocido como el 'Rey Sol' y construyó el imponente Palacio de Versalles?",
+		"option0": "Luis XIV",
+		"option1": "Luis XVI",
+		"option2": "Felipe IV",
+		"option3": "Francisco I",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué impresionante hallazgo arqueológico en China consiste en miles de figuras de soldados de arcilla a tamaño real?",
+		"option0": "La Ciudad Prohibida",
+		"option1": "Los Guerreros de Xi'an",
+		"option2": "El Templo del Cielo",
+		"option3": "Las Grutas de Longmen",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué monja católica de origen albanés fundó las Misioneras de la Caridad en Calcuta?",
+		"option0": "Sor Juana Inés",
+		"option1": "Santa Teresa de Ávila",
+		"option2": "Teresa de Lisieux",
+		"option3": "Madre Teresa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué vía de navegación artificial se inauguró en 1869 para conectar el Mar Mediterráneo con el Mar Rojo?",
+		"option0": "Canal de Panamá",
+		"option1": "Canal de Corinto",
+		"option2": "Canal de Suez",
+		"option3": "Canal de Kiel",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué red clandestina ayudó a miles de esclavos a escapar hacia estados libres en EE. UU. en el siglo XIX?",
+		"option0": "El Ferrocarril Subterráneo",
+		"option1": "La Vía de la Libertad",
+		"option2": "El Camino del Norte",
+		"option3": "La Alianza Abolicionista",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué protesta colonial en 1773 consistió en lanzar cargamentos de té al mar en el puerto de Boston?",
+		"option0": "La Revuelta del Té",
+		"option1": "El Motín del Té",
+		"option2": "La Masacre de Boston",
+		"option3": "La Liga del Té",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué monje alemán inició la Reforma Protestante al publicar sus 95 tesis en 1517?",
+		"option0": "Juan Calvino",
+		"option1": "Ulrico Zuinglio",
+		"option2": "Erasmo de Rotterdam",
+		"option3": "Martín Lutero",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿A bordo de qué barco viajó el naturalista Charles Darwin durante cinco años para estudiar la biodiversidad?",
+		"option0": "HMS Discovery",
+		"option1": "HMS Beagle",
+		"option2": "HMS Endeavour",
+		"option3": "HMS Victory",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué batalla de 1066 los normandos, liderados por Guillermo el Conquistador, invadieron Inglaterra?",
+		"option0": "Batalla de Hastings",
+		"option1": "Batalla de Stamford Bridge",
+		"option2": "Batalla de Agincourt",
+		"option3": "Batalla de York",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Según la leyenda, qué soldado griego corrió desde Maratón hasta Atenas para anunciar la victoria sobre los persas?",
+		"option0": "Leónidas",
+		"option1": "Filípides",
+		"option2": "Aquiles",
+		"option3": "Temístocles",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué científico francés desarrolló el proceso de eliminar bacterias en alimentos mediante calor, conocido hoy como pasteurización?",
+		"option0": "Antoine Lavoisier",
+		"option1": "Claude Bernard",
+		"option2": "Louis Pasteur",
+		"option3": "Jean-Baptiste Lamarck",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Con motivo de qué evento se construyó la Torre Eiffel en París en el año 1889?",
+		"option0": "La Revolución Francesa",
+		"option1": "La Exposición Universal",
+		"option2": "La coronación de Napoleón III",
+		"option3": "El fin de la guerra franco-prusiana",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué ciudad romana quedó sepultada bajo las cenizas tras la erupción del volcán Vesubio en el año 79 d.C.?",
+		"option0": "Herculano",
+		"option1": "Ostia",
+		"option2": "Pompeya",
+		"option3": "Bizancio",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué general cartaginés cruzó los Alpes con elefantes para atacar a Roma durante la Segunda Guerra Púnica?",
+		"option0": "Aníbal Barca",
+		"option1": "Amílcar Barca",
+		"option2": "Asdrúbal",
+		"option3": "Escipión el Africano",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué país regaló la Estatua de la Libertad a Estados Unidos para conmemorar el centenario de su independencia?",
+		"option0": "España",
+		"option1": "Reino Unido",
+		"option2": "Francia",
+		"option3": "Italia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué inventor sueco creó la dinamita y más tarde destinó su fortuna a la creación de unos famosos premios anuales?",
+		"option0": "Alfred Nobel",
+		"option1": "Anders Celsius",
+		"option2": "Gustaf Dalén",
+		"option3": "Lars Magnus Ericsson",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué estado de EE. UU. se produjo la famosa 'Fiebre del Oro' de 1849?",
+		"option0": "Texas",
+		"option1": "Nevada",
+		"option2": "Alaska",
+		"option3": "California",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué explorador vikingo se cree que llegó a las costas de Norteamérica unos 500 años antes que Cristóbal Colón?",
+		"option0": "Erik el Rojo",
+		"option1": "Ragnar Lodbrok",
+		"option2": "Leif Erikson",
+		"option3": "Harald Hardrada",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué antigua ciudad, tallada directamente en la roca por los nabateos, es hoy el tesoro arqueológico más famoso de Jordania?",
+		"option0": "Palmira",
+		"option1": "Petra",
+		"option2": "Éfeso",
+		"option3": "Persépolis",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué reina británica dio nombre a toda una época del siglo XIX caracterizada por la expansión industrial y colonial?",
+		"option0": "Isabel I",
+		"option1": "Ana Estuardo",
+		"option2": "Victoria I",
+		"option3": "Isabel II",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quiénes fueron los primeros en alcanzar oficialmente la cima del monte Everest en el año 1953?",
+		"option0": "George Mallory y Andrew Irvine",
+		"option1": "Edmund Hillary y Tenzing Norgay",
+		"option2": "Reinhold Messner y Peter Habeler",
+		"option3": "Junko Tabei y Ang Rita Sherpa",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué mujer es conocida como el 'Moisés' de su pueblo por guiar a numerosos esclavos hacia la libertad en el siglo XIX?",
+		"option0": "Sojourner Truth",
+		"option1": "Harriet Tubman",
+		"option2": "Ida B. Wells",
+		"option3": "Elizabeth Cady Stanton",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llamaba el primer satélite artificial de la historia, lanzado por la Unión Soviética en 1957?",
+		"option0": "Vostok 1",
+		"option1": "Explorer 1",
+		"option2": "Sputnik 1",
+		"option3": "Soyuz",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué emperador bizantino es famoso por recopilar y organizar las leyes romanas en el 'Corpus Iuris Civilis'?",
+		"option0": "Justiniano I",
+		"option1": "Constantino el Grande",
+		"option2": "Teodosio I",
+		"option3": "Heraclio",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué famosa batalla 300 espartanos liderados por el rey Leónidas intentaron frenar el avance del ejército persa?",
+		"option0": "Batalla de Salamina",
+		"option1": "Batalla de Platea",
+		"option2": "Batalla de las Termópilas",
+		"option3": "Batalla de Maratón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué nombre recibió la gran flota enviada por Felipe II contra Inglaterra en 1588 que acabó en fracaso?",
+		"option0": "La Armada Invencible",
+		"option1": "La Gran Flota",
+		"option2": "La Escuadra del Rey",
+		"option3": "La Flota de Indias",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Con qué nombre se conoce al desplome de la bolsa de Nueva York que dio inicio a la Gran Depresión en 1929?",
+		"option0": "Lunes Negro",
+		"option1": "Martes Negro",
+		"option2": "Jueves Negro",
+		"option3": "Viernes Negro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué emperador de la dinastía Maurya en la India se convirtió al budismo tras una sangrienta batalla y promovió la paz?",
+		"option0": "Chandragupta",
+		"option1": "Ashoka el Grande",
+		"option2": "Akbar",
+		"option3": "Harsha",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué explorador británico del siglo XVIII cartografió las costas de Australia y Nueva Zelanda?",
+		"option0": "James Cook",
+		"option1": "Francis Drake",
+		"option2": "Henry Hudson",
+		"option3": "Walter Raleigh",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué científico estadounidense desarrolló en 1955 la primera vacuna eficaz contra la poliomielitis?",
+		"option0": "Albert Sabin",
+		"option1": "Edward Jenner",
+		"option2": "Jonas Salk",
+		"option3": "Robert Koch",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué sistema de cuerdas y nudos de colores utilizaban los incas para llevar la contabilidad y registrar información?",
+		"option0": "Ábaco",
+		"option1": "Quipu",
+		"option2": "Glifo",
+		"option3": "Códice",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién fue la primera mujer elegida democráticamente para dirigir una nación musulmana moderna en Pakistán?",
+		"option0": "Corazón Aquino",
+		"option1": "Indira Gandhi",
+		"option2": "Benazir Bhutto",
+		"option3": "Golda Meir",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pionera de la informática popularizó el término 'bug' y desarrolló el primer compilador de programación?",
+		"option0": "Ada Lovelace",
+		"option1": "Grace Hopper",
+		"option2": "Margaret Hamilton",
+		"option3": "Joan Clarke",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué megaobra de ingeniería, inaugurada en 1914, permite cruzar del Atlántico al Pacífico sin rodear Sudamérica?",
+		"option0": "Canal de Suez",
+		"option1": "Canal de Kiel",
+		"option2": "Canal de Panamá",
+		"option3": "Canal de Corinto",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué emperador romano ordenó construir un gran muro en el norte de Britania para defenderse de las tribus del norte?",
+		"option0": "Trajano",
+		"option1": "Adriano",
+		"option2": "Marco Aurelio",
+		"option3": "Nerón",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se encuentra el famoso monumento megalítico de Stonehenge, construido hace unos 5000 años?",
+		"option0": "Irlanda",
+		"option1": "Francia",
+		"option2": "Reino Unido",
+		"option3": "Alemania",
+		"correctAnswerIndex": 2
+	}
+]

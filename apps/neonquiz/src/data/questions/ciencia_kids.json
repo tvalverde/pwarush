@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el planeta más grande de nuestro Sistema Solar?",
+		"option0": "Júpiter",
+		"option1": "Marte",
+		"option2": "Tierra",
+		"option3": "Saturno",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es conocido por ser el más rápido corriendo en la tierra?",
+		"option0": "León",
+		"option1": "Guepardo",
+		"option2": "Caballo",
+		"option3": "Tigre",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántas patas tiene una araña?",
+		"option0": "Seis",
+		"option1": "Cuatro",
+		"option2": "Ocho",
+		"option3": "Diez",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte de la planta crece normalmente debajo de la tierra?",
+		"option0": "Las hojas",
+		"option1": "Las flores",
+		"option2": "El tallo",
+		"option3": "La raíz",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el satélite natural que gira alrededor de la Tierra?",
+		"option0": "El Sol",
+		"option1": "La Luna",
+		"option2": "Venus",
+		"option3": "Estrella Polar",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gas respiramos los seres humanos para poder vivir?",
+		"option0": "Dióxido de carbono",
+		"option1": "Oxígeno",
+		"option2": "Helio",
+		"option3": "Nitrógeno",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿En qué estado se encuentra el agua cuando se convierte en hielo?",
+		"option0": "Líquido",
+		"option1": "Gaseoso",
+		"option2": "Sólido",
+		"option3": "Invisible",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la fuerza que hace que las cosas caigan al suelo?",
+		"option0": "Magnetismo",
+		"option1": "Electricidad",
+		"option2": "Viento",
+		"option3": "Gravedad",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estos animales nace de un huevo?",
+		"option0": "Perro",
+		"option1": "Ballena",
+		"option2": "Tortuga",
+		"option3": "Elefante",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué órgano de nuestro cuerpo usamos para pensar y dar órdenes?",
+		"option0": "Corazón",
+		"option1": "Pulmones",
+		"option2": "Estómago",
+		"option3": "Cerebro",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color suelen ser las hojas de las plantas gracias a la clorofila?",
+		"option0": "Azul",
+		"option1": "Rojo",
+		"option2": "Verde",
+		"option3": "Amarillo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué insecto es famoso por fabricar miel en las colmenas?",
+		"option0": "Hormiga",
+		"option1": "Abeja",
+		"option2": "Saltamontes",
+		"option3": "Escarabajo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos planetas forman el Sistema Solar?",
+		"option0": "Cinco",
+		"option1": "Doce",
+		"option2": "Ocho",
+		"option3": "Veinte",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el único mamífero que tiene alas y puede volar de verdad?",
+		"option0": "Pájaro",
+		"option1": "Murciélago",
+		"option2": "Mariposa",
+		"option3": "Ardilla voladora",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el proceso cuando el agua se calienta y sube al aire?",
+		"option0": "Congelación",
+		"option1": "Evaporación",
+		"option2": "Derretimiento",
+		"option3": "Inundación",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el animal con el cuello más largo del mundo?",
+		"option0": "Avestruz",
+		"option1": "Jirafa",
+		"option2": "Cebra",
+		"option3": "Cisne",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a los animales que solo se alimentan de plantas?",
+		"option0": "Carnívoros",
+		"option1": "Herbívoros",
+		"option2": "Omnívoros",
+		"option3": "Cazadores",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué estrella gigante nos da luz y calor todos los días?",
+		"option0": "La Osa Mayor",
+		"option1": "La Luna",
+		"option2": "El Sol",
+		"option3": "Plutón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué aparato usamos para ver las estrellas y planetas muy de cerca?",
+		"option0": "Microscopio",
+		"option1": "Lupa",
+		"option2": "Telescopio",
+		"option3": "Cámara",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la cría de una rana cuando todavía vive en el agua?",
+		"option0": "Renacuajo",
+		"option1": "Alevín",
+		"option2": "Gusano",
+		"option3": "Cachorro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué objeto mineral tiene la capacidad de atraer metales como el hierro?",
+		"option0": "Cristal",
+		"option1": "Imán",
+		"option2": "Madera",
+		"option3": "Plástico",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿A qué temperatura se congela el agua para convertirse en hielo?",
+		"option0": "A 100 grados",
+		"option1": "A 50 grados",
+		"option2": "A 10 grados",
+		"option3": "A 0 grados",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué fenómeno de colores sale en el cielo tras la lluvia cuando hay sol?",
+		"option0": "Rayo",
+		"option1": "Nube blanca",
+		"option2": "Arcoíris",
+		"option3": "Eclipse",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos huesos tiene aproximadamente el cuerpo de una persona?",
+		"option0": "Más de 200",
+		"option1": "Solo 10",
+		"option2": "Cerca de 50",
+		"option3": "Ninguno",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estos dinosaurios era famoso por ser un gran cazador de carne?",
+		"option0": "Triceratops",
+		"option1": "Diplodocus",
+		"option2": "Tyrannosaurus Rex",
+		"option3": "Stegosaurus",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué planeta del Sistema Solar es conocido como el 'Planeta Rojo'?",
+		"option0": "Venus",
+		"option1": "Saturno",
+		"option2": "Marte",
+		"option3": "Neptuno",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué órgano se encarga de bombear la sangre por todo nuestro cuerpo?",
+		"option0": "El corazón",
+		"option1": "El estómago",
+		"option2": "El hígado",
+		"option3": "Los riñones",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el animal más grande que existe en todo el planeta?",
+		"option0": "El elefante africano",
+		"option1": "La ballena azul",
+		"option2": "El tiburón blanco",
+		"option3": "El dinosaurio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué sentido usamos para saber si una flor huele bien?",
+		"option0": "El gusto",
+		"option1": "El tacto",
+		"option2": "La vista",
+		"option3": "El olfato",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la parte más dura del cuerpo humano?",
+		"option0": "Los huesos del brazo",
+		"option1": "Las uñas",
+		"option2": "El esmalte de los dientes",
+		"option3": "Las rodillas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se crea el sonido?",
+		"option0": "Por vibraciones",
+		"option1": "Por el color",
+		"option2": "Por el frío",
+		"option3": "Por la luz",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la roca líquida y muy caliente que sale de un volcán?",
+		"option0": "Arena",
+		"option1": "Lava",
+		"option2": "Agua hirviendo",
+		"option3": "Barro",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué guardan los camellos dentro de sus jorobas?",
+		"option0": "Agua fresca",
+		"option1": "Huesos",
+		"option2": "Aire",
+		"option3": "Grasa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué planeta es famoso por tener unos anillos brillantes a su alrededor?",
+		"option0": "Saturno",
+		"option1": "Mercurio",
+		"option2": "Tierra",
+		"option3": "Urano",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama cuando algunos animales duermen todo el invierno?",
+		"option0": "Vacaciones",
+		"option1": "Hibernación",
+		"option2": "Siesta",
+		"option3": "Congelación",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los restos de animales antiguos que se han vuelto roca?",
+		"option0": "Piedras preciosas",
+		"option1": "Fósiles",
+		"option2": "Estatutas",
+		"option3": "Conchas",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué causa que existan el día y la noche?",
+		"option0": "Que la Luna se apague",
+		"option1": "Que el Sol se mueva",
+		"option2": "Que la Tierra gire sobre sí misma",
+		"option3": "Que las nubes tapen la luz",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tienen en común todos los mamíferos?",
+		"option0": "Que todos vuelan",
+		"option1": "Que beben leche de sus madres",
+		"option2": "Que tienen escamas",
+		"option3": "Que viven bajo el agua",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la galaxia donde vivimos?",
+		"option0": "Andrómeda",
+		"option1": "Vía Láctea",
+		"option2": "Cinturón de Orión",
+		"option3": "Galaxia Solar",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué hay en el centro exacto de la Tierra?",
+		"option0": "Un océano",
+		"option1": "Aire",
+		"option2": "Un núcleo muy caliente",
+		"option3": "Hielo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿De qué están formadas principalmente las nubes?",
+		"option0": "De algodón",
+		"option1": "De humo blanco",
+		"option2": "De gotas de agua diminutas",
+		"option3": "De polvo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿De qué está hecho el esqueleto de un tiburón?",
+		"option0": "De hueso duro",
+		"option1": "De cartílago flexible",
+		"option2": "De madera",
+		"option3": "De hierro",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué necesitan las plantas para fabricar su propio alimento?",
+		"option0": "Luz del sol y agua",
+		"option1": "Carne",
+		"option2": "Fruta",
+		"option3": "Leche",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Para qué sirve nuestro esqueleto?",
+		"option0": "Para digerir la comida",
+		"option1": "Para respirar mejor",
+		"option2": "Para sostener el cuerpo y proteger órganos",
+		"option3": "Para ver en la oscuridad",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estas aves no puede volar pero es una gran nadadora?",
+		"option0": "El águila",
+		"option1": "El pingüino",
+		"option2": "El loro",
+		"option3": "El canario",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué líquido de nuestra boca ayuda a empezar la digestión?",
+		"option0": "Agua",
+		"option1": "Sangre",
+		"option2": "Saliva",
+		"option3": "Zumo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué es el viento?",
+		"option0": "Aire en movimiento",
+		"option1": "Gas invisible quieto",
+		"option2": "Nubes que caen",
+		"option3": "El frío del espacio",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué instrumento nos ayuda a saber dónde está el Norte?",
+		"option0": "El reloj",
+		"option1": "La brújula",
+		"option2": "El termómetro",
+		"option3": "La regla",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿A qué temperatura empieza a hervir el agua?",
+		"option0": "A 10 grados",
+		"option1": "A 100 grados",
+		"option2": "A 50 grados",
+		"option3": "A 500 grados",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué vemos en el cielo cuando hay una descarga eléctrica en una tormenta?",
+		"option0": "Un trueno",
+		"option1": "Una nube",
+		"option2": "Un relámpago",
+		"option3": "Granizo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el planeta que está más cerca del Sol?",
+		"option0": "Venus",
+		"option1": "Mercurio",
+		"option2": "Marte",
+		"option3": "La Tierra",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué órgano del cuerpo es el más grande de todos?",
+		"option0": "Los pulmones",
+		"option1": "El hígado",
+		"option2": "La piel",
+		"option3": "El fémur",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a los animales que pueden vivir tanto en el agua como en la tierra?",
+		"option0": "Anfibios",
+		"option1": "Reptiles",
+		"option2": "Peces",
+		"option3": "Mamíferos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos corazones tiene un pulpo?",
+		"option0": "Uno",
+		"option1": "Dos",
+		"option2": "Tres",
+		"option3": "Ocho",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte de nuestro cuerpo nos permite doblar el brazo?",
+		"option0": "El tobillo",
+		"option1": "El codo",
+		"option2": "La muñeca",
+		"option3": "El cuello",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de animal es una ballena?",
+		"option0": "Un pez",
+		"option1": "Un anfibio",
+		"option2": "Un reptil",
+		"option3": "Un mamífero",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gas expulsamos los humanos al respirar?",
+		"option0": "Oxígeno",
+		"option1": "Dióxido de carbono",
+		"option2": "Helio",
+		"option3": "Vapor de agua",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el animal que lleva a sus crías en una bolsa llamada marsupio?",
+		"option0": "Koala",
+		"option1": "Canguro",
+		"option2": "Oso panda",
+		"option3": "Cebra",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal es capaz de cambiar el color de su piel para esconderse?",
+		"option0": "Iguana",
+		"option1": "Serpiente",
+		"option2": "Camaleón",
+		"option3": "Tortuga",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué usamos para ver seres vivos muy pequeños que no se ven a simple vista?",
+		"option0": "Telescopio",
+		"option1": "Microscopio",
+		"option2": "Gafas de sol",
+		"option3": "Binoculares",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué es más rápido en el universo?",
+		"option0": "El sonido",
+		"option1": "Un avión",
+		"option2": "La luz",
+		"option3": "Un coche de carreras",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuántos colores tiene el arcoíris?",
+		"option0": "Cinco",
+		"option1": "Siete",
+		"option2": "Diez",
+		"option3": "Tres",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿De qué está hecho el diamante, el material natural más duro?",
+		"option0": "De hierro",
+		"option1": "De carbono",
+		"option2": "De cristal",
+		"option3": "De oro",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte del cuerpo humano se encarga de digerir la comida?",
+		"option0": "El cerebro",
+		"option1": "Los pulmones",
+		"option2": "El estómago",
+		"option3": "Los riñones",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal marino no tiene cerebro ni corazón?",
+		"option0": "Delfín",
+		"option1": "Cangrejo",
+		"option2": "Medusa",
+		"option3": "Pulpo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Para qué sirve la lengua principalmente?",
+		"option0": "Para escuchar",
+		"option1": "Para ver",
+		"option2": "Para saborear",
+		"option3": "Para oler",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de energía nos da una pila o batería?",
+		"option0": "Energía solar",
+		"option1": "Energía eléctrica",
+		"option2": "Energía del viento",
+		"option3": "Energía magnética",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Por dónde respiran los peces bajo el agua?",
+		"option0": "Por la nariz",
+		"option1": "Por la boca",
+		"option2": "Por las branquias",
+		"option3": "Por las escamas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el movimiento de la Tierra que dura 365 días?",
+		"option0": "Rotación",
+		"option1": "Traslación",
+		"option2": "Vibración",
+		"option3": "Inclinación",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué le sucede al chocolate si lo dejas al sol mucho tiempo?",
+		"option0": "Se congela",
+		"option1": "Se derrite",
+		"option2": "Se evapora",
+		"option3": "Se endurece",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué pájaro es famoso por poder volar hacia atrás?",
+		"option0": "Águila",
+		"option1": "Búho",
+		"option2": "Colibrí",
+		"option3": "Cuervo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los animales que nacen de la barriga de su madre?",
+		"option0": "Ovíparos",
+		"option1": "Vivíparos",
+		"option2": "Insectos",
+		"option3": "Reptiles",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué mineral es muy importante para que nuestros huesos estén fuertes?",
+		"option0": "Hierro",
+		"option1": "Calcio",
+		"option2": "Sal",
+		"option3": "Azúcar",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal usa su lengua para oler y probar el aire?",
+		"option0": "La serpiente",
+		"option1": "El perro",
+		"option2": "El gato",
+		"option3": "El pájaro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los científicos que estudian los planetas y las estrellas?",
+		"option0": "Biólogos",
+		"option1": "Geólogos",
+		"option2": "Astrónomos",
+		"option3": "Médicos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el planeta más caluroso de nuestro Sistema Solar?",
+		"option0": "Mercurio",
+		"option1": "Marte",
+		"option2": "Venus",
+		"option3": "Júpiter",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte de nuestro cuerpo nos ayuda a mantener el equilibrio para no caernos?",
+		"option0": "Los pies",
+		"option1": "Los oídos",
+		"option2": "La nariz",
+		"option3": "Los ojos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el animal que sale de un capullo tras ser una oruga?",
+		"option0": "Libélula",
+		"option1": "Mariposa",
+		"option2": "Grillo",
+		"option3": "Mariquita",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué par de órganos usamos para llenarnos de aire al respirar?",
+		"option0": "Los pulmones",
+		"option1": "Los riñones",
+		"option2": "Los intestinos",
+		"option3": "Las costillas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿En qué animal marino es el padre el que lleva los huevos en su bolsa?",
+		"option0": "El delfín",
+		"option1": "El tiburón",
+		"option2": "El caballito de mar",
+		"option3": "La medusa",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué dibujo único tenemos todos en la yema de los dedos?",
+		"option0": "Líneas de la suerte",
+		"option1": "Cicatrices",
+		"option2": "Manchas solares",
+		"option3": "Huellas dactilares",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿De qué color es la piel de un oso polar debajo de su pelo blanco?",
+		"option0": "Rosa",
+		"option1": "Negra",
+		"option2": "Blanca",
+		"option3": "Gris",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el sonido que escuchamos después de ver un rayo?",
+		"option0": "Trueno",
+		"option1": "Eco",
+		"option2": "Silbido",
+		"option3": "Explosión",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué parte del ojo humano cambia de tamaño según la luz que haya?",
+		"option0": "La pestaña",
+		"option1": "El párpado",
+		"option2": "La pupila",
+		"option3": "La ceja",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué material es atraído por un imán?",
+		"option0": "Plástico",
+		"option1": "Madera",
+		"option2": "Papel",
+		"option3": "Hierro",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el lugar del mundo donde casi nunca llueve y hay mucha arena?",
+		"option0": "Selva",
+		"option1": "Desierto",
+		"option2": "Bosque",
+		"option3": "Pradera",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué nos permite mover los huesos de nuestro cuerpo?",
+		"option0": "La piel",
+		"option1": "La sangre",
+		"option2": "Los músculos",
+		"option3": "Las uñas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿De qué están hechos el pelo y las uñas de las personas?",
+		"option0": "De calcio",
+		"option1": "De queratina",
+		"option2": "De azúcar",
+		"option3": "De cartílago",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué insecto es capaz de levantar objetos mucho más pesados que él mismo?",
+		"option0": "La hormiga",
+		"option1": "La mosca",
+		"option2": "El mosquito",
+		"option3": "La mariposa",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el color primario que falta en esta lista: Rojo, Azul y...?",
+		"option0": "Verde",
+		"option1": "Naranja",
+		"option2": "Amarillo",
+		"option3": "Rosa",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama cuando el sonido rebota en una pared y vuelve a nosotros?",
+		"option0": "Rayo",
+		"option1": "Eco",
+		"option2": "Viento",
+		"option3": "Ruido",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Por qué las estrellas parecen pequeñitas en el cielo?",
+		"option0": "Porque son canicas",
+		"option1": "Porque están muy lejos",
+		"option2": "Porque no brillan",
+		"option3": "Porque son bebés",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de agua hay en los océanos y mares?",
+		"option0": "Dulce",
+		"option1": "Picante",
+		"option2": "Salada",
+		"option3": "Fría solamente",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal puede girar su cabeza casi por completo hacia atrás?",
+		"option0": "El búho",
+		"option1": "El águila",
+		"option2": "El loro",
+		"option3": "La paloma",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a la estrella que es el centro de nuestro sistema?",
+		"option0": "La Luna",
+		"option1": "El Sol",
+		"option2": "Sirio",
+		"option3": "Polar",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué le pasa a un globo si lo frotas contra tu pelo y luego lo acercas a la pared?",
+		"option0": "Se explota",
+		"option1": "Se queda pegado",
+		"option2": "Se congela",
+		"option3": "Cambia de color",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el planeta que está más lejos del Sol?",
+		"option0": "Urano",
+		"option1": "Plutón",
+		"option2": "Saturno",
+		"option3": "Neptuno",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama una tormenta de viento muy fuerte que gira en círculos?",
+		"option0": "Tornado",
+		"option1": "Lluvia",
+		"option2": "Bruma",
+		"option3": "Ola",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal usa su trompa para beber agua y para ducharse?",
+		"option0": "Rinoceronte",
+		"option1": "Elefante",
+		"option2": "Hipopótamo",
+		"option3": "Jirafa",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman los árboles que pierden sus hojas cuando llega el otoño?",
+		"option0": "Árboles de hoja perenne",
+		"option1": "Árboles frutales",
+		"option2": "Árboles de hoja caduca",
+		"option3": "Árboles de plástico",
+		"correctAnswerIndex": 2
+	}
+]

@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué jugador de baloncesto ostenta el récord de más puntos anotados en un solo partido de la NBA con un total de 100?",
+		"option0": "Michael Jordan",
+		"option1": "Kobe Bryant",
+		"option2": "Wilt Chamberlain",
+		"option3": "Kareem Abdul-Jabbar",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cada cuántos años se celebra habitualmente la Copa Mundial de la FIFA de fútbol?",
+		"option0": "Cada 2 años",
+		"option1": "Cada 4 años",
+		"option2": "Cada 5 años",
+		"option3": "Cada 6 años",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad se celebraron los primeros Juegos Olímpicos de la era moderna en el año 1896?",
+		"option0": "París",
+		"option1": "Roma",
+		"option2": "Londres",
+		"option3": "Atenas",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la distancia exacta, en kilómetros y metros, de una carrera de maratón oficial?",
+		"option0": "42,195 km",
+		"option1": "40,000 km",
+		"option2": "45,500 km",
+		"option3": "38,250 km",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué color es el maillot que identifica al líder de la clasificación general en el Tour de Francia?",
+		"option0": "Rojo",
+		"option1": "Verde",
+		"option2": "Amarillo",
+		"option3": "Blanco",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el trofeo que se otorga anualmente al equipo ganador de la Super Bowl en la NFL?",
+		"option0": "Trofeo Larry O'Brien",
+		"option1": "Trofeo Vince Lombardi",
+		"option2": "Copa Stanley",
+		"option3": "Trofeo Heisman",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos jugadores por equipo hay simultáneamente en la pista durante un partido oficial de voleibol?",
+		"option0": "5 jugadores",
+		"option1": "6 jugadores",
+		"option2": "7 jugadores",
+		"option3": "11 jugadores",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Sobre qué superficie se disputa el prestigioso torneo de tenis de Roland Garros?",
+		"option0": "Césped",
+		"option1": "Pista dura",
+		"option2": "Tierra batida",
+		"option3": "Parqué",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién es el deportista con más medallas olímpicas de oro en la historia de los Juegos Olímpicos?",
+		"option0": "Michael Phelps",
+		"option1": "Usain Bolt",
+		"option2": "Carl Lewis",
+		"option3": "Larisa Latýnina",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué selección nacional de fútbol masculina ha ganado más Copas del Mundo de la FIFA hasta la actualidad?",
+		"option0": "Alemania",
+		"option1": "Italia",
+		"option2": "Argentina",
+		"option3": "Brasil",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En el mundo del golf, cómo se denomina al golpe que permite introducir la bola en el hoyo con un impacto menos que el par?",
+		"option0": "Eagle",
+		"option1": "Birdie",
+		"option2": "Bogey",
+		"option3": "Albatros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se celebra el torneo de tenis de Wimbledon?",
+		"option0": "Estados Unidos",
+		"option1": "Francia",
+		"option2": "Reino Unido",
+		"option3": "Australia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el tiempo del récord mundial establecido por Usain Bolt en los 100 metros lisos en Berlín 2009?",
+		"option0": "9,69 segundos",
+		"option1": "9,58 segundos",
+		"option2": "9,72 segundos",
+		"option3": "9,45 segundos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántas entradas (o innings) completas se juegan normalmente en un partido de béisbol profesional?",
+		"option0": "7 entradas",
+		"option1": "10 entradas",
+		"option2": "9 entradas",
+		"option3": "12 entradas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué gimnasta fue la primera en la historia en recibir una puntuación de 10 perfecto en unos Juegos Olímpicos?",
+		"option0": "Simone Biles",
+		"option1": "Nadia Comăneci",
+		"option2": "Svetlana Khorkina",
+		"option3": "Yelena Shushunova",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué deporte pertenecen los famosos equipos New York Yankees y Boston Red Sox?",
+		"option0": "Fútbol Americano",
+		"option1": "Baloncesto",
+		"option2": "Béisbol",
+		"option3": "Hockey sobre hielo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Bajo qué nombre de nacimiento era conocido el boxeador Muhammad Ali antes de su conversión al Islam?",
+		"option0": "Joe Frazier",
+		"option1": "Sugar Ray Robinson",
+		"option2": "George Foreman",
+		"option3": "Cassius Clay",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué país suramericano fue el encargado de organizar y ganar la primera Copa Mundial de Fútbol en 1930?",
+		"option0": "Uruguay",
+		"option1": "Brasil",
+		"option2": "Argentina",
+		"option3": "Chile",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el objeto con plumas (o plástico) que se golpea con la raqueta en un partido de bádminton?",
+		"option0": "Pelota",
+		"option1": "Volante",
+		"option2": "Disco",
+		"option3": "Bolo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos puntos suma un jugador de baloncesto si anota un tiro libre tras una falta personal?",
+		"option0": "2 puntos",
+		"option1": "1 punto",
+		"option2": "3 puntos",
+		"option3": "0,5 puntos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué marca automovilística de Fórmula 1 es conocida por su logotipo de un caballo negro sobre fondo amarillo?",
+		"option0": "McLaren",
+		"option1": "Mercedes",
+		"option2": "Red Bull",
+		"option3": "Ferrari",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué deporte invernal se utiliza una escoba para barrer el hielo y dirigir una piedra circular?",
+		"option0": "Skeleton",
+		"option1": "Luge",
+		"option2": "Curling",
+		"option3": "Bobsleigh",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién es el máximo goleador histórico de la selección española de fútbol masculina?",
+		"option0": "Raúl González",
+		"option1": "Fernando Torres",
+		"option2": "David Villa",
+		"option3": "Álvaro Morata",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el significado literal de la palabra japonesa 'Judo', nombre del arte marcial olímpico?",
+		"option0": "Mano vacía",
+		"option1": "Camino de la suavidad",
+		"option2": "Golpe certero",
+		"option3": "Lucha eterna",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad de California juegan sus partidos como locales los equipos de la NBA Lakers y Clippers?",
+		"option0": "San Francisco",
+		"option1": "Sacramento",
+		"option2": "San Diego",
+		"option3": "Los Ángeles",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué ciclista español logró la hazaña de ganar cinco Tours de Francia de forma consecutiva entre 1991 y 1995?",
+		"option0": "Alberto Contador",
+		"option1": "Miguel Induráin",
+		"option2": "Federico Martín Bahamontes",
+		"option3": "Pedro Delgado",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos puntos vale un 'touchdown' en el fútbol americano (sin contar el punto extra o la conversión)?",
+		"option0": "3 puntos",
+		"option1": "7 puntos",
+		"option2": "10 puntos",
+		"option3": "6 puntos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué selección nacional de rugby es famosa por realizar la danza maorí conocida como 'Haka' antes de sus partidos?",
+		"option0": "Australia (Wallabies)",
+		"option1": "Sudáfrica (Springboks)",
+		"option2": "Nueva Zelanda (All Blacks)",
+		"option3": "Fiyi (Flying Fijians)",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el nombre del trofeo que se entrega al equipo campeón de la UEFA Champions League, conocido coloquialmente como 'La Orejona'?",
+		"option0": "Copa de Maestros",
+		"option1": "Trofeo Jules Rimet",
+		"option2": "Copa de Clubes Campeones Europeos",
+		"option3": "Copa Intercontinental",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad se disputa tradicionalmente el torneo de golf 'The Masters', donde el ganador recibe una chaqueta verde?",
+		"option0": "Augusta",
+		"option1": "Pebble Beach",
+		"option2": "St. Andrews",
+		"option3": "Orlando",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién ostenta el récord de ser el boxeador más joven de la historia en ganar un título mundial de los pesos pesados?",
+		"option0": "Evander Holyfield",
+		"option1": "Mike Tyson",
+		"option2": "Lennox Lewis",
+		"option3": "Rocky Marciano",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos anillos entrelazados componen el símbolo oficial de los Juegos Olímpicos?",
+		"option0": "4 anillos",
+		"option1": "6 anillos",
+		"option2": "5 anillos",
+		"option3": "3 anillos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿De qué nacionalidad era el legendario piloto de Fórmula 1 Ayrton Senna, tres veces campeón del mundo?",
+		"option0": "Italiana",
+		"option1": "Portuguesa",
+		"option2": "Argentina",
+		"option3": "Brasileña",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el número máximo de segundos que tiene un equipo de la NBA para lanzar a canasta antes de que pite el reloj de posesión?",
+		"option0": "24 segundos",
+		"option1": "30 segundos",
+		"option2": "20 segundos",
+		"option3": "14 segundos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama la técnica de salto de altura, utilizada por casi todos los atletas hoy en día, en la que se pasa el listón de espaldas?",
+		"option0": "Salto de Tijera",
+		"option1": "Fosbury Flop",
+		"option2": "Rodillo Ventral",
+		"option3": "Salto de Pértiga",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué país ha ganado el mayor número de ediciones de la Copa Davis de tenis hasta la fecha?",
+		"option0": "España",
+		"option1": "Australia",
+		"option2": "Francia",
+		"option3": "Estados Unidos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el color del círculo central en una diana estándar de tiro con arco, que otorga la máxima puntuación?",
+		"option0": "Rojo",
+		"option1": "Amarillo (Oro)",
+		"option2": "Azul",
+		"option3": "Blanco",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama en béisbol cuando un bateador golpea la bola y logra recorrer todas las bases hasta anotar una carrera en la misma jugada?",
+		"option0": "Strike",
+		"option1": "Bunt",
+		"option2": "Home Run",
+		"option3": "Foul",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué histórico jugador de fútbol es el único en haber ganado tres Copas Mundiales de la FIFA como jugador?",
+		"option0": "Diego Maradona",
+		"option1": "Franz Beckenbauer",
+		"option2": "Zinedine Zidane",
+		"option3": "Pelé",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se denomina al último clasificado de la clasificación general en el Tour de Francia, que recibe un reconocimiento simbólico?",
+		"option0": "Lanterne Rouge (Farolillo Rojo)",
+		"option1": "Maillot Vert",
+		"option2": "Grimpeur",
+		"option3": "Domestique",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se originó el arte marcial del Sumo, donde los luchadores intentan sacar al oponente de un círculo?",
+		"option0": "China",
+		"option1": "Corea del Sur",
+		"option2": "Japón",
+		"option3": "Tailandia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la nacionalidad del gran maestro de ajedrez Magnus Carlsen, considerado uno de los mejores de la historia?",
+		"option0": "Rusa",
+		"option1": "Sueca",
+		"option2": "Noruega",
+		"option3": "Danesa",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué estilo de natación es conocido por su movimiento de brazos simultáneo similar al aleteo de un insecto?",
+		"option0": "Crol",
+		"option1": "Espalda",
+		"option2": "Braza",
+		"option3": "Mariposa",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué selección de fútbol africana fue la primera en la historia en alcanzar las semifinales de un Mundial (Catar 2022)?",
+		"option0": "Camerún",
+		"option1": "Nigeria",
+		"option2": "Marruecos",
+		"option3": "Senegal",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué deporte se utiliza un disco de caucho duro llamado 'puck' en lugar de una pelota?",
+		"option0": "Lacrosse",
+		"option1": "Polo",
+		"option2": "Hockey sobre hielo",
+		"option3": "Floorball",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál de estas es una de las tres armas utilizadas en la esgrima deportiva moderna?",
+		"option0": "Daga",
+		"option1": "Sable",
+		"option2": "Alabarda",
+		"option3": "Estoque",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué distancia se encuentra el punto de penalti con respecto a la línea de gol en el fútbol profesional?",
+		"option0": "9,15 metros",
+		"option1": "11 metros",
+		"option2": "12 metros",
+		"option3": "10 metros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos jugadores forman el equipo inicial dentro del agua en un partido de waterpolo (incluyendo al portero)?",
+		"option0": "6 jugadores",
+		"option1": "8 jugadores",
+		"option2": "5 jugadores",
+		"option3": "7 jugadores",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué modalidad de patinaje artístico se realiza el famoso salto llamado 'Axel'?",
+		"option0": "Sobre hielo",
+		"option1": "Sobre ruedas",
+		"option2": "En línea",
+		"option3": "De velocidad",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién fue el primer atleta en bajar de las 2 horas en la distancia de maratón (aunque fuera en una prueba no oficial)?",
+		"option0": "Haile Gebrselassie",
+		"option1": "Eliud Kipchoge",
+		"option2": "Kenenisa Bekele",
+		"option3": "Kelvin Kiptum",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué legendario piloto de motociclismo se le conoce popularmente con el apodo de 'Il Dottore'?",
+		"option0": "Marc Márquez",
+		"option1": "Valentino Rossi",
+		"option2": "Giacomo Agostini",
+		"option3": "Jorge Lorenzo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la puntuación necesaria para ganar un set en el tenis de mesa (ping-pong) moderno?",
+		"option0": "21 puntos",
+		"option1": "15 puntos",
+		"option2": "11 puntos",
+		"option3": "25 puntos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos jugadores de cada equipo hay en el campo durante un partido de balonmano?",
+		"option0": "7 jugadores",
+		"option1": "11 jugadores",
+		"option2": "5 jugadores",
+		"option3": "6 jugadores",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué combinación de disciplinas deportivas forma la prueba olímpica de invierno conocida como Biatlón?",
+		"option0": "Salto de esquí y bobsleigh",
+		"option1": "Patinaje de velocidad y curling",
+		"option2": "Esquí de fondo y tiro con rifle",
+		"option3": "Hockey sobre hielo y snowboard",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué color es el maillot que viste el líder de la clasificación general en el Giro de Italia?",
+		"option0": "Rojo (Maglia Rossa)",
+		"option1": "Azul (Maglia Azzurra)",
+		"option2": "Blanco (Maglia Bianca)",
+		"option3": "Rosa (Maglia Rosa)",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué equipo de la NBA ostenta el récord de más títulos ganados en la historia tras superar los 17 trofeos en 2024?",
+		"option0": "Los Angeles Lakers",
+		"option1": "Boston Celtics",
+		"option2": "Golden State Warriors",
+		"option3": "Chicago Bulls",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántas casillas blancas y negras tiene en total un tablero de ajedrez estándar?",
+		"option0": "32 casillas",
+		"option1": "100 casillas",
+		"option2": "64 casillas",
+		"option3": "81 casillas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué revista francesa es la encargada de organizar y entregar anualmente el prestigioso galardón del Balón de Oro?",
+		"option0": "L'Équipe",
+		"option1": "Le Monde",
+		"option2": "France Football",
+		"option3": "Sport Mag",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el golpe en el que un golfista logra meter la bola en el hoyo desde el lugar de salida en un solo intento?",
+		"option0": "Ace (Hoyo en uno)",
+		"option1": "Double Eagle",
+		"option2": "Smash",
+		"option3": "Drive",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "En el sistema de puntuación del tenis, ¿qué palabra se utiliza tradicionalmente para indicar que un jugador tiene 'cero' puntos?",
+		"option0": "Null",
+		"option1": "Love",
+		"option2": "Nada",
+		"option3": "Zero",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántas pruebas distintas debe completar un atleta en la modalidad de decatlón?",
+		"option0": "5 pruebas",
+		"option1": "8 pruebas",
+		"option2": "10 pruebas",
+		"option3": "12 pruebas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la longitud estándar de un campo de fútbol americano de la NFL, sin incluir las zonas de anotación?",
+		"option0": "100 yardas",
+		"option1": "80 yardas",
+		"option2": "120 yardas",
+		"option3": "110 yardas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué color suele ser el cinturón de un principiante absoluto que comienza a practicar Karate?",
+		"option0": "Amarillo",
+		"option1": "Negro",
+		"option2": "Rojo",
+		"option3": "Blanco",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "En el juego de billar Snooker, ¿cuál es el valor en puntos de la bola negra?",
+		"option0": "5 puntos",
+		"option1": "7 puntos",
+		"option2": "10 puntos",
+		"option3": "1 punto",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se denomina al trofeo que se otorga al máximo goleador de la Primera División de España al final de cada temporada?",
+		"option0": "Trofeo Zamora",
+		"option1": "Trofeo Zarra",
+		"option2": "Trofeo Pichichi",
+		"option3": "Bota de Oro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué famoso skater fue el primero en completar un giro de 900 grados (dos vueltas y media) en competición oficial en 1999?",
+		"option0": "Tony Hawk",
+		"option1": "Rodney Mullen",
+		"option2": "Bam Margera",
+		"option3": "Bucky Lasek",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué río inglés se disputa la histórica regata anual de remo entre las universidades de Oxford y Cambridge?",
+		"option0": "Río Avon",
+		"option1": "Río Mersey",
+		"option2": "Río Támesis",
+		"option3": "Río Trent",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué archipiélago se encuentra Banzai Pipeline, una de las olas más famosas y peligrosas para la práctica del surf?",
+		"option0": "Islas Canarias",
+		"option1": "Polinesia Francesa",
+		"option2": "Hawái",
+		"option3": "Islas Azores",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué animal se utiliza obligatoriamente para practicar el deporte del Polo?",
+		"option0": "Camello",
+		"option1": "Elefante",
+		"option2": "Caballo",
+		"option3": "Perro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad (actualmente parte de la R.D. del Congo) tuvo lugar el mítico combate de boxeo 'The Rumble in the Jungle'?",
+		"option0": "Johannesburgo",
+		"option1": "Kinshasa",
+		"option2": "Nairobi",
+		"option3": "El Cairo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién es el piloto de Fórmula 1 con más victorias en Grandes Premios de la historia hasta el inicio de la temporada 2026?",
+		"option0": "Michael Schumacher",
+		"option1": "Max Verstappen",
+		"option2": "Sebastian Vettel",
+		"option3": "Lewis Hamilton",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "En el pádel profesional, ¿cuál es la altura máxima permitida a la que se puede golpear la pelota al realizar un saque?",
+		"option0": "Por encima de la cabeza",
+		"option1": "A la altura del hombro",
+		"option2": "Por debajo de la cintura",
+		"option3": "A la altura de la rodilla",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué apodo recibe el nadador Michael Phelps, en referencia a su ciudad natal y su increíble velocidad?",
+		"option0": "El Misil Humano",
+		"option1": "El Tiburón de Baltimore",
+		"option2": "La Bala de Maryland",
+		"option3": "El Poseidón Americano",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué selección nacional de críquet ha ganado el mayor número de Copas Mundiales de la ICC en formato masculino?",
+		"option0": "India",
+		"option1": "Indias Occidentales (West Indies)",
+		"option2": "Australia",
+		"option3": "Inglaterra",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué material suelen estar fabricadas las pelotas utilizadas en el deporte del Squash?",
+		"option0": "Cuero sintético",
+		"option1": "Goma (caucho)",
+		"option2": "Fieltro",
+		"option3": "Plástico rígido",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "En el fútbol americano de la NFL, ¿cuántos puntos suma un equipo al anotar un 'Field Goal' o gol de campo?",
+		"option0": "1 punto",
+		"option1": "2 puntos",
+		"option2": "3 puntos",
+		"option3": "6 puntos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué bandera se agita en la línea de meta para indicar el final de una carrera de automovilismo o motociclismo?",
+		"option0": "Bandera a cuadros",
+		"option1": "Bandera roja",
+		"option2": "Bandera amarilla",
+		"option3": "Bandera azul",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos torneos forman el circuito del Grand Slam de tenis en una temporada oficial?",
+		"option0": "2 torneos",
+		"option1": "3 torneos",
+		"option2": "5 torneos",
+		"option3": "4 torneos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué altura exacta del suelo se encuentra el aro en una canasta de baloncesto reglamentaria de la FIBA y la NBA?",
+		"option0": "2,90 metros",
+		"option1": "3,05 metros",
+		"option2": "3,15 metros",
+		"option3": "3,00 metros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el lema oficial de los Juegos Olímpicos, propuesto originalmente en latín?",
+		"option0": "Mens sana in corpore sano",
+		"option1": "Spiritus in motu",
+		"option2": "Citius, Altius, Fortius",
+		"option3": "Ora et labora",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué término se utiliza en el fútbol cuando un mismo jugador anota tres goles en un solo partido?",
+		"option0": "Hat-trick",
+		"option1": "Touchdown",
+		"option2": "Home Run",
+		"option3": "Checkmate",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuántos puntos vale un 'try' o ensayo en un partido de rugby unión?",
+		"option0": "3 puntos",
+		"option1": "5 puntos",
+		"option2": "7 puntos",
+		"option3": "2 puntos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué disciplina deportiva se compite por el histórico trofeo conocido como la Copa del América?",
+		"option0": "Hípica",
+		"option1": "Polo",
+		"option2": "Automovilismo",
+		"option3": "Vela",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué tres competiciones debe ganar un piloto para obtener la 'Triple Corona' del automovilismo?",
+		"option0": "GP de Mónaco, 24 Horas de Le Mans y 500 Millas de Indianápolis",
+		"option1": "GP de Italia, Rally de Montecarlo y 24 Horas de Daytona",
+		"option2": "GP de Gran Bretaña, 12 Horas de Sebring e Indy 500",
+		"option3": "GP de Bélgica, 24 Horas de Spa y 1000 km de Suzuka",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "En el juego de los dardos, ¿cuál es la puntuación máxima que se puede obtener con un solo lanzamiento?",
+		"option0": "50 puntos",
+		"option1": "20 puntos",
+		"option2": "60 puntos",
+		"option3": "100 puntos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la superficie o colchoneta sobre la que se practican artes marciales como el judo o el karate?",
+		"option0": "Ring",
+		"option1": "Tatami",
+		"option2": "Parqué",
+		"option3": "Dojo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué hito histórico logró Steffi Graf en 1988 al ganar los 4 Grand Slams y el oro olímpico el mismo año?",
+		"option0": "Super Slam",
+		"option1": "Grand Masters",
+		"option2": "Career Slam",
+		"option3": "Golden Slam",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Desde el año 2010, de qué color es el maillot que identifica al líder de la Vuelta Ciclista a España?",
+		"option0": "Amarillo",
+		"option1": "Rosa",
+		"option2": "Rojo",
+		"option3": "Oro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuántas pruebas combinadas de atletismo componen la modalidad femenina del heptatlón?",
+		"option0": "7 pruebas",
+		"option1": "5 pruebas",
+		"option2": "10 pruebas",
+		"option3": "8 pruebas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué deporte se celebra la Ryder Cup, una famosa competición bienal entre equipos de Europa y Estados Unidos?",
+		"option0": "Tenis",
+		"option1": "Golf",
+		"option2": "Críquet",
+		"option3": "Esgrima",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué deporte pertenece la posición de 'líbero', un jugador especialista en tareas defensivas que viste un color distinto?",
+		"option0": "Balonmano",
+		"option1": "Baloncesto",
+		"option2": "Fútbol sala",
+		"option3": "Voleibol",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos anillos de campeón de la NBA ganó Michael Jordan con los Chicago Bulls?",
+		"option0": "4 anillos",
+		"option1": "5 anillos",
+		"option2": "6 anillos",
+		"option3": "7 anillos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué significa que un ciclista vista el maillot de lunares rojos en el Tour de Francia?",
+		"option0": "Es el líder de la clasificación de la montaña",
+		"option1": "Es el corredor más joven",
+		"option2": "Es el líder de la clasificación por puntos",
+		"option3": "Es el corredor más combativo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el orden reglamentario de las disciplinas en una prueba de triatlón estándar?",
+		"option0": "Ciclismo, natación y carrera a pie",
+		"option1": "Natación, ciclismo y carrera a pie",
+		"option2": "Carrera a pie, natación y ciclismo",
+		"option3": "Ciclismo, carrera a pie y natación",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué edición de los Juegos Olímpicos de la era moderna se permitió por primera vez la participación de mujeres?",
+		"option0": "Atenas 1896",
+		"option1": "Londres 1908",
+		"option2": "San Luis 1904",
+		"option3": "París 1900",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué deporte es fundamental el papel del 'Quarterback' como líder de la estrategia ofensiva?",
+		"option0": "Béisbol",
+		"option1": "Rugby",
+		"option2": "Fútbol Americano",
+		"option3": "Lacrosse",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿En cuántos periodos o tiempos de juego se divide un partido oficial de hockey sobre hielo?",
+		"option0": "3 periodos",
+		"option1": "2 periodos",
+		"option2": "4 periodos",
+		"option3": "1 periodo único",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué distancia se sitúa la línea de tres puntos del aro en el baloncesto según el reglamento de la FIBA?",
+		"option0": "6,25 metros",
+		"option1": "6,75 metros",
+		"option2": "7,24 metros",
+		"option3": "6,50 metros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál de estas es una de las tres armas utilizadas en esgrima donde solo se permite tocar con la punta del arma?",
+		"option0": "Alfanje",
+		"option1": "Cimitarra",
+		"option2": "Katana",
+		"option3": "Florete",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "ORANGE_SPORT",
+		"targetAudience": "ADULT",
+		"questionText": "Según la leyenda, ¿entre qué dos ciudades griegas corrió el soldado Filípides para anunciar la victoria antes de morir?",
+		"option0": "Esparta y Atenas",
+		"option1": "Maratón y Atenas",
+		"option2": "Olimpia y Atenas",
+		"option3": "Maratón y Esparta",
+		"correctAnswerIndex": 1
+	}
+]

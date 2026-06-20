@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién pintó el famoso cuadro 'Las Meninas'?",
+		"option0": "Francisco de Goya",
+		"option1": "Pablo Picasso",
+		"option2": "Diego Velázquez",
+		"option3": "Bartolomé Esteban Murillo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué artista es conocido por pintar relojes derretidos en su obra 'La persistencia de la memoria'?",
+		"option0": "Salvador Dalí",
+		"option1": "Joan Miró",
+		"option2": "René Magritte",
+		"option3": "Frida Kahlo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad se encuentra el famoso museo del Louvre?",
+		"option0": "Londres",
+		"option1": "Roma",
+		"option2": "París",
+		"option3": "Madrid",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién esculpió el 'David' de mármol que se encuentra en la Galería de la Academia de Florencia?",
+		"option0": "Donatello",
+		"option1": "Bernini",
+		"option2": "Leonardo da Vinci",
+		"option3": "Miguel Ángel",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué técnica pictórica consiste en aplicar pequeños puntos de color que se mezclan en el ojo del espectador?",
+		"option0": "Cubismo",
+		"option1": "Puntillismo",
+		"option2": "Fauvismo",
+		"option3": "Expresionismo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál de estos artistas es el máximo representante del Pop Art?",
+		"option0": "Jackson Pollock",
+		"option1": "Mark Rothko",
+		"option2": "Claude Monet",
+		"option3": "Andy Warhol",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué pintor impresionista es famoso por su serie de cuadros sobre 'Los Nenúfares'?",
+		"option0": "Claude Monet",
+		"option1": "Edgar Degas",
+		"option2": "Pierre-Auguste Renoir",
+		"option3": "Édouard Manet",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el estilo artístico caracterizado por el uso dramático de luces y sombras (claroscuro), muy popular en el siglo XVII?",
+		"option0": "Renacimiento",
+		"option1": "Barroco",
+		"option2": "Rococó",
+		"option3": "Neoclasicismo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién pintó 'La noche estrellada' mientras estaba en un sanatorio?",
+		"option0": "Paul Gauguin",
+		"option1": "Vincent van Gogh",
+		"option2": "Henri Matisse",
+		"option3": "Gustav Klimt",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué arquitecto diseñó la Sagrada Familia en Barcelona?",
+		"option0": "Le Corbusier",
+		"option1": "Oscar Niemeyer",
+		"option2": "Frank Gehry",
+		"option3": "Antoni Gaudí",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué famosa pintora mexicana es conocida por sus numerosos autorretratos y su corona de flores?",
+		"option0": "Frida Kahlo",
+		"option1": "Remedios Varo",
+		"option2": "Leonora Carrington",
+		"option3": "Diego Rivera",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué siglo se desarrolló principalmente el movimiento del Renacimiento italiano?",
+		"option0": "Siglo XIII",
+		"option1": "Siglo XV",
+		"option2": "Siglo XIX",
+		"option3": "Siglo XVIII",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién es el autor de la obra 'El jardín de las delicias'?",
+		"option0": "El Bosco",
+		"option1": "Pieter Brueghel el Viejo",
+		"option2": "Alberto Durero",
+		"option3": "Jan van Eyck",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál de estas obras fue realizada por Leonardo da Vinci?",
+		"option0": "La escuela de Atenas",
+		"option1": "La joven de la perla",
+		"option2": "La última cena",
+		"option3": "El nacimiento de Venus",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué nombre recibe la pintura realizada directamente sobre una pared o techo, a menudo sobre yeso fresco?",
+		"option0": "Óleo",
+		"option1": "Fresco",
+		"option2": "Acuarela",
+		"option3": "Gouache",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál de estos colores se considera un 'color primario' en el modelo de color tradicional de los pintores?",
+		"option0": "Verde",
+		"option1": "Azul",
+		"option2": "Naranja",
+		"option3": "Violeta",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué artista noruego pintó la famosa obra expresionista 'El Grito'?",
+		"option0": "Edvard Munch",
+		"option1": "Kasper David Friedrich",
+		"option2": "Anders Zorn",
+		"option3": "Vilhelm Hammershøi",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué forma geométrica es fundamental en el estilo artístico inventado por Picasso y Braque?",
+		"option0": "El círculo",
+		"option1": "El rombo",
+		"option2": "El cubo",
+		"option3": "La estrella",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién pintó 'La joven de la perla'?",
+		"option0": "Rembrandt",
+		"option1": "Frans Hals",
+		"option2": "Anthony van Dyck",
+		"option3": "Johannes Vermeer",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la famosa estatua de una mujer sin brazos que se encuentra en el museo del Louvre?",
+		"option0": "Victoria de Samotracia",
+		"option1": "Venus de Milo",
+		"option2": "La Piedad",
+		"option3": "Nefertiti",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué escuela de diseño y arquitectura fue fundada en Alemania por Walter Gropius en 1919?",
+		"option0": "Bauhaus",
+		"option1": "Art Nouveau",
+		"option2": "De Stijl",
+		"option3": "Modernismo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién pintó el techo de la Capilla Sixtina?",
+		"option0": "Rafael Sanzio",
+		"option1": "Leonardo da Vinci",
+		"option2": "Miguel Ángel",
+		"option3": "Donatello",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué movimiento artístico pertenece la obra 'Impresión, sol naciente' de Claude Monet?",
+		"option0": "Impresionismo",
+		"option1": "Realismo",
+		"option2": "Romanticismo",
+		"option3": "Simbolismo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pintor español es famoso por sus 'Pinturas Negras'?",
+		"option0": "Joaquín Sorolla",
+		"option1": "Bartolomé Esteban Murillo",
+		"option2": "Francisco de Goya",
+		"option3": "Juan Gris",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el arte de crear figuras doblando papel, muy popular en Japón?",
+		"option0": "Ikebana",
+		"option1": "Haiku",
+		"option2": "Bonsái",
+		"option3": "Origami",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el título del libro más famoso de Miguel de Cervantes, considerado la primera novela moderna?",
+		"option0": "El lazarillo de Tormes",
+		"option1": "Don Quijote de la Mancha",
+		"option2": "La Galatea",
+		"option3": "Rinconete y Cortadillo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué famoso grabado en madera del artista japonés Hokusai muestra una enorme ola frente al monte Fuji?",
+		"option0": "La gran ola de Kanagawa",
+		"option1": "El mar de Japón",
+		"option2": "Tsunami en Edo",
+		"option3": "Reflejo en el agua",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué autor colombiano escribió la obra maestra del realismo mágico titulada 'Cien años de soledad'?",
+		"option0": "Mario Vargas Llosa",
+		"option1": "Julio Cortázar",
+		"option2": "Gabriel García Márquez",
+		"option3": "Isabel Allende",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad italiana se desarrolla la trágica historia de 'Romeo y Julieta' de William Shakespeare?",
+		"option0": "Venecia",
+		"option1": "Florencia",
+		"option2": "Roma",
+		"option3": "Verona",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la famosa escultura de bronce de Auguste Rodin que muestra a un hombre sentado en actitud meditabunda?",
+		"option0": "El orador",
+		"option1": "El pensador",
+		"option2": "El filósofo",
+		"option3": "El escritor",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué personaje literario vive en el asteroide B 612 y cuida de una rosa?",
+		"option0": "El Principito",
+		"option1": "Peter Pan",
+		"option2": "Oliver Twist",
+		"option3": "Tom Sawyer",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué enorme mural pintó Pablo Picasso en 1937 para representar el bombardeo de una ciudad vasca?",
+		"option0": "La persistencia",
+		"option1": "Las señoritas de Avignon",
+		"option2": "Guernica",
+		"option3": "El viejo guitarrista",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién es el creador del detective Sherlock Holmes, que vive en el 221B de Baker Street?",
+		"option0": "Agatha Christie",
+		"option1": "Arthur Conan Doyle",
+		"option2": "Edgar Allan Poe",
+		"option3": "Raymond Chandler",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué obra pictórica de Grant Wood muestra a un granjero y su hija (o esposa) con un gesto serio frente a una casa de madera?",
+		"option0": "Gótico estadounidense",
+		"option1": "Vida rural",
+		"option2": "El granjero solitario",
+		"option3": "Paisaje de Iowa",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué poema épico griego narra el largo viaje de regreso a casa de Odiseo tras la Guerra de Troya?",
+		"option0": "La Eneida",
+		"option1": "La Ilíada",
+		"option2": "La Teogonía",
+		"option3": "La Odisea",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál fue el regalo de Francia a los Estados Unidos para conmemorar el centenario de su independencia?",
+		"option0": "La Torre Eiffel",
+		"option1": "El Arco del Triunfo",
+		"option2": "La Estatua de la Libertad",
+		"option3": "El Obelisco de Washington",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué libro de J.K. Rowling aparece por primera vez el 'Sombrero Seleccionador'?",
+		"option0": "Harry Potter y la piedra filosofal",
+		"option1": "Harry Potter y la cámara secreta",
+		"option2": "Harry Potter y el prisionero de Azkaban",
+		"option3": "Harry Potter y el cáliz de fuego",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué emperador ordenó la construcción del Taj Mahal en la India como mausoleo para su esposa?",
+		"option0": "Akbar el Grande",
+		"option1": "Ashoka",
+		"option2": "Shah Jahan",
+		"option3": "Aurangzeb",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién es la autora de la novela gótica 'Frankenstein o el moderno Prometeo'?",
+		"option0": "Jane Austen",
+		"option1": "Mary Shelley",
+		"option2": "Charlotte Brontë",
+		"option3": "Emily Dickinson",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué nombre recibe el misterioso artista callejero británico conocido por sus grafitis con mensajes políticos y sociales?",
+		"option0": "Banksy",
+		"option1": "Basquiat",
+		"option2": "Kaws",
+		"option3": "Shepard Fairey",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la estructura principal de la 'Divina Comedia' de Dante Alighieri?",
+		"option0": "Cielo, Infierno y Limbo",
+		"option1": "Infierno, Purgatorio y Paraíso",
+		"option2": "Tierra, Aire y Fuego",
+		"option3": "Pasado, Presente y Futuro",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué antiguo autor griego es famoso por escribir fábulas protagonizadas por animales, como 'La liebre y la tortuga'?",
+		"option0": "Aristóteles",
+		"option1": "Sófocles",
+		"option2": "Homero",
+		"option3": "Esopo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué artista ruso es considerado uno de los pioneros del arte abstracto con obras como 'Composición VIII'?",
+		"option0": "Wassily Kandinsky",
+		"option1": "Kazimir Malévich",
+		"option2": "Marc Chagall",
+		"option3": "Alexander Rodchenko",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién escribió la novela de aventuras '20.000 leguas de viaje submarino'?",
+		"option0": "H.G. Wells",
+		"option1": "Julio Verne",
+		"option2": "Robert Louis Stevenson",
+		"option3": "Daniel Defoe",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué civilización pertenecen los miles de guerreros de terracota encontrados en la tumba del emperador Qin Shi Huang?",
+		"option0": "Japonesa",
+		"option1": "India",
+		"option2": "China",
+		"option3": "Mongola",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué poeta español escribió el 'Romancero gitano' y 'Poeta en Nueva York'?",
+		"option0": "Antonio Machado",
+		"option1": "Federico García Lorca",
+		"option2": "Juan Ramón Jiménez",
+		"option3": "Rafael Alberti",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué ingeniero diseñó la estructura de hierro que se convirtió en el símbolo de la Exposición Universal de París de 1889?",
+		"option0": "Gustave Eiffel",
+		"option1": "Victor Horta",
+		"option2": "Jean Nouvel",
+		"option3": "Renzo Piano",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué famoso poema de Edgar Allan Poe narra la visita nocturna de un ave que solo repite la frase 'Nunca más'?",
+		"option0": "El escarabajo de oro",
+		"option1": "Annabel Lee",
+		"option2": "El gato negro",
+		"option3": "El cuervo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué cuadro renacentista de Sandro Botticelli representa a la diosa del amor emergiendo de una concha marina?",
+		"option0": "La Primavera",
+		"option1": "Venus y Marte",
+		"option2": "El nacimiento de Venus",
+		"option3": "La calumnia de Apeles",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la novela de Louisa May Alcott que cuenta la vida de las cuatro hermanas March?",
+		"option0": "Mujercitas",
+		"option1": "Sentido y sensibilidad",
+		"option2": "Cumbres borrascosas",
+		"option3": "La casa de la alegría",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pintor holandés es el autor de la monumental obra barroca conocida como 'La ronda de noche'?",
+		"option0": "Rembrandt van Rijn",
+		"option1": "Jan Steen",
+		"option2": "Pieter Lastman",
+		"option3": "Carel Fabritius",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué continente ficticio, creado por J.R.R. Tolkien, transcurre la acción de 'El señor de los anillos'?",
+		"option0": "Narnia",
+		"option1": "Poniente",
+		"option2": "La Tierra Media",
+		"option3": "Terramar",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el capitán que persigue obsesivamente a la ballena blanca en la novela 'Moby Dick'?",
+		"option0": "Capitán Nemo",
+		"option1": "Capitán Ahab",
+		"option2": "Capitán Hook",
+		"option3": "Capitán Silver",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué ciudad se encuentra el icónico edificio de la Ópera, diseñado por Jørn Utzon con formas que parecen velas o conchas?",
+		"option0": "Nueva York",
+		"option1": "Oslo",
+		"option2": "Singapur",
+		"option3": "Sídney",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué artista mexicano, esposo de Frida Kahlo, es famoso por sus enormes murales de contenido social en edificios públicos?",
+		"option0": "David Alfaro Siqueiros",
+		"option1": "Diego Rivera",
+		"option2": "José Clemente Orozco",
+		"option3": "Rufino Tamayo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué hermanos alemanes son famosos por haber recopilado cuentos populares como 'Hansel y Gretel' o 'Blancanieves'?",
+		"option0": "Los hermanos Grimm",
+		"option1": "Los hermanos Lumière",
+		"option2": "Los hermanos Coen",
+		"option3": "Los hermanos Wright",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cuadro de Edward Hopper muestra a cuatro personas en una cafetería nocturna bajo una luz fluorescente?",
+		"option0": "Gas",
+		"option1": "Automat",
+		"option2": "Nighthawks (Halcones de la noche)",
+		"option3": "Office at Night",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Quién es el autor de la novela 'Oliver Twist', que denuncia las duras condiciones de vida en la Inglaterra victoriana?",
+		"option0": "Oscar Wilde",
+		"option1": "Charles Dickens",
+		"option2": "Thomas Hardy",
+		"option3": "George Eliot",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué escultura de mármol de Rodin representa a dos amantes fundidos en un abrazo eterno?",
+		"option0": "El beso",
+		"option1": "El idilio",
+		"option2": "Amor sagrado",
+		"option3": "La eterna primavera",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál de estos escritores es el autor de la extensa novela rusa 'Guerra y paz'?",
+		"option0": "Fiódor Dostoyevski",
+		"option1": "Antón Chéjov",
+		"option2": "Iván Turguénev",
+		"option3": "León Tolstói",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pintura rococó de Jean-Honoré Fragonard muestra a una joven en un jardín siendo empujada por un hombre mayor?",
+		"option0": "La lección de música",
+		"option1": "El cerrojo",
+		"option2": "El columpio",
+		"option3": "La lectura",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el joven protagonista de la novela 'La isla del tesoro' de Robert Louis Stevenson?",
+		"option0": "Jack Sparrow",
+		"option1": "Jim Hawkins",
+		"option2": "Billy Bones",
+		"option3": "Long John Silver",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué estilo arquitectónico y decorativo pertenece el diseño del edificio Empire State de Nueva York?",
+		"option0": "Art Deco",
+		"option1": "Art Nouveau",
+		"option2": "Brutalismo",
+		"option3": "Gótico tardío",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué fresco de Rafael, situado en el Vaticano, reúne a los grandes filósofos de la antigua Grecia?",
+		"option0": "La disputa del Sacramento",
+		"option1": "El Parnaso",
+		"option2": "La escuela de Atenas",
+		"option3": "La expulsión de Heliodoro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué autor británico escribió 'Alicia en el país de las maravillas'?",
+		"option0": "Roald Dahl",
+		"option1": "C.S. Lewis",
+		"option2": "Beatrix Potter",
+		"option3": "Lewis Carroll",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué escritor irlandés dio vida al personaje del Conde Drácula en su novela de 1897?",
+		"option0": "Sheridan Le Fanu",
+		"option1": "Bram Stoker",
+		"option2": "Lord Dunsany",
+		"option3": "William Butler Yeats",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué país se encuentran las cuevas de Lascaux, famosas por sus pinturas rupestres del Paleolítico?",
+		"option0": "España",
+		"option1": "Italia",
+		"option2": "Francia",
+		"option3": "Alemania",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pintor austríaco utilizó pan de oro en su famosa obra simbolista titulada 'El beso'?",
+		"option0": "Gustav Klimt",
+		"option1": "Egon Schiele",
+		"option2": "Oskar Kokoschka",
+		"option3": "Otto Wagner",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿De qué obra de William Shakespeare proviene la famosa frase 'Ser o no ser, esa es la cuestión'?",
+		"option0": "Macbeth",
+		"option1": "El rey Lear",
+		"option2": "Otelo",
+		"option3": "Hamlet",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cuadro de Velázquez representa el momento en que las tropas españolas reciben las llaves de una ciudad holandesa?",
+		"option0": "El triunfo de Baco",
+		"option1": "La rendición de Breda",
+		"option2": "La fragua de Vulcano",
+		"option3": "Cristo crucificado",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué escritor francés creó al personaje de Quasimodo en la novela 'Nuestra Señora de París'?",
+		"option0": "Victor Hugo",
+		"option1": "Alexandre Dumas",
+		"option2": "Honoré de Balzac",
+		"option3": "Gustave Flaubert",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué artista contemporáneo es conocido por sus esculturas de acero inoxidable que imitan globos de animales, como 'Balloon Dog'?",
+		"option0": "Damien Hirst",
+		"option1": "Anish Kapoor",
+		"option2": "Jeff Koons",
+		"option3": "Ai Weiwei",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué dramaturgo español escribió la famosa obra romántica 'Don Juan Tenorio'?",
+		"option0": "Duque de Rivas",
+		"option1": "José Zorrilla",
+		"option2": "Mariano José de Larra",
+		"option3": "Gustavo Adolfo Bécquer",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cuadro surrealista de René Magritte muestra a un hombre con bombín cuyo rostro está tapado por una manzana verde?",
+		"option0": "Los amantes",
+		"option1": "Esto no es una pipa",
+		"option2": "El imperio de las luces",
+		"option3": "El hijo del hombre",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la niña pelirroja y muy fuerte creada por la escritora sueca Astrid Lindgren?",
+		"option0": "Pippi Calzaslargas",
+		"option1": "Matilda",
+		"option2": "Heidi",
+		"option3": "Momo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué escritor ruso es el autor de la influyente novela 'Crimen y castigo'?",
+		"option0": "Antón Chéjov",
+		"option1": "Aleksandr Pushkin",
+		"option2": "Fiódor Dostoievski",
+		"option3": "Vladimir Nabokov",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué niño es el protagonista del libro de Roald Dahl que gana un concurso para visitar una fábrica de chocolate?",
+		"option0": "Augustus Gloop",
+		"option1": "Charlie Bucket",
+		"option2": "Mike Teavee",
+		"option3": "James Trotter",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué cuadro de Eugène Delacroix muestra a una mujer personificando a la nación y guiando a los ciudadanos con la bandera tricolor?",
+		"option0": "La libertad guiando al pueblo",
+		"option1": "La balsa de la Medusa",
+		"option2": "El juramento de los Horacios",
+		"option3": "La muerte de Sardanápalo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué autor estadounidense escribió las aventuras de Tom Sawyer y Huckleberry Finn a orillas del Misisipi?",
+		"option0": "Jack London",
+		"option1": "Herman Melville",
+		"option2": "Ernest Hemingway",
+		"option3": "Mark Twain",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué artista francés lideró el movimiento 'fauvista', caracterizado por el uso de colores provocativos y vibrantes?",
+		"option0": "Georges Seurat",
+		"option1": "Henri Matisse",
+		"option2": "Paul Cézanne",
+		"option3": "Maurice de Vlaminck",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué personaje de cuento pierde su zapato de cristal al huir del palacio antes de la medianoche?",
+		"option0": "Cenicienta",
+		"option1": "Bella",
+		"option2": "Blancanieves",
+		"option3": "La Sirenita",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué famosa obra de Franz Kafka el protagonista, Gregor Samsa, se despierta convertido en un insecto?",
+		"option0": "El proceso",
+		"option1": "El castillo",
+		"option2": "La metamorfosis",
+		"option3": "América",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué pintor holandés es famoso por sus obras geométricas compuestas por líneas negras y rectángulos de colores primarios?",
+		"option0": "Theo van Doesburg",
+		"option1": "Johannes Itten",
+		"option2": "Gerrit Rietveld",
+		"option3": "Piet Mondrian",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién escribió la novela 'El retrato de Dorian Gray', centrada en un hombre que no envejece mientras su cuadro sí lo hace?",
+		"option0": "Oscar Wilde",
+		"option1": "James Joyce",
+		"option2": "Samuel Beckett",
+		"option3": "George Bernard Shaw",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se conoce a la casa diseñada por Frank Lloyd Wright en Pensilvania que se integra directamente sobre una catarata?",
+		"option0": "Villa Saboya",
+		"option1": "Casa de la Cascada",
+		"option2": "Casa Robie",
+		"option3": "Taliesin West",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el fiel fox terrier blanco que acompaña al periodista Tintín en todos sus viajes?",
+		"option0": "Milú",
+		"option1": "Idéfix",
+		"option2": "Nevado",
+		"option3": "Snoopy",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué técnica artística consiste en ensamblar diversos elementos como trozos de papel, recortes de revistas o tela en un todo unificado?",
+		"option0": "Grabado",
+		"option1": "Litografía",
+		"option2": "Temple",
+		"option3": "Collage",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué escritora británica es la autora de la célebre novela de costumbres 'Orgullo y prejuicio'?",
+		"option0": "Virginia Woolf",
+		"option1": "Charlotte Brontë",
+		"option2": "Jane Austen",
+		"option3": "Mary Ann Evans",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué escultor estadounidense es mundialmente conocido por inventar los 'móviles', estructuras que se mueven con las corrientes de aire?",
+		"option0": "Henry Moore",
+		"option1": "Alexander Calder",
+		"option2": "Alberto Giacometti",
+		"option3": "Isamu Noguchi",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué ciudad española se puede visitar la iglesia de Santo Tomé para ver 'El entierro del conde de Orgaz' de El Greco?",
+		"option0": "Sevilla",
+		"option1": "Madrid",
+		"option2": "Granada",
+		"option3": "Toledo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué autor danés es el creador de cuentos clásicos como 'El patito feo' y 'La sirenita'?",
+		"option0": "Charles Perrault",
+		"option1": "Hans Christian Andersen",
+		"option2": "Jacob Grimm",
+		"option3": "Wilhelm Grimm",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué dramaturgo español del Siglo de Oro fue apodado por Cervantes como el 'Fénix de los Ingenios'?",
+		"option0": "Lope de Vega",
+		"option1": "Francisco de Quevedo",
+		"option2": "Luis de Góngora",
+		"option3": "Tirso de Molina",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué pareja de guerreros galos protagoniza las historias creadas por René Goscinny y Albert Uderzo?",
+		"option0": "Mortadelo y Filemón",
+		"option1": "Lucky Luke y Jolly Jumper",
+		"option2": "Astérix y Obélix",
+		"option3": "Zipi y Zape",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la única novela escrita por Emily Brontë, considerada un clásico de la literatura gótica?",
+		"option0": "Cumbres borrascosas",
+		"option1": "Jane Eyre",
+		"option2": "Agnes Grey",
+		"option3": "Mansfield Park",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué término acuñó Marcel Duchamp para referirse a objetos cotidianos que él presentaba como obras de arte tras una mínima intervención?",
+		"option0": "Instalación",
+		"option1": "Readymade",
+		"option2": "Pop Art",
+		"option3": "Happening",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién escribió '1984', la novela distópica que introdujo conceptos como el 'Gran Hermano' y la 'Policía del Pensamiento'?",
+		"option0": "Aldous Huxley",
+		"option1": "Ray Bradbury",
+		"option2": "George Orwell",
+		"option3": "Anthony Burgess",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué personaje literario es un niño que vuela, vive en el País de Nunca Jamás y va acompañado por el hada Campanilla?",
+		"option0": "Pinocho",
+		"option1": "Mowgli",
+		"option2": "Huckleberry Finn",
+		"option3": "Peter Pan",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué pintor impresionista francés es el autor de la famosa escena social titulada 'Almuerzo de remeros'?",
+		"option0": "Pierre-Auguste Renoir",
+		"option1": "Gustave Caillebotte",
+		"option2": "Camille Pissarro",
+		"option3": "Alfred Sisley",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué nombre recibe el diario real donde una joven judía narró sus vivencias ocultándose en una casa de Ámsterdam?",
+		"option0": "El diario de Zlata",
+		"option1": "El diario de Ana Frank",
+		"option2": "Las memorias de una joven",
+		"option3": "Cartas a mi familia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué poeta nicaragüense es el máximo representante del Modernismo literario tras publicar su libro 'Azul...' en 1888?",
+		"option0": "José Martí",
+		"option1": "Leopoldo Lugones",
+		"option2": "Rubén Darío",
+		"option3": "Amado Nervo",
+		"correctAnswerIndex": 2
+	}
+]

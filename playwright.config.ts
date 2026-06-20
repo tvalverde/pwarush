@@ -75,6 +75,25 @@ export default defineConfig({
 				trace: 'on-first-retry',
 			},
 		},
+		{
+			name: 'neonquiz-desktop',
+			testDir: './apps/neonquiz/e2e/specs',
+			use: {
+				...devices['Desktop Chrome'],
+				viewport: { width: 1280, height: 720 },
+				baseURL: 'http://localhost:5176/pwarush/neonquiz/',
+				trace: 'on-first-retry',
+			},
+		},
+		{
+			name: 'neonquiz-mobile',
+			testDir: './apps/neonquiz/e2e/specs',
+			use: {
+				...devices['Pixel 5'],
+				baseURL: 'http://localhost:5176/pwarush/neonquiz/',
+				trace: 'on-first-retry',
+			},
+		},
 	],
 	webServer: [
 		{
@@ -101,6 +120,16 @@ export default defineConfig({
 			command:
 				'npm run dev --workspace=@pwarush/elfarsante -- --host 0.0.0.0 --port 5175 --strictPort',
 			url: 'http://localhost:5175/pwarush/elfarsante/',
+			reuseExistingServer: !process.env.CI,
+			timeout: 120_000,
+			env: {
+				VITE_E2E: '1',
+			},
+		},
+		{
+			command:
+				'npm run dev --workspace=@pwarush/neonquiz -- --host 0.0.0.0 --port 5176 --strictPort',
+			url: 'http://localhost:5176/pwarush/neonquiz/',
 			reuseExistingServer: !process.env.CI,
 			timeout: 120_000,
 			env: {

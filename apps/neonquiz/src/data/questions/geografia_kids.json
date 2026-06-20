@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra España?",
+		"option0": "África",
+		"option1": "Europa",
+		"option2": "Asia",
+		"option3": "América",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de España?",
+		"option0": "Barcelona",
+		"option1": "Valencia",
+		"option2": "Madrid",
+		"option3": "Sevilla",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué punto cardinal indica hacia dónde sale el Sol por la mañana?",
+		"option0": "Norte",
+		"option1": "Sur",
+		"option2": "Este",
+		"option3": "Oeste",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el océano más grande del mundo?",
+		"option0": "Océano Índico",
+		"option1": "Océano Pacífico",
+		"option2": "Océano Atlántico",
+		"option3": "Océano Ártico",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la famosa Torre Eiffel?",
+		"option0": "Italia",
+		"option1": "Alemania",
+		"option2": "Francia",
+		"option3": "España",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país tiene forma de bota en el mapa de Europa?",
+		"option0": "Grecia",
+		"option1": "Italia",
+		"option2": "Portugal",
+		"option3": "Francia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la línea imaginaria que divide la Tierra por la mitad?",
+		"option0": "Línea del Norte",
+		"option1": "Ecuador",
+		"option2": "Meridiano",
+		"option3": "Círculo polar",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el río más largo del mundo?",
+		"option0": "Río Nilo",
+		"option1": "Río Amazonas",
+		"option2": "Río Ebro",
+		"option3": "Río Tajo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente está el desierto del Sahara?",
+		"option0": "África",
+		"option1": "Oceanía",
+		"option2": "Europa",
+		"option3": "Asia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué instrumento usamos para saber dónde está el Norte?",
+		"option0": "Termómetro",
+		"option1": "Reloj",
+		"option2": "Brújula",
+		"option3": "Regla",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamamos a una porción de tierra rodeada de agua por todas partes?",
+		"option0": "Montaña",
+		"option1": "Desierto",
+		"option2": "Isla",
+		"option3": "Península",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país están las grandes pirámides de Giza?",
+		"option0": "México",
+		"option1": "Egipto",
+		"option2": "China",
+		"option3": "Grecia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la montaña más alta de todo el planeta?",
+		"option0": "Everest",
+		"option1": "Teide",
+		"option2": "Mont Blanc",
+		"option3": "Kilimanjaro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra China?",
+		"option0": "Europa",
+		"option1": "África",
+		"option2": "América",
+		"option3": "Asia",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué océano separa a Europa de América?",
+		"option0": "Océano Ártico",
+		"option1": "Océano Atlántico",
+		"option2": "Océano Índico",
+		"option3": "Océano Antártico",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el país más grande del mundo por su tamaño?",
+		"option0": "Canadá",
+		"option1": "China",
+		"option2": "Rusia",
+		"option3": "Brasil",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente viven los pingüinos en libertad?",
+		"option0": "Antártida",
+		"option1": "Europa",
+		"option2": "Asia",
+		"option3": "África",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Francia?",
+		"option0": "Londres",
+		"option1": "Roma",
+		"option2": "París",
+		"option3": "Berlín",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué color se usa normalmente para representar el agua en los mapas?",
+		"option0": "Verde",
+		"option1": "Rojo",
+		"option2": "Azul",
+		"option3": "Amarillo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el mapa que tiene forma de bola o esfera?",
+		"option0": "Plano",
+		"option1": "Globo terráqueo",
+		"option2": "Cuadro",
+		"option3": "Postal",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la Estatua de la Libertad?",
+		"option0": "Reino Unido",
+		"option1": "Francia",
+		"option2": "Estados Unidos",
+		"option3": "Canadá",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es vecino de España y está situado al oeste?",
+		"option0": "Francia",
+		"option1": "Portugal",
+		"option2": "Italia",
+		"option3": "Marruecos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra la selva del Amazonas?",
+		"option0": "Asia",
+		"option1": "América",
+		"option2": "África",
+		"option3": "Europa",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Italia?",
+		"option0": "Venecia",
+		"option1": "Milán",
+		"option2": "Nápoles",
+		"option3": "Roma",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estos es un punto cardinal?",
+		"option0": "Arriba",
+		"option1": "Sur",
+		"option2": "Lejos",
+		"option3": "Derecha",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es famoso por sus canguros y koalas?",
+		"option0": "India",
+		"option1": "Australia",
+		"option2": "Japón",
+		"option3": "México",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el continente donde se encuentra el Polo Sur?",
+		"option0": "Antártida",
+		"option1": "Oceanía",
+		"option2": "Europa",
+		"option3": "África",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el color de la bandera de Japón, que tiene un círculo en el medio?",
+		"option0": "Azul y blanco",
+		"option1": "Verde y rojo",
+		"option2": "Blanco y rojo",
+		"option3": "Amarillo y negro",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la Gran Muralla?",
+		"option0": "Rusia",
+		"option1": "China",
+		"option2": "India",
+		"option3": "Tailandia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué idioma se habla principalmente en Brasil?",
+		"option0": "Español",
+		"option1": "Inglés",
+		"option2": "Francés",
+		"option3": "Portugués",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital del Reino Unido?",
+		"option0": "Dublín",
+		"option1": "Londres",
+		"option2": "Edimburgo",
+		"option3": "Manchester",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país podemos ver los famosos canales de Venecia?",
+		"option0": "España",
+		"option1": "Grecia",
+		"option2": "Italia",
+		"option3": "Francia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país se encuentra justo al norte de los Estados Unidos?",
+		"option0": "México",
+		"option1": "Canadá",
+		"option2": "Brasil",
+		"option3": "Groenlandia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué ciudad se encuentra el famoso Coliseo?",
+		"option0": "Atenas",
+		"option1": "Roma",
+		"option2": "Madrid",
+		"option3": "Berlín",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Alemania?",
+		"option0": "Viena",
+		"option1": "Munich",
+		"option2": "Berlín",
+		"option3": "Hamburgo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es muy famoso por sus canales, molinos de viento y tulipanes?",
+		"option0": "Países Bajos (Holanda)",
+		"option1": "Suecia",
+		"option2": "Bélgica",
+		"option3": "Suiza",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra el famoso Taj Mahal?",
+		"option0": "Egipto",
+		"option1": "Turquía",
+		"option2": "India",
+		"option3": "Arabia Saudita",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la cadena de montañas que separa España de Francia?",
+		"option0": "Alpes",
+		"option1": "Andes",
+		"option2": "Pirineos",
+		"option3": "Himalaya",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál de estas es una ciudad de Japón?",
+		"option0": "Seúl",
+		"option1": "Pekín",
+		"option2": "Tokio",
+		"option3": "Bangkok",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gran país sudamericano tiene el color verde y amarillo en su bandera?",
+		"option0": "Argentina",
+		"option1": "Colombia",
+		"option2": "Brasil",
+		"option3": "Chile",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el río que pasa por la ciudad de Londres?",
+		"option0": "Sena",
+		"option1": "Támesis",
+		"option2": "Danubio",
+		"option3": "Rhin",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentran las Cataratas del Niágara?",
+		"option0": "América del Norte",
+		"option1": "América del Sur",
+		"option2": "Europa",
+		"option3": "África",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Portugal?",
+		"option0": "Oporto",
+		"option1": "Lisboa",
+		"option2": "Faro",
+		"option3": "Coímbra",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es famoso por el sushi y los samuráis?",
+		"option0": "China",
+		"option1": "Vietnam",
+		"option2": "Japón",
+		"option3": "Corea",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentran las ruinas de Machu Picchu?",
+		"option0": "Bolivia",
+		"option1": "Perú",
+		"option2": "Ecuador",
+		"option3": "Colombia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el país más pequeño del mundo?",
+		"option0": "Mónaco",
+		"option1": "Andorra",
+		"option2": "Ciudad del Vaticano",
+		"option3": "San Marino",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué montaña famosa por su nieve se encuentra en Japón?",
+		"option0": "Monte Fuji",
+		"option1": "Kilimanjaro",
+		"option2": "Aconcagua",
+		"option3": "Teide",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra el país de Marruecos?",
+		"option0": "Europa",
+		"option1": "Asia",
+		"option2": "África",
+		"option3": "Oceanía",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de los Estados Unidos?",
+		"option0": "Nueva York",
+		"option1": "Los Ángeles",
+		"option2": "Washington D.C.",
+		"option3": "Chicago",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué mar baña las costas del este y sur de España?",
+		"option0": "Mar Rojo",
+		"option1": "Mar Muerto",
+		"option2": "Mar Caspio",
+		"option3": "Mar Mediterráneo",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es famoso por sus volcanes, glaciares y aguas termales?",
+		"option0": "Islandia",
+		"option1": "Egipto",
+		"option2": "Brasil",
+		"option3": "Australia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de México?",
+		"option0": "Guadalajara",
+		"option1": "Cancún",
+		"option2": "Monterrey",
+		"option3": "Ciudad de México",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra el país de Grecia?",
+		"option0": "América",
+		"option1": "Europa",
+		"option2": "África",
+		"option3": "Oceanía",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso canal permite que los barcos pasen del Océano Atlántico al Pacífico?",
+		"option0": "Canal de Suez",
+		"option1": "Canal de la Mancha",
+		"option2": "Canal de Panamá",
+		"option3": "Canal de Corinto",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Argentina?",
+		"option0": "Buenos Aires",
+		"option1": "Santiago",
+		"option2": "Lima",
+		"option3": "Montevideo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llaman las montañas más altas de América del Sur?",
+		"option0": "Montañas Rocosas",
+		"option1": "Cordillera de los Andes",
+		"option2": "Alpes",
+		"option3": "Apalaches",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país tiene una bandera con una hoja de arce roja en el centro?",
+		"option0": "Estados Unidos",
+		"option1": "Canadá",
+		"option2": "Rusia",
+		"option3": "Noruega",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra el Monte Kilimanjaro?",
+		"option0": "África",
+		"option1": "Asia",
+		"option2": "Europa",
+		"option3": "América",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué mar se encuentra entre Europa y África?",
+		"option0": "Mar del Norte",
+		"option1": "Mar Caribe",
+		"option2": "Mar Mediterráneo",
+		"option3": "Mar Báltico",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Rusia?",
+		"option0": "San Petersburgo",
+		"option1": "Moscú",
+		"option2": "Kiev",
+		"option3": "Varsovia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país de Oceanía está formado por dos grandes islas principales?",
+		"option0": "Nueva Zelanda",
+		"option1": "Indonesia",
+		"option2": "Filipinas",
+		"option3": "Madagascar",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la ciudad de Barcelona?",
+		"option0": "Portugal",
+		"option1": "Francia",
+		"option2": "España",
+		"option3": "Italia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el punto más al norte de la Tierra?",
+		"option0": "Polo Sur",
+		"option1": "Ecuador",
+		"option2": "Polo Norte",
+		"option3": "Trópico de Cáncer",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente está la India?",
+		"option0": "África",
+		"option1": "Europa",
+		"option2": "América",
+		"option3": "Asia",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Colombia?",
+		"option0": "Bogotá",
+		"option1": "Medellín",
+		"option2": "Cali",
+		"option3": "Cartagena",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es conocido por sus fiordos y por estar muy al norte de Europa?",
+		"option0": "España",
+		"option1": "Noruega",
+		"option2": "Grecia",
+		"option3": "Italia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra el Gran Cañón?",
+		"option0": "México",
+		"option1": "Canadá",
+		"option2": "Estados Unidos",
+		"option3": "Australia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Grecia?",
+		"option0": "Roma",
+		"option1": "Atenas",
+		"option2": "Estambul",
+		"option3": "Madrid",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es famoso por el chocolate, los relojes y los Alpes?",
+		"option0": "Bélgica",
+		"option1": "Suiza",
+		"option2": "Francia",
+		"option3": "Austria",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente está Egipto?",
+		"option0": "África",
+		"option1": "Europa",
+		"option2": "Oceanía",
+		"option3": "América",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el río que pasa por la ciudad de París?",
+		"option0": "Río Rin",
+		"option1": "Río Sena",
+		"option2": "Río Danubio",
+		"option3": "Río Po",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país tiene una bandera con una hoja verde, blanca y roja, y un águila en el centro?",
+		"option0": "España",
+		"option1": "Italia",
+		"option2": "México",
+		"option3": "Portugal",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de China?",
+		"option0": "Shanghái",
+		"option1": "Hong Kong",
+		"option2": "Pekín",
+		"option3": "Seúl",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la ciudad de Sidney?",
+		"option0": "Reino Unido",
+		"option1": "Australia",
+		"option2": "Sudáfrica",
+		"option3": "Canadá",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el desierto más seco del mundo, situado en Chile?",
+		"option0": "Desierto de Atacama",
+		"option1": "Desierto de Gobi",
+		"option2": "Desierto del Sahara",
+		"option3": "Desierto de Sonora",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentran las famosas tierras altas llamadas Highlands y el Lago Ness?",
+		"option0": "Irlanda",
+		"option1": "Escocia",
+		"option2": "Gales",
+		"option3": "Inglaterra",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Perú, conocida por su cercanía al mar?",
+		"option0": "Cusco",
+		"option1": "Arequipa",
+		"option2": "Lima",
+		"option3": "Trujillo",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país asiático es una isla con forma de lágrima situada al sur de la India?",
+		"option0": "Sri Lanka",
+		"option1": "Madagascar",
+		"option2": "Taiwán",
+		"option3": "Maldivas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el estrecho de agua que separa España de África?",
+		"option0": "Estrecho de Magallanes",
+		"option1": "Estrecho de Bering",
+		"option2": "Estrecho de Gibraltar",
+		"option3": "Estrecho de Ormuz",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la ciudad de Estambul, que está entre dos continentes?",
+		"option0": "Grecia",
+		"option1": "Turquía",
+		"option2": "Egipto",
+		"option3": "Bulgaria",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el país más grande de América del Sur?",
+		"option0": "Argentina",
+		"option1": "Brasil",
+		"option2": "Perú",
+		"option3": "Chile",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país europeo tiene forma de rectángulo y está al lado del océano Atlántico?",
+		"option0": "Portugal",
+		"option1": "Bélgica",
+		"option2": "Suiza",
+		"option3": "Polonia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente se encuentra el gran desierto de Gobi?",
+		"option0": "África",
+		"option1": "Asia",
+		"option2": "Australia",
+		"option3": "América",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Japón?",
+		"option0": "Kioto",
+		"option1": "Osaka",
+		"option2": "Hiroshima",
+		"option3": "Tokio",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué archipiélago español se encuentra en el océano Atlántico frente a África?",
+		"option0": "Islas Baleares",
+		"option1": "Islas Canarias",
+		"option2": "Islas Azores",
+		"option3": "Islas Cíes",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la Selva Negra, famosa por sus pasteles y relojes de cuco?",
+		"option0": "Francia",
+		"option1": "Austria",
+		"option2": "Alemania",
+		"option3": "Suiza",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el río más largo de España que desemboca en el Mediterráneo?",
+		"option0": "Río Tajo",
+		"option1": "Río Duero",
+		"option2": "Río Ebro",
+		"option3": "Río Guadalquivir",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país es conocido por sus pirámides mayas como la de Chichén Itzá?",
+		"option0": "Brasil",
+		"option1": "México",
+		"option2": "Egipto",
+		"option3": "Perú",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Italia, conocida como la 'Ciudad Eterna'?",
+		"option0": "Milán",
+		"option1": "Venecia",
+		"option2": "Florencia",
+		"option3": "Roma",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué océano se encuentra la isla de Madagascar?",
+		"option0": "Océano Pacífico",
+		"option1": "Océano Atlántico",
+		"option2": "Océano Índico",
+		"option3": "Océano Ártico",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país europeo es famoso por sus quesos, chocolates y por tener muchos bancos?",
+		"option0": "Suiza",
+		"option1": "España",
+		"option2": "Grecia",
+		"option3": "Noruega",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es el nombre del punto cardinal que está a la derecha si miras al Norte?",
+		"option0": "Oeste",
+		"option1": "Sur",
+		"option2": "Este",
+		"option3": "Noreste",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se encuentra la gran barrera de coral?",
+		"option0": "Brasil",
+		"option1": "Tailandia",
+		"option2": "Australia",
+		"option3": "Sudáfrica",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país tiene una bandera azul con una cruz amarilla?",
+		"option0": "Finlandia",
+		"option1": "Dinamarca",
+		"option2": "Suecia",
+		"option3": "Islandia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál es la capital de Cuba?",
+		"option0": "San Juan",
+		"option1": "La Habana",
+		"option2": "Santo Domingo",
+		"option3": "Santiago",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país africano tiene como capital la ciudad de El Cairo?",
+		"option0": "Marruecos",
+		"option1": "Nigeria",
+		"option2": "Egipto",
+		"option3": "Kenia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la zona más profunda de los océanos?",
+		"option0": "Fosa de las Marianas",
+		"option1": "Gran Cañón",
+		"option2": "Valle de la Muerte",
+		"option3": "Abismo Azul",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente está el país de Tailandia?",
+		"option0": "África",
+		"option1": "Europa",
+		"option2": "Oceanía",
+		"option3": "Asia",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Qué ciudad es famosa por tener una estatua de un niño llamada Manneken Pis?",
+		"option0": "París",
+		"option1": "Bruselas",
+		"option2": "Ámsterdam",
+		"option3": "Viena",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el mar que está en el Caribe y es famoso por sus piratas?",
+		"option0": "Mar Rojo",
+		"option1": "Mar Muerto",
+		"option2": "Mar de las Antillas",
+		"option3": "Mar de Cortés",
+		"correctAnswerIndex": 2
+	}
+]

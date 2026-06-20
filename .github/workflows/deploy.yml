@@ -37,6 +37,9 @@ jobs:
       - name: Build Murdokupado
         run: npm run build --workspace=@pwarush/murdokupado
 
+      - name: Build Neon Quiz
+        run: npm run build --workspace=@pwarush/neonquiz
+
       - name: Build El Farsante
         run: npm run build --workspace=@pwarush/elfarsante
         env:
@@ -50,12 +53,13 @@ jobs:
 
       - name: Assemble deploy directory
         run: |
-          mkdir -p deploy/sudokupado deploy/murdokupado deploy/elfarsante
+          mkdir -p deploy/sudokupado deploy/murdokupado deploy/elfarsante deploy/neonquiz
           cp landing/index.html deploy/index.html
           cp landing/styles.css deploy/styles.css
           cp -r apps/sudokupado/dist/. deploy/sudokupado/
           cp -r apps/murdokupado/dist/. deploy/murdokupado/
           cp -r apps/elfarsante/dist/. deploy/elfarsante/
+          cp -r apps/neonquiz/dist/. deploy/neonquiz/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6

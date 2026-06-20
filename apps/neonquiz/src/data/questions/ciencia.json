@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el símbolo químico del oro en la tabla periódica?",
+		"option0": "Ag",
+		"option1": "Au",
+		"option2": "Fe",
+		"option3": "Or",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué planeta del sistema solar es conocido como el 'planeta rojo'?",
+		"option0": "Marte",
+		"option1": "Júpiter",
+		"option2": "Saturno",
+		"option3": "Venus",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el gas más abundante en la atmósfera terrestre?",
+		"option0": "Oxígeno",
+		"option1": "Dióxido de carbono",
+		"option2": "Nitrógeno",
+		"option3": "Argón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el proceso por el cual las plantas fabrican su propio alimento?",
+		"option0": "Respiración",
+		"option1": "Combustión",
+		"option2": "Transpiración",
+		"option3": "Fotosíntesis",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Aproximadamente a qué velocidad viaja la luz en el vacío?",
+		"option0": "300.000 km/s",
+		"option1": "150.000 km/s",
+		"option2": "1.000.000 km/s",
+		"option3": "343 m/s",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el órgano principal del sistema circulatorio humano?",
+		"option0": "Los pulmones",
+		"option1": "El corazón",
+		"option2": "El cerebro",
+		"option3": "El hígado",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué fuerza nos mantiene pegados al suelo en la Tierra?",
+		"option0": "Magnetismo",
+		"option1": "Fricción",
+		"option2": "Gravedad",
+		"option3": "Inercia",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el componente principal del sol?",
+		"option0": "Oxígeno",
+		"option1": "Hierro",
+		"option2": "Helio e hidrógeno",
+		"option3": "Nitrógeno y carbono",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el valor aproximado de la constante de gravedad en la superficie terrestre?",
+		"option0": "5,5 m/s²",
+		"option1": "9,8 m/s²",
+		"option2": "12,1 m/s²",
+		"option3": "3,14 m/s²",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué estado se encuentra el agua cuando está en forma de hielo?",
+		"option0": "Sólido",
+		"option1": "Líquido",
+		"option2": "Gaseoso",
+		"option3": "Plasma",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuántos huesos tiene, aproximadamente, el cuerpo de un ser humano adulto?",
+		"option0": "150",
+		"option1": "206",
+		"option2": "300",
+		"option3": "215",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué instrumento se utiliza para observar las células y microorganismos?",
+		"option0": "Telescopio",
+		"option1": "Periscopio",
+		"option2": "Estetoscopio",
+		"option3": "Microscopio",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la sustancia natural más dura que existe en la Tierra?",
+		"option0": "Hierro",
+		"option1": "Diamante",
+		"option2": "Cuarzo",
+		"option3": "Grafeno",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué partícula subatómica tiene una carga eléctrica negativa?",
+		"option0": "Protón",
+		"option1": "Neutrón",
+		"option2": "Electrón",
+		"option3": "Positrón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el estudio de los fósiles de animales y plantas antiguos?",
+		"option0": "Biología",
+		"option1": "Geología",
+		"option2": "Paleontología",
+		"option3": "Arqueología",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos planetas forman parte del sistema solar?",
+		"option0": "7",
+		"option1": "8",
+		"option2": "9",
+		"option3": "10",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué tipo de animal es una ballena?",
+		"option0": "Pez",
+		"option1": "Anfibio",
+		"option2": "Mamífero",
+		"option3": "Reptil",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué capa de la atmósfera se encuentra la mayor concentración de ozono?",
+		"option0": "Troposfera",
+		"option1": "Exosfera",
+		"option2": "Mesosfera",
+		"option3": "Estratosfera",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el elemento químico más ligero de la tabla periódica?",
+		"option0": "Hidrógeno",
+		"option1": "Helio",
+		"option2": "Litio",
+		"option3": "Oxígeno",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué parte de la célula contiene el material genético (ADN)?",
+		"option0": "Citoplasma",
+		"option1": "Membrana",
+		"option2": "Núcleo",
+		"option3": "Mitocondria",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué temperatura (Celsius) hierve el agua a nivel del mar?",
+		"option0": "50 °C",
+		"option1": "100 °C",
+		"option2": "200 °C",
+		"option3": "0 °C",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué científico formuló la teoría de la relatividad general?",
+		"option0": "Isaac Newton",
+		"option1": "Marie Curie",
+		"option2": "Albert Einstein",
+		"option3": "Charles Darwin",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la principal función de los glóbulos rojos en la sangre?",
+		"option0": "Combatir infecciones",
+		"option1": "Transportar oxígeno",
+		"option2": "Cicatrizar heridas",
+		"option3": "Filtrar toxinas",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el satélite natural de la Tierra?",
+		"option0": "Titán",
+		"option1": "Europa",
+		"option2": "La Luna",
+		"option3": "Ganimedes",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la unidad básica de la herencia genética?",
+		"option0": "El gen",
+		"option1": "La célula",
+		"option2": "La proteína",
+		"option3": "El átomo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la galaxia en la que se encuentra nuestro sistema solar?",
+		"option0": "Andrómeda",
+		"option1": "Vía Láctea",
+		"option2": "Nebulosa de Orión",
+		"option3": "Galaxia del Sombrero",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es la fórmula química del agua?",
+		"option0": "CO2",
+		"option1": "NaCl",
+		"option2": "H2O",
+		"option3": "O2",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién es considerado el padre de la genética por sus experimentos con guisantes?",
+		"option0": "Gregor Mendel",
+		"option1": "Louis Pasteur",
+		"option2": "Alexander Fleming",
+		"option3": "Nikola Tesla",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué pigmento da a las plantas su color verde y absorbe la luz solar?",
+		"option0": "Hemoglobina",
+		"option1": "Melanina",
+		"option2": "Caroteno",
+		"option3": "Clorofila",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el órgano más grande del cuerpo humano?",
+		"option0": "El hígado",
+		"option1": "La piel",
+		"option2": "El intestino grueso",
+		"option3": "Los pulmones",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué tipo de animal nace de un huevo pero amamanta a sus crías, como el ornitorrinco?",
+		"option0": "Marsupial",
+		"option1": "Monotrema",
+		"option2": "Reptil",
+		"option3": "Anfibio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la capa más interna y densa de la Tierra?",
+		"option0": "Manto",
+		"option1": "Corteza",
+		"option2": "Núcleo",
+		"option3": "Litósfera",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué escala se utiliza para medir la acidez o alcalinidad de una sustancia?",
+		"option0": "Escala de Richter",
+		"option1": "Escala pH",
+		"option2": "Escala Kelvin",
+		"option3": "Escala de Beaufort",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el proceso por el cual una oruga se convierte en mariposa?",
+		"option0": "Metamorfosis",
+		"option1": "Fotosíntesis",
+		"option2": "Polinización",
+		"option3": "Evolución",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué grupo de seres vivos incluye a los champiñones y las levaduras, pero no son plantas?",
+		"option0": "Bacterias",
+		"option1": "Algas",
+		"option2": "Protozoos",
+		"option3": "Hongos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Puede el sonido viajar a través del vacío del espacio?",
+		"option0": "Sí, pero muy despacio",
+		"option1": "Solo si hay luz",
+		"option2": "No, necesita un medio material",
+		"option3": "Sí, igual que en la Tierra",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué científico ruso se le atribuye la creación de la primera tabla periódica moderna?",
+		"option0": "Dmitri Mendeléyev",
+		"option1": "Antoine Lavoisier",
+		"option2": "Niels Bohr",
+		"option3": "Ernest Rutherford",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el planeta más caliente de nuestro sistema solar debido a su densa atmósfera?",
+		"option0": "Mercurio",
+		"option1": "Venus",
+		"option2": "Marte",
+		"option3": "Júpiter",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama la roca fundida cuando se encuentra bajo la superficie terrestre?",
+		"option0": "Lava",
+		"option1": "Sedimento",
+		"option2": "Magma",
+		"option3": "Basalto",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué fenómeno natural ocurre cuando las placas tectónicas de la Tierra se mueven bruscamente?",
+		"option0": "Tornado",
+		"option1": "Terremoto",
+		"option2": "Eclipse solar",
+		"option3": "Aurora boreal",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué médico escocés descubrió la penicilina, el primer antibiótico?",
+		"option0": "Louis Pasteur",
+		"option1": "Robert Koch",
+		"option2": "Edward Jenner",
+		"option3": "Alexander Fleming",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué mide exactamente un 'año luz'?",
+		"option0": "Tiempo",
+		"option1": "Velocidad",
+		"option2": "Distancia",
+		"option3": "Luminosidad",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué estructura celular diferencia principalmente a una célula vegetal de una animal?",
+		"option0": "El núcleo",
+		"option1": "La pared celular",
+		"option2": "Los ribosomas",
+		"option3": "El citoplasma",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el cambio de estado de gas a líquido?",
+		"option0": "Evaporación",
+		"option1": "Fusión",
+		"option2": "Condensación",
+		"option3": "Solidificación",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la temperatura teórica más baja posible, conocida como 'cero absoluto'?",
+		"option0": "0 °C",
+		"option1": "-100 °C",
+		"option2": "-273,15 °C",
+		"option3": "-450,5 °C",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el planeta más grande de nuestro sistema solar?",
+		"option0": "Saturno",
+		"option1": "Urano",
+		"option2": "Júpiter",
+		"option3": "Neptuno",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué forma geométrica tiene la estructura de la molécula de ADN?",
+		"option0": "Círculo concéntrico",
+		"option1": "Doble hélice",
+		"option2": "Triángulo equilátero",
+		"option3": "Hexágono",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué nombre reciben los animales que se alimentan exclusivamente de plantas?",
+		"option0": "Omnívoros",
+		"option1": "Carnívoros",
+		"option2": "Herbívoros",
+		"option3": "Insectívoros",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el proceso de pasar directamente de estado sólido a gaseoso sin pasar por líquido?",
+		"option0": "Sublimación",
+		"option1": "Vaporización",
+		"option2": "Destilación",
+		"option3": "Licuefacción",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué tipo de energía se obtiene aprovechando la fuerza del viento?",
+		"option0": "Energía solar",
+		"option1": "Energía eólica",
+		"option2": "Energía hidráulica",
+		"option3": "Energía térmica",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿En qué foso oceánico se encuentra el punto más profundo de la superficie terrestre?",
+		"option0": "Foso de Java",
+		"option1": "Foso de Puerto Rico",
+		"option2": "Foso de las Marianas",
+		"option3": "Foso de Tonga",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué científico demostró que la luz blanca está compuesta por todos los colores del arcoíris usando un prisma?",
+		"option0": "Isaac Newton",
+		"option1": "Galileo Galilei",
+		"option2": "Nikola Tesla",
+		"option3": "Benjamin Franklin",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué orgánulo celular es conocido como la 'central energética' de la célula?",
+		"option0": "Ribosoma",
+		"option1": "Mitocondria",
+		"option2": "Aparato de Golgi",
+		"option3": "Lisosoma",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué objeto astronómico tiene una gravedad tan fuerte que ni siquiera la luz puede escapar de él?",
+		"option0": "Enana blanca",
+		"option1": "Estrella de neutrones",
+		"option2": "Supernova",
+		"option3": "Agujero negro",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el nombre común del compuesto químico cloruro de sodio?",
+		"option0": "Azúcar",
+		"option1": "Bicarbonato",
+		"option2": "Sal de mesa",
+		"option3": "Vinagre",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿En qué parte del sistema digestivo se produce la mayor parte de la absorción de nutrientes?",
+		"option0": "Estómago",
+		"option1": "Intestino delgado",
+		"option2": "Esófago",
+		"option3": "Intestino grueso",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántas patas tienen los arácnidos, como las arañas y los escorpiones?",
+		"option0": "Ocho",
+		"option1": "Seis",
+		"option2": "Diez",
+		"option3": "Doce",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el instrumento que sirve para medir la velocidad del viento?",
+		"option0": "Barómetro",
+		"option1": "Higrómetro",
+		"option2": "Altímetro",
+		"option3": "Anemómetro",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué están compuestos principalmente los anillos de Saturno?",
+		"option0": "Gas helio",
+		"option1": "Lava sólida",
+		"option2": "Hielo y fragmentos de roca",
+		"option3": "Diamantes flotantes",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se denomina el aumento de volumen que experimentan los cuerpos al aumentar su temperatura?",
+		"option0": "Condensación",
+		"option1": "Dilatación térmica",
+		"option2": "Evaporación",
+		"option3": "Fricción",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué tipo de células en nuestra sangre se encargan de defendernos contra virus y bacterias?",
+		"option0": "Glóbulos blancos",
+		"option1": "Plaquetas",
+		"option2": "Glóbulos rojos",
+		"option3": "Plasma",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llaman los elementos químicos que rara vez reaccionan con otros porque tienen su última capa de electrones completa?",
+		"option0": "Metales alcalinos",
+		"option1": "Halógenos",
+		"option2": "Actínidos",
+		"option3": "Gases nobles",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué evento se cree que causó la extinción masiva de los dinosaurios hace 66 millones de años?",
+		"option0": "Una gran inundación",
+		"option1": "Una glaciación repentina",
+		"option2": "El impacto de un asteroide",
+		"option3": "Una erupción volcánica global",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cada cuántos años, aproximadamente, es visible el cometa Halley desde la Tierra?",
+		"option0": "25 años",
+		"option1": "76 años",
+		"option2": "150 años",
+		"option3": "500 años",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es la sustancia más dura producida por el cuerpo humano?",
+		"option0": "Esmalte dental",
+		"option1": "Fémur",
+		"option2": "Queratina",
+		"option3": "Cartílago",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿A qué científico se le atribuye la frase 'Dadme un punto de apoyo y moveré el mundo' en relación a las palancas?",
+		"option0": "Pitágoras",
+		"option1": "Euclides",
+		"option2": "Aristóteles",
+		"option3": "Arquímedes",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué nombre reciben los organismos que descomponen la materia orgánica muerta?",
+		"option0": "Productores",
+		"option1": "Consumidores primarios",
+		"option2": "Descomponedores",
+		"option3": "Depredadores",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el único metal que se encuentra en estado líquido a temperatura ambiente?",
+		"option0": "Plomo",
+		"option1": "Mercurio",
+		"option2": "Aluminio",
+		"option3": "Cobre",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el proceso de difusión de agua a través de una membrana semipermeable?",
+		"option0": "Ósmosis",
+		"option1": "Diálisis",
+		"option2": "Efervescencia",
+		"option3": "Capilaridad",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién fue el primer ser humano en viajar al espacio exterior en 1961?",
+		"option0": "Neil Armstrong",
+		"option1": "Buzz Aldrin",
+		"option2": "John Glenn",
+		"option3": "Yuri Gagarin",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué parte de un tronco cortado nos permite saber con precisión la edad de un árbol?",
+		"option0": "La corteza",
+		"option1": "Las raíces",
+		"option2": "Los anillos",
+		"option3": "Las hojas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué fuerza se opone al movimiento cuando dos superficies entran en contacto?",
+		"option0": "Inercia",
+		"option1": "Fricción",
+		"option2": "Tensión",
+		"option3": "Empuje",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se denomina a los animales que no pueden regular su temperatura corporal internamente?",
+		"option0": "De sangre fría",
+		"option1": "Endotermos",
+		"option2": "De sangre caliente",
+		"option3": "Mamíferos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué elemento químico constituye la base de todas las moléculas orgánicas y de la vida en la Tierra?",
+		"option0": "Silicio",
+		"option1": "Oxígeno",
+		"option2": "Hierro",
+		"option3": "Carbono",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué médico desarrolló la primera vacuna de la historia contra la viruela?",
+		"option0": "Louis Pasteur",
+		"option1": "Edward Jenner",
+		"option2": "Jonas Salk",
+		"option3": "Albert Sabin",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué órganos se encargan de filtrar la sangre para eliminar desechos y producir orina?",
+		"option0": "Los pulmones",
+		"option1": "Los riñones",
+		"option2": "El páncreas",
+		"option3": "El bazo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Quién descubrió los rayos X en 1895 de forma accidental?",
+		"option0": "Wilhelm Röntgen",
+		"option1": "Max Planck",
+		"option2": "Enrico Fermi",
+		"option3": "Thomas Edison",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué se debe principalmente la existencia de las estaciones del año?",
+		"option0": "A la distancia al Sol",
+		"option1": "A la rotación de la Luna",
+		"option2": "A la inclinación del eje terrestre",
+		"option3": "A las manchas solares",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama la unidad de medida de la intensidad de la corriente eléctrica?",
+		"option0": "Voltio",
+		"option1": "Vatio",
+		"option2": "Ohmio",
+		"option3": "Amperio",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué hueso es el más pequeño del cuerpo humano y se encuentra en el oído?",
+		"option0": "Yunque",
+		"option1": "Martillo",
+		"option2": "Estribo",
+		"option3": "Falange",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué fenómeno astronómico ocurre cuando la Luna se interpone entre la Tierra y el Sol?",
+		"option0": "Eclipse solar",
+		"option1": "Eclipse lunar",
+		"option2": "Equinoccio",
+		"option3": "Solsticio",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el mineral más blando según la escala de Mohs?",
+		"option0": "Yeso",
+		"option1": "Talco",
+		"option2": "Calcita",
+		"option3": "Fluorita",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el proceso por el cual el agua de las hojas de las plantas se evapora a la atmósfera?",
+		"option0": "Infiltración",
+		"option1": "Sublimación",
+		"option2": "Transpiración",
+		"option3": "Precipitación",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué científica polaca fue la primera persona en recibir dos premios Nobel en distintas especialidades?",
+		"option0": "Rosalind Franklin",
+		"option1": "Lise Meitner",
+		"option2": "Ada Lovelace",
+		"option3": "Marie Curie",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llaman las rocas que se forman a partir del enfriamiento y solidificación del magma?",
+		"option0": "Rocas ígneas",
+		"option1": "Rocas sedimentarias",
+		"option2": "Rocas metamórficas",
+		"option3": "Rocas fósiles",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué gas se utiliza para inflar globos y que floten porque es menos denso que el aire?",
+		"option0": "Argón",
+		"option1": "Helio",
+		"option2": "Oxígeno",
+		"option3": "Metano",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama la relación de beneficio mutuo entre dos especies, como el pez payaso y la anemona?",
+		"option0": "Parasitismo",
+		"option1": "Comensalismo",
+		"option2": "Simbiosis",
+		"option3": "Depredación",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cuál es el órgano más grande del sistema linfático?",
+		"option0": "El bazo",
+		"option1": "El timo",
+		"option2": "Las amígdalas",
+		"option3": "Los ganglios",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué término describe la primera ley de Newton, que dice que un objeto mantiene su estado de reposo a menos que una fuerza actúe sobre él?",
+		"option0": "Aceleración",
+		"option1": "Inercia",
+		"option2": "Gravedad",
+		"option3": "Acción-reacción",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué colores de luz deben mezclarse para obtener luz blanca según la síntesis aditiva?",
+		"option0": "Rojo, azul y verde",
+		"option1": "Amarillo, azul y rojo",
+		"option2": "Cian, magenta y amarillo",
+		"option3": "Blanco, negro y gris",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué parte del cerebro humano es responsable principalmente del equilibrio y la coordinación motora?",
+		"option0": "Hipotálamo",
+		"option1": "Cerebelo",
+		"option2": "Corteza prefrontal",
+		"option3": "Médula espinal",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el esqueleto externo que tienen insectos y crustáceos?",
+		"option0": "Endoesqueleto",
+		"option1": "Caparazón",
+		"option2": "Exoesqueleto",
+		"option3": "Cutícula",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué tipo de energía se obtiene del calor interno de la Tierra?",
+		"option0": "Biomasa",
+		"option1": "Energía mareomotriz",
+		"option2": "Energía nuclear",
+		"option3": "Energía geotérmica",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué instrumento se utiliza para medir la presión atmosférica?",
+		"option0": "Barómetro",
+		"option1": "Termómetro",
+		"option2": "Dinamómetro",
+		"option3": "Voltímetro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se llama el lago más profundo del mundo, situado en Rusia?",
+		"option0": "Lago Superior",
+		"option1": "Lago Victoria",
+		"option2": "Lago Baikal",
+		"option3": "Mar Caspio",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuántos días tarda aproximadamente la Tierra en completar una vuelta alrededor del Sol?",
+		"option0": "30 días",
+		"option1": "365 días",
+		"option2": "24 días",
+		"option3": "100 días",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué hormona produce el páncreas para regular la cantidad de glucosa en la sangre?",
+		"option0": "Adrenalina",
+		"option1": "Melatonina",
+		"option2": "Cortisol",
+		"option3": "Insulina",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Qué nave espacial de la NASA es el objeto fabricado por el hombre que ha llegado más lejos en el espacio?",
+		"option0": "Voyager 1",
+		"option1": "Apollo 11",
+		"option2": "Sputnik 1",
+		"option3": "Mariner 10",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué parte de la flor contiene el polen?",
+		"option0": "Pétalo",
+		"option1": "Antera",
+		"option2": "Sépalo",
+		"option3": "Raíz",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "ADULT",
+		"questionText": "¿Cómo se denomina al proceso de unión de dos núcleos atómicos ligeros para formar uno más pesado, liberando energía?",
+		"option0": "Fisión nuclear",
+		"option1": "Electrólisis",
+		"option2": "Fusión nuclear",
+		"option3": "Oxidación",
+		"correctAnswerIndex": 2
+	}
+]

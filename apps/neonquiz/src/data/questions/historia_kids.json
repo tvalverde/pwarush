@@ -1,0 +1,1002 @@
+[
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país se construyeron las grandes pirámides de Giza?",
+		"option0": "Grecia",
+		"option1": "Egipto",
+		"option2": "China",
+		"option3": "Italia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaban los guerreros del antiguo Japón que usaban katanas?",
+		"option0": "Vikingos",
+		"option1": "Caballeros",
+		"option2": "Samuráis",
+		"option3": "Gladiadores",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso barco se hundió en su primer viaje en el año 1912?",
+		"option0": "Titanic",
+		"option1": "Santa María",
+		"option2": "Victoria",
+		"option3": "La Pinta",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quiénes escribían con dibujos llamados jeroglíficos?",
+		"option0": "Los romanos",
+		"option1": "Los griegos",
+		"option2": "Los egipcios",
+		"option3": "Los piratas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál era el nombre del rey más famoso de los caballeros de la mesa redonda?",
+		"option0": "Rey Arturo",
+		"option1": "Rey León",
+		"option2": "Rey Midas",
+		"option3": "Rey Sol",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal usaba Aníbal para cruzar las montañas en sus batallas?",
+		"option0": "Caballos",
+		"option1": "Elefantes",
+		"option2": "Camellos",
+		"option3": "Leones",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Dónde vivían los reyes y reinas en la Edad Media para protegerse?",
+		"option0": "En rascacielos",
+		"option1": "En cabañas",
+		"option2": "En pirámides",
+		"option3": "En castillos",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué inventó Johannes Gutenberg que ayudó a hacer muchos libros rápido?",
+		"option0": "El teléfono",
+		"option1": "La imprenta",
+		"option2": "La televisión",
+		"option3": "El coche",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue el primer hombre en caminar sobre la Luna?",
+		"option0": "Christopher Columbus",
+		"option1": "Neil Armstrong",
+		"option2": "Albert Einstein",
+		"option3": "Isaac Newton",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué civilización antigua inventó los Juegos Olímpicos?",
+		"option0": "Los Incas",
+		"option1": "Los Egipcios",
+		"option2": "Los Griegos",
+		"option3": "Los Aztecas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaban los barcos que usaban los vikingos?",
+		"option0": "Drakkar",
+		"option1": "Canoas",
+		"option2": "Submarinos",
+		"option3": "Cruceros",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gran muro se construyó en Asia para proteger un imperio?",
+		"option0": "El Muro de Berlín",
+		"option1": "La Gran Muralla China",
+		"option2": "El Muro de Londres",
+		"option3": "La Pared Roja",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué medio de transporte tirado por caballos se usaba en las carreras romanas?",
+		"option0": "Bicicletas",
+		"option1": "Carros o cuadrigas",
+		"option2": "Patinetes",
+		"option3": "Trineos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quiénes eran los exploradores del norte conocidos por sus cascos y hachas?",
+		"option0": "Vikingos",
+		"option1": "Cowboys",
+		"option2": "Piratas",
+		"option3": "Astronautas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿En qué continente vivían los Mayas y los Aztecas?",
+		"option0": "Europa",
+		"option1": "África",
+		"option2": "América",
+		"option3": "Antártida",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué reina española ayudó a Cristóbal Colón a viajar a América?",
+		"option0": "Isabel la Católica",
+		"option1": "Victoria",
+		"option2": "Cleopatra",
+		"option3": "Elizabeth I",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál era la ciudad más importante del Imperio Romano?",
+		"option0": "París",
+		"option1": "Madrid",
+		"option2": "Nueva York",
+		"option3": "Roma",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué protegía a los caballeros en las batallas medievales?",
+		"option0": "Un traje de baño",
+		"option1": "Una armadura de metal",
+		"option2": "Una capa mágica",
+		"option3": "Un paraguas",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue la última reina famosa del Antiguo Egipto?",
+		"option0": "Nefertiti",
+		"option1": "Cleopatra",
+		"option2": "Atenea",
+		"option3": "Venus",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el lugar donde luchaban los gladiadores en Roma?",
+		"option0": "Coliseo",
+		"option1": "Estadio Olímpico",
+		"option2": "Parque de atracciones",
+		"option3": "Cine",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿En qué periodo de la historia aparecieron los primeros seres humanos?",
+		"option0": "Edad Media",
+		"option1": "Prehistoria",
+		"option2": "Edad Moderna",
+		"option3": "Siglo XX",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué descubrieron los humanos en la Prehistoria que les servía para calentarse?",
+		"option0": "La electricidad",
+		"option1": "El fuego",
+		"option2": "El gas",
+		"option3": "La calefacción",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿A qué se dedicaban principalmente los piratas?",
+		"option0": "A cultivar flores",
+		"option1": "A buscar tesoros en el mar",
+		"option2": "A construir puentes",
+		"option3": "A dar clases en la escuela",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal representaba el poder de los faraones en Egipto?",
+		"option0": "El perro",
+		"option1": "La vaca",
+		"option2": "El halcón y la cobra",
+		"option3": "El hámster",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué invento de los romanos todavía usamos hoy para llevar agua a las ciudades?",
+		"option0": "Acueductos",
+		"option1": "Aviones",
+		"option2": "Satélites",
+		"option3": "Internet",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de casa transportable usaban los nativos americanos de las praderas?",
+		"option0": "Igloo",
+		"option1": "Tipi",
+		"option2": "Rascacielos",
+		"option3": "Cabaña de troncos",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso científico descubrió la gravedad cuando le cayó una manzana cerca?",
+		"option0": "Isaac Newton",
+		"option1": "Leonardo da Vinci",
+		"option2": "Thomas Edison",
+		"option3": "Marco Polo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el sistema de escritura de Mesopotamia que usaba cuñas?",
+		"option0": "Abecedario",
+		"option1": "Latín",
+		"option2": "Emoji",
+		"option3": "Cuneiforme",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gran artista pintó la famosa Mona Lisa hace cientos de años?",
+		"option0": "Picasso",
+		"option1": "Leonardo da Vinci",
+		"option2": "Walt Disney",
+		"option3": "Vincent van Gogh",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país vivían los antiguos Incas y construyeron Machu Picchu?",
+		"option0": "Perú",
+		"option1": "España",
+		"option2": "Francia",
+		"option3": "Australia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal prehistórico tenía dos colmillos gigantes y mucho pelo?",
+		"option0": "Tiranosaurio",
+		"option1": "Mamut",
+		"option2": "Cebra",
+		"option3": "Tigre de Bengala",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué aventurero viajó por la Ruta de la Seda hasta llegar a China?",
+		"option0": "Marco Polo",
+		"option1": "Indiana Jones",
+		"option2": "Neil Armstrong",
+		"option3": "Napoleón",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama la época en la que el hielo cubría gran parte de la Tierra?",
+		"option0": "Edad de Oro",
+		"option1": "Edad de Vapor",
+		"option2": "Edad de Hielo",
+		"option3": "Edad de los Juguetes",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué invento de los hermanos Wright permitió a los humanos volar?",
+		"option0": "El globo",
+		"option1": "El cohete",
+		"option2": "El avión",
+		"option3": "El paracaídas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue la valiente enfermera conocida como 'La dama de la lámpara'?",
+		"option0": "Florence Nightingale",
+		"option1": "Marie Curie",
+		"option2": "Amelia Earhart",
+		"option3": "Juana de Arco",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué prenda de ropa usaban los hombres en la Antigua Roma?",
+		"option0": "Pantalones vaqueros",
+		"option1": "Toga",
+		"option2": "Chándal",
+		"option3": "Esmoquin",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaban los exploradores que vivían en los barcos y buscaban islas nuevas?",
+		"option0": "Navegantes",
+		"option1": "Camioneros",
+		"option2": "Bomberos",
+		"option3": "Aviadores",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué monumento de Francia fue construido para una gran feria hace más de 100 años?",
+		"option0": "La Estatua de la Libertad",
+		"option1": "La Torre Eiffel",
+		"option2": "El Big Ben",
+		"option3": "La Sagrada Familia",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué filósofo griego fue maestro de Alejandro Magno?",
+		"option0": "Sócrates",
+		"option1": "Hércules",
+		"option2": "Aristóteles",
+		"option3": "Plutarco",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso líder francés era conocido por llevar siempre un sombrero de dos picos?",
+		"option0": "Napoleón Bonaparte",
+		"option1": "Luis XIV",
+		"option2": "Julio César",
+		"option3": "Carlomagno",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo llamaban los romanos a su dios del mar, que llevaba un tridente?",
+		"option0": "Júpiter",
+		"option1": "Marte",
+		"option2": "Neptuno",
+		"option3": "Plutón",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué civilización inventó el papel y la brújula?",
+		"option0": "La China",
+		"option1": "La Maya",
+		"option2": "La Vikinga",
+		"option3": "La Griega",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue la primera mujer en volar sola a través del océano Atlántico?",
+		"option0": "Rosa Parks",
+		"option1": "Amelia Earhart",
+		"option2": "Frida Kahlo",
+		"option3": "Marilyn Monroe",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de escritura usaban los Mayas en sus templos?",
+		"option0": "Glifos",
+		"option1": "Morse",
+		"option2": "Braille",
+		"option3": "Letras romanas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gran invento de la prehistoria permitió mover objetos pesados fácilmente?",
+		"option0": "La rueda",
+		"option1": "El motor",
+		"option2": "La polea",
+		"option3": "El imán",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué ciudad antigua fue enterrada por la ceniza de un volcán llamado Vesubio?",
+		"option0": "Atenas",
+		"option1": "Pompeya",
+		"option2": "Cartago",
+		"option3": "Troya",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el legendario caballo de Alejandro Magno?",
+		"option0": "Pegaso",
+		"option1": "Rocinante",
+		"option2": "Bucéfalo",
+		"option3": "Babieca",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué país regaló la Estatua de la Libertad a los Estados Unidos?",
+		"option0": "Francia",
+		"option1": "España",
+		"option2": "Inglaterra",
+		"option3": "Italia",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue la joven heroína francesa que lideró ejércitos en la Edad Media?",
+		"option0": "Marie Antoinette",
+		"option1": "Juana de Arco",
+		"option2": "Catalina la Grande",
+		"option3": "Mulan",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál era el nombre de las tres carabelas con las que Colón llegó a América?",
+		"option0": "Pinta, Niña y Santa María",
+		"option1": "Victoria, Titán y Neptuno",
+		"option2": "Rápida, Veloz y Fuerte",
+		"option3": "Mar, Aire y Tierra",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso rey de Macedonia conquistó un imperio enorme antes de cumplir 33 años?",
+		"option0": "Julio César",
+		"option1": "Alejandro Magno",
+		"option2": "Atila el Huno",
+		"option3": "Nerón",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿En qué país nació la enfermería moderna gracias a Florence Nightingale?",
+		"option0": "Reino Unido",
+		"option1": "España",
+		"option2": "Brasil",
+		"option3": "Japón",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué nombre recibían los guerreros que luchaban en el Coliseo de Roma?",
+		"option0": "Caballeros",
+		"option1": "Ninjas",
+		"option2": "Gladiadores",
+		"option3": "Arqueros",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál era el nombre del famoso faraón niño cuyo tesoro se encontró casi intacto?",
+		"option0": "Ramsés",
+		"option1": "Tutankamón",
+		"option2": "Keops",
+		"option3": "Anubis",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué buscaban los alquimistas en la Edad Media para intentar convertir el hierro en oro?",
+		"option0": "La piedra filosofal",
+		"option1": "Un imán gigante",
+		"option2": "Varitas mágicas",
+		"option3": "Pintura dorada",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaban los pobladores que viajaban de un lugar a otro y no tenían casa fija?",
+		"option0": "Sedentarios",
+		"option1": "Nómadas",
+		"option2": "Vecinos",
+		"option3": "Grangeros",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué utilizaban los antiguos navegantes para guiarse de noche antes de existir el GPS?",
+		"option0": "Farolas",
+		"option1": "Las estrellas",
+		"option2": "Linternas",
+		"option3": "Relojes de arena",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famosa científica polaca ganó dos premios Nobel por estudiar la radiactividad?",
+		"option0": "Marie Curie",
+		"option1": "Ada Lovelace",
+		"option2": "Frida Kahlo",
+		"option3": "Amelia Earhart",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el gran líder de los Hunos que era conocido como 'El azote de Dios'?",
+		"option0": "Atila",
+		"option1": "Gengis Kan",
+		"option2": "Hércules",
+		"option3": "Thor",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué civilización antigua inventó el número cero en América?",
+		"option0": "Los Romanos",
+		"option1": "Los Vikingos",
+		"option2": "Los Mayas",
+		"option3": "Los Griegos",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿En qué ciudad se encuentra el famoso templo de la Acrópolis y el Partenón?",
+		"option0": "Roma",
+		"option1": "Atenas",
+		"option2": "París",
+		"option3": "El Cairo",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué valiente mujer se negó a ceder su asiento en un autobús para defender sus derechos?",
+		"option0": "Isabel I",
+		"option1": "Rosa Parks",
+		"option2": "Virginia Woolf",
+		"option3": "Diana de Gales",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaban los escalones de piedra de las pirámides de México?",
+		"option0": "Toboganes",
+		"option1": "Andamios",
+		"option2": "Teocallis",
+		"option3": "Plataformas",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué explorador lideró la primera vuelta al mundo aunque murió antes de terminarla?",
+		"option0": "Fernando de Magallanes",
+		"option1": "Vasco de Gama",
+		"option2": "James Cook",
+		"option3": "Hernán Cortés",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cuál era la principal arma de los arqueros en las batallas de la Edad Media?",
+		"option0": "El cañón",
+		"option1": "La ballesta y el arco",
+		"option2": "El escudo",
+		"option3": "La lanza corta",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué material usaban los hombres prehistóricos para hacer sus puntas de flecha?",
+		"option0": "Plástico",
+		"option1": "Piedra de sílex",
+		"option2": "Acero",
+		"option3": "Vidrio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba la ruta comercial que unía Europa y Asia para vender telas suaves?",
+		"option0": "Ruta de la Plata",
+		"option1": "Ruta de la Seda",
+		"option2": "Ruta del Té",
+		"option3": "Ruta del Oro",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué rey inglés tuvo seis esposas y es muy famoso en la historia?",
+		"option0": "Enrique VIII",
+		"option1": "Ricardo Corazón de León",
+		"option2": "Eduardo VI",
+		"option3": "Jorge V",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué gran pintor español hizo cuadros de reyes y la obra 'Las Meninas'?",
+		"option0": "Salvador Dalí",
+		"option1": "Francisco de Goya",
+		"option2": "Diego Velázquez",
+		"option3": "Joan Miró",
+		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el jefe supremo de las tribus de nativos americanos?",
+		"option0": "Capitán",
+		"option1": "Gran Jefe o Cacique",
+		"option2": "Presidente",
+		"option3": "Alcalde",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué invento de Thomas Edison sirvió para iluminar las casas sin usar velas?",
+		"option0": "La bombilla",
+		"option1": "El motor de vapor",
+		"option2": "La radio",
+		"option3": "La linterna de pilas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué tipo de barco usaban los antiguos fenicios para comerciar por el mar Mediterráneo?",
+		"option0": "Galeras",
+		"option1": "Yates",
+		"option2": "Petroleros",
+		"option3": "Piraguas",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue el presidente de EE. UU. que ayudó a terminar con la esclavitud?",
+		"option0": "George Washington",
+		"option1": "Abraham Lincoln",
+		"option2": "John F. Kennedy",
+		"option3": "Franklin Roosevelt",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el papel hecho de plantas que usaban los egipcios para escribir?",
+		"option0": "Cartón",
+		"option1": "Papiro",
+		"option2": "Pergamino",
+		"option3": "Folio",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué ciudad es famosa por tener canales en lugar de calles y usarse góndolas?",
+		"option0": "Roma",
+		"option1": "Venecia",
+		"option2": "Londres",
+		"option3": "Barcelona",
+		"correctAnswerIndex": 1
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso líder de la India defendía la paz y usaba una rueca para hacer su propia ropa?",
+		"option0": "Mahatma Gandhi",
+		"option1": "Dalai Lama",
+		"option2": "Confucio",
+		"option3": "Siddhartha",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el gran anfiteatro de madera donde los romanos hacían carreras de carros?",
+		"option0": "Circo Máximo",
+		"option1": "Teatro Real",
+		"option2": "Plaza Mayor",
+		"option3": "Estadio de mármol",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué explorador noruego llegó a América unos 500 años antes que Cristóbal Colón?",
+		"option0": "Leif Erikson",
+		"option1": "Roald Amundsen",
+		"option2": "Thor Heyerdahl",
+		"option3": "Ragnar Lodbrok",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué nombre recibían los guerreros de la antigua Esparta conocidos por su gran disciplina?",
+		"option0": "Hoplitas",
+		"option1": "Centuriones",
+		"option2": "Jenizaros",
+		"option3": "Mosqueteros",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué reina de Inglaterra gobernó durante muchísimos años en la época de los grandes inventos de vapor?",
+		"option0": "Reina Victoria",
+		"option1": "Ana Bolena",
+		"option2": "Lady Di",
+		"option3": "María Estuardo",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el emperador de Malí que fue considerado el hombre más rico de la historia?",
+		"option0": "Mansa Musa",
+		"option1": "Shaka Zulú",
+		"option2": "Ramsés II",
+		"option3": "Salomón",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué pequeño aparato usaban los marineros antiguos para saber dónde estaba el Norte?",
+		"option0": "Brújula",
+		"option1": "Telescopio",
+		"option2": "Reloj de pulsera",
+		"option3": "Termómetro",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué monumento de la India fue construido por un emperador en memoria de su esposa?",
+		"option0": "Taj Mahal",
+		"option1": "Torre de Pisa",
+		"option2": "Alhambra",
+		"option3": "Petra",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue la primera mujer aviadora en cruzar el Océano Pacífico sola?",
+		"option0": "Amelia Earhart",
+		"option1": "Valentina Tereshkova",
+		"option2": "Sally Ride",
+		"option3": "Bessie Coleman",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué civilización antigua de Mesopotamia inventó la rueda y los carros?",
+		"option0": "Sumerios",
+		"option1": "Persas",
+		"option2": "Fenicios",
+		"option3": "Hebreos",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaban los castillos de barro y ladrillo que construían en el desierto de África?",
+		"option0": "Kasbahs",
+		"option1": "Iglesias",
+		"option2": "Pagodas",
+		"option3": "Bunkers",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué general de los Estados Unidos fue el primero en ser su presidente?",
+		"option0": "George Washington",
+		"option1": "Benjamin Franklin",
+		"option2": "Thomas Jefferson",
+		"option3": "Ulysses S. Grant",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué ciudad antigua está tallada directamente en las rocas de las montañas de Jordania?",
+		"option0": "Petra",
+		"option1": "Babilonia",
+		"option2": "Tebas",
+		"option3": "Cartago",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el sistema de cuerdas con nudos que usaban los Incas para contar?",
+		"option0": "Quipu",
+		"option1": "Ábaco",
+		"option2": "Calculadora",
+		"option3": "Códice",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué invento permitía a los caballeros medievales subir al caballo más fácilmente?",
+		"option0": "Estribo",
+		"option1": "Herradura",
+		"option2": "Silla de cuero",
+		"option3": "Freno",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué famoso artista y genio diseñó máquinas voladoras y tanques hace 500 años?",
+		"option0": "Leonardo da Vinci",
+		"option1": "Miguel Ángel",
+		"option2": "Rafael",
+		"option3": "Donatello",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué pueblo antiguo vivía en casas llamadas 'longhouses' hechas de madera y corteza?",
+		"option0": "Iroqueses",
+		"option1": "Esquimales",
+		"option2": "Egipcios",
+		"option3": "Mongoles",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba la prenda de lana que usaban los hombres en la antigua Grecia?",
+		"option0": "Quitón",
+		"option1": "Túnica",
+		"option2": "Capa",
+		"option3": "Poncho",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué edificio de piedra en Inglaterra forma un círculo de rocas gigantes muy antiguo?",
+		"option0": "Stonehenge",
+		"option1": "Big Ben",
+		"option2": "Castillo de Windsor",
+		"option3": "Abadía de Westminster",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué emperador romano fue famoso por construir un gran muro en el norte de Gran Bretaña?",
+		"option0": "Adriano",
+		"option1": "Trajano",
+		"option2": "Augusto",
+		"option3": "Constantino",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué buscaban los exploradores en el Ártico para llegar más rápido de Europa a Asia?",
+		"option0": "Paso del Noroeste",
+		"option1": "La Fuente de la Juventud",
+		"option2": "El Dorado",
+		"option3": "La Atlántida",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llama el templo principal con forma de pirámide escalonada de Mesopotamia?",
+		"option0": "Zigurat",
+		"option1": "Catedral",
+		"option2": "Mezquita",
+		"option3": "Sinagoga",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Quién fue la faraona que se hizo pasar por hombre para poder gobernar Egipto?",
+		"option0": "Hatshepsut",
+		"option1": "Cleopatra",
+		"option2": "Nefertari",
+		"option3": "Isis",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Qué animal era sagrado y muy respetado en el antiguo Egipto?",
+		"option0": "Gato",
+		"option1": "Lobo",
+		"option2": "Oso",
+		"option3": "Elefante",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "CRIMSON_HIST",
+		"targetAudience": "KID",
+		"questionText": "¿Cómo se llamaba el jefe de los guerreros de las estepas de Mongolia?",
+		"option0": "Gengis Kan",
+		"option1": "Kublai Kan",
+		"option2": "Atila",
+		"option3": "Tamerlán",
+		"correctAnswerIndex": 0
+	}
+]
