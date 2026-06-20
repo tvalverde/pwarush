@@ -9,6 +9,7 @@ const QuestionOverlay: React.FC = () => {
 	const outcome = useGameStore((s) => s.lastOutcome);
 	const answerQuestion = useGameStore((s) => s.answerQuestion);
 	const continueAfterFeedback = useGameStore((s) => s.continueAfterFeedback);
+	const isConclave = useGameStore((s) => s.isConclave);
 	const t = useGameStore((s) => s.t);
 
 	if (!question) return null;
@@ -81,7 +82,9 @@ const QuestionOverlay: React.FC = () => {
 							data-testid="continue-feedback"
 							onClick={continueAfterFeedback}
 						>
-							{outcome.correct ? t('question.roll_again') : t('question.next_player')}
+							{outcome.correct
+								? t(isConclave ? 'question.claim_victory' : 'question.roll_again')
+								: t('question.next_player')}
 						</Button>
 					</div>
 				)}

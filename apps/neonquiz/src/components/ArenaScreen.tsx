@@ -5,9 +5,12 @@ import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
 import NeonBoard from './board/NeonBoard';
 import ShapeGlyph from './board/ShapeGlyph';
+import ConclaveHandoffScreen from './ConclaveHandoffScreen';
+import ConclaveVoteScreen from './ConclaveVoteScreen';
 import Dice from './Dice';
 import QuestionOverlay from './QuestionOverlay';
 import TurnTransitionScreen from './TurnTransitionScreen';
+import VictoryScreen from './VictoryScreen';
 
 const SparkTrack: React.FC<{ collected: string[] }> = ({ collected }) => (
 	<div className="flex gap-1.5" data-testid="spark-track">
@@ -64,8 +67,13 @@ const ArenaScreen: React.FC = () => {
 
 			<main className="relative flex-1 overflow-hidden">
 				<NeonBoard board={board} players={players} validMoves={validMoves} onMove={moveTo} />
-				{(phase === 'QUESTION_ACTIVE' || phase === 'FEEDBACK') && <QuestionOverlay />}
+				{(phase === 'QUESTION_ACTIVE' || phase === 'FEEDBACK' || phase === 'CONCLAVE_QUESTION') && (
+					<QuestionOverlay />
+				)}
 				{phase === 'TURN_TRANSITION' && <TurnTransitionScreen />}
+				{phase === 'CONCLAVE_VOTE' && <ConclaveVoteScreen />}
+				{phase === 'CONCLAVE_HANDOFF' && <ConclaveHandoffScreen />}
+				{phase === 'VICTORY' && <VictoryScreen />}
 			</main>
 
 			<footer className="flex min-h-20 items-center justify-center gap-4 border-t border-outline-variant bg-surface-container-lowest px-5 py-4">

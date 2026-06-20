@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
+import { NEXUS_ID } from '../engine/boardFactory';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES, type Question } from '../types';
 
@@ -100,5 +101,89 @@ describe('gameStore turn loop', () => {
 		const outcome = useGameStore.getState().lastOutcome;
 		expect(outcome?.collectedSpark).toBe(category);
 		expect(useGameStore.getState().players[0].sparks).toContain(category);
+	});
+});
+
+describe('gameStore victory loop (Conclave)', () => {
+	beforeEach(start);
+
+	// Places player 0 on a spoke tile next to the Nexus, holding all six Sparks.
+	const armChallenger = (): number => {
+		const board = useGameStore.getState().board;
+		const spokeInner = board.nodes.find(
+			(node) => node.type === 'NORMAL' && node.connectedNodeIds.includes(NEXUS_ID),
+		);
+		const players = useGameStore
+			.getState()
+			.players.map((player, index) =>
+				index === 0 ? { ...player, sparks: [...CATEGORIES], position: spokeInner!.id } : player,
+			);
+		useGameStore.setState({ players, currentPlayerIndex: 0, phase: 'TURN_TRANSITION' });
+		return spokeInner!.id;
+	};
+
+	const reachNexus = () => {
+		useGameStore.getState().confirmTurnTransition();
+		expect(useGameStore.getState().phase).toBe('ROLLING_DICE');
+		useGameStore.getState().rollDice(1);
+		expect(useGameStore.getState().validMoves).toContain(NEXUS_ID);
+		useGameStore.getState().moveTo(NEXUS_ID);
+	};
+
+	it('keeps the Nexus out of reach without the six Sparks', () => {
+		const board = useGameStore.getState().board;
+		const spokeInner = board.nodes.find(
+			(node) => node.type === 'NORMAL' && node.connectedNodeIds.includes(NEXUS_ID),
+		);
+		const players = useGameStore
+			.getState()
+			.players.map((player, index) =>
+				index === 0 ? { ...player, position: spokeInner!.id } : player,
+			);
+		useGameStore.setState({ players, currentPlayerIndex: 0, phase: 'ROLLING_DICE' });
+		useGameStore.getState().rollDice(1);
+		expect(useGameStore.getState().validMoves).not.toContain(NEXUS_ID);
+	});
+
+	it('opens the Conclave when the challenger enters the Nexus with six Sparks', () => {
+		armChallenger();
+		reachNexus();
+		expect(useGameStore.getState().phase).toBe('CONCLAVE_VOTE');
+	});
+
+	it('wins the game on a correct final answer', () => {
+		armChallenger();
+		reachNexus();
+		useGameStore.getState().voteConclaveCategory('CYAN_SCI');
+		expect(useGameStore.getState().phase).toBe('CONCLAVE_HANDOFF');
+		useGameStore.getState().confirmConclaveHandoff();
+		expect(useGameStore.getState().phase).toBe('CONCLAVE_QUESTION');
+		const correct = useGameStore.getState().activeQuestion!.correctAnswerIndex;
+		useGameStore.getState().answerQuestion(correct);
+		expect(useGameStore.getState().phase).toBe('FEEDBACK');
+		useGameStore.getState().continueAfterFeedback();
+		expect(useGameStore.getState().phase).toBe('VICTORY');
+		expect(useGameStore.getState().winnerIndex).toBe(0);
+	});
+
+	it('keeps the challenger on the Nexus and retries the Conclave after a wrong answer', () => {
+		armChallenger();
+		reachNexus();
+		useGameStore.getState().voteConclaveCategory('CYAN_SCI');
+		useGameStore.getState().confirmConclaveHandoff();
+		const correct = useGameStore.getState().activeQuestion!.correctAnswerIndex;
+		useGameStore.getState().answerQuestion(correct === 0 ? 1 : 0);
+		useGameStore.getState().continueAfterFeedback();
+
+		const afterFail = useGameStore.getState();
+		expect(afterFail.phase).toBe('TURN_TRANSITION');
+		expect(afterFail.currentPlayerIndex).toBe(1);
+		expect(afterFail.players[0].sparks).toHaveLength(CATEGORIES.length);
+		expect(afterFail.players[0].position).toBe(NEXUS_ID);
+
+		// Back to the challenger: the Conclave reopens instead of a dice roll.
+		useGameStore.setState({ currentPlayerIndex: 0, phase: 'TURN_TRANSITION' });
+		useGameStore.getState().confirmTurnTransition();
+		expect(useGameStore.getState().phase).toBe('CONCLAVE_VOTE');
 	});
 });

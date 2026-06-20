@@ -3,17 +3,20 @@ import { calculateValidMoves } from '../engine/boardEngine';
 import { buildFamiliarBoard, getNode, NEXUS_ID } from '../engine/boardFactory';
 import { createQuestionPool, type QuestionPool } from '../engine/questionPool';
 import { rollDie } from '../engine/rng';
-import type {
-	Board,
-	GamePhase,
-	GameSession,
-	Language,
-	Player,
-	PlayerShape,
-	Question,
-	TriviaCategory,
+import {
+	type Board,
+	CATEGORIES,
+	type GamePhase,
+	type GameSession,
+	type Language,
+	type Player,
+	type PlayerShape,
+	type Question,
+	type TriviaCategory,
 } from '../types';
 import { translations } from '../utils/translations';
+
+const SPARKS_TO_WIN = CATEGORIES.length;
 
 export interface AnswerOutcome {
 	correct: boolean;
@@ -39,6 +42,10 @@ interface GameStore {
 	activeQuestion: Question | null;
 	lastOutcome: AnswerOutcome | null;
 	bankSize: number;
+	turnCount: number;
+	conclaveCategory: TriviaCategory | null;
+	isConclave: boolean;
+	winnerIndex: number | null;
 
 	t: (path: string) => string;
 	setLanguage: (language: Language) => void;
@@ -54,6 +61,8 @@ interface GameStore {
 	answerQuestion: (selectedIndex: number) => void;
 	continueAfterFeedback: () => void;
 	skipTurn: () => void;
+	voteConclaveCategory: (category: TriviaCategory) => void;
+	confirmConclaveHandoff: () => void;
 }
 
 let pool: QuestionPool = createQuestionPool([]);
@@ -71,18 +80,39 @@ const createPlayer = (draft: PlayerDraft, index: number): Player => ({
 	sparks: [],
 });
 
+const hasAllSparks = (player: Player): boolean => player.sparks.length >= SPARKS_TO_WIN;
+
+const FRESH_GAME: Pick<
+	GameStore,
+	| 'dice'
+	| 'validMoves'
+	| 'activeNodeId'
+	| 'activeQuestion'
+	| 'lastOutcome'
+	| 'turnCount'
+	| 'conclaveCategory'
+	| 'isConclave'
+	| 'winnerIndex'
+> = {
+	dice: null,
+	validMoves: [],
+	activeNodeId: null,
+	activeQuestion: null,
+	lastOutcome: null,
+	turnCount: 0,
+	conclaveCategory: null,
+	isConclave: false,
+	winnerIndex: null,
+};
+
 export const useGameStore = create<GameStore>()((set, get) => ({
 	language: getInitialLanguage(),
 	phase: 'LOBBY',
 	board: buildFamiliarBoard(),
 	players: [],
 	currentPlayerIndex: 0,
-	dice: null,
-	validMoves: [],
-	activeNodeId: null,
-	activeQuestion: null,
-	lastOutcome: null,
 	bankSize: 0,
+	...FRESH_GAME,
 
 	t: (path) => {
 		const lang = get().language;
@@ -111,11 +141,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			players: drafts.map(createPlayer),
 			currentPlayerIndex: 0,
 			phase: 'TURN_TRANSITION',
-			dice: null,
-			validMoves: [],
-			activeNodeId: null,
-			activeQuestion: null,
-			lastOutcome: null,
+			...FRESH_GAME,
 		}),
 
 	hydrate: (session, questions) => {
@@ -125,34 +151,32 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			players: session.players,
 			currentPlayerIndex: session.currentPlayerIndex,
 			phase: 'TURN_TRANSITION',
-			dice: null,
-			validMoves: [],
-			activeNodeId: null,
-			activeQuestion: null,
-			lastOutcome: null,
 			bankSize: questions.length,
+			...FRESH_GAME,
 		});
 	},
 
-	resetGame: () =>
-		set({
-			phase: 'LOBBY',
-			players: [],
-			currentPlayerIndex: 0,
-			dice: null,
-			validMoves: [],
-			activeNodeId: null,
-			activeQuestion: null,
-			lastOutcome: null,
-		}),
+	resetGame: () => set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME }),
 
-	confirmTurnTransition: () => set({ phase: 'ROLLING_DICE' }),
+	// At the start of a turn a challenger already standing on the Nexus with every Spark
+	// re-enters the Conclave (the KID retry rule); everyone else rolls.
+	confirmTurnTransition: () => {
+		const state = get();
+		const player = state.players[state.currentPlayerIndex];
+		if (player && player.position === NEXUS_ID && hasAllSparks(player)) {
+			set({ phase: 'CONCLAVE_VOTE' });
+		} else {
+			set({ phase: 'ROLLING_DICE' });
+		}
+	},
 
 	rollDice: (roll) => {
 		const state = get();
 		const value = roll ?? rollDie();
 		const player = state.players[state.currentPlayerIndex];
-		const validMoves = calculateValidMoves(state.board, player.position, value);
+		const validMoves = calculateValidMoves(state.board, player.position, value, {
+			nexusUnlocked: hasAllSparks(player),
+		});
 		set({ dice: value, validMoves, phase: 'AWAITING_MOVE' });
 	},
 
@@ -164,13 +188,12 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		);
 		const node = getNode(state.board, nodeId);
 
-		if (node.type === 'NEXUS' || node.category === null) {
-			set({ players, validMoves: [], dice: null });
-			advanceTurn(set);
+		if (node.type === 'NEXUS') {
+			set({ players, validMoves: [], dice: null, phase: 'CONCLAVE_VOTE' });
 			return;
 		}
 
-		const question = pool.draw(node.category);
+		const question = node.category ? pool.draw(node.category) : null;
 		set({
 			players,
 			validMoves: [],
@@ -183,10 +206,24 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	answerQuestion: (selectedIndex) => {
 		const state = get();
 		const question = state.activeQuestion;
-		const nodeId = state.activeNodeId;
-		if (!question || nodeId === null) return;
-
+		if (!question) return;
 		const correct = selectedIndex === question.correctAnswerIndex;
+
+		if (state.isConclave) {
+			set({
+				phase: 'FEEDBACK',
+				lastOutcome: {
+					correct,
+					selectedIndex,
+					correctIndex: question.correctAnswerIndex,
+					collectedSpark: null,
+				},
+			});
+			return;
+		}
+
+		const nodeId = state.activeNodeId;
+		if (nodeId === null) return;
 		const node = getNode(state.board, nodeId);
 		let collectedSpark: TriviaCategory | null = null;
 		let players = state.players;
@@ -218,6 +255,25 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	continueAfterFeedback: () => {
 		const state = get();
 		const correct = state.lastOutcome?.correct ?? false;
+
+		if (state.isConclave) {
+			if (correct) {
+				set({
+					phase: 'VICTORY',
+					winnerIndex: state.currentPlayerIndex,
+					activeQuestion: null,
+					lastOutcome: null,
+					isConclave: false,
+				});
+			} else {
+				// KID rule: the challenger keeps every Spark and stays on the Nexus; the
+				// Conclave reopens on their next turn (via confirmTurnTransition).
+				set({ activeQuestion: null, lastOutcome: null, isConclave: false, conclaveCategory: null });
+				advanceTurn(set);
+			}
+			return;
+		}
+
 		set({ activeQuestion: null, activeNodeId: null, lastOutcome: null });
 		if (correct) {
 			set({ phase: 'ROLLING_DICE', dice: null, validMoves: [] });
@@ -227,6 +283,20 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	},
 
 	skipTurn: () => advanceTurn(set),
+
+	voteConclaveCategory: (category) =>
+		set({ conclaveCategory: category, phase: 'CONCLAVE_HANDOFF' }),
+
+	confirmConclaveHandoff: () => {
+		const category = get().conclaveCategory;
+		if (!category) return;
+		set({
+			activeQuestion: pool.draw(category),
+			activeNodeId: null,
+			isConclave: true,
+			phase: 'CONCLAVE_QUESTION',
+		});
+	},
 }));
 
 type SetState = (partial: Partial<GameStore>) => void;
@@ -242,6 +312,7 @@ const advanceTurn = (set: SetState): void => {
 		activeNodeId: null,
 		activeQuestion: null,
 		lastOutcome: null,
+		turnCount: state.turnCount + 1,
 	});
 };
 

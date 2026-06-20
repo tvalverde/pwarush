@@ -45,3 +45,29 @@ describe('calculateValidMoves', () => {
 		expect(moves.length).toBeGreaterThanOrEqual(2);
 	});
 });
+
+describe('Nexus wall rule', () => {
+	const board = buildFamiliarBoard();
+	const spokeInner = board.nodes.find(
+		(node) => node.type === 'NORMAL' && node.connectedNodeIds.includes(NEXUS_ID),
+	);
+	const midId = spokeInner?.connectedNodeIds.find((id) => id !== NEXUS_ID) ?? -1;
+	const outerId = getNode(board, midId).connectedNodeIds.find((id) => id !== spokeInner?.id) ?? -1;
+
+	it('skips the Nexus when the player lacks the six Sparks (locked)', () => {
+		const moves = calculateValidMoves(board, spokeInner!.id, 1);
+		expect(moves).not.toContain(NEXUS_ID);
+		expect(moves).toContain(midId);
+	});
+
+	it('exposes the Nexus as a destination once unlocked', () => {
+		const moves = calculateValidMoves(board, spokeInner!.id, 1, { nexusUnlocked: true });
+		expect(moves).toContain(NEXUS_ID);
+	});
+
+	it('lets an unlocked Nexus be entered when the roll reaches or overshoots it', () => {
+		// outer spoke node is 3 steps from the Nexus; a roll of 5 still lets it enter.
+		expect(calculateValidMoves(board, outerId, 5, { nexusUnlocked: true })).toContain(NEXUS_ID);
+		expect(calculateValidMoves(board, outerId, 5)).not.toContain(NEXUS_ID);
+	});
+});

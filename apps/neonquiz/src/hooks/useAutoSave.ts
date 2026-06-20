@@ -13,8 +13,11 @@ export const clearSavedSession = async (): Promise<void> => {
 	}
 };
 
+const isLiveGame = (state: GameStoreState): boolean =>
+	state.phase !== 'LOBBY' && state.phase !== 'VICTORY' && state.players.length > 0;
+
 export const persistSession = async (state: GameStoreState): Promise<void> => {
-	if (state.phase === 'LOBBY' || state.players.length === 0) return;
+	if (!isLiveGame(state)) return;
 	try {
 		await db.gameSession.put({
 			id: SESSION_ID,
@@ -35,12 +38,14 @@ export const useAutoSave = (): void => {
 			subscribe: useGameStore.subscribe,
 			snapshot: (state) =>
 				JSON.stringify({ players: state.players, currentPlayerIndex: state.currentPlayerIndex }),
-			shouldSave: (state) => state.phase !== 'LOBBY' && state.players.length > 0,
-			shouldClear: (state) => state.phase === 'LOBBY',
+			shouldSave: isLiveGame,
+			shouldClear: (state) => !isLiveGame(state),
 			clear: () => clearSavedSession(),
 			persist: persistSession,
 			triggers: (state, prevState) => {
-				if (state.phase === 'LOBBY' && prevState.phase !== 'LOBBY') return 'clear';
+				const ended =
+					(state.phase === 'LOBBY' || state.phase === 'VICTORY') && prevState.phase !== state.phase;
+				if (ended) return 'clear';
 				if (state.phase === 'TURN_TRANSITION' && prevState.phase !== 'TURN_TRANSITION') {
 					return 'save';
 				}

@@ -65,7 +65,11 @@ export type GamePhase =
 	| 'ROLLING_DICE'
 	| 'AWAITING_MOVE'
 	| 'QUESTION_ACTIVE'
-	| 'FEEDBACK';
+	| 'FEEDBACK'
+	| 'CONCLAVE_VOTE'
+	| 'CONCLAVE_HANDOFF'
+	| 'CONCLAVE_QUESTION'
+	| 'VICTORY';
 
 export interface GameSession {
 	id: number;

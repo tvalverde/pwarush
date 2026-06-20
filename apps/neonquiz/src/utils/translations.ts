@@ -32,6 +32,20 @@ export const translations = {
 			spark_collected: 'Spark collected!',
 			roll_again: 'Roll again',
 			next_player: 'Next player',
+			claim_victory: 'Claim victory',
+		},
+		conclave: {
+			vote_title: 'The Conclave',
+			vote_subtitle: 'Rivals, choose the final category',
+			handoff: 'Return the device to',
+			ready: 'Answer the final question',
+		},
+		victory: {
+			title: 'Victory',
+			winner: 'reaches the Nexus',
+			sparks: 'Sparks',
+			turns: 'Turns',
+			play_again: 'New game',
 		},
 		categories: {
 			EMERALD_GEO: 'Geography',
@@ -75,6 +89,20 @@ export const translations = {
 			spark_collected: '¡Chispa conseguida!',
 			roll_again: 'Tira de nuevo',
 			next_player: 'Siguiente jugador',
+			claim_victory: 'Reclamar victoria',
+		},
+		conclave: {
+			vote_title: 'El Cónclave',
+			vote_subtitle: 'Rivales, elegid la categoría final',
+			handoff: 'Devuelve el dispositivo a',
+			ready: 'Responder la pregunta final',
+		},
+		victory: {
+			title: 'Victoria',
+			winner: 'alcanza el Nexus',
+			sparks: 'Chispas',
+			turns: 'Turnos',
+			play_again: 'Nueva partida',
 		},
 		categories: {
 			EMERALD_GEO: 'Geografía',
