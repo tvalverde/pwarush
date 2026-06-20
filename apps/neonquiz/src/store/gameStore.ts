@@ -13,6 +13,7 @@ import {
 	type PlayerShape,
 	type Question,
 	type TriviaCategory,
+	type WildcardUsage,
 } from '../types';
 import { translations } from '../utils/translations';
 
@@ -46,6 +47,9 @@ interface GameStore {
 	conclaveCategory: TriviaCategory | null;
 	isConclave: boolean;
 	winnerIndex: number | null;
+	hiddenOptions: number[];
+	lockedOptions: number[];
+	answerRevealed: boolean;
 
 	t: (path: string) => string;
 	setLanguage: (language: Language) => void;
@@ -63,7 +67,17 @@ interface GameStore {
 	skipTurn: () => void;
 	voteConclaveCategory: (category: TriviaCategory) => void;
 	confirmConclaveHandoff: () => void;
+	useFiftyFifty: () => void;
+	useChange: () => void;
+	useSecondChance: () => void;
+	revealAnswer: () => void;
 }
+
+const FRESH_WILDCARDS = (): WildcardUsage => ({
+	fiftyFifty: false,
+	change: false,
+	secondChance: false,
+});
 
 let pool: QuestionPool = createQuestionPool([]);
 
@@ -78,6 +92,15 @@ const createPlayer = (draft: PlayerDraft, index: number): Player => ({
 	shape: draft.shape,
 	position: NEXUS_ID,
 	sparks: [],
+	usedWildcards: FRESH_WILDCARDS(),
+});
+
+// Backfills fields added in later milestones so sessions saved by an earlier version
+// resume cleanly (e.g. pre-H4 players have no `usedWildcards`).
+const normalizePlayer = (player: Player): Player => ({
+	...player,
+	sparks: player.sparks ?? [],
+	usedWildcards: player.usedWildcards ?? FRESH_WILDCARDS(),
 });
 
 const hasAllSparks = (player: Player): boolean => player.sparks.length >= SPARKS_TO_WIN;
@@ -93,6 +116,9 @@ const FRESH_GAME: Pick<
 	| 'conclaveCategory'
 	| 'isConclave'
 	| 'winnerIndex'
+	| 'hiddenOptions'
+	| 'lockedOptions'
+	| 'answerRevealed'
 > = {
 	dice: null,
 	validMoves: [],
@@ -103,6 +129,9 @@ const FRESH_GAME: Pick<
 	conclaveCategory: null,
 	isConclave: false,
 	winnerIndex: null,
+	hiddenOptions: [],
+	lockedOptions: [],
+	answerRevealed: false,
 };
 
 export const useGameStore = create<GameStore>()((set, get) => ({
@@ -148,7 +177,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		pool = createQuestionPool(questions);
 		set({
 			board: buildFamiliarBoard(),
-			players: session.players,
+			players: session.players.map(normalizePlayer),
 			currentPlayerIndex: session.currentPlayerIndex,
 			phase: 'TURN_TRANSITION',
 			bankSize: questions.length,
@@ -199,6 +228,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			validMoves: [],
 			activeNodeId: nodeId,
 			activeQuestion: question,
+			hiddenOptions: [],
+			lockedOptions: [],
+			answerRevealed: false,
 			phase: 'QUESTION_ACTIVE',
 		});
 	},
@@ -274,7 +306,14 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			return;
 		}
 
-		set({ activeQuestion: null, activeNodeId: null, lastOutcome: null });
+		set({
+			activeQuestion: null,
+			activeNodeId: null,
+			lastOutcome: null,
+			hiddenOptions: [],
+			lockedOptions: [],
+			answerRevealed: false,
+		});
 		if (correct) {
 			set({ phase: 'ROLLING_DICE', dice: null, validMoves: [] });
 		} else {
@@ -297,7 +336,66 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			phase: 'CONCLAVE_QUESTION',
 		});
 	},
+
+	// KID wildcards — one use per player per game, tracked on the player.
+	useFiftyFifty: () => {
+		const state = get();
+		const player = state.players[state.currentPlayerIndex];
+		const question = state.activeQuestion;
+		if (state.phase !== 'QUESTION_ACTIVE' || !question || player.usedWildcards.fiftyFifty) return;
+
+		const wrong = [0, 1, 2, 3].filter((i) => i !== question.correctAnswerIndex);
+		const toHide = wrong.sort(() => Math.random() - 0.5).slice(0, 2);
+		set({
+			hiddenOptions: toHide,
+			players: markWildcard(state.players, state.currentPlayerIndex, 'fiftyFifty'),
+		});
+	},
+
+	useChange: () => {
+		const state = get();
+		const player = state.players[state.currentPlayerIndex];
+		const question = state.activeQuestion;
+		if (state.phase !== 'QUESTION_ACTIVE' || !question || player.usedWildcards.change) return;
+
+		set({
+			activeQuestion: pool.draw(question.category) ?? question,
+			hiddenOptions: [],
+			lockedOptions: [],
+			players: markWildcard(state.players, state.currentPlayerIndex, 'change'),
+		});
+	},
+
+	useSecondChance: () => {
+		const state = get();
+		const player = state.players[state.currentPlayerIndex];
+		const outcome = state.lastOutcome;
+		if (
+			state.phase !== 'FEEDBACK' ||
+			state.isConclave ||
+			!outcome ||
+			outcome.correct ||
+			player.usedWildcards.secondChance
+		) {
+			return;
+		}
+		set({
+			phase: 'QUESTION_ACTIVE',
+			lastOutcome: null,
+			answerRevealed: false,
+			lockedOptions: [...state.lockedOptions, outcome.selectedIndex],
+			players: markWildcard(state.players, state.currentPlayerIndex, 'secondChance'),
+		});
+	},
+
+	// Declining the 2nd chance reveals the correct answer (for learning) before the turn passes.
+	revealAnswer: () => set({ answerRevealed: true }),
 }));
+
+const markWildcard = (players: Player[], index: number, key: keyof WildcardUsage): Player[] =>
+	players.map((player, i) =>
+		i === index ? { ...player, usedWildcards: { ...player.usedWildcards, [key]: true } } : player,
+	);
 
 type SetState = (partial: Partial<GameStore>) => void;
 
@@ -312,6 +410,9 @@ const advanceTurn = (set: SetState): void => {
 		activeNodeId: null,
 		activeQuestion: null,
 		lastOutcome: null,
+		hiddenOptions: [],
+		lockedOptions: [],
+		answerRevealed: false,
 		turnCount: state.turnCount + 1,
 	});
 };

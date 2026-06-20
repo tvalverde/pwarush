@@ -51,12 +51,25 @@ export const PLAYER_SHAPES = [
 
 export type PlayerShape = (typeof PLAYER_SHAPES)[number];
 
+export interface WildcardUsage {
+	fiftyFifty: boolean;
+	change: boolean;
+	secondChance: boolean;
+}
+
 export interface Player {
 	id: string;
 	name: string;
 	shape: PlayerShape;
 	position: number;
 	sparks: TriviaCategory[];
+	usedWildcards: WildcardUsage;
+}
+
+export interface FailedQuestionEntry {
+	id?: number;
+	questionId: number;
+	failedAt: number;
 }
 
 export type GamePhase =

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { NEXUS_ID } from '../engine/boardFactory';
 import { useGameStore } from '../store/gameStore';
-import { CATEGORIES, type Question } from '../types';
+import { CATEGORIES, type GameSession, type Question } from '../types';
 
 const bank: Question[] = CATEGORIES.map((category, index) => ({
 	id: index + 1,
@@ -185,5 +185,99 @@ describe('gameStore victory loop (Conclave)', () => {
 		useGameStore.setState({ currentPlayerIndex: 0, phase: 'TURN_TRANSITION' });
 		useGameStore.getState().confirmTurnTransition();
 		expect(useGameStore.getState().phase).toBe('CONCLAVE_VOTE');
+	});
+});
+
+describe('gameStore KID wildcards', () => {
+	beforeEach(start);
+
+	const openQuestion = () => {
+		useGameStore.getState().confirmTurnTransition();
+		useGameStore.getState().rollDice(1);
+		useGameStore.getState().moveTo(useGameStore.getState().validMoves[0]);
+		expect(useGameStore.getState().phase).toBe('QUESTION_ACTIVE');
+	};
+
+	it('50/50 hides exactly two wrong options once and keeps the correct one', () => {
+		openQuestion();
+		const correct = useGameStore.getState().activeQuestion!.correctAnswerIndex;
+		useGameStore.getState().useFiftyFifty();
+		const s = useGameStore.getState();
+		expect(s.hiddenOptions).toHaveLength(2);
+		expect(s.hiddenOptions).not.toContain(correct);
+		expect(s.players[0].usedWildcards.fiftyFifty).toBe(true);
+
+		useGameStore.getState().useFiftyFifty(); // second use is a no-op
+		expect(useGameStore.getState().hiddenOptions).toHaveLength(2);
+	});
+
+	it('Change swaps the question and clears the 50/50 aid, once', () => {
+		openQuestion();
+		useGameStore.getState().useFiftyFifty();
+		useGameStore.getState().useChange();
+		const s = useGameStore.getState();
+		expect(s.players[0].usedWildcards.change).toBe(true);
+		expect(s.hiddenOptions).toHaveLength(0);
+		expect(s.phase).toBe('QUESTION_ACTIVE');
+		expect(s.activeQuestion).not.toBeNull();
+	});
+
+	it('2nd Chance reopens the same question with the failed option locked', () => {
+		openQuestion();
+		const correct = useGameStore.getState().activeQuestion!.correctAnswerIndex;
+		const wrong = correct === 0 ? 1 : 0;
+		useGameStore.getState().answerQuestion(wrong);
+		expect(useGameStore.getState().phase).toBe('FEEDBACK');
+
+		useGameStore.getState().useSecondChance();
+		const s = useGameStore.getState();
+		expect(s.phase).toBe('QUESTION_ACTIVE');
+		expect(s.lockedOptions).toContain(wrong);
+		expect(s.players[0].usedWildcards.secondChance).toBe(true);
+
+		// Answering correctly now resolves the turn normally.
+		useGameStore.getState().answerQuestion(correct);
+		expect(useGameStore.getState().lastOutcome?.correct).toBe(true);
+	});
+
+	it('tracks wildcards per player', () => {
+		openQuestion();
+		useGameStore.getState().useFiftyFifty();
+		const correct = useGameStore.getState().activeQuestion!.correctAnswerIndex;
+		useGameStore.getState().answerQuestion(correct === 0 ? 1 : 0); // wrong → turn passes
+		useGameStore.getState().continueAfterFeedback();
+
+		const s = useGameStore.getState();
+		expect(s.currentPlayerIndex).toBe(1);
+		expect(s.players[0].usedWildcards.fiftyFifty).toBe(true);
+		expect(s.players[1].usedWildcards.fiftyFifty).toBe(false);
+	});
+});
+
+describe('gameStore session migration (regression)', () => {
+	// Regression: a session saved before wildcards existed has players without
+	// `usedWildcards`, which hid the wildcard bar after resuming. Hydrate must backfill it.
+	it('backfills usedWildcards when hydrating a pre-H4 session', () => {
+		const legacyPlayers = [
+			{ id: 'p0-TRIANGLE', name: 'Ada', shape: 'TRIANGLE', position: 0, sparks: [] },
+			{ id: 'p1-SQUARE', name: 'Bob', shape: 'SQUARE', position: 0, sparks: [] },
+		];
+		const session = {
+			id: 1,
+			players: legacyPlayers,
+			currentPlayerIndex: 0,
+			phase: 'TURN_TRANSITION' as const,
+			updatedAt: 0,
+		};
+
+		useGameStore.getState().hydrate(session as unknown as GameSession, bank);
+
+		const players = useGameStore.getState().players;
+		expect(players[0].usedWildcards).toEqual({
+			fiftyFifty: false,
+			change: false,
+			secondChance: false,
+		});
+		expect(players[1].usedWildcards.fiftyFifty).toBe(false);
 	});
 });

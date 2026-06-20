@@ -10,6 +10,7 @@ const player: Player = {
 	shape: 'TRIANGLE',
 	position: 0,
 	sparks: [],
+	usedWildcards: { fiftyFifty: false, change: false, secondChance: false },
 };
 
 describe('NeonBoard tile interaction (regression)', () => {

@@ -7,8 +7,16 @@ const QuestionOverlay: React.FC = () => {
 	const phase = useGameStore((s) => s.phase);
 	const question = useGameStore((s) => s.activeQuestion);
 	const outcome = useGameStore((s) => s.lastOutcome);
+	const hiddenOptions = useGameStore((s) => s.hiddenOptions);
+	const lockedOptions = useGameStore((s) => s.lockedOptions);
+	const player = useGameStore((s) => s.players[s.currentPlayerIndex]);
 	const answerQuestion = useGameStore((s) => s.answerQuestion);
 	const continueAfterFeedback = useGameStore((s) => s.continueAfterFeedback);
+	const useFiftyFifty = useGameStore((s) => s.useFiftyFifty);
+	const useChange = useGameStore((s) => s.useChange);
+	const useSecondChance = useGameStore((s) => s.useSecondChance);
+	const revealAnswer = useGameStore((s) => s.revealAnswer);
+	const answerRevealed = useGameStore((s) => s.answerRevealed);
 	const isConclave = useGameStore((s) => s.isConclave);
 	const t = useGameStore((s) => s.t);
 
@@ -17,10 +25,25 @@ const QuestionOverlay: React.FC = () => {
 	const color = categoryColor(question.category);
 	const options = [question.option0, question.option1, question.option2, question.option3];
 	const isFeedback = phase === 'FEEDBACK';
+	const wrongFeedback = isFeedback && outcome !== null && !outcome.correct;
+	const used = player?.usedWildcards;
+	// While a 2nd chance is still on offer we must NOT reveal the correct answer; the
+	// player either takes the retry or reveals it deliberately ("show answer").
+	const retryOffered =
+		wrongFeedback && !isConclave && !!used && !used.secondChance && !answerRevealed;
 
 	const optionClass = (index: number): string => {
 		if (!isFeedback) {
+			if (lockedOptions.includes(index)) {
+				return 'border-outline-variant bg-surface-container text-on-surface-variant opacity-40';
+			}
 			return 'border-outline-variant bg-surface-container-high text-on-surface hover:border-primary';
+		}
+		if (retryOffered) {
+			// Only mark the failed pick; keep the correct answer hidden until the retry is resolved.
+			if (index === outcome?.selectedIndex)
+				return 'border-error bg-error-container text-on-error-container';
+			return 'border-outline-variant bg-surface-container text-on-surface-variant opacity-60';
 		}
 		if (index === question.correctAnswerIndex)
 			return 'border-success bg-success-container text-on-success-container';
@@ -28,6 +51,10 @@ const QuestionOverlay: React.FC = () => {
 			return 'border-error bg-error-container text-on-error-container';
 		return 'border-outline-variant bg-surface-container text-on-surface-variant opacity-60';
 	};
+
+	const visibleOptions = options
+		.map((label, index) => ({ label, index }))
+		.filter(({ index }) => !hiddenOptions.includes(index));
 
 	return (
 		<BoardOverlay
@@ -46,17 +73,40 @@ const QuestionOverlay: React.FC = () => {
 				</span>
 				<p className="font-hanken text-base font-bold text-on-surface">{question.questionText}</p>
 
-				<div className="flex flex-col gap-2">
-					{options.map((option, index) => (
+				{!isConclave && used && (
+					<div className="flex justify-center gap-2" data-testid="wildcard-bar">
 						<button
 							type="button"
-							key={option}
-							disabled={isFeedback}
+							data-testid="wildcard-5050"
+							disabled={isFeedback || used.fiftyFifty || hiddenOptions.length > 0}
+							onClick={useFiftyFifty}
+							className="rounded-full border border-tertiary px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-tertiary disabled:opacity-35"
+						>
+							{t('wildcard.fifty_fifty')}
+						</button>
+						<button
+							type="button"
+							data-testid="wildcard-change"
+							disabled={isFeedback || used.change}
+							onClick={useChange}
+							className="rounded-full border border-tertiary px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-tertiary disabled:opacity-35"
+						>
+							{t('wildcard.change')}
+						</button>
+					</div>
+				)}
+
+				<div className="flex flex-col gap-2">
+					{visibleOptions.map(({ label, index }) => (
+						<button
+							type="button"
+							key={label}
+							disabled={isFeedback || lockedOptions.includes(index)}
 							data-testid={`answer-${index}`}
 							onClick={() => answerQuestion(index)}
 							className={`rounded-full border px-4 py-3 text-left font-sans text-sm transition-colors ${optionClass(index)}`}
 						>
-							{option}
+							{label}
 						</button>
 					))}
 				</div>
@@ -75,17 +125,40 @@ const QuestionOverlay: React.FC = () => {
 								{t('question.spark_collected')}
 							</p>
 						)}
-						<Button
-							variant="primary"
-							size="md"
-							className="uppercase"
-							data-testid="continue-feedback"
-							onClick={continueAfterFeedback}
-						>
-							{outcome.correct
-								? t(isConclave ? 'question.claim_victory' : 'question.roll_again')
-								: t('question.next_player')}
-						</Button>
+						{retryOffered ? (
+							<div className="flex gap-2">
+								<Button
+									variant="primary"
+									size="md"
+									className="uppercase"
+									data-testid="use-second-chance"
+									onClick={useSecondChance}
+								>
+									{t('wildcard.second_chance')}
+								</Button>
+								<Button
+									variant="secondary"
+									size="md"
+									className="uppercase"
+									data-testid="reveal-answer"
+									onClick={revealAnswer}
+								>
+									{t('question.show_answer')}
+								</Button>
+							</div>
+						) : (
+							<Button
+								variant="primary"
+								size="md"
+								className="uppercase"
+								data-testid="continue-feedback"
+								onClick={continueAfterFeedback}
+							>
+								{outcome.correct
+									? t(isConclave ? 'question.claim_victory' : 'question.roll_again')
+									: t('question.next_player')}
+							</Button>
+						)}
 					</div>
 				)}
 			</div>

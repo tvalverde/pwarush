@@ -33,12 +33,26 @@ export const translations = {
 			roll_again: 'Roll again',
 			next_player: 'Next player',
 			claim_victory: 'Claim victory',
+			show_answer: 'Show answer',
 		},
 		conclave: {
 			vote_title: 'The Conclave',
 			vote_subtitle: 'Rivals, choose the final category',
 			handoff: 'Return the device to',
 			ready: 'Answer the final question',
+		},
+		wildcard: {
+			fifty_fifty: '50/50',
+			change: 'Change',
+			second_chance: '2nd chance',
+		},
+		flashcards: {
+			open: 'Review',
+			title: 'Review',
+			empty: 'No failed questions yet',
+			answer: 'Answer',
+			clear: 'Clear review',
+			back: 'Back',
 		},
 		victory: {
 			title: 'Victory',
@@ -90,12 +104,26 @@ export const translations = {
 			roll_again: 'Tira de nuevo',
 			next_player: 'Siguiente jugador',
 			claim_victory: 'Reclamar victoria',
+			show_answer: 'Ver respuesta',
 		},
 		conclave: {
 			vote_title: 'El Cónclave',
 			vote_subtitle: 'Rivales, elegid la categoría final',
 			handoff: 'Devuelve el dispositivo a',
 			ready: 'Responder la pregunta final',
+		},
+		wildcard: {
+			fifty_fifty: '50/50',
+			change: 'Cambiar',
+			second_chance: '2ª oportunidad',
+		},
+		flashcards: {
+			open: 'Repaso',
+			title: 'Repaso',
+			empty: 'Aún no hay preguntas falladas',
+			answer: 'Respuesta',
+			clear: 'Vaciar repaso',
+			back: 'Volver',
 		},
 		victory: {
 			title: 'Victoria',

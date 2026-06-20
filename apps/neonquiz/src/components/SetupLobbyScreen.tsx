@@ -1,10 +1,11 @@
 import { Button } from '@pwarush/core/ui';
-import { Plus, X } from 'lucide-react';
+import { BookOpen, Plus, X } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
 import { PLAYER_SHAPES, type PlayerShape } from '../types';
 import ShapeGlyph from './board/ShapeGlyph';
+import FlashcardsScreen from './FlashcardsScreen';
 
 const MAX_PLAYERS = 6;
 const MIN_PLAYERS = 2;
@@ -14,6 +15,7 @@ const SetupLobbyScreen: React.FC = () => {
 	const t = useGameStore((s) => s.t);
 	const [drafts, setDrafts] = useState<PlayerDraft[]>([]);
 	const [name, setName] = useState('');
+	const [showFlashcards, setShowFlashcards] = useState(false);
 
 	const usedShapes = new Set(drafts.map((d) => d.shape));
 	const availableShapes = PLAYER_SHAPES.filter((shape) => !usedShapes.has(shape));
@@ -32,15 +34,26 @@ const SetupLobbyScreen: React.FC = () => {
 
 	const removePlayer = (index: number) => setDrafts(drafts.filter((_, i) => i !== index));
 
+	if (showFlashcards) return <FlashcardsScreen onClose={() => setShowFlashcards(false)} />;
+
 	return (
 		<div className="flex h-full flex-col">
-			<header className="flex flex-col items-center gap-1 border-b border-outline-variant bg-surface-container-lowest px-5 py-6">
+			<header className="relative flex flex-col items-center gap-1 border-b border-outline-variant bg-surface-container-lowest px-5 py-6">
 				<h1 className="font-display text-2xl font-bold uppercase tracking-widest-premium text-primary">
 					{t('lobby.title')}
 				</h1>
 				<p className="font-hanken text-xs uppercase tracking-wide-premium text-on-surface-variant">
 					{t('lobby.subtitle')}
 				</p>
+				<button
+					type="button"
+					data-testid="open-flashcards"
+					onClick={() => setShowFlashcards(true)}
+					className="absolute right-4 top-4 flex items-center gap-1 rounded-full border border-outline-variant px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-on-surface-variant hover:text-primary"
+				>
+					<BookOpen className="h-3.5 w-3.5" />
+					{t('flashcards.open')}
+				</button>
 			</header>
 
 			<main className="flex flex-1 flex-col gap-5 overflow-y-auto px-5 py-6">
