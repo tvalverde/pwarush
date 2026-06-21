@@ -48,32 +48,47 @@ const SetupLobbyScreen: React.FC = () => {
 	const canAdd = drafts.length < MAX_PLAYERS && availableShapes.length > 0;
 	const canStart = drafts.length >= MIN_PLAYERS;
 
-	const addPlayer = async () => {
+	// Adding a player only builds a local draft — no profile is persisted yet, so adding then
+	// removing someone before playing never leaves an orphan profile behind. Profiles for
+	// brand-new players are created when the match actually starts (see `startMatch`).
+	const addPlayer = () => {
 		if (!canAdd || !activeShape || !freeAccent) return;
 		const trimmed = name.trim() || `${t('lobby.player_name')} ${drafts.length + 1}`;
 		const finalName = trimmed.slice(0, 10);
-		const now = Date.now();
-		const profileId = await upsertProfile({
-			name: finalName,
-			shape: activeShape,
-			accentColor: freeAccent,
-			preferredLevel: level,
-			gamesPlayed: 0,
-			gamesWon: 0,
-			totalCorrect: 0,
-			totalWrong: 0,
-			totalPlayMs: 0,
-			currentStreak: 0,
-			bestStreak: 0,
-			createdAt: now,
-			lastPlayedAt: now,
-		});
-		setDrafts([
-			...drafts,
-			{ name: finalName, shape: activeShape, level, accentColor: freeAccent, profileId },
-		]);
-		setProfiles(await getProfiles());
+		setDrafts([...drafts, { name: finalName, shape: activeShape, level, accentColor: freeAccent }]);
 		setName('');
+	};
+
+	// Persists a profile for every roster entry that is not already backed by a saved one,
+	// then starts the game with the resolved profile ids so wins are attributed correctly.
+	const startMatch = async () => {
+		if (!canStart) return;
+		const now = Date.now();
+		const resolved: PlayerDraft[] = [];
+		for (const draft of drafts) {
+			if (draft.profileId != null) {
+				resolved.push(draft);
+				continue;
+			}
+			const accentColor = draft.accentColor ?? playerAccent(resolved.length);
+			const profileId = await upsertProfile({
+				name: draft.name,
+				shape: draft.shape,
+				accentColor,
+				preferredLevel: draft.level,
+				gamesPlayed: 0,
+				gamesWon: 0,
+				totalCorrect: 0,
+				totalWrong: 0,
+				totalPlayMs: 0,
+				currentStreak: 0,
+				bestStreak: 0,
+				createdAt: now,
+				lastPlayedAt: now,
+			});
+			resolved.push({ ...draft, accentColor, profileId });
+		}
+		startGame(resolved);
 	};
 
 	const addSavedProfile = (profile: PlayerProfile) => {
@@ -278,7 +293,7 @@ const SetupLobbyScreen: React.FC = () => {
 					className="w-full uppercase shadow-lg"
 					disabled={!canStart}
 					data-testid="start-game"
-					onClick={() => startGame(drafts)}
+					onClick={startMatch}
 				>
 					{canStart ? t('lobby.start') : t('lobby.min_players')}
 				</Button>

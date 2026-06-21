@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import SetupLobbyScreen from '../components/SetupLobbyScreen';
 import { db } from '../db/database';
@@ -13,7 +13,7 @@ describe('SetupLobbyScreen — saved player profiles', () => {
 		useGameStore.setState({ language: 'es' });
 	});
 
-	it('creates a profile for a brand-new player and carries accentColor + profileId in the draft', async () => {
+	it('does not persist a profile when a new player is merely added (no orphans)', async () => {
 		const { findByTestId, getByTestId } = render(<SetupLobbyScreen />);
 
 		fireEvent.change(getByTestId('player-name-input'), { target: { value: 'Ada' } });
@@ -21,15 +21,33 @@ describe('SetupLobbyScreen — saved player profiles', () => {
 
 		const row = await findByTestId('player-row-0');
 		expect(row).toHaveTextContent('Ada');
-
-		const profiles = await getProfiles();
-		expect(profiles).toHaveLength(1);
-		expect(profiles[0].name).toBe('Ada');
-		expect(profiles[0].gamesPlayed).toBe(0);
-		expect(profiles[0].accentColor).toBe(PLAYER_ACCENTS[0]);
-
-		// The row's glyph carries the new profile's accent colour.
+		// The row's glyph still carries the assigned accent colour.
 		expect(row.innerHTML).toContain(PLAYER_ACCENTS[0]);
+
+		// Nothing is written to the DB yet: adding then removing must never leave an orphan.
+		expect(await getProfiles()).toHaveLength(0);
+	});
+
+	it('persists profiles for brand-new players only when the match starts', async () => {
+		const { findByTestId, getByTestId } = render(<SetupLobbyScreen />);
+
+		for (const name of ['Ada', 'Bea']) {
+			fireEvent.change(getByTestId('player-name-input'), { target: { value: name } });
+			fireEvent.click(getByTestId('add-player'));
+		}
+		await findByTestId('player-row-1');
+
+		// Still nothing persisted until the game actually starts.
+		expect(await getProfiles()).toHaveLength(0);
+
+		fireEvent.click(getByTestId('start-game'));
+
+		await waitFor(async () => expect(await getProfiles()).toHaveLength(2));
+		const profiles = await getProfiles();
+		expect(profiles.map((p) => p.name).sort()).toEqual(['Ada', 'Bea']);
+		expect(profiles.every((p) => p.gamesPlayed === 0)).toBe(true);
+		// The store received the resolved drafts with their freshly minted profile ids.
+		expect(useGameStore.getState().players.every((p) => p.profileId != null)).toBe(true);
 	});
 
 	it('re-adds a saved profile to the roster with its pinned shape/color/level', async () => {
