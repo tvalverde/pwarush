@@ -1,16 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Murdokupado app mark: a detective's magnifying glass over a Latin-square
-       grid, one cell stamped crimson (the culprit). Case-file / pulp palette. -->
-  <rect width="512" height="512" fill="#f4efe4"/>
-  <g>
-    <circle cx="226" cy="226" r="118" fill="#fffdf7"/>
-    <rect x="166" y="166" width="60" height="60" fill="#8c1c13"/>
-    <g stroke="#241c15" stroke-width="8" stroke-linecap="square" fill="none">
-      <rect x="166" y="166" width="120" height="120"/>
-      <line x1="226" y1="166" x2="226" y2="286"/>
-      <line x1="166" y1="226" x2="286" y2="226"/>
-    </g>
-    <circle cx="226" cy="226" r="118" fill="none" stroke="#241c15" stroke-width="36"/>
-    <line x1="304" y1="304" x2="404" y2="404" stroke="#241c15" stroke-width="52" stroke-linecap="round"/>
+  <!-- Neon Quiz app mark: a flat-top hexagon (the board tile) whose six edges carry the
+       six trivia category neon colours, with the Nexus spark glowing at its core, set on
+       a deep-space backdrop. -->
+  <defs>
+    <radialGradient id="nq-bg" cx="50%" cy="42%" r="72%">
+      <stop offset="0%" stop-color="#161628"/>
+      <stop offset="55%" stop-color="#0c0c16"/>
+      <stop offset="100%" stop-color="#08080f"/>
+    </radialGradient>
+    <radialGradient id="nq-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#9cf6ff"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </radialGradient>
+    <filter id="nq-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#nq-bg)"/>
+
+  <!-- Six category-coloured hexagon edges (flat-top, R=152, centre 256,256). -->
+  <g fill="none" stroke-width="15" stroke-linecap="round" filter="url(#nq-glow)">
+    <line x1="408" y1="256" x2="332" y2="387.6" stroke="#00ffff"/>
+    <line x1="332" y1="387.6" x2="180" y2="387.6" stroke="#00ff66"/>
+    <line x1="180" y1="387.6" x2="104" y2="256" stroke="#ffcc00"/>
+    <line x1="104" y1="256" x2="180" y2="124.4" stroke="#ff6600"/>
+    <line x1="180" y1="124.4" x2="332" y2="124.4" stroke="#ff0055"/>
+    <line x1="332" y1="124.4" x2="408" y2="256" stroke="#9900ff"/>
   </g>
+
+  <!-- Nexus spark: a four-pointed star over a cyan core. -->
+  <circle cx="256" cy="256" r="44" fill="#00f0ff" opacity="0.35" filter="url(#nq-glow)"/>
+  <polygon
+    points="256,182 272.6,239.4 330,256 272.6,272.6 256,330 239.4,272.6 182,256 239.4,239.4"
+    fill="url(#nq-core)" filter="url(#nq-glow)"/>
 </svg>

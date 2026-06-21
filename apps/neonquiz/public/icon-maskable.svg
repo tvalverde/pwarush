@@ -1,16 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Maskable variant: same mark scaled into the central safe zone (Android
-       crops to a circle), paper fills the full bleed. -->
-  <rect width="512" height="512" fill="#f4efe4"/>
-  <g transform="translate(256 256) scale(0.74) translate(-256 -256)">
-    <circle cx="226" cy="226" r="118" fill="#fffdf7"/>
-    <rect x="166" y="166" width="60" height="60" fill="#8c1c13"/>
-    <g stroke="#241c15" stroke-width="8" stroke-linecap="square" fill="none">
-      <rect x="166" y="166" width="120" height="120"/>
-      <line x1="226" y1="166" x2="226" y2="286"/>
-      <line x1="166" y1="226" x2="286" y2="226"/>
-    </g>
-    <circle cx="226" cy="226" r="118" fill="none" stroke="#241c15" stroke-width="36"/>
-    <line x1="304" y1="304" x2="404" y2="404" stroke="#241c15" stroke-width="52" stroke-linecap="round"/>
+  <!-- Maskable Neon Quiz mark: full-bleed deep-space backdrop with the category hexagon and
+       Nexus spark kept inside the central safe zone (flat-top, R=175, centre 256,256). -->
+  <defs>
+    <radialGradient id="nq-bg" cx="50%" cy="42%" r="80%">
+      <stop offset="0%" stop-color="#161628"/>
+      <stop offset="55%" stop-color="#0c0c16"/>
+      <stop offset="100%" stop-color="#08080f"/>
+    </radialGradient>
+    <radialGradient id="nq-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#9cf6ff"/>
+      <stop offset="100%" stop-color="#00f0ff"/>
+    </radialGradient>
+    <filter id="nq-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#nq-bg)"/>
+
+  <g fill="none" stroke-width="17" stroke-linecap="round" filter="url(#nq-glow)">
+    <line x1="431" y1="256" x2="343.5" y2="407.6" stroke="#00ffff"/>
+    <line x1="343.5" y1="407.6" x2="168.5" y2="407.6" stroke="#00ff66"/>
+    <line x1="168.5" y1="407.6" x2="81" y2="256" stroke="#ffcc00"/>
+    <line x1="81" y1="256" x2="168.5" y2="104.4" stroke="#ff6600"/>
+    <line x1="168.5" y1="104.4" x2="343.5" y2="104.4" stroke="#ff0055"/>
+    <line x1="343.5" y1="104.4" x2="431" y2="256" stroke="#9900ff"/>
   </g>
+
+  <circle cx="256" cy="256" r="50" fill="#00f0ff" opacity="0.35" filter="url(#nq-glow)"/>
+  <polygon
+    points="256,170 275.1,236.9 342,256 275.1,275.1 256,342 236.9,275.1 170,256 236.9,236.9"
+    fill="url(#nq-core)" filter="url(#nq-glow)"/>
 </svg>
