@@ -75,3 +75,10 @@ This document outlines the strict behavioral rules during the development of **P
       || echo "❌ root version DRIFTS from last tag"
     ```
     If the check fails and you are NOT in the middle of a release workflow: stop and diagnose before proceeding.
+
+## Model Role Separation
+
+Adhere to a strict division of labor between models:
+
+- **Opus 4.8 (Lead Architect, Orchestrator, and Reviewer):** Responsible for high-level architectural design, planning, strategic decision-making, orchestration, and final code reviews. Opus must draft the implementation blueprints and review all pull requests/diffs before integration.
+- **Sonnet 4.6 (Developer and Implementer):** Responsible for writing source code, implementing specific features, writing unit and regression tests, refactoring, and executing mechanical coding tasks. Sonnet operates under the detailed briefs and instructions provided by the orchestrator (Opus).
