@@ -4,12 +4,55 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { clearGameHistory, getGameHistory } from '../db/gameHistory';
 import { useGameStore } from '../store/gameStore';
-import type { GameHistoryEntry } from '../types';
+import type { GameHistoryEntry, MatchPlayerStat } from '../types';
 import ShapeGlyph from './board/ShapeGlyph';
 
 interface HistoryScreenProps {
 	onClose: () => void;
 }
+
+const pad = (value: number): string => value.toString().padStart(2, '0');
+
+/** Formats a duration in milliseconds as HH:MM:SS. */
+const formatDuration = (durationMs: number): string => {
+	const totalSeconds = Math.max(0, Math.floor(durationMs / 1000));
+	const hours = Math.floor(totalSeconds / 3600);
+	const minutes = Math.floor((totalSeconds % 3600) / 60);
+	const seconds = totalSeconds % 60;
+	return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+};
+
+/** Accuracy percentage from correct/wrong tallies; null when there is nothing to divide. */
+const accuracyOf = (correct: number, wrong: number): number | null => {
+	const total = correct + wrong;
+	return total > 0 ? Math.round((correct / total) * 100) : null;
+};
+
+const RosterRow: React.FC<{ stat: MatchPlayerStat; winnerLabel: string }> = ({
+	stat,
+	winnerLabel,
+}) => {
+	const accuracy = accuracyOf(stat.correct, stat.wrong);
+	return (
+		<div
+			data-testid="history-roster-row"
+			className="flex items-center justify-between gap-2 rounded-md bg-surface-container px-2.5 py-1.5"
+		>
+			<span className="flex items-center gap-2">
+				<ShapeGlyph shape={stat.shape} size={16} color={stat.color} />
+				<span className="font-hanken text-xs font-bold text-on-surface">{stat.name}</span>
+				{stat.winner && (
+					<span className="font-hanken text-[9px] uppercase tracking-wide-premium text-tertiary">
+						{winnerLabel}
+					</span>
+				)}
+			</span>
+			<span className="font-sans text-[11px] text-on-surface-variant">
+				{stat.sparks} ⚡ {accuracy !== null ? `· ${accuracy}%` : ''}
+			</span>
+		</div>
+	);
+};
 
 /** Hall of Fame: the list of finished games, most recent first. */
 const HistoryScreen: React.FC<HistoryScreenProps> = ({ onClose }) => {
@@ -64,27 +107,82 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({ onClose }) => {
 						{t('history.empty')}
 					</p>
 				)}
-				{entries?.map((entry) => (
-					<div
-						key={entry.id ?? entry.date}
-						className="flex items-center justify-between rounded-lg border border-outline-variant bg-surface-container-low p-4"
-					>
-						<span className="flex items-center gap-3">
-							<ShapeGlyph shape={entry.winnerShape} size={26} color={entry.winnerColor} />
-							<span className="flex flex-col">
-								<span className="font-hanken text-sm font-bold text-on-surface">
-									{entry.winnerName}
+				{entries?.map((entry) => {
+					const accuracy =
+						entry.correct != null && entry.wrong != null
+							? accuracyOf(entry.correct, entry.wrong)
+							: null;
+					return (
+						<div
+							key={entry.id ?? entry.date}
+							data-testid="history-entry"
+							className="flex flex-col gap-3 rounded-lg border border-outline-variant bg-surface-container-low p-4"
+						>
+							<div className="flex items-center justify-between">
+								<span className="flex items-center gap-3">
+									<ShapeGlyph shape={entry.winnerShape} size={26} color={entry.winnerColor} />
+									<span className="flex flex-col">
+										<span className="font-hanken text-sm font-bold text-on-surface">
+											{entry.winnerName}
+										</span>
+										<span className="font-sans text-xs text-on-surface-variant">
+											{entry.turns} {t('history.turns')} · {entry.players} {t('history.players')}
+											{entry.durationMs != null && (
+												<>
+													{' '}
+													·{' '}
+													<span data-testid="history-duration">
+														{formatDuration(entry.durationMs)}
+													</span>
+												</>
+											)}
+										</span>
+									</span>
 								</span>
 								<span className="font-sans text-xs text-on-surface-variant">
-									{entry.turns} {t('history.turns')} · {entry.players} {t('history.players')}
+									{new Date(entry.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-GB')}
 								</span>
-							</span>
-						</span>
-						<span className="font-sans text-xs text-on-surface-variant">
-							{new Date(entry.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-GB')}
-						</span>
-					</div>
-				))}
+							</div>
+
+							{entry.roster && entry.roster.length > 0 && (
+								<div className="flex flex-col gap-1" data-testid="history-roster">
+									{entry.roster.map((stat, index) => (
+										<RosterRow
+											key={`${stat.profileId ?? stat.name}-${index}`}
+											stat={stat}
+											winnerLabel={t('history.winner_tag')}
+										/>
+									))}
+								</div>
+							)}
+
+							{(accuracy !== null ||
+								entry.wildcardsUsed != null ||
+								entry.conclaveFails != null) && (
+								<div
+									className="flex flex-wrap gap-3 font-sans text-[11px] text-on-surface-variant"
+									data-testid="history-stats"
+								>
+									{accuracy !== null && (
+										<span>
+											{t('history.accuracy')}: {accuracy}%
+										</span>
+									)}
+									{entry.wildcardsUsed != null && (
+										<span>
+											{t('history.wildcards_used')}: {entry.wildcardsUsed}
+										</span>
+									)}
+									{entry.conclaveFails != null && (
+										<span>
+											{t('history.conclave_fails')}: {entry.conclaveFails}
+										</span>
+									)}
+								</div>
+							)}
+						</div>
+					);
+				})}
 			</main>
 
 			<div className="border-t border-outline-variant bg-surface-container-lowest p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
-import { playerAccent } from '../utils/players';
+import { playerColor } from '../utils/players';
 import AdultQuestionOverlay from './AdultQuestionOverlay';
 import ArenaMenu from './ArenaMenu';
 import NeonBoard from './board/NeonBoard';
@@ -13,6 +13,7 @@ import ShapeGlyph from './board/ShapeGlyph';
 import ConclaveHandoffScreen from './ConclaveHandoffScreen';
 import ConclaveVoteScreen from './ConclaveVoteScreen';
 import Dice from './Dice';
+import MatchClock from './MatchClock';
 import QuestionOverlay from './QuestionOverlay';
 import TurnTransitionScreen from './TurnTransitionScreen';
 import VictoryScreen from './VictoryScreen';
@@ -60,7 +61,11 @@ const ArenaScreen: React.FC = () => {
 		<div className="relative flex h-full flex-col">
 			<header className="flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest px-4 py-3">
 				<span className="flex items-center gap-2">
-					<ShapeGlyph shape={player.shape} size={22} color={playerAccent(currentPlayerIndex)} />
+					<ShapeGlyph
+						shape={player.shape}
+						size={22}
+						color={playerColor(player, currentPlayerIndex)}
+					/>
 					<span className="flex flex-col">
 						<span className="font-display text-[9px] uppercase tracking-widest-premium text-on-surface-variant">
 							{t('arena.turn_of')}
@@ -69,6 +74,7 @@ const ArenaScreen: React.FC = () => {
 					</span>
 				</span>
 				<span className="flex items-center gap-3">
+					<MatchClock />
 					<SparkTrack collected={player.sparks} />
 					<button
 						type="button"

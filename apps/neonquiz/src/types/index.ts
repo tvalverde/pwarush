@@ -68,6 +68,51 @@ export interface Player {
 	sparks: TriviaCategory[];
 	usedWildcards: WildcardUsage;
 	pendingConclaveCategory: TriviaCategory | null;
+	// Added in Hito 8 (optional so earlier sessions and test fixtures stay valid):
+	// the player's pinned accent colour (from their profile) and per-match answer tallies.
+	accentColor?: string;
+	profileId?: number;
+	correct?: number;
+	wrong?: number;
+}
+
+// A reusable, device-local player remembered across games, with lifetime aggregates.
+export interface PlayerProfile {
+	id?: number;
+	name: string;
+	shape: PlayerShape;
+	accentColor: string;
+	preferredLevel: PlayerLevel;
+	gamesPlayed: number;
+	gamesWon: number;
+	totalCorrect: number;
+	totalWrong: number;
+	totalPlayMs: number;
+	currentStreak: number;
+	bestStreak: number;
+	createdAt: number;
+	lastPlayedAt: number;
+}
+
+// One participant's contribution to a finished match — stored in the Hall of Fame roster and
+// used to update the corresponding profile's aggregates.
+export interface MatchPlayerStat {
+	profileId?: number;
+	name: string;
+	shape: PlayerShape;
+	color: string;
+	level: PlayerLevel;
+	sparks: number;
+	correct: number;
+	wrong: number;
+	winner: boolean;
+}
+
+// The distilled outcome of a completed match, consumed by the profile-aggregation layer.
+export interface GameResult {
+	durationMs: number;
+	turns: number;
+	players: MatchPlayerStat[];
 }
 
 export interface FailedQuestionEntry {
@@ -84,6 +129,13 @@ export interface GameHistoryEntry {
 	players: number;
 	turns: number;
 	date: number;
+	// Hito 8 enrichments — optional so pre-H8 entries render without them.
+	durationMs?: number;
+	roster?: MatchPlayerStat[];
+	correct?: number;
+	wrong?: number;
+	wildcardsUsed?: number;
+	conclaveFails?: number;
 }
 
 export type GamePhase =
@@ -104,4 +156,7 @@ export interface GameSession {
 	currentPlayerIndex: number;
 	phase: GamePhase;
 	updatedAt: number;
+	// Hito 8 — persisted so the match clock survives a reload (optional for legacy sessions).
+	startedAt?: number;
+	conclaveFails?: number;
 }

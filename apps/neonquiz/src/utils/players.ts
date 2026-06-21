@@ -11,3 +11,8 @@ export const PLAYER_ACCENTS = [
 
 export const playerAccent = (index: number): string =>
 	PLAYER_ACCENTS[index % PLAYER_ACCENTS.length];
+
+// A player's display colour: their pinned profile accent when present, otherwise the
+// legacy order-based accent (keeps pre-H8 sessions and fixtures rendering correctly).
+export const playerColor = (player: { accentColor?: string }, index: number): string =>
+	player.accentColor ?? playerAccent(index);

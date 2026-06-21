@@ -3,7 +3,7 @@ import { LogOut, RotateCcw, X } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
-import { playerAccent } from '../utils/players';
+import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 import ConfirmOverlay from './ConfirmOverlay';
 
@@ -82,7 +82,7 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 							className="flex items-center justify-between rounded-full border border-outline-variant bg-surface-container px-4 py-2.5"
 						>
 							<span className="flex items-center gap-3">
-								<ShapeGlyph shape={player.shape} size={20} color={playerAccent(index)} />
+								<ShapeGlyph shape={player.shape} size={20} color={playerColor(player, index)} />
 								<span className="font-hanken text-sm font-bold text-on-surface">{player.name}</span>
 							</span>
 							<button

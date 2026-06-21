@@ -1,10 +1,11 @@
 import { Button } from '@pwarush/core/ui';
 import { BookOpen, Plus, Settings, Trophy, X } from 'lucide-react';
 import type React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getProfiles, upsertProfile } from '../db/profiles';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
-import { PLAYER_SHAPES, type PlayerLevel, type PlayerShape } from '../types';
-import { playerAccent } from '../utils/players';
+import { PLAYER_SHAPES, type PlayerLevel, type PlayerProfile, type PlayerShape } from '../types';
+import { PLAYER_ACCENTS, playerAccent } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 import FlashcardsScreen from './FlashcardsScreen';
 import HistoryScreen from './HistoryScreen';
@@ -19,25 +20,74 @@ const SetupLobbyScreen: React.FC = () => {
 	const startGame = useGameStore((s) => s.startGame);
 	const t = useGameStore((s) => s.t);
 	const [drafts, setDrafts] = useState<PlayerDraft[]>([]);
+	const [profiles, setProfiles] = useState<PlayerProfile[]>([]);
 	const [name, setName] = useState('');
 	const [level, setLevel] = useState<PlayerLevel>('KID');
 	const [showFlashcards, setShowFlashcards] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [showSettings, setShowSettings] = useState(false);
 
+	useEffect(() => {
+		let cancelled = false;
+		getProfiles().then((loaded) => {
+			if (!cancelled) setProfiles(loaded);
+		});
+		return () => {
+			cancelled = true;
+		};
+	}, []);
+
 	const usedShapes = new Set(drafts.map((d) => d.shape));
 	const availableShapes = PLAYER_SHAPES.filter((shape) => !usedShapes.has(shape));
 	const [shape, setShape] = useState<PlayerShape>(PLAYER_SHAPES[0]);
 	const activeShape = availableShapes.includes(shape) ? shape : availableShapes[0];
 
+	const usedAccents = new Set(drafts.map((d, index) => d.accentColor ?? playerAccent(index)));
+	const freeAccent = PLAYER_ACCENTS.find((accent) => !usedAccents.has(accent));
+
 	const canAdd = drafts.length < MAX_PLAYERS && availableShapes.length > 0;
 	const canStart = drafts.length >= MIN_PLAYERS;
 
-	const addPlayer = () => {
-		if (!canAdd || !activeShape) return;
+	const addPlayer = async () => {
+		if (!canAdd || !activeShape || !freeAccent) return;
 		const trimmed = name.trim() || `${t('lobby.player_name')} ${drafts.length + 1}`;
-		setDrafts([...drafts, { name: trimmed.slice(0, 10), shape: activeShape, level }]);
+		const finalName = trimmed.slice(0, 10);
+		const now = Date.now();
+		const profileId = await upsertProfile({
+			name: finalName,
+			shape: activeShape,
+			accentColor: freeAccent,
+			preferredLevel: level,
+			gamesPlayed: 0,
+			gamesWon: 0,
+			totalCorrect: 0,
+			totalWrong: 0,
+			totalPlayMs: 0,
+			currentStreak: 0,
+			bestStreak: 0,
+			createdAt: now,
+			lastPlayedAt: now,
+		});
+		setDrafts([
+			...drafts,
+			{ name: finalName, shape: activeShape, level, accentColor: freeAccent, profileId },
+		]);
+		setProfiles(await getProfiles());
 		setName('');
+	};
+
+	const addSavedProfile = (profile: PlayerProfile) => {
+		if (!canAdd || profile.id == null || usedAccents.has(profile.accentColor)) return;
+		setDrafts([
+			...drafts,
+			{
+				name: profile.name,
+				shape: profile.shape,
+				level: profile.preferredLevel,
+				accentColor: profile.accentColor,
+				profileId: profile.id,
+			},
+		]);
 	};
 
 	const removePlayer = (index: number) => setDrafts(drafts.filter((_, i) => i !== index));
@@ -90,12 +140,16 @@ const SetupLobbyScreen: React.FC = () => {
 				<ul className="flex flex-col gap-2">
 					{drafts.map((draft, index) => (
 						<li
-							key={draft.shape}
+							key={`${draft.profileId ?? 'new'}-${index}`}
 							data-testid={`player-row-${index}`}
 							className="flex items-center justify-between rounded-full border border-outline-variant bg-surface-container px-4 py-3"
 						>
 							<span className="flex items-center gap-3">
-								<ShapeGlyph shape={draft.shape} size={22} color={playerAccent(index)} />
+								<ShapeGlyph
+									shape={draft.shape}
+									size={22}
+									color={draft.accentColor ?? playerAccent(index)}
+								/>
 								<span className="font-hanken text-sm font-bold text-on-surface">{draft.name}</span>
 								<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
 									{t(`lobby.level_${draft.level.toLowerCase()}`)}
@@ -112,6 +166,46 @@ const SetupLobbyScreen: React.FC = () => {
 						</li>
 					))}
 				</ul>
+
+				{profiles.length > 0 && (
+					<div className="flex flex-col gap-2">
+						<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
+							{t('lobby.saved_players')}
+						</span>
+						<div className="flex flex-wrap gap-2" data-testid="saved-profiles">
+							{profiles.map((profile) => {
+								const colorTaken = usedAccents.has(profile.accentColor);
+								const alreadyAdded = drafts.some((d) => d.profileId === profile.id);
+								const disabled = !canAdd || colorTaken || alreadyAdded;
+								return (
+									<button
+										type="button"
+										key={profile.id}
+										data-testid={`saved-profile-${profile.id}`}
+										disabled={disabled}
+										title={colorTaken ? t('lobby.color_taken') : undefined}
+										onClick={() => addSavedProfile(profile)}
+										className={`flex items-center gap-2 rounded-full border px-3 py-2 transition-colors ${
+											disabled
+												? 'cursor-not-allowed border-outline-variant bg-surface-container opacity-40'
+												: 'border-outline-variant bg-surface-container hover:border-primary'
+										}`}
+									>
+										<ShapeGlyph shape={profile.shape} size={18} color={profile.accentColor} />
+										<span className="font-hanken text-xs font-bold text-on-surface">
+											{profile.name}
+										</span>
+									</button>
+								);
+							})}
+						</div>
+					</div>
+				)}
+				{profiles.length === 0 && (
+					<p className="font-hanken text-xs text-on-surface-variant">
+						{t('lobby.no_saved_players')}
+					</p>
+				)}
 
 				{canAdd && (
 					<div className="flex flex-col gap-3 rounded-lg border border-outline-variant bg-surface-container-low p-4">
@@ -138,7 +232,11 @@ const SetupLobbyScreen: React.FC = () => {
 											: 'border-outline-variant bg-surface-container'
 									}`}
 								>
-									<ShapeGlyph shape={option} size={20} color={playerAccent(drafts.length)} />
+									<ShapeGlyph
+										shape={option}
+										size={20}
+										color={freeAccent ?? playerAccent(drafts.length)}
+									/>
 								</button>
 							))}
 						</div>

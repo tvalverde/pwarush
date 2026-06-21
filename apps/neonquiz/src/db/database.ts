@@ -1,6 +1,12 @@
 import { createDatabase } from '@pwarush/core/persistence';
 import type { Table } from 'dexie';
-import type { FailedQuestionEntry, GameHistoryEntry, GameSession, Question } from '../types';
+import type {
+	FailedQuestionEntry,
+	GameHistoryEntry,
+	GameSession,
+	PlayerProfile,
+	Question,
+} from '../types';
 
 export interface QuestionUsageRow {
 	id: number;
@@ -13,6 +19,7 @@ interface NeonquizTables {
 	failedQuestions: Table<FailedQuestionEntry, number>;
 	questionUsage: Table<QuestionUsageRow, number>;
 	gameHistory: Table<GameHistoryEntry, number>;
+	profiles: Table<PlayerProfile, number>;
 }
 
 const V1 = {
@@ -38,11 +45,17 @@ const V4 = {
 	gameHistory: '++id, date',
 };
 
+// v5 adds persistent, reusable player profiles with lifetime aggregates.
+const V5 = {
+	...V4,
+	profiles: '++id, name, lastPlayedAt',
+};
+
 export const SESSION_ID = 1;
 export const USAGE_ID = 1;
 
 export const db = createDatabase<NeonquizTables>({
 	name: 'NeonquizDB',
-	versions: [{ stores: V1 }, { stores: V2 }, { stores: V3 }, { stores: V4 }],
+	versions: [{ stores: V1 }, { stores: V2 }, { stores: V3 }, { stores: V4 }, { stores: V5 }],
 	exposeAs: { key: '__db', enabled: import.meta.env.VITE_E2E === '1' },
 });

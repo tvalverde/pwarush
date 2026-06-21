@@ -1,6 +1,6 @@
 import type React from 'react';
 import type { Board, Player } from '../../types';
-import { playerAccent } from '../../utils/players';
+import { playerColor } from '../../utils/players';
 import BoardBackground from './BoardBackground';
 import BoardDefs from './BoardDefs';
 import HexTile from './HexTile';
@@ -38,7 +38,7 @@ const NeonBoard: React.FC<NeonBoardProps> = ({
 
 	const occupants = new Map<number, { player: Player; accent: string }[]>();
 	players.forEach((player, index) => {
-		const entry = { player, accent: playerAccent(index) };
+		const entry = { player, accent: playerColor(player, index) };
 		const list = occupants.get(player.position) ?? [];
 		list.push(entry);
 		occupants.set(player.position, list);

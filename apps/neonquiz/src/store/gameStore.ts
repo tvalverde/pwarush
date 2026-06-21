@@ -16,6 +16,7 @@ import {
 	type TriviaCategory,
 	type WildcardUsage,
 } from '../types';
+import { playerAccent } from '../utils/players';
 import { translations } from '../utils/translations';
 
 const SPARKS_TO_WIN = CATEGORIES.length;
@@ -31,6 +32,8 @@ export interface PlayerDraft {
 	name: string;
 	shape: PlayerShape;
 	level: PlayerLevel;
+	accentColor?: string;
+	profileId?: number;
 }
 
 interface GameStore {
@@ -48,6 +51,8 @@ interface GameStore {
 	bankSize: number;
 	usedQuestionIds: number[];
 	turnCount: number;
+	startedAt: number | null;
+	conclaveFails: number;
 	conclaveCategory: TriviaCategory | null;
 	isConclave: boolean;
 	winnerIndex: number | null;
@@ -107,25 +112,45 @@ const persistSound = (enabled: boolean): void => {
 };
 
 const createPlayer = (draft: PlayerDraft, index: number): Player => ({
-	id: `p${index}-${draft.shape}`,
+	id: draft.profileId != null ? `profile-${draft.profileId}` : `p${index}-${draft.shape}`,
+	profileId: draft.profileId,
 	name: draft.name,
 	shape: draft.shape,
 	level: draft.level,
+	accentColor: draft.accentColor ?? playerAccent(index),
 	position: NEXUS_ID,
 	sparks: [],
+	correct: 0,
+	wrong: 0,
 	usedWildcards: FRESH_WILDCARDS(),
 	pendingConclaveCategory: null,
 });
 
 // Backfills fields added in later milestones so sessions saved by an earlier version
-// resume cleanly (pre-H4 players have no `usedWildcards`; pre-H5 have no `level`).
-const normalizePlayer = (player: Player): Player => ({
+// resume cleanly (pre-H4 players have no `usedWildcards`; pre-H5 have no `level`;
+// pre-H8 have no `accentColor`/answer tallies).
+const normalizePlayer = (player: Player, index: number): Player => ({
 	...player,
 	level: player.level ?? 'KID',
 	sparks: player.sparks ?? [],
 	usedWildcards: player.usedWildcards ?? FRESH_WILDCARDS(),
 	pendingConclaveCategory: player.pendingConclaveCategory ?? null,
+	accentColor: player.accentColor ?? playerAccent(index),
+	correct: player.correct ?? 0,
+	wrong: player.wrong ?? 0,
 });
+
+// Increments the active player's per-match answer tally.
+const bumpAnswer = (players: Player[], index: number, correct: boolean): Player[] =>
+	players.map((player, i) =>
+		i === index
+			? {
+					...player,
+					correct: (player.correct ?? 0) + (correct ? 1 : 0),
+					wrong: (player.wrong ?? 0) + (correct ? 0 : 1),
+				}
+			: player,
+	);
 
 const hasAllSparks = (player: Player): boolean => player.sparks.length >= SPARKS_TO_WIN;
 
@@ -137,6 +162,7 @@ const FRESH_GAME: Pick<
 	| 'activeQuestion'
 	| 'lastOutcome'
 	| 'turnCount'
+	| 'conclaveFails'
 	| 'conclaveCategory'
 	| 'isConclave'
 	| 'winnerIndex'
@@ -150,6 +176,7 @@ const FRESH_GAME: Pick<
 	activeQuestion: null,
 	lastOutcome: null,
 	turnCount: 0,
+	conclaveFails: 0,
 	conclaveCategory: null,
 	isConclave: false,
 	winnerIndex: null,
@@ -168,6 +195,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	bankSize: 0,
 	usedQuestionIds: [],
 	soundEnabled: getInitialSound(),
+	startedAt: null,
 	...FRESH_GAME,
 
 	t: (path) => {
@@ -201,6 +229,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			players: drafts.map(createPlayer),
 			currentPlayerIndex: 0,
 			phase: 'TURN_TRANSITION',
+			startedAt: Date.now(),
 			...FRESH_GAME,
 		}),
 
@@ -213,15 +242,19 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			players: session.players.map(normalizePlayer),
 			currentPlayerIndex: session.currentPlayerIndex,
 			phase: 'TURN_TRANSITION',
+			startedAt: session.startedAt ?? Date.now(),
 			...FRESH_GAME,
+			conclaveFails: session.conclaveFails ?? 0,
 		});
 	},
 
-	resetGame: () => set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME }),
+	resetGame: () =>
+		set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, startedAt: null, ...FRESH_GAME }),
 
 	resetQuestionUsage: () => set({ usedQuestionIds: [] }),
 
-	abandonGame: () => set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME }),
+	abandonGame: () =>
+		set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, startedAt: null, ...FRESH_GAME }),
 
 	// Same roster, fresh state. Does NOT touch question usage.
 	restartGame: () =>
@@ -231,11 +264,14 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 				...player,
 				position: NEXUS_ID,
 				sparks: [],
+				correct: 0,
+				wrong: 0,
 				usedWildcards: FRESH_WILDCARDS(),
 				pendingConclaveCategory: null,
 			})),
 			currentPlayerIndex: 0,
 			phase: 'TURN_TRANSITION',
+			startedAt: Date.now(),
 			...FRESH_GAME,
 		})),
 
@@ -246,7 +282,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		if (removedIndex === -1) return;
 		const players = state.players.filter((p) => p.id !== playerId);
 		if (players.length < 2) {
-			set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, ...FRESH_GAME });
+			set({ phase: 'LOBBY', players: [], currentPlayerIndex: 0, startedAt: null, ...FRESH_GAME });
 			return;
 		}
 		const shifted =
@@ -269,6 +305,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			currentPlayerIndex: 0,
 			usedQuestionIds: [],
 			soundEnabled: true,
+			startedAt: null,
 			...FRESH_GAME,
 		});
 	},
@@ -355,6 +392,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
 		if (state.isConclave) {
 			set({
+				players: bumpAnswer(state.players, state.currentPlayerIndex, correct),
 				phase: 'FEEDBACK',
 				lastOutcome: {
 					correct,
@@ -385,7 +423,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		}
 
 		set({
-			players,
+			players: bumpAnswer(players, state.currentPlayerIndex, correct),
 			phase: 'FEEDBACK',
 			lastOutcome: {
 				correct,
@@ -427,6 +465,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 						isConclave: false,
 						answerRevealed: false,
 						conclaveCategory: null,
+						conclaveFails: state.conclaveFails + 1,
 					});
 				} else {
 					// KID rule: keeps every Spark and stays on the Nexus; the Conclave reopens
@@ -437,6 +476,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 						isConclave: false,
 						answerRevealed: false,
 						conclaveCategory: null,
+						conclaveFails: state.conclaveFails + 1,
 					});
 				}
 				advanceTurn(set);
@@ -560,6 +600,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
 		if (state.isConclave) {
 			set({
+				players: bumpAnswer(state.players, state.currentPlayerIndex, correct),
 				phase: 'FEEDBACK',
 				answerRevealed: true,
 				lastOutcome: {
@@ -591,7 +632,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		}
 
 		set({
-			players,
+			players: bumpAnswer(players, state.currentPlayerIndex, correct),
 			phase: 'FEEDBACK',
 			answerRevealed: true,
 			lastOutcome: {

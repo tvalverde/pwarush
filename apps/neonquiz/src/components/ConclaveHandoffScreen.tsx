@@ -1,7 +1,7 @@
 import { Button } from '@pwarush/core/ui';
 import type React from 'react';
 import { useGameStore } from '../store/gameStore';
-import { playerAccent } from '../utils/players';
+import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 
 /** Conclave step 2: hand the device back to the challenger before the final question. */
@@ -23,7 +23,11 @@ const ConclaveHandoffScreen: React.FC = () => {
 				{t('conclave.handoff')}
 			</p>
 			<div className="flex flex-col items-center gap-4">
-				<ShapeGlyph shape={player.shape} size={72} color={playerAccent(currentPlayerIndex)} />
+				<ShapeGlyph
+					shape={player.shape}
+					size={72}
+					color={playerColor(player, currentPlayerIndex)}
+				/>
 				<h2 className="font-display text-3xl font-bold uppercase tracking-wide-premium text-on-surface">
 					{player.name}
 				</h2>

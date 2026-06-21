@@ -25,6 +25,8 @@ export const persistSession = async (state: GameStoreState): Promise<void> => {
 			currentPlayerIndex: state.currentPlayerIndex,
 			phase: 'TURN_TRANSITION',
 			updatedAt: Date.now(),
+			startedAt: state.startedAt ?? undefined,
+			conclaveFails: state.conclaveFails,
 		});
 	} catch (err) {
 		console.error('Auto-save failed:', err);

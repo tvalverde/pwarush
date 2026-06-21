@@ -3,7 +3,7 @@ import type React from 'react';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
-import { playerAccent } from '../utils/players';
+import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 
 const VictoryScreen: React.FC = () => {
@@ -15,7 +15,7 @@ const VictoryScreen: React.FC = () => {
 
 	const winner = winnerIndex !== null ? players[winnerIndex] : null;
 	if (!winner || winnerIndex === null) return null;
-	const accent = playerAccent(winnerIndex);
+	const accent = playerColor(winner, winnerIndex);
 
 	return (
 		<div

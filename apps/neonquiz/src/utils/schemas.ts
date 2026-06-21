@@ -1,8 +1,19 @@
 import { isOneOf } from '@pwarush/core/utils';
-import { CATEGORIES, type Question, type TargetAudience, type TriviaCategory } from '../types';
+import {
+	CATEGORIES,
+	PLAYER_SHAPES,
+	type PlayerLevel,
+	type PlayerProfile,
+	type PlayerShape,
+	type Question,
+	type TargetAudience,
+	type TriviaCategory,
+} from '../types';
 
 const isCategory = isOneOf<TriviaCategory>(CATEGORIES);
 const isAudience = isOneOf<TargetAudience>(['KID', 'ADULT', 'BOTH']);
+const isPlayerShape = isOneOf<PlayerShape>(PLAYER_SHAPES);
+const isPlayerLevel = isOneOf<PlayerLevel>(['KID', 'ADULT']);
 
 export const isValidQuestion = (v: unknown): v is Question => {
 	if (typeof v !== 'object' || v === null) return false;
@@ -25,3 +36,25 @@ export const isValidQuestion = (v: unknown): v is Question => {
 
 export const filterValidQuestions = (raw: readonly unknown[]): Question[] =>
 	raw.filter(isValidQuestion);
+
+export const isValidPlayerProfile = (v: unknown): v is PlayerProfile => {
+	if (typeof v !== 'object' || v === null) return false;
+	const p = v as Record<string, unknown>;
+	return (
+		typeof p.name === 'string' &&
+		p.name.length > 0 &&
+		isPlayerShape(p.shape) &&
+		typeof p.accentColor === 'string' &&
+		p.accentColor.length > 0 &&
+		isPlayerLevel(p.preferredLevel) &&
+		typeof p.gamesPlayed === 'number' &&
+		typeof p.gamesWon === 'number' &&
+		typeof p.totalCorrect === 'number' &&
+		typeof p.totalWrong === 'number' &&
+		typeof p.totalPlayMs === 'number' &&
+		typeof p.currentStreak === 'number' &&
+		typeof p.bestStreak === 'number' &&
+		typeof p.createdAt === 'number' &&
+		typeof p.lastPlayedAt === 'number'
+	);
+};
