@@ -41,15 +41,28 @@ const prefersReducedMotion = (): boolean =>
 	window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const ARC_LIFT = 80;
-const ARC_MARGIN = 44;
+// Keep-out margin from every viewport edge for the arc apex. Sized to the spark's worst-case
+// visual radius — its scaled half-size (~33px at the 1.25× apex) plus its glow (~22px) — so the
+// bright spark never pokes off an edge. Capped to a fraction of the axis so it can't invert on a
+// very small screen (phones/tablets in landscape or split view).
+const ARC_MARGIN = 60;
+
+const clamp = (value: number, lo: number, hi: number): number => Math.max(lo, Math.min(value, hi));
 
 /**
- * The arc apex Y: lifted above the higher endpoint for a clear lob, but clamped to the viewport
- * so the (scaled) spark never sails off the top edge. The HUD track sits at the very top, so an
- * unclamped lift would leave the screen on phones and short windows.
+ * The arc apex: midway across and lifted above the higher endpoint for a clear lob, but clamped
+ * inside the viewport so the (scaled, glowing) spark can never sail off any edge. The HUD track
+ * sits at the very top, so an unclamped lift would leave the screen — worst on short/phone
+ * viewports. The margin adapts to the viewport so it can't invert on tiny screens.
  */
-export const arcApexY = (fromY: number, toY: number, viewportH: number): number =>
-	Math.max(ARC_MARGIN, Math.min(Math.min(fromY, toY) - ARC_LIFT, viewportH - ARC_MARGIN));
+export const arcApex = (from: Point, to: Point, viewport: { w: number; h: number }): Point => {
+	const marginY = Math.min(ARC_MARGIN, viewport.h * 0.2);
+	const marginX = Math.min(ARC_MARGIN, viewport.w * 0.2);
+	return {
+		x: clamp((from.x + to.x) / 2, marginX, viewport.w - marginX),
+		y: clamp(Math.min(from.y, to.y) - ARC_LIFT, marginY, viewport.h - marginY),
+	};
+};
 
 /**
  * Celebrates collecting a Spark: a big, glowing spark arcs from its board node up into its slot
@@ -74,8 +87,11 @@ const SparkFlyOverlay: React.FC<SparkFlyOverlayProps> = ({
 			return () => clearTimeout(id);
 		}
 
-		const viewportH = typeof window !== 'undefined' ? window.innerHeight : Number.POSITIVE_INFINITY;
-		const mid = { x: (from.x + to.x) / 2, y: arcApexY(from.y, to.y, viewportH) };
+		const viewport =
+			typeof window !== 'undefined'
+				? { w: window.innerWidth, h: window.innerHeight }
+				: { w: Number.POSITIVE_INFINITY, h: Number.POSITIVE_INFINITY };
+		const mid = arcApex(from, to, viewport);
 		setPath({ from, to, mid });
 		const doneId = setTimeout(onDone, durationMs);
 		return () => clearTimeout(doneId);
