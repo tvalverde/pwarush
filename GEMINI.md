@@ -75,6 +75,7 @@ This document outlines the strict behavioral rules during the development of **P
       || echo "❌ root version DRIFTS from last tag"
     ```
     If the check fails and you are NOT in the middle of a release workflow: stop and diagnose before proceeding.
+19. **PWA Update Banner & E2E Fixture:** Any app that renders the PWA update prompt (`ReloadPrompt` → core `UpdateBanner`) also raises an "offline-ready" toast (vite-plugin-pwa `devOptions`, `z-100`) that overlays the UI and **intercepts pointer events**, silently timing out otherwise-correct Playwright clicks. Therefore, every PWA app's E2E specs MUST import `test`/`expect` from a shared `apps/<app>/e2e/helpers/page-setup.ts` fixture that auto-dismisses the toast (e.g. `page.addLocatorHandler(<toast close button>, …)`), and **NEVER** import `test` directly from `@playwright/test`. When scaffolding a new PWA app — or adding `ReloadPrompt` to an existing one — wire this fixture **before** writing any spec. (Until the core banner is made non-blocking — see `TODO.md` — this fixture is mandatory; verify a new app's first `page.goto`+click spec actually passes in E2E, not just locally.)
 
 ## Model Role Separation
 
