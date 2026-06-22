@@ -10,6 +10,7 @@ import type { HapticEvent } from '../utils/haptics';
 import { playerColor } from '../utils/players';
 import AdultQuestionOverlay from './AdultQuestionOverlay';
 import ArenaMenu from './ArenaMenu';
+import BoardBackdrop from './board/BoardBackdrop';
 import NeonBoard from './board/NeonBoard';
 import ShapeGlyph from './board/ShapeGlyph';
 import ConclaveHandoffScreen from './ConclaveHandoffScreen';
@@ -225,6 +226,7 @@ const ArenaScreen: React.FC = () => {
 			</header>
 
 			<main className="relative flex-1 overflow-hidden">
+				<BoardBackdrop />
 				<NeonBoard
 					board={board}
 					players={players}

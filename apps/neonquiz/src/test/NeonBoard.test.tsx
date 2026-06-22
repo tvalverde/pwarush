@@ -82,7 +82,7 @@ describe('NeonBoard tile interaction (regression)', () => {
 
 		// One polygon per non-Nexus tile (the Nexus is drawn as a core), so plenty of hexes.
 		expect(container.querySelectorAll('polygon').length).toBeGreaterThan(board.nodes.length);
-		// Deep-space backdrop present.
-		expect(container.querySelector('rect[fill="url(#nq-space)"]')).not.toBeNull();
+		// The board itself is transparent now; the deep-space backdrop is a separate full-bleed layer.
+		expect(container.querySelector('rect[fill="url(#nq-space)"]')).toBeNull();
 	});
 });

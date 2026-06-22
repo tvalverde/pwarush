@@ -8,12 +8,6 @@ const BoardDefs: React.FC = () => (
 			<stop offset="100%" stopColor="#0c0c14" />
 		</radialGradient>
 
-		<radialGradient id="nq-space" cx="50%" cy="44%" r="80%">
-			<stop offset="0%" stopColor="#11111e" />
-			<stop offset="58%" stopColor="#0a0a12" />
-			<stop offset="100%" stopColor="#050509" />
-		</radialGradient>
-
 		<radialGradient id="nq-core" cx="50%" cy="50%" r="50%">
 			<stop offset="0%" stopColor="#ffffff" />
 			<stop offset="42%" stopColor="#9cf6ff" />

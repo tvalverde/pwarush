@@ -1,7 +1,6 @@
 import type React from 'react';
 import type { Board, Player } from '../../types';
 import { playerColor } from '../../utils/players';
-import BoardBackground from './BoardBackground';
 import BoardDefs from './BoardDefs';
 import HexTile from './HexTile';
 import PlayerToken from './PlayerToken';
@@ -45,10 +44,9 @@ const NeonBoard: React.FC<NeonBoardProps> = ({
 	});
 
 	return (
-		<svg data-testid="neon-board" viewBox="-135 -135 270 270" className="h-full w-full">
+		<svg data-testid="neon-board" viewBox="-135 -135 270 270" className="relative h-full w-full">
 			<title>Neon Quiz board</title>
 			<BoardDefs />
-			<BoardBackground />
 
 			<g>
 				{board.nodes.flatMap((node) =>
