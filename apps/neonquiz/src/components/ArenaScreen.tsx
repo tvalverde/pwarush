@@ -85,6 +85,8 @@ const ArenaScreen: React.FC = () => {
 	const [flyingSpark, setFlyingSpark] = useState<TriviaCategory | null>(null);
 	const [withheldSpark, setWithheldSpark] = useState<TriviaCategory | null>(null);
 	const [dockedSpark, setDockedSpark] = useState<TriviaCategory | null>(null);
+	const [autoRoll, setAutoRoll] = useState(false);
+	const [autoRollPause, setAutoRollPause] = useState(false);
 	const pendingSparkRef = useRef<TriviaCategory | null>(null);
 	const arenaRef = useRef<HTMLDivElement>(null);
 	const tap = useTap();
@@ -103,9 +105,19 @@ const ArenaScreen: React.FC = () => {
 				pendingSparkRef.current = state.lastOutcome.collectedSpark;
 				setWithheldSpark(state.lastOutcome.collectedSpark);
 			}
-			if (prev.phase === 'FEEDBACK' && state.phase !== 'FEEDBACK' && pendingSparkRef.current) {
-				setFlyingSpark(pendingSparkRef.current);
-				pendingSparkRef.current = null;
+			if (prev.phase === 'FEEDBACK' && state.phase !== 'FEEDBACK') {
+				const hadSpark = pendingSparkRef.current != null;
+				if (hadSpark) {
+					setFlyingSpark(pendingSparkRef.current);
+					pendingSparkRef.current = null;
+				}
+				// A correct answer rolls again: roll automatically instead of making the player
+				// return to the board and press Roll. After a Spark, wait for it to fly and dock,
+				// then a beat (autoRollPause); otherwise roll right away.
+				if (state.phase === 'ROLLING_DICE') {
+					setAutoRoll(true);
+					setAutoRollPause(hadSpark);
+				}
 			}
 		});
 	}, []);
@@ -122,6 +134,27 @@ const ArenaScreen: React.FC = () => {
 		setDockedSpark(category);
 	}, []);
 
+	// Starts a roll: resolves it synchronously in the store, then shows the tumble overlay.
+	const roll = useCallback(() => {
+		if (rolling) return;
+		rollDice();
+		setRolling(true);
+	}, [rolling, rollDice]);
+
+	// Fires the pending auto-roll once the board is settled — after any Spark has docked (flyingSpark
+	// cleared), plus a ~1s beat when a Spark just played, or immediately otherwise.
+	useEffect(() => {
+		if (phase !== 'ROLLING_DICE' || !autoRoll || rolling || flyingSpark) return;
+		const id = setTimeout(
+			() => {
+				setAutoRoll(false);
+				roll();
+			},
+			autoRollPause ? 1000 : 0,
+		);
+		return () => clearTimeout(id);
+	}, [phase, autoRoll, rolling, flyingSpark, autoRollPause, roll]);
+
 	const player = players[currentPlayerIndex];
 	if (!player) return null;
 
@@ -129,10 +162,8 @@ const ArenaScreen: React.FC = () => {
 	const noMoves = phase === 'AWAITING_MOVE' && dice !== null && validMoves.length === 0;
 
 	const handleRoll = (): void => {
-		if (rolling) return;
 		tap();
-		rollDice();
-		setRolling(true);
+		roll();
 	};
 
 	const handleRollSettled = (): void => {
@@ -205,7 +236,7 @@ const ArenaScreen: React.FC = () => {
 			</main>
 
 			<footer className="flex min-h-20 items-center justify-center gap-4 border-t border-outline-variant bg-surface-container-lowest px-5 py-4">
-				{phase === 'ROLLING_DICE' && !rolling && (
+				{phase === 'ROLLING_DICE' && !rolling && !autoRoll && (
 					<Button
 						variant="primary"
 						size="lg"
