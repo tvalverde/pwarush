@@ -211,15 +211,17 @@ describe('gameStore KID wildcards', () => {
 		expect(useGameStore.getState().hiddenOptions).toHaveLength(2);
 	});
 
-	it('Change swaps the question and clears the 50/50 aid, once', () => {
+	it('Change swaps the question keeping no stale aid, once', () => {
 		openQuestion();
-		useGameStore.getState().useFiftyFifty();
 		useGameStore.getState().useChange();
 		const s = useGameStore.getState();
 		expect(s.players[0].usedWildcards.change).toBe(true);
 		expect(s.hiddenOptions).toHaveLength(0);
 		expect(s.phase).toBe('QUESTION_ACTIVE');
 		expect(s.activeQuestion).not.toBeNull();
+
+		useGameStore.getState().useChange(); // second use is a no-op
+		expect(useGameStore.getState().activeQuestion).not.toBeNull();
 	});
 
 	it('2nd Chance reopens the same question with the failed option locked', () => {

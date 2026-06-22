@@ -2,6 +2,7 @@ import { BoardOverlay, Button } from '@pwarush/core/ui';
 import type React from 'react';
 import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
+import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
 
 const QuestionOverlay: React.FC = () => {
@@ -19,6 +20,7 @@ const QuestionOverlay: React.FC = () => {
 	const revealAnswer = useGameStore((s) => s.revealAnswer);
 	const answerRevealed = useGameStore((s) => s.answerRevealed);
 	const isConclave = useGameStore((s) => s.isConclave);
+	const wildcardUsedThisQuestion = useGameStore((s) => s.wildcardUsedThisQuestion);
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
 
@@ -29,10 +31,20 @@ const QuestionOverlay: React.FC = () => {
 	const isFeedback = phase === 'FEEDBACK';
 	const wrongFeedback = isFeedback && outcome !== null && !outcome.correct;
 	const used = player?.usedWildcards;
+	// KID rule: one wildcard per question. Once any wildcard has been spent on this question the
+	// 2nd chance is no longer on offer (it counts towards the single-wildcard allowance).
+	const wildcardLocked = player?.level === 'KID' && wildcardUsedThisQuestion;
+	// True the moment the just-collected Spark completes the set — cue to head to the Nexus.
+	const allSparksCollected = player?.sparks.length === CATEGORIES.length;
 	// While a 2nd chance is still on offer we must NOT reveal the correct answer; the
 	// player either takes the retry or reveals it deliberately ("show answer").
 	const retryOffered =
-		wrongFeedback && !isConclave && !!used && !used.secondChance && !answerRevealed;
+		wrongFeedback &&
+		!isConclave &&
+		!!used &&
+		!used.secondChance &&
+		!answerRevealed &&
+		!wildcardLocked;
 
 	const optionClass = (index: number): string => {
 		if (!isFeedback) {
@@ -80,7 +92,7 @@ const QuestionOverlay: React.FC = () => {
 						<button
 							type="button"
 							data-testid="wildcard-5050"
-							disabled={isFeedback || used.fiftyFifty || hiddenOptions.length > 0}
+							disabled={isFeedback || used.fiftyFifty || hiddenOptions.length > 0 || wildcardLocked}
 							onClick={() => {
 								tap();
 								applyFiftyFifty();
@@ -92,7 +104,7 @@ const QuestionOverlay: React.FC = () => {
 						<button
 							type="button"
 							data-testid="wildcard-change"
-							disabled={isFeedback || used.change}
+							disabled={isFeedback || used.change || wildcardLocked}
 							onClick={() => {
 								tap();
 								applyChange();
@@ -131,11 +143,19 @@ const QuestionOverlay: React.FC = () => {
 						>
 							{outcome.correct ? t('question.correct') : t('question.wrong')}
 						</p>
-						{outcome.collectedSpark && (
-							<p className="font-hanken text-xs uppercase tracking-wide-premium text-tertiary">
-								{t('question.spark_collected')}
-							</p>
-						)}
+						{outcome.collectedSpark &&
+							(allSparksCollected ? (
+								<p
+									data-testid="conclave-call"
+									className="font-display text-sm font-bold uppercase tracking-wide-premium text-primary"
+								>
+									{t('conclave.complete')}
+								</p>
+							) : (
+								<p className="font-hanken text-xs uppercase tracking-wide-premium text-tertiary">
+									{t('question.spark_collected')}
+								</p>
+							))}
 						{retryOffered ? (
 							<div className="flex gap-2">
 								<Button
