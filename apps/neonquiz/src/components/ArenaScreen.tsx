@@ -2,9 +2,11 @@ import { Button } from '@pwarush/core/ui';
 import { Menu } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
+import { useHapticEvent, useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
-import { CATEGORIES } from '../types';
+import { type Board, CATEGORIES, type Player } from '../types';
 import { categoryColor } from '../utils/categories';
+import type { HapticEvent } from '../utils/haptics';
 import { playerColor } from '../utils/players';
 import AdultQuestionOverlay from './AdultQuestionOverlay';
 import ArenaMenu from './ArenaMenu';
@@ -13,10 +15,29 @@ import ShapeGlyph from './board/ShapeGlyph';
 import ConclaveHandoffScreen from './ConclaveHandoffScreen';
 import ConclaveVoteScreen from './ConclaveVoteScreen';
 import Dice from './Dice';
+import DiceRollOverlay from './DiceRollOverlay';
 import MatchClock from './MatchClock';
 import QuestionOverlay from './QuestionOverlay';
 import TurnTransitionScreen from './TurnTransitionScreen';
 import VictoryScreen from './VictoryScreen';
+
+/**
+ * Decides which post-roll haptic, if any, best matches the freshly-computed `validMoves`:
+ * a Spark candidate beats a plain move, and an empty `validMoves` is a dead end. Pure and
+ * exported so it can be unit-tested without mounting the full screen.
+ */
+export const decideRollHaptic = (
+	board: Board,
+	validMoves: number[],
+	player: Player,
+): HapticEvent | null => {
+	if (validMoves.length === 0) return 'deadEnd';
+	const hasSparkCandidate = validMoves.some((nodeId) => {
+		const node = board.nodes.find((n) => n.id === nodeId);
+		return node?.type === 'SPARK_NODE' && node.category && !player.sparks.includes(node.category);
+	});
+	return hasSparkCandidate ? 'sparkCandidate' : null;
+};
 
 const SparkTrack: React.FC<{ collected: string[] }> = ({ collected }) => (
 	<div className="flex gap-1.5" data-testid="spark-track">
@@ -50,12 +71,43 @@ const ArenaScreen: React.FC = () => {
 	const skipTurn = useGameStore((s) => s.skipTurn);
 	const t = useGameStore((s) => s.t);
 	const [showMenu, setShowMenu] = useState(false);
+	const [rolling, setRolling] = useState(false);
+	const tap = useTap();
+	const fireHaptic = useHapticEvent();
 
 	const player = players[currentPlayerIndex];
 	if (!player) return null;
 
 	// Surfaces a dead-end roll (no legal destination) so the turn can still advance.
 	const noMoves = phase === 'AWAITING_MOVE' && dice !== null && validMoves.length === 0;
+
+	const handleRoll = (): void => {
+		if (rolling) return;
+		tap();
+		rollDice();
+		setRolling(true);
+	};
+
+	const handleRollSettled = (): void => {
+		const haptic = decideRollHaptic(board, validMoves, player);
+		if (haptic) fireHaptic(haptic);
+		setRolling(false);
+	};
+
+	const handleMove = (nodeId: number): void => {
+		fireHaptic('move');
+		moveTo(nodeId);
+	};
+
+	const handleSkipTurn = (): void => {
+		tap();
+		skipTurn();
+	};
+
+	const handleOpenMenu = (): void => {
+		tap();
+		setShowMenu(true);
+	};
 
 	return (
 		<div className="relative flex h-full flex-col">
@@ -80,7 +132,7 @@ const ArenaScreen: React.FC = () => {
 						type="button"
 						aria-label={t('menu.open')}
 						data-testid="open-menu"
-						onClick={() => setShowMenu(true)}
+						onClick={handleOpenMenu}
 						className="text-on-surface-variant hover:text-primary"
 					>
 						<Menu className="h-5 w-5" />
@@ -93,9 +145,10 @@ const ArenaScreen: React.FC = () => {
 					board={board}
 					players={players}
 					validMoves={validMoves}
-					onMove={moveTo}
+					onMove={handleMove}
 					nexusActive={player.sparks.length === CATEGORIES.length}
 				/>
+				{rolling && <DiceRollOverlay value={dice} onDone={handleRollSettled} />}
 				{(phase === 'QUESTION_ACTIVE' || phase === 'FEEDBACK' || phase === 'CONCLAVE_QUESTION') &&
 					(player.level === 'ADULT' ? <AdultQuestionOverlay /> : <QuestionOverlay />)}
 				{phase === 'TURN_TRANSITION' && <TurnTransitionScreen />}
@@ -105,19 +158,19 @@ const ArenaScreen: React.FC = () => {
 			</main>
 
 			<footer className="flex min-h-20 items-center justify-center gap-4 border-t border-outline-variant bg-surface-container-lowest px-5 py-4">
-				{phase === 'ROLLING_DICE' && (
+				{phase === 'ROLLING_DICE' && !rolling && (
 					<Button
 						variant="primary"
 						size="lg"
 						className="gap-3 uppercase"
 						data-testid="roll-dice"
-						onClick={() => rollDice()}
+						onClick={handleRoll}
 					>
 						<Dice value={dice} size={32} />
 						{t('arena.roll')}
 					</Button>
 				)}
-				{phase === 'AWAITING_MOVE' && !noMoves && (
+				{phase === 'AWAITING_MOVE' && !rolling && !noMoves && (
 					<div className="flex items-center gap-3">
 						<Dice value={dice} size={44} />
 						<span className="font-hanken text-xs uppercase tracking-wide-premium text-on-surface-variant">
@@ -125,13 +178,13 @@ const ArenaScreen: React.FC = () => {
 						</span>
 					</div>
 				)}
-				{noMoves && (
+				{noMoves && !rolling && (
 					<Button
 						variant="secondary"
 						size="md"
 						className="uppercase"
 						data-testid="skip-turn"
-						onClick={skipTurn}
+						onClick={handleSkipTurn}
 					>
 						{t('question.next_player')}
 					</Button>
