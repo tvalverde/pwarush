@@ -27,6 +27,11 @@ const BoardDefs: React.FC = () => (
 				<feMergeNode in="SourceGraphic" />
 			</feMerge>
 		</filter>
+
+		{/* Cast shadow that lifts a player token off the board so it reads as placed on top. */}
+		<filter id="nq-token-shadow" x="-70%" y="-70%" width="240%" height="260%">
+			<feDropShadow dx="0" dy="2.4" stdDeviation="1.8" floodColor="#000000" floodOpacity="0.65" />
+		</filter>
 	</defs>
 );
 
