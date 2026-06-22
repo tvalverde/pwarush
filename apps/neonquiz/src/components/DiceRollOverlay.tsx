@@ -13,7 +13,11 @@ interface DiceRollOverlayProps {
 	revealMs?: number;
 }
 
-const TUMBLE_TICK_MS = 70;
+const TUMBLE_TICK_MS = 60;
+
+/** Snappy defaults: a brief tumble plus a short hold reads as lively without dragging. */
+export const DEFAULT_TUMBLE_MS = 700;
+export const DEFAULT_REVEAL_MS = 250;
 
 const randomFace = (): number => 1 + Math.floor(Math.random() * 6);
 
@@ -25,8 +29,8 @@ const randomFace = (): number => 1 + Math.floor(Math.random() * 6);
 const DiceRollOverlay: React.FC<DiceRollOverlayProps> = ({
 	value,
 	onDone,
-	durationMs = 1200,
-	revealMs = 400,
+	durationMs = DEFAULT_TUMBLE_MS,
+	revealMs = DEFAULT_REVEAL_MS,
 }) => {
 	const [face, setFace] = useState<number>(() => randomFace());
 	const [settled, setSettled] = useState(false);

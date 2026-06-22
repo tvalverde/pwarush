@@ -1,8 +1,17 @@
 import { render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import DiceRollOverlay from '../components/DiceRollOverlay';
+import DiceRollOverlay, {
+	DEFAULT_REVEAL_MS,
+	DEFAULT_TUMBLE_MS,
+} from '../components/DiceRollOverlay';
 
 describe('DiceRollOverlay', () => {
+	it('uses snappy defaults so the roll never drags (well under the old ~1.6s)', () => {
+		expect(DEFAULT_TUMBLE_MS).toBe(700);
+		expect(DEFAULT_REVEAL_MS).toBe(250);
+		expect(DEFAULT_TUMBLE_MS + DEFAULT_REVEAL_MS).toBeLessThan(1000);
+	});
+
 	it('renders the overlay immediately with a tumbling face', () => {
 		const { getByTestId } = render(
 			<DiceRollOverlay value={4} onDone={vi.fn()} durationMs={20} revealMs={10} />,
