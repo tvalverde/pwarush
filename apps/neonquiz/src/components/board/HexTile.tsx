@@ -99,6 +99,7 @@ const HexTile: React.FC<HexTileProps> = ({ node, isValid, dimmed, nexusActive, o
 				filter={emphasized ? 'url(#nq-glow)' : undefined}
 				style={isValid ? { cursor: 'pointer' } : undefined}
 				data-testid={isValid ? `move-${node.id}` : undefined}
+				data-spark-node={isSpark ? node.category : undefined}
 				onClick={isValid ? () => onMove(node.id) : undefined}
 			/>
 			{/* interior light — fills the tile in its own colour so an available move is obvious */}

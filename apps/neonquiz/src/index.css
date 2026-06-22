@@ -260,6 +260,22 @@ body {
 	}
 }
 
+/* A collected Spark popping into its HUD slot as it docks. */
+.nq-spark-dock {
+	animation: nq-spark-dock 440ms ease-out;
+}
+@keyframes nq-spark-dock {
+	0% {
+		transform: scale(0);
+	}
+	55% {
+		transform: scale(1.6);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.nq-token {
 		transition: none;
@@ -270,7 +286,8 @@ body {
 	.nq-link-active,
 	.nq-starfield circle,
 	.nq-dice,
-	.nq-rings {
+	.nq-rings,
+	.nq-spark-dock {
 		animation: none;
 	}
 	.nq-link-active {

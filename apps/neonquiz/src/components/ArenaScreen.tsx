@@ -1,10 +1,10 @@
 import { Button } from '@pwarush/core/ui';
 import { Menu } from 'lucide-react';
 import type React from 'react';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useHapticEvent, useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
-import { type Board, CATEGORIES, type Player } from '../types';
+import { type Board, CATEGORIES, type Player, type TriviaCategory } from '../types';
 import { categoryColor } from '../utils/categories';
 import type { HapticEvent } from '../utils/haptics';
 import { playerColor } from '../utils/players';
@@ -18,6 +18,7 @@ import Dice from './Dice';
 import DiceRollOverlay from './DiceRollOverlay';
 import MatchClock from './MatchClock';
 import QuestionOverlay from './QuestionOverlay';
+import SparkFlyOverlay from './SparkFlyOverlay';
 import TurnTransitionScreen from './TurnTransitionScreen';
 import VictoryScreen from './VictoryScreen';
 
@@ -39,15 +40,24 @@ export const decideRollHaptic = (
 	return hasSparkCandidate ? 'sparkCandidate' : null;
 };
 
-const SparkTrack: React.FC<{ collected: string[] }> = ({ collected }) => (
+interface SparkTrackProps {
+	collected: string[];
+	/** Withheld until its fly animation docks, so the slot lights up on arrival. */
+	pending?: string | null;
+	/** Plays a one-shot dock pop on the slot that just arrived. */
+	docked?: string | null;
+}
+
+const SparkTrack: React.FC<SparkTrackProps> = ({ collected, pending, docked }) => (
 	<div className="flex gap-1.5" data-testid="spark-track">
 		{CATEGORIES.map((category) => {
-			const has = collected.includes(category);
+			const has = collected.includes(category) && category !== pending;
 			return (
 				<span
 					key={category}
+					data-spark-slot={category}
 					data-testid={has ? `spark-${category}` : undefined}
-					className="h-3 w-3 rounded-full"
+					className={`h-3 w-3 rounded-full ${has && category === docked ? 'nq-spark-dock' : ''}`}
 					style={{
 						backgroundColor: has ? categoryColor(category) : 'transparent',
 						border: `1.5px solid ${categoryColor(category)}`,
@@ -72,8 +82,36 @@ const ArenaScreen: React.FC = () => {
 	const t = useGameStore((s) => s.t);
 	const [showMenu, setShowMenu] = useState(false);
 	const [rolling, setRolling] = useState(false);
+	const [flyingSpark, setFlyingSpark] = useState<TriviaCategory | null>(null);
+	const [dockedSpark, setDockedSpark] = useState<TriviaCategory | null>(null);
+	const pendingSparkRef = useRef<TriviaCategory | null>(null);
 	const tap = useTap();
 	const fireHaptic = useHapticEvent();
+
+	// A Spark is awarded during FEEDBACK while the board is hidden; remember it and let it fly
+	// from its board node into the HUD track once feedback closes and the board is visible again.
+	useEffect(() => {
+		return useGameStore.subscribe((state, prev) => {
+			if (state.phase === 'FEEDBACK' && state.lastOutcome?.collectedSpark) {
+				pendingSparkRef.current = state.lastOutcome.collectedSpark;
+			}
+			if (prev.phase === 'FEEDBACK' && state.phase !== 'FEEDBACK' && pendingSparkRef.current) {
+				setFlyingSpark(pendingSparkRef.current);
+				pendingSparkRef.current = null;
+			}
+		});
+	}, []);
+
+	useEffect(() => {
+		if (!dockedSpark) return;
+		const id = setTimeout(() => setDockedSpark(null), 450);
+		return () => clearTimeout(id);
+	}, [dockedSpark]);
+
+	const handleSparkDocked = useCallback((category: TriviaCategory) => {
+		setFlyingSpark(null);
+		setDockedSpark(category);
+	}, []);
 
 	const player = players[currentPlayerIndex];
 	if (!player) return null;
@@ -127,7 +165,7 @@ const ArenaScreen: React.FC = () => {
 				</span>
 				<span className="flex items-center gap-3">
 					<MatchClock />
-					<SparkTrack collected={player.sparks} />
+					<SparkTrack collected={player.sparks} pending={flyingSpark} docked={dockedSpark} />
 					<button
 						type="button"
 						aria-label={t('menu.open')}
@@ -192,6 +230,9 @@ const ArenaScreen: React.FC = () => {
 			</footer>
 
 			{showMenu && <ArenaMenu onClose={() => setShowMenu(false)} />}
+			{flyingSpark && (
+				<SparkFlyOverlay category={flyingSpark} onDone={() => handleSparkDocked(flyingSpark)} />
+			)}
 		</div>
 	);
 };
