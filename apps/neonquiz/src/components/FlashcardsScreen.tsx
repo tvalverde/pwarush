@@ -3,6 +3,7 @@ import { ArrowLeft, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { clearFailedQuestions, getFailedQuestions } from '../db/failedQuestions';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import type { Question } from '../types';
 import { categoryColor } from '../utils/categories';
@@ -14,6 +15,7 @@ interface FlashcardsScreenProps {
 /** Review of the globally logged failed questions, each with its correct answer revealed. */
 const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 	const [cards, setCards] = useState<Question[] | null>(null);
 
 	useEffect(() => {
@@ -27,8 +29,14 @@ const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 	}, []);
 
 	const handleClear = async () => {
+		tap();
 		await clearFailedQuestions();
 		setCards([]);
+	};
+
+	const handleClose = () => {
+		tap();
+		onClose();
 	};
 
 	return (
@@ -37,7 +45,7 @@ const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 				<button
 					type="button"
 					aria-label={t('flashcards.back')}
-					onClick={onClose}
+					onClick={handleClose}
 					className="flex items-center gap-1 font-hanken text-sm text-on-surface-variant hover:text-on-surface"
 				>
 					<ArrowLeft className="h-4 w-4" />
@@ -90,7 +98,7 @@ const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 			</main>
 
 			<div className="border-t border-outline-variant bg-surface-container-lowest p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
-				<Button variant="secondary" size="lg" className="w-full uppercase" onClick={onClose}>
+				<Button variant="secondary" size="lg" className="w-full uppercase" onClick={handleClose}>
 					{t('flashcards.back')}
 				</Button>
 			</div>

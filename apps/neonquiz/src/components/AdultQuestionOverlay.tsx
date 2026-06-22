@@ -1,6 +1,7 @@
 import { BoardOverlay, Button } from '@pwarush/core/ui';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { categoryColor } from '../utils/categories';
 
@@ -21,6 +22,7 @@ const AdultQuestionOverlay: React.FC = () => {
 	const continueAfterFeedback = useGameStore((s) => s.continueAfterFeedback);
 	const isConclave = useGameStore((s) => s.isConclave);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 
 	const isFeedback = phase === 'FEEDBACK';
 	const isReading =
@@ -101,7 +103,10 @@ const AdultQuestionOverlay: React.FC = () => {
 						size="md"
 						className="uppercase"
 						data-testid="adult-reveal"
-						onClick={revealAdultAnswer}
+						onClick={() => {
+							tap();
+							revealAdultAnswer();
+						}}
 					>
 						{t('adult.reveal')}
 					</Button>
@@ -114,7 +119,10 @@ const AdultQuestionOverlay: React.FC = () => {
 							size="md"
 							className="flex-1 uppercase"
 							data-testid="adult-correct"
-							onClick={() => gradeAdultAnswer(true)}
+							onClick={() => {
+								tap();
+								gradeAdultAnswer(true);
+							}}
 						>
 							{t('adult.i_was_right')}
 						</Button>
@@ -123,7 +131,10 @@ const AdultQuestionOverlay: React.FC = () => {
 							size="md"
 							className="flex-1 uppercase"
 							data-testid="adult-failed"
-							onClick={() => gradeAdultAnswer(false)}
+							onClick={() => {
+								tap();
+								gradeAdultAnswer(false);
+							}}
 						>
 							{t('adult.i_failed')}
 						</Button>
@@ -149,7 +160,10 @@ const AdultQuestionOverlay: React.FC = () => {
 							size="md"
 							className="uppercase"
 							data-testid="continue-feedback"
-							onClick={continueAfterFeedback}
+							onClick={() => {
+								tap();
+								continueAfterFeedback();
+							}}
 						>
 							{outcome.correct
 								? t(isConclave ? 'question.claim_victory' : 'question.roll_again')

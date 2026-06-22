@@ -1,5 +1,6 @@
 import { Button } from '@pwarush/core/ui';
 import type React from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
@@ -10,6 +11,7 @@ const ConclaveHandoffScreen: React.FC = () => {
 	const currentPlayerIndex = useGameStore((s) => s.currentPlayerIndex);
 	const confirmConclaveHandoff = useGameStore((s) => s.confirmConclaveHandoff);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 	const player = players[currentPlayerIndex];
 
 	if (!player) return null;
@@ -37,7 +39,10 @@ const ConclaveHandoffScreen: React.FC = () => {
 				size="lg"
 				className="uppercase"
 				data-testid="confirm-handoff"
-				onClick={confirmConclaveHandoff}
+				onClick={() => {
+					tap();
+					confirmConclaveHandoff();
+				}}
 			>
 				{t('conclave.ready')}
 			</Button>

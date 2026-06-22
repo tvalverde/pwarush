@@ -80,22 +80,22 @@ describe('game & data management', () => {
 		expect(useGameStore.getState().usedQuestionIds).toEqual([]);
 	});
 
-	it('resetApp clears the game, question usage and restores sound', () => {
+	it('resetApp clears the game, question usage and restores haptics', () => {
 		useGameStore.setState({ usedQuestionIds: [1, 2] });
-		useGameStore.getState().setSoundEnabled(false);
+		useGameStore.getState().setHapticsEnabled(false);
 		useGameStore.getState().resetApp();
 		const s = useGameStore.getState();
 		expect(s.phase).toBe('LOBBY');
 		expect(s.players).toHaveLength(0);
 		expect(s.usedQuestionIds).toEqual([]);
-		expect(s.soundEnabled).toBe(true);
+		expect(s.hapticsEnabled).toBe(true);
 	});
 
-	it('setSoundEnabled toggles and persists the preference', () => {
-		useGameStore.getState().setSoundEnabled(false);
-		expect(useGameStore.getState().soundEnabled).toBe(false);
-		expect(localStorage.getItem('neonquiz:sound')).toBe('off');
-		useGameStore.getState().setSoundEnabled(true);
-		expect(localStorage.getItem('neonquiz:sound')).toBe('on');
+	it('setHapticsEnabled toggles and persists the preference', () => {
+		useGameStore.getState().setHapticsEnabled(false);
+		expect(useGameStore.getState().hapticsEnabled).toBe(false);
+		expect(localStorage.getItem('neonquiz:haptics')).toBe('off');
+		useGameStore.getState().setHapticsEnabled(true);
+		expect(localStorage.getItem('neonquiz:haptics')).toBe('on');
 	});
 });

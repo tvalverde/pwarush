@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { wipeAllData } from '../db/maintenance';
 import { clearProfiles, deleteProfile, getProfiles } from '../db/profiles';
 import { clearUsedIds } from '../db/questionUsage';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import type { PlayerProfile } from '../types';
 import ShapeGlyph from './board/ShapeGlyph';
@@ -20,9 +21,10 @@ type Pending = 'questions' | 'app' | 'profiles';
 const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 	const resetQuestionUsage = useGameStore((s) => s.resetQuestionUsage);
 	const resetApp = useGameStore((s) => s.resetApp);
-	const soundEnabled = useGameStore((s) => s.soundEnabled);
-	const setSoundEnabled = useGameStore((s) => s.setSoundEnabled);
+	const hapticsEnabled = useGameStore((s) => s.hapticsEnabled);
+	const setHapticsEnabled = useGameStore((s) => s.setHapticsEnabled);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 	const [pending, setPending] = useState<Pending | null>(null);
 	const [profiles, setProfiles] = useState<PlayerProfile[]>([]);
 
@@ -37,9 +39,15 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 	}, []);
 
 	const handleDeleteProfile = async (id?: number) => {
+		tap();
 		if (id == null) return;
 		await deleteProfile(id);
 		setProfiles(await getProfiles());
+	};
+
+	const handleClose = () => {
+		tap();
+		onClose();
 	};
 
 	const runPending = async () => {
@@ -64,7 +72,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 					type="button"
 					aria-label={t('menu.close')}
 					data-testid="settings-back"
-					onClick={onClose}
+					onClick={handleClose}
 					className="text-on-surface-variant hover:text-on-surface"
 				>
 					<ArrowLeft className="h-4 w-4" />
@@ -77,20 +85,23 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 			<main className="flex flex-1 flex-col gap-3 px-5 py-6">
 				<div className="flex items-center justify-between rounded-lg border border-outline-variant bg-surface-container-low p-4">
 					<span className="font-hanken text-sm font-bold text-on-surface">
-						{t('settings.sound')}
+						{t('settings.vibration')}
 					</span>
 					<button
 						type="button"
-						data-testid="toggle-sound"
-						aria-pressed={soundEnabled}
-						onClick={() => setSoundEnabled(!soundEnabled)}
+						data-testid="toggle-haptics"
+						aria-pressed={hapticsEnabled}
+						onClick={() => {
+							tap();
+							setHapticsEnabled(!hapticsEnabled);
+						}}
 						className={`rounded-full border px-4 py-1.5 font-hanken text-xs font-bold uppercase tracking-wide-premium ${
-							soundEnabled
+							hapticsEnabled
 								? 'border-primary bg-primary-container text-on-surface'
 								: 'border-outline-variant bg-surface-container text-on-surface-variant'
 						}`}
 					>
-						{soundEnabled ? t('settings.sound_on') : t('settings.sound_off')}
+						{hapticsEnabled ? t('settings.vibration_on') : t('settings.vibration_off')}
 					</button>
 				</div>
 
@@ -133,7 +144,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 						<button
 							type="button"
 							data-testid="clear-profiles"
-							onClick={() => setPending('profiles')}
+							onClick={() => {
+								tap();
+								setPending('profiles');
+							}}
 							className="flex items-center gap-2 self-start font-hanken text-xs font-bold uppercase tracking-wide-premium text-error hover:underline"
 						>
 							<Trash2 className="h-3.5 w-3.5" />
@@ -145,7 +159,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 				<button
 					type="button"
 					data-testid="reset-questions"
-					onClick={() => setPending('questions')}
+					onClick={() => {
+						tap();
+						setPending('questions');
+					}}
 					className="flex items-center gap-3 rounded-lg border border-outline-variant bg-surface-container-low p-4 text-left hover:border-primary"
 				>
 					<RefreshCw className="h-5 w-5 text-primary" />
@@ -162,7 +179,10 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 				<button
 					type="button"
 					data-testid="reset-app"
-					onClick={() => setPending('app')}
+					onClick={() => {
+						tap();
+						setPending('app');
+					}}
 					className="flex items-center gap-3 rounded-lg border border-error/40 bg-surface-container-low p-4 text-left hover:border-error"
 				>
 					<Trash2 className="h-5 w-5 text-error" />
@@ -196,7 +216,7 @@ const SettingsScreen: React.FC<SettingsScreenProps> = ({ onClose }) => {
 			)}
 
 			<div className="border-t border-outline-variant bg-surface-container-lowest p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
-				<Button variant="secondary" size="lg" className="w-full uppercase" onClick={onClose}>
+				<Button variant="secondary" size="lg" className="w-full uppercase" onClick={handleClose}>
 					{t('menu.close')}
 				</Button>
 			</div>

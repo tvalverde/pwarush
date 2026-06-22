@@ -3,6 +3,7 @@ import { ArrowLeft, Trash2 } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { clearGameHistory, getGameHistory } from '../db/gameHistory';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import type { GameHistoryEntry, MatchPlayerStat } from '../types';
 import ShapeGlyph from './board/ShapeGlyph';
@@ -58,6 +59,7 @@ const RosterRow: React.FC<{ stat: MatchPlayerStat; winnerLabel: string }> = ({
 const HistoryScreen: React.FC<HistoryScreenProps> = ({ onClose }) => {
 	const t = useGameStore((s) => s.t);
 	const language = useGameStore((s) => s.language);
+	const tap = useTap();
 	const [entries, setEntries] = useState<GameHistoryEntry[] | null>(null);
 
 	useEffect(() => {
@@ -71,8 +73,14 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({ onClose }) => {
 	}, []);
 
 	const handleClear = async () => {
+		tap();
 		await clearGameHistory();
 		setEntries([]);
+	};
+
+	const handleClose = () => {
+		tap();
+		onClose();
 	};
 
 	return (
@@ -82,7 +90,7 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({ onClose }) => {
 					type="button"
 					aria-label={t('menu.close')}
 					data-testid="history-back"
-					onClick={onClose}
+					onClick={handleClose}
 					className="text-on-surface-variant hover:text-on-surface"
 				>
 					<ArrowLeft className="h-4 w-4" />
@@ -186,7 +194,7 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({ onClose }) => {
 			</main>
 
 			<div className="border-t border-outline-variant bg-surface-container-lowest p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
-				<Button variant="secondary" size="lg" className="w-full uppercase" onClick={onClose}>
+				<Button variant="secondary" size="lg" className="w-full uppercase" onClick={handleClose}>
 					{t('menu.close')}
 				</Button>
 			</div>

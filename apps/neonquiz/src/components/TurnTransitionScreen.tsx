@@ -1,5 +1,6 @@
 import { Button } from '@pwarush/core/ui';
 import type React from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
@@ -10,6 +11,7 @@ const TurnTransitionScreen: React.FC = () => {
 	const currentPlayerIndex = useGameStore((s) => s.currentPlayerIndex);
 	const confirmTurnTransition = useGameStore((s) => s.confirmTurnTransition);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 	const player = players[currentPlayerIndex];
 
 	if (!player) return null;
@@ -37,7 +39,10 @@ const TurnTransitionScreen: React.FC = () => {
 				size="lg"
 				className="uppercase"
 				data-testid="confirm-transition"
-				onClick={confirmTurnTransition}
+				onClick={() => {
+					tap();
+					confirmTurnTransition();
+				}}
 			>
 				{t('transition.ready')}
 			</Button>

@@ -1,5 +1,6 @@
 import { Button } from '@pwarush/core/ui';
 import type React from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
@@ -12,6 +13,7 @@ const VictoryScreen: React.FC = () => {
 	const turnCount = useGameStore((s) => s.turnCount);
 	const resetGame = useGameStore((s) => s.resetGame);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 
 	const winner = winnerIndex !== null ? players[winnerIndex] : null;
 	if (!winner || winnerIndex === null) return null;
@@ -72,7 +74,10 @@ const VictoryScreen: React.FC = () => {
 				size="lg"
 				className="uppercase"
 				data-testid="play-again"
-				onClick={resetGame}
+				onClick={() => {
+					tap();
+					resetGame();
+				}}
 			>
 				{t('victory.play_again')}
 			</Button>

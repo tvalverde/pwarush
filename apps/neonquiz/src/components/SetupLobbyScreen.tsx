@@ -3,6 +3,7 @@ import { BookOpen, Plus, Settings, Trophy, X } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { getProfiles, upsertProfile } from '../db/profiles';
+import { useTap } from '../hooks/useHaptics';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
 import { PLAYER_SHAPES, type PlayerLevel, type PlayerProfile, type PlayerShape } from '../types';
 import { PLAYER_ACCENTS, playerAccent } from '../utils/players';
@@ -19,6 +20,7 @@ const MIN_PLAYERS = 2;
 const SetupLobbyScreen: React.FC = () => {
 	const startGame = useGameStore((s) => s.startGame);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 	const [drafts, setDrafts] = useState<PlayerDraft[]>([]);
 	const [profiles, setProfiles] = useState<PlayerProfile[]>([]);
 	const [name, setName] = useState('');
@@ -52,6 +54,7 @@ const SetupLobbyScreen: React.FC = () => {
 	// removing someone before playing never leaves an orphan profile behind. Profiles for
 	// brand-new players are created when the match actually starts (see `startMatch`).
 	const addPlayer = () => {
+		tap();
 		if (!canAdd || !activeShape || !freeAccent) return;
 		const trimmed = name.trim() || `${t('lobby.player_name')} ${drafts.length + 1}`;
 		const finalName = trimmed.slice(0, 10);
@@ -62,6 +65,7 @@ const SetupLobbyScreen: React.FC = () => {
 	// Persists a profile for every roster entry that is not already backed by a saved one,
 	// then starts the game with the resolved profile ids so wins are attributed correctly.
 	const startMatch = async () => {
+		tap();
 		if (!canStart) return;
 		const now = Date.now();
 		const resolved: PlayerDraft[] = [];
@@ -92,6 +96,7 @@ const SetupLobbyScreen: React.FC = () => {
 	};
 
 	const addSavedProfile = (profile: PlayerProfile) => {
+		tap();
 		if (!canAdd || profile.id == null || usedAccents.has(profile.accentColor)) return;
 		setDrafts([
 			...drafts,
@@ -105,7 +110,10 @@ const SetupLobbyScreen: React.FC = () => {
 		]);
 	};
 
-	const removePlayer = (index: number) => setDrafts(drafts.filter((_, i) => i !== index));
+	const removePlayer = (index: number) => {
+		tap();
+		setDrafts(drafts.filter((_, i) => i !== index));
+	};
 
 	if (showFlashcards) return <FlashcardsScreen onClose={() => setShowFlashcards(false)} />;
 	if (showHistory) return <HistoryScreen onClose={() => setShowHistory(false)} />;
@@ -125,7 +133,10 @@ const SetupLobbyScreen: React.FC = () => {
 						type="button"
 						aria-label={t('history.open')}
 						data-testid="open-history"
-						onClick={() => setShowHistory(true)}
+						onClick={() => {
+							tap();
+							setShowHistory(true);
+						}}
 						className="text-on-surface-variant hover:text-tertiary"
 					>
 						<Trophy className="h-5 w-5" />
@@ -134,7 +145,10 @@ const SetupLobbyScreen: React.FC = () => {
 						type="button"
 						aria-label={t('flashcards.open')}
 						data-testid="open-flashcards"
-						onClick={() => setShowFlashcards(true)}
+						onClick={() => {
+							tap();
+							setShowFlashcards(true);
+						}}
 						className="text-on-surface-variant hover:text-primary"
 					>
 						<BookOpen className="h-5 w-5" />
@@ -144,7 +158,10 @@ const SetupLobbyScreen: React.FC = () => {
 					type="button"
 					aria-label={t('settings.open')}
 					data-testid="open-settings"
-					onClick={() => setShowSettings(true)}
+					onClick={() => {
+						tap();
+						setShowSettings(true);
+					}}
 					className="absolute left-4 top-4 text-on-surface-variant hover:text-primary"
 				>
 					<Settings className="h-5 w-5" />
@@ -240,7 +257,10 @@ const SetupLobbyScreen: React.FC = () => {
 									key={option}
 									aria-label={option}
 									data-testid={`shape-${option}`}
-									onClick={() => setShape(option)}
+									onClick={() => {
+										tap();
+										setShape(option);
+									}}
 									className={`rounded-full border p-2 transition-colors ${
 										activeShape === option
 											? 'border-primary bg-primary-container'
@@ -261,7 +281,10 @@ const SetupLobbyScreen: React.FC = () => {
 									type="button"
 									key={option}
 									data-testid={`level-${option}`}
-									onClick={() => setLevel(option)}
+									onClick={() => {
+										tap();
+										setLevel(option);
+									}}
 									className={`flex-1 rounded-full border px-4 py-2 font-hanken text-xs font-bold uppercase tracking-wide-premium transition-colors ${
 										level === option
 											? 'border-primary bg-primary-container text-on-surface'

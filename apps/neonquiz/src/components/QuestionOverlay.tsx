@@ -1,5 +1,6 @@
 import { BoardOverlay, Button } from '@pwarush/core/ui';
 import type React from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { categoryColor } from '../utils/categories';
 
@@ -12,13 +13,14 @@ const QuestionOverlay: React.FC = () => {
 	const player = useGameStore((s) => s.players[s.currentPlayerIndex]);
 	const answerQuestion = useGameStore((s) => s.answerQuestion);
 	const continueAfterFeedback = useGameStore((s) => s.continueAfterFeedback);
-	const useFiftyFifty = useGameStore((s) => s.useFiftyFifty);
-	const useChange = useGameStore((s) => s.useChange);
-	const useSecondChance = useGameStore((s) => s.useSecondChance);
+	const applyFiftyFifty = useGameStore((s) => s.useFiftyFifty);
+	const applyChange = useGameStore((s) => s.useChange);
+	const applySecondChance = useGameStore((s) => s.useSecondChance);
 	const revealAnswer = useGameStore((s) => s.revealAnswer);
 	const answerRevealed = useGameStore((s) => s.answerRevealed);
 	const isConclave = useGameStore((s) => s.isConclave);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 
 	if (!question) return null;
 
@@ -79,7 +81,10 @@ const QuestionOverlay: React.FC = () => {
 							type="button"
 							data-testid="wildcard-5050"
 							disabled={isFeedback || used.fiftyFifty || hiddenOptions.length > 0}
-							onClick={useFiftyFifty}
+							onClick={() => {
+								tap();
+								applyFiftyFifty();
+							}}
 							className="rounded-full border border-tertiary px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-tertiary disabled:opacity-35"
 						>
 							{t('wildcard.fifty_fifty')}
@@ -88,7 +93,10 @@ const QuestionOverlay: React.FC = () => {
 							type="button"
 							data-testid="wildcard-change"
 							disabled={isFeedback || used.change}
-							onClick={useChange}
+							onClick={() => {
+								tap();
+								applyChange();
+							}}
 							className="rounded-full border border-tertiary px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-tertiary disabled:opacity-35"
 						>
 							{t('wildcard.change')}
@@ -103,7 +111,10 @@ const QuestionOverlay: React.FC = () => {
 							key={label}
 							disabled={isFeedback || lockedOptions.includes(index)}
 							data-testid={`answer-${index}`}
-							onClick={() => answerQuestion(index)}
+							onClick={() => {
+								tap();
+								answerQuestion(index);
+							}}
 							className={`rounded-full border px-4 py-3 text-left font-sans text-sm transition-colors ${optionClass(index)}`}
 						>
 							{label}
@@ -132,7 +143,10 @@ const QuestionOverlay: React.FC = () => {
 									size="md"
 									className="uppercase"
 									data-testid="use-second-chance"
-									onClick={useSecondChance}
+									onClick={() => {
+										tap();
+										applySecondChance();
+									}}
 								>
 									{t('wildcard.second_chance')}
 								</Button>
@@ -141,7 +155,10 @@ const QuestionOverlay: React.FC = () => {
 									size="md"
 									className="uppercase"
 									data-testid="reveal-answer"
-									onClick={revealAnswer}
+									onClick={() => {
+										tap();
+										revealAnswer();
+									}}
 								>
 									{t('question.show_answer')}
 								</Button>
@@ -152,7 +169,10 @@ const QuestionOverlay: React.FC = () => {
 								size="md"
 								className="uppercase"
 								data-testid="continue-feedback"
-								onClick={continueAfterFeedback}
+								onClick={() => {
+									tap();
+									continueAfterFeedback();
+								}}
 							>
 								{outcome.correct
 									? t(isConclave ? 'question.claim_victory' : 'question.roll_again')

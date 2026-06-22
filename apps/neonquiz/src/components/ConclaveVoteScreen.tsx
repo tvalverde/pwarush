@@ -1,4 +1,5 @@
 import type React from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
@@ -7,6 +8,7 @@ import { categoryColor } from '../utils/categories';
 const ConclaveVoteScreen: React.FC = () => {
 	const voteConclaveCategory = useGameStore((s) => s.voteConclaveCategory);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 
 	return (
 		<div
@@ -30,7 +32,10 @@ const ConclaveVoteScreen: React.FC = () => {
 							type="button"
 							key={category}
 							data-testid={`vote-${category}`}
-							onClick={() => voteConclaveCategory(category)}
+							onClick={() => {
+								tap();
+								voteConclaveCategory(category);
+							}}
 							className="rounded-full border-2 bg-surface-container-high px-4 py-3 font-hanken text-sm font-bold text-on-surface transition-transform active:scale-[0.98]"
 							style={{ borderColor: color, color }}
 						>

@@ -59,11 +59,11 @@ interface GameStore {
 	hiddenOptions: number[];
 	lockedOptions: number[];
 	answerRevealed: boolean;
-	soundEnabled: boolean;
+	hapticsEnabled: boolean;
 
 	t: (path: string) => string;
 	setLanguage: (language: Language) => void;
-	setSoundEnabled: (enabled: boolean) => void;
+	setHapticsEnabled: (enabled: boolean) => void;
 
 	loadBank: (questions: Question[], usedIds?: number[]) => void;
 	startGame: (drafts: PlayerDraft[]) => void;
@@ -101,14 +101,14 @@ const FRESH_WILDCARDS = (): WildcardUsage => ({
 // `en` translations are kept for that future).
 const getInitialLanguage = (): Language => 'es';
 
-const SOUND_KEY = 'neonquiz:sound';
-const getInitialSound = (): boolean => {
+const HAPTICS_KEY = 'neonquiz:haptics';
+const getInitialHaptics = (): boolean => {
 	if (typeof localStorage === 'undefined') return true;
-	return localStorage.getItem(SOUND_KEY) !== 'off';
+	return localStorage.getItem(HAPTICS_KEY) !== 'off';
 };
-const persistSound = (enabled: boolean): void => {
+const persistHaptics = (enabled: boolean): void => {
 	if (typeof localStorage === 'undefined') return;
-	localStorage.setItem(SOUND_KEY, enabled ? 'on' : 'off');
+	localStorage.setItem(HAPTICS_KEY, enabled ? 'on' : 'off');
 };
 
 const createPlayer = (draft: PlayerDraft, index: number): Player => ({
@@ -194,7 +194,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	bank: [],
 	bankSize: 0,
 	usedQuestionIds: [],
-	soundEnabled: getInitialSound(),
+	hapticsEnabled: getInitialHaptics(),
 	startedAt: null,
 	...FRESH_GAME,
 
@@ -214,9 +214,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 
 	setLanguage: (language) => set({ language }),
 
-	setSoundEnabled: (enabled) => {
-		persistSound(enabled);
-		set({ soundEnabled: enabled });
+	setHapticsEnabled: (enabled) => {
+		persistHaptics(enabled);
+		set({ hapticsEnabled: enabled });
 	},
 
 	loadBank: (questions, usedIds = []) => {
@@ -298,13 +298,13 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 	},
 
 	resetApp: () => {
-		persistSound(true);
+		persistHaptics(true);
 		set({
 			phase: 'LOBBY',
 			players: [],
 			currentPlayerIndex: 0,
 			usedQuestionIds: [],
-			soundEnabled: true,
+			hapticsEnabled: true,
 			startedAt: null,
 			...FRESH_GAME,
 		});

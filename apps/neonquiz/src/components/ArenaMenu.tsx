@@ -2,6 +2,7 @@ import { Button } from '@pwarush/core/ui';
 import { LogOut, RotateCcw, X } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
+import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
@@ -20,6 +21,7 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 	const restartGame = useGameStore((s) => s.restartGame);
 	const abandonGame = useGameStore((s) => s.abandonGame);
 	const t = useGameStore((s) => s.t);
+	const tap = useTap();
 	const [pending, setPending] = useState<Pending | null>(null);
 
 	const confirmTexts: Record<Pending['kind'], string> = {
@@ -51,6 +53,11 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 		);
 	}
 
+	const close = () => {
+		tap();
+		onClose();
+	};
+
 	return (
 		<div
 			data-testid="arena-menu"
@@ -65,7 +72,7 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 						type="button"
 						aria-label={t('menu.close')}
 						data-testid="menu-close"
-						onClick={onClose}
+						onClick={close}
 						className="text-on-surface-variant hover:text-on-surface"
 					>
 						<X className="h-5 w-5" />
@@ -88,7 +95,10 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 							<button
 								type="button"
 								data-testid={`leave-${index}`}
-								onClick={() => setPending({ kind: 'leave', playerId: player.id })}
+								onClick={() => {
+									tap();
+									setPending({ kind: 'leave', playerId: player.id });
+								}}
 								className="flex items-center gap-1 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-on-surface-variant hover:text-error"
 							>
 								<LogOut className="h-3.5 w-3.5" />
@@ -104,7 +114,10 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 						size="md"
 						className="gap-2 uppercase"
 						data-testid="menu-restart"
-						onClick={() => setPending({ kind: 'restart' })}
+						onClick={() => {
+							tap();
+							setPending({ kind: 'restart' });
+						}}
 					>
 						<RotateCcw className="h-4 w-4" />
 						{t('menu.restart')}
@@ -114,7 +127,10 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 						size="md"
 						className="uppercase text-error"
 						data-testid="menu-abandon"
-						onClick={() => setPending({ kind: 'abandon' })}
+						onClick={() => {
+							tap();
+							setPending({ kind: 'abandon' });
+						}}
 					>
 						{t('menu.abandon')}
 					</Button>
