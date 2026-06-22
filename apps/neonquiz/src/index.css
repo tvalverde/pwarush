@@ -260,16 +260,37 @@ body {
 	}
 }
 
+/* A collected Spark arcing from its board node into the HUD track. */
+.nq-spark-fly {
+	animation: nq-spark-fly var(--dur, 900ms) cubic-bezier(0.42, 0, 0.2, 1) forwards;
+}
+@keyframes nq-spark-fly {
+	0% {
+		transform: translate(var(--fx), var(--fy)) translate(-50%, -50%) scale(1.5) rotate(0deg);
+		opacity: 0.85;
+	}
+	15% {
+		opacity: 1;
+	}
+	55% {
+		transform: translate(var(--mx), var(--my)) translate(-50%, -50%) scale(1.25) rotate(170deg);
+	}
+	100% {
+		transform: translate(var(--tx), var(--ty)) translate(-50%, -50%) scale(0.45) rotate(300deg);
+		opacity: 1;
+	}
+}
+
 /* A collected Spark popping into its HUD slot as it docks. */
 .nq-spark-dock {
-	animation: nq-spark-dock 440ms ease-out;
+	animation: nq-spark-dock 480ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 @keyframes nq-spark-dock {
 	0% {
 		transform: scale(0);
 	}
-	55% {
-		transform: scale(1.6);
+	50% {
+		transform: scale(1.9);
 	}
 	100% {
 		transform: scale(1);
@@ -287,6 +308,7 @@ body {
 	.nq-starfield circle,
 	.nq-dice,
 	.nq-rings,
+	.nq-spark-fly,
 	.nq-spark-dock {
 		animation: none;
 	}

@@ -83,17 +83,24 @@ const ArenaScreen: React.FC = () => {
 	const [showMenu, setShowMenu] = useState(false);
 	const [rolling, setRolling] = useState(false);
 	const [flyingSpark, setFlyingSpark] = useState<TriviaCategory | null>(null);
+	const [withheldSpark, setWithheldSpark] = useState<TriviaCategory | null>(null);
 	const [dockedSpark, setDockedSpark] = useState<TriviaCategory | null>(null);
 	const pendingSparkRef = useRef<TriviaCategory | null>(null);
 	const tap = useTap();
 	const fireHaptic = useHapticEvent();
 
-	// A Spark is awarded during FEEDBACK while the board is hidden; remember it and let it fly
-	// from its board node into the HUD track once feedback closes and the board is visible again.
+	// A Spark is awarded the instant FEEDBACK opens, while the board is hidden. Withhold it from
+	// the HUD track from that instant so it doesn't pre-light behind the feedback; once feedback
+	// closes and the board is visible again, let it fly from its node into the track and dock.
 	useEffect(() => {
 		return useGameStore.subscribe((state, prev) => {
-			if (state.phase === 'FEEDBACK' && state.lastOutcome?.collectedSpark) {
+			if (
+				state.phase === 'FEEDBACK' &&
+				prev.phase !== 'FEEDBACK' &&
+				state.lastOutcome?.collectedSpark
+			) {
 				pendingSparkRef.current = state.lastOutcome.collectedSpark;
+				setWithheldSpark(state.lastOutcome.collectedSpark);
 			}
 			if (prev.phase === 'FEEDBACK' && state.phase !== 'FEEDBACK' && pendingSparkRef.current) {
 				setFlyingSpark(pendingSparkRef.current);
@@ -104,12 +111,13 @@ const ArenaScreen: React.FC = () => {
 
 	useEffect(() => {
 		if (!dockedSpark) return;
-		const id = setTimeout(() => setDockedSpark(null), 450);
+		const id = setTimeout(() => setDockedSpark(null), 480);
 		return () => clearTimeout(id);
 	}, [dockedSpark]);
 
 	const handleSparkDocked = useCallback((category: TriviaCategory) => {
 		setFlyingSpark(null);
+		setWithheldSpark(null);
 		setDockedSpark(category);
 	}, []);
 
@@ -165,7 +173,7 @@ const ArenaScreen: React.FC = () => {
 				</span>
 				<span className="flex items-center gap-3">
 					<MatchClock />
-					<SparkTrack collected={player.sparks} pending={flyingSpark} docked={dockedSpark} />
+					<SparkTrack collected={player.sparks} pending={withheldSpark} docked={dockedSpark} />
 					<button
 						type="button"
 						aria-label={t('menu.open')}

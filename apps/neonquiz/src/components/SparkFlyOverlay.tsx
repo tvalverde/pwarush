@@ -41,18 +41,18 @@ const prefersReducedMotion = (): boolean =>
 	window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /**
- * Celebrates collecting a Spark: a glowing spark detaches from its board node and flies into
- * its slot in the HUD Spark track, where it docks. The endpoints are measured from the live
- * DOM (`data-spark-node` / `data-spark-slot`), so the path always matches the current layout.
- * When the endpoints can't be measured (e.g. jsdom) or motion is reduced, it docks instantly.
+ * Celebrates collecting a Spark: a big, glowing spark arcs from its board node up into its slot
+ * in the HUD Spark track, spinning and shrinking as it docks. The endpoints are measured live
+ * from the DOM (`data-spark-node` / `data-spark-slot`), so the path matches the current layout;
+ * the arc apex and the CSS animation are driven by custom properties. When the endpoints can't
+ * be measured (e.g. jsdom) or motion is reduced, the Spark docks instantly.
  */
 const SparkFlyOverlay: React.FC<SparkFlyOverlayProps> = ({
 	category,
 	onDone,
-	durationMs = 720,
+	durationMs = 900,
 }) => {
-	const [path, setPath] = useState<{ from: Point; to: Point } | null>(null);
-	const [arrived, setArrived] = useState(false);
+	const [path, setPath] = useState<{ from: Point; to: Point; mid: Point } | null>(null);
 
 	useEffect(() => {
 		const from = centerOf(document.querySelector(`[data-spark-node="${category}"]`));
@@ -63,38 +63,34 @@ const SparkFlyOverlay: React.FC<SparkFlyOverlayProps> = ({
 			return () => clearTimeout(id);
 		}
 
-		setPath({ from, to });
-		const raf = requestAnimationFrame(() => requestAnimationFrame(() => setArrived(true)));
+		// Arc apex: midway across, lifted above the higher endpoint for a clear lob.
+		const mid = { x: (from.x + to.x) / 2, y: Math.min(from.y, to.y) - 80 };
+		setPath({ from, to, mid });
 		const doneId = setTimeout(onDone, durationMs);
-		return () => {
-			cancelAnimationFrame(raf);
-			clearTimeout(doneId);
-		};
+		return () => clearTimeout(doneId);
 	}, [category, onDone, durationMs]);
 
 	if (!path) return null;
 
-	const target = arrived ? path.to : path.from;
 	const color = categoryColor(category);
+	const style = {
+		'--fx': `${path.from.x}px`,
+		'--fy': `${path.from.y}px`,
+		'--mx': `${path.mid.x}px`,
+		'--my': `${path.mid.y}px`,
+		'--tx': `${path.to.x}px`,
+		'--ty': `${path.to.y}px`,
+		'--dur': `${durationMs}ms`,
+		filter: `drop-shadow(0 0 10px ${color}) drop-shadow(0 0 22px ${color})`,
+	} as React.CSSProperties;
 
 	return (
 		<div data-testid="spark-fly-overlay" className="pointer-events-none fixed inset-0 z-[60]">
-			<div
-				style={{
-					position: 'absolute',
-					left: 0,
-					top: 0,
-					transform: `translate(${target.x}px, ${target.y}px) translate(-50%, -50%) scale(${
-						arrived ? 0.5 : 1.25
-					})`,
-					transition: `transform ${durationMs}ms cubic-bezier(0.3, 0, 0.2, 1)`,
-					filter: `drop-shadow(0 0 6px ${color})`,
-				}}
-			>
-				<svg width="34" height="34" viewBox="-17 -17 34 34" aria-hidden="true">
-					<circle r={13} fill={color} opacity={0.35} />
-					<polygon points={sparkle(12)} fill={color} />
-					<polygon points={sparkle(6)} fill="#ffffff" />
+			<div className="nq-spark-fly absolute left-0 top-0" style={style}>
+				<svg width="52" height="52" viewBox="-26 -26 52 52" aria-hidden="true">
+					<circle r={21} fill={color} opacity={0.3} />
+					<polygon points={sparkle(19)} fill={color} />
+					<polygon points={sparkle(9.5)} fill="#ffffff" />
 				</svg>
 			</div>
 		</div>
