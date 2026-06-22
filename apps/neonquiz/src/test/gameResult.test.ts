@@ -31,6 +31,7 @@ const baseState = (overrides: Partial<MatchSummaryInput> = {}): MatchSummaryInpu
 	turnCount: 10,
 	startedAt: Date.now() - 5000,
 	conclaveFails: 0,
+	pausedAccumMs: 0,
 	...overrides,
 });
 

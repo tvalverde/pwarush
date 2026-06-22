@@ -1,8 +1,9 @@
 import { Button } from '@pwarush/core/ui';
-import { Menu } from 'lucide-react';
+import { Menu, Pause } from 'lucide-react';
 import type React from 'react';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useHapticEvent, useTap } from '../hooks/useHaptics';
+import { usePauseOnHide } from '../hooks/usePauseOnHide';
 import { useGameStore } from '../store/gameStore';
 import { type Board, CATEGORIES, type Player, type TriviaCategory } from '../types';
 import { categoryColor } from '../utils/categories';
@@ -18,6 +19,7 @@ import ConclaveVoteScreen from './ConclaveVoteScreen';
 import Dice from './Dice';
 import DiceRollOverlay from './DiceRollOverlay';
 import MatchClock from './MatchClock';
+import PauseOverlay from './PauseOverlay';
 import QuestionOverlay from './QuestionOverlay';
 import SparkFlyOverlay from './SparkFlyOverlay';
 import TurnTransitionScreen from './TurnTransitionScreen';
@@ -80,6 +82,8 @@ const ArenaScreen: React.FC = () => {
 	const rollDice = useGameStore((s) => s.rollDice);
 	const moveTo = useGameStore((s) => s.moveTo);
 	const skipTurn = useGameStore((s) => s.skipTurn);
+	const isPaused = useGameStore((s) => s.isPaused);
+	const pauseGame = useGameStore((s) => s.pauseGame);
 	const t = useGameStore((s) => s.t);
 	const [showMenu, setShowMenu] = useState(false);
 	const [rolling, setRolling] = useState(false);
@@ -92,6 +96,8 @@ const ArenaScreen: React.FC = () => {
 	const arenaRef = useRef<HTMLDivElement>(null);
 	const tap = useTap();
 	const fireHaptic = useHapticEvent();
+
+	usePauseOnHide();
 
 	// A Spark is awarded the instant FEEDBACK opens, while the board is hidden. Withhold it from
 	// the HUD track from that instant so it doesn't pre-light behind the feedback; once feedback
@@ -215,6 +221,18 @@ const ArenaScreen: React.FC = () => {
 					<SparkTrack collected={player.sparks} pending={withheldSpark} docked={dockedSpark} />
 					<button
 						type="button"
+						aria-label={t('pause.title')}
+						data-testid="pause-game"
+						onClick={() => {
+							tap();
+							pauseGame();
+						}}
+						className="text-on-surface-variant hover:text-primary"
+					>
+						<Pause className="h-5 w-5" />
+					</button>
+					<button
+						type="button"
 						aria-label={t('menu.open')}
 						data-testid="open-menu"
 						onClick={handleOpenMenu}
@@ -278,6 +296,7 @@ const ArenaScreen: React.FC = () => {
 			</footer>
 
 			{showMenu && <ArenaMenu onClose={() => setShowMenu(false)} />}
+			{isPaused && <PauseOverlay />}
 			{flyingSpark && (
 				<SparkFlyOverlay
 					category={flyingSpark}

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { db, SESSION_ID } from '../db/database';
 import { useGameStore } from '../store/gameStore';
+import { activeElapsedMs } from '../utils/time';
 
 type GameStoreState = ReturnType<typeof useGameStore.getState>;
 
@@ -15,9 +16,9 @@ export const clearSavedSession = async (): Promise<void> => {
 const isLiveGame = (state: GameStoreState): boolean =>
 	state.phase !== 'LOBBY' && state.phase !== 'VICTORY' && state.players.length > 0;
 
-// Writes the resume checkpoint: the safe state a reload should return to — the start of a turn,
-// or a position banked right after a correct answer. Always points at the active player; resume
-// always re-enters at the turn-transition screen.
+// Writes the resume checkpoint: the safe state a reload (or a pause-and-leave) returns to — the
+// start of the current player's turn, or a position banked right after a correct answer. Resume
+// always re-enters at the turn-transition screen, so pausing mid-question simply replays that turn.
 export const saveCheckpoint = async (state: GameStoreState): Promise<void> => {
 	if (!isLiveGame(state)) return;
 	try {
@@ -29,26 +30,13 @@ export const saveCheckpoint = async (state: GameStoreState): Promise<void> => {
 			updatedAt: Date.now(),
 			startedAt: state.startedAt ?? undefined,
 			conclaveFails: state.conclaveFails,
+			elapsedMs: activeElapsedMs(
+				state.startedAt,
+				state.pausedAccumMs,
+				state.pausedSince,
+				Date.now(),
+			),
 		});
-	} catch (err) {
-		console.error('Auto-save failed:', err);
-	}
-};
-
-// Forfeits the active player's turn by re-pointing the saved checkpoint at the next player while
-// keeping the turn-start positions untouched. Invoked the moment a question appears, so reloading
-// (or closing the tab) with a question on screen resumes on the NEXT player's turn: the question
-// cannot be skipped, retried or given extra thinking time, and the player gains nothing.
-export const forfeitSavedTurn = async (state: GameStoreState): Promise<void> => {
-	if (!isLiveGame(state) || state.players.length < 2) return;
-	try {
-		const saved = await db.gameSession.get(SESSION_ID);
-		if (!saved) return;
-		// Compute the next player from the live active index (not the stored one) so re-entering a
-		// question — e.g. via the Second Chance wildcard — re-points at the same next player rather
-		// than skipping an extra one.
-		const next = (state.currentPlayerIndex + 1) % state.players.length;
-		await db.gameSession.put({ ...saved, currentPlayerIndex: next, updatedAt: Date.now() });
 	} catch (err) {
 		console.error('Auto-save failed:', err);
 	}
@@ -59,9 +47,13 @@ export const useAutoSave = (): void => {
 		return useGameStore.subscribe((state, prev) => {
 			if (state.phase === prev.phase) return;
 			switch (state.phase) {
-				case 'LOBBY':
 				case 'VICTORY':
 					void clearSavedSession();
+					break;
+				case 'LOBBY':
+					// Only discard the saved game when the roster is emptied (abandon / reset). A
+					// pause-and-leave keeps the players, so its checkpoint survives for "Resume".
+					if (state.players.length === 0) void clearSavedSession();
 					break;
 				case 'TURN_TRANSITION':
 				case 'ROLLING_DICE':
@@ -70,14 +62,8 @@ export const useAutoSave = (): void => {
 					break;
 				case 'FEEDBACK':
 					// Bank a correct answer so the player resumes mid-turn keeping the Spark they just
-					// earned. A wrong answer leaves the forfeit checkpoint in place (the turn is lost
-					// either way), so reloading on a wrong answer cannot dodge the consequence.
+					// earned. A wrong answer leaves the turn-start checkpoint in place.
 					if (state.lastOutcome?.correct) void saveCheckpoint(state);
-					break;
-				case 'QUESTION_ACTIVE':
-				case 'CONCLAVE_QUESTION':
-					// A question is on screen: abandoning it now costs the turn.
-					void forfeitSavedTurn(state);
 					break;
 			}
 		});

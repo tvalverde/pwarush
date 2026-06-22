@@ -1,8 +1,9 @@
 import { BoardOverlay, Button } from '@pwarush/core/ui';
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
+import { CATEGORIES } from '../types';
 import { categoryColor } from '../utils/categories';
 
 const TIMER_SECONDS = 30;
@@ -25,6 +26,8 @@ const AdultQuestionOverlay: React.FC = () => {
 	const gradeAdultAnswer = useGameStore((s) => s.gradeAdultAnswer);
 	const continueAfterFeedback = useGameStore((s) => s.continueAfterFeedback);
 	const isConclave = useGameStore((s) => s.isConclave);
+	const isPaused = useGameStore((s) => s.isPaused);
+	const player = useGameStore((s) => s.players[s.currentPlayerIndex]);
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
 
@@ -36,16 +39,28 @@ const AdultQuestionOverlay: React.FC = () => {
 
 	const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
 	const [progress, setProgress] = useState(0);
+	// Accumulated active reading time; survives pauses so freezing never costs the player seconds.
+	const elapsedRef = useRef(0);
 
+	// Reset the per-question clock whenever a new question opens for reading.
 	useEffect(() => {
 		if (!isReading) return;
+		elapsedRef.current = 0;
 		setTimeLeft(TIMER_SECONDS);
 		setProgress(0);
+	}, [isReading]);
+
+	// Tick only while reading AND not paused; on pause the interval is torn down and the elapsed
+	// accumulator holds, so resuming continues from the same remaining time.
+	useEffect(() => {
+		if (!isReading || isPaused) return;
 		const totalMs = TIMER_SECONDS * 1000;
-		const start = Date.now();
+		let last = Date.now();
 		const id = setInterval(() => {
-			const elapsed = Date.now() - start;
-			const left = TIMER_SECONDS - Math.floor(elapsed / 1000);
+			const now = Date.now();
+			elapsedRef.current += now - last;
+			last = now;
+			const left = TIMER_SECONDS - Math.floor(elapsedRef.current / 1000);
 			if (left <= 0) {
 				clearInterval(id);
 				setTimeLeft(0);
@@ -53,12 +68,11 @@ const AdultQuestionOverlay: React.FC = () => {
 				gradeAdultAnswer(false); // time out → automatic fail
 			} else {
 				setTimeLeft(left);
-				setProgress(revealProgress(elapsed, totalMs));
+				setProgress(revealProgress(elapsedRef.current, totalMs));
 			}
 		}, 250);
 		return () => clearInterval(id);
-		// isReading toggles false→true on every new question, so the timer resets per question.
-	}, [isReading, gradeAdultAnswer]);
+	}, [isReading, isPaused, gradeAdultAnswer]);
 
 	if (!question) return null;
 
@@ -66,6 +80,7 @@ const AdultQuestionOverlay: React.FC = () => {
 	const correctAnswer = [question.option0, question.option1, question.option2, question.option3][
 		question.correctAnswerIndex
 	];
+	const allSparksCollected = player?.sparks.length === CATEGORIES.length;
 
 	return (
 		<BoardOverlay
@@ -172,11 +187,19 @@ const AdultQuestionOverlay: React.FC = () => {
 						>
 							{outcome.correct ? t('question.correct') : t('question.wrong')}
 						</p>
-						{outcome.collectedSpark && (
-							<p className="font-hanken text-xs uppercase tracking-wide-premium text-tertiary">
-								{t('question.spark_collected')}
-							</p>
-						)}
+						{outcome.collectedSpark &&
+							(allSparksCollected ? (
+								<p
+									data-testid="conclave-call"
+									className="font-display text-sm font-bold uppercase tracking-wide-premium text-primary"
+								>
+									{t('conclave.complete')}
+								</p>
+							) : (
+								<p className="font-hanken text-xs uppercase tracking-wide-premium text-tertiary">
+									{t('question.spark_collected')}
+								</p>
+							))}
 						<Button
 							variant="primary"
 							size="md"

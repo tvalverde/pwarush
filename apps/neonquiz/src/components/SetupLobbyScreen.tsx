@@ -1,15 +1,25 @@
 import { Button } from '@pwarush/core/ui';
-import { BookOpen, Plus, Settings, Trophy, X } from 'lucide-react';
+import { BookOpen, PlayCircle, Plus, Settings, SlidersHorizontal, Trophy, X } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { db, SESSION_ID } from '../db/database';
 import { getProfiles, upsertProfile } from '../db/profiles';
+import { clearSavedSession } from '../hooks/useAutoSave';
 import { useTap } from '../hooks/useHaptics';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
-import { PLAYER_SHAPES, type PlayerLevel, type PlayerProfile, type PlayerShape } from '../types';
+import {
+	type GameSession,
+	PLAYER_SHAPES,
+	type PlayerLevel,
+	type PlayerProfile,
+	type PlayerShape,
+} from '../types';
 import { PLAYER_ACCENTS, playerAccent } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
+import ConfirmOverlay from './ConfirmOverlay';
 import FlashcardsScreen from './FlashcardsScreen';
 import HistoryScreen from './HistoryScreen';
+import QuestionAudienceManagerScreen from './QuestionAudienceManagerScreen';
 import SettingsScreen from './SettingsScreen';
 
 const LEVELS: PlayerLevel[] = ['KID', 'ADULT'];
@@ -19,6 +29,7 @@ const MIN_PLAYERS = 2;
 
 const SetupLobbyScreen: React.FC = () => {
 	const startGame = useGameStore((s) => s.startGame);
+	const resumeSavedGame = useGameStore((s) => s.resumeSavedGame);
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
 	const [drafts, setDrafts] = useState<PlayerDraft[]>([]);
@@ -28,11 +39,25 @@ const SetupLobbyScreen: React.FC = () => {
 	const [showFlashcards, setShowFlashcards] = useState(false);
 	const [showHistory, setShowHistory] = useState(false);
 	const [showSettings, setShowSettings] = useState(false);
+	const [showQuestionManager, setShowQuestionManager] = useState(false);
+	const [savedSession, setSavedSession] = useState<GameSession | null>(null);
+	const [showResumePrompt, setShowResumePrompt] = useState(false);
 
 	useEffect(() => {
 		let cancelled = false;
 		getProfiles().then((loaded) => {
 			if (!cancelled) setProfiles(loaded);
+		});
+		return () => {
+			cancelled = true;
+		};
+	}, []);
+
+	// Surface a previously saved game (paused or left mid-match) so it can be resumed from here.
+	useEffect(() => {
+		let cancelled = false;
+		db.gameSession.get(SESSION_ID).then((session) => {
+			if (!cancelled && session && session.players.length >= 2) setSavedSession(session);
 		});
 		return () => {
 			cancelled = true;
@@ -69,8 +94,7 @@ const SetupLobbyScreen: React.FC = () => {
 
 	// Persists a profile for every roster entry that is not already backed by a saved one,
 	// then starts the game with the resolved profile ids so wins are attributed correctly.
-	const startMatch = async () => {
-		tap();
+	const startNewMatch = async () => {
 		if (!canStart) return;
 		const now = Date.now();
 		const resolved: PlayerDraft[] = [];
@@ -100,6 +124,22 @@ const SetupLobbyScreen: React.FC = () => {
 		startGame(resolved);
 	};
 
+	// Pressing "Start" with a saved game in play asks whether to continue it or start fresh.
+	const handleStart = () => {
+		tap();
+		if (!canStart) return;
+		if (savedSession) {
+			setShowResumePrompt(true);
+			return;
+		}
+		void startNewMatch();
+	};
+
+	const handleResume = () => {
+		tap();
+		if (savedSession) resumeSavedGame(savedSession);
+	};
+
 	const addSavedProfile = (profile: PlayerProfile) => {
 		tap();
 		if (!canAdd || profile.id == null || usedAccents.has(profile.accentColor)) return;
@@ -123,6 +163,24 @@ const SetupLobbyScreen: React.FC = () => {
 	if (showFlashcards) return <FlashcardsScreen onClose={() => setShowFlashcards(false)} />;
 	if (showHistory) return <HistoryScreen onClose={() => setShowHistory(false)} />;
 	if (showSettings) return <SettingsScreen onClose={() => setShowSettings(false)} />;
+	if (showQuestionManager)
+		return <QuestionAudienceManagerScreen onClose={() => setShowQuestionManager(false)} />;
+	if (showResumePrompt && savedSession)
+		return (
+			<ConfirmOverlay
+				title={t('lobby.resume_prompt_title')}
+				message={t('lobby.resume_prompt_msg')}
+				confirmText={t('lobby.resume_prompt_confirm')}
+				cancelText={t('lobby.resume_prompt_cancel')}
+				onConfirm={() => resumeSavedGame(savedSession)}
+				onCancel={() => {
+					void clearSavedSession();
+					setSavedSession(null);
+					setShowResumePrompt(false);
+					void startNewMatch();
+				}}
+			/>
+		);
 
 	return (
 		<div className="flex h-full flex-col">
@@ -158,6 +216,18 @@ const SetupLobbyScreen: React.FC = () => {
 					>
 						<BookOpen className="h-5 w-5" />
 					</button>
+					<button
+						type="button"
+						aria-label={t('manage.open')}
+						data-testid="open-question-manager"
+						onClick={() => {
+							tap();
+							setShowQuestionManager(true);
+						}}
+						className="text-on-surface-variant hover:text-primary"
+					>
+						<SlidersHorizontal className="h-5 w-5" />
+					</button>
 				</div>
 				<button
 					type="button"
@@ -174,6 +244,32 @@ const SetupLobbyScreen: React.FC = () => {
 			</header>
 
 			<main className="flex flex-1 flex-col gap-5 overflow-y-auto px-5 py-6">
+				{savedSession && (
+					<div
+						data-testid="resume-card"
+						className="flex items-center justify-between rounded-lg border border-primary bg-surface-container-low p-4"
+					>
+						<div className="flex flex-col">
+							<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
+								{t('lobby.saved_game')}
+							</span>
+							<span className="font-hanken text-sm font-bold text-on-surface">
+								{savedSession.players.map((p) => p.name).join(', ')}
+							</span>
+						</div>
+						<Button
+							variant="primary"
+							size="sm"
+							className="gap-2 uppercase"
+							data-testid="resume-game"
+							onClick={handleResume}
+						>
+							<PlayCircle className="h-4 w-4" />
+							{t('lobby.resume')}
+						</Button>
+					</div>
+				)}
+
 				<ul className="flex flex-col gap-2">
 					{drafts.map((draft, index) => (
 						<li
@@ -344,7 +440,7 @@ const SetupLobbyScreen: React.FC = () => {
 					className="w-full uppercase shadow-lg"
 					disabled={!canStart}
 					data-testid="start-game"
-					onClick={startMatch}
+					onClick={handleStart}
 				>
 					{canStart ? t('lobby.start') : t('lobby.min_players')}
 				</Button>

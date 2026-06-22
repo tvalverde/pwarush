@@ -1,5 +1,6 @@
 import type { GameHistoryEntry, GameResult, MatchPlayerStat, Player } from '../types';
 import { playerColor } from './players';
+import { activeElapsedMs } from './time';
 
 // Narrow slice of the game store needed to summarize a finished match — avoids importing the
 // whole store type and keeps this module pure and independently testable.
@@ -9,6 +10,7 @@ export interface MatchSummaryInput {
 	turnCount: number;
 	startedAt: number | null;
 	conclaveFails: number;
+	pausedAccumMs: number;
 }
 
 export interface MatchSummary {
@@ -24,12 +26,13 @@ const countUsedWildcards = (players: Player[]): number =>
 
 /** Distills the just-finished match state into the Hall of Fame entry and the profile-aggregation result. */
 export const buildMatchSummary = (state: MatchSummaryInput): MatchSummary | null => {
-	const { players, winnerIndex, turnCount, startedAt, conclaveFails } = state;
+	const { players, winnerIndex, turnCount, startedAt, conclaveFails, pausedAccumMs } = state;
 	if (winnerIndex == null) return null;
 	const winner = players[winnerIndex];
 	if (!winner) return null;
 
-	const durationMs = Date.now() - (startedAt ?? Date.now());
+	// Paused time never counts towards the recorded match duration.
+	const durationMs = activeElapsedMs(startedAt, pausedAccumMs, null, Date.now());
 
 	const roster: MatchPlayerStat[] = players.map((player, index) => ({
 		profileId: player.profileId,

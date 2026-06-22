@@ -2,9 +2,9 @@ import { renderHook } from '@testing-library/react';
 import { act } from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { db, SESSION_ID } from '../db/database';
-import { NEXUS_ID } from '../engine/boardFactory';
-import { forfeitSavedTurn, saveCheckpoint, useAutoSave } from '../hooks/useAutoSave';
+import { saveCheckpoint, useAutoSave } from '../hooks/useAutoSave';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
+import type { GameSession } from '../types';
 
 const drafts: PlayerDraft[] = [
 	{ name: 'Ada', shape: 'TRIANGLE', level: 'KID' },
@@ -12,83 +12,100 @@ const drafts: PlayerDraft[] = [
 ];
 
 const readSession = () => db.gameSession.get(SESSION_ID);
+const flush = async () => {
+	await act(async () => {
+		await new Promise((r) => setTimeout(r, 10));
+	});
+};
 
-describe('autosave turn forfeit on mid-question reload (regression)', () => {
+describe('autosave checkpoint + session lifecycle', () => {
 	beforeEach(async () => {
 		await db.gameSession.clear();
 		useGameStore.getState().resetGame();
 	});
 
-	// Regression: reloading with a question on screen used to resume at the turn start and let the
-	// player roll again, skipping the question. Abandoning a question must now cost the turn.
-	it('re-points the checkpoint at the next player when a question is abandoned', async () => {
+	it('saves a checkpoint at the active player with an elapsed snapshot', async () => {
 		useGameStore.getState().startGame(drafts);
 		await saveCheckpoint(useGameStore.getState());
+		const saved = await readSession();
+		expect(saved?.currentPlayerIndex).toBe(0);
+		expect(saved?.phase).toBe('TURN_TRANSITION');
+		expect(typeof saved?.elapsedMs).toBe('number');
+	});
+
+	// Decision (2): no anti-cheat forfeit — a question on screen leaves the turn-start checkpoint in
+	// place so pausing/reloading mid-question resumes the SAME player at the start of their turn.
+	it('does not forfeit the turn when a question is on screen', async () => {
+		renderHook(() => useAutoSave());
+		act(() => useGameStore.getState().startGame(drafts));
+		await flush();
+		act(() => useGameStore.setState({ phase: 'ROLLING_DICE' }));
+		act(() => useGameStore.setState({ phase: 'QUESTION_ACTIVE' }));
+		await flush();
 		expect((await readSession())?.currentPlayerIndex).toBe(0);
-
-		await forfeitSavedTurn(useGameStore.getState());
-
-		const saved = await readSession();
-		expect(saved?.currentPlayerIndex).toBe(1); // the next player takes over
-		expect(saved?.players[0].position).toBe(NEXUS_ID); // the forfeiting player did not advance
-		expect(saved?.players[0].sparks).toEqual([]); // and gained no Spark
-
-		// Re-entering the question (e.g. Second Chance) must not skip a further player.
-		await forfeitSavedTurn(useGameStore.getState());
-		expect((await readSession())?.currentPlayerIndex).toBe(1);
 	});
 
-	it('resumes on the next player and does not double-penalize on a second reload', async () => {
-		useGameStore.getState().startGame(drafts);
-		await saveCheckpoint(useGameStore.getState());
-		await forfeitSavedTurn(useGameStore.getState());
-		const saved = await readSession();
-		if (!saved) throw new Error('expected a saved session');
+	it('keeps the saved game when leaving to the lobby with the roster intact (pause-and-leave)', async () => {
+		renderHook(() => useAutoSave());
+		act(() => useGameStore.getState().startGame(drafts));
+		await flush();
+		expect(await readSession()).toBeTruthy();
 
-		useGameStore.getState().hydrate(saved, [], []);
-		expect(useGameStore.getState().currentPlayerIndex).toBe(1);
-		expect(useGameStore.getState().phase).toBe('TURN_TRANSITION');
-
-		// A second reload re-reads the same record: still the next player, never a further skip.
-		useGameStore.getState().resetGame();
-		useGameStore.getState().hydrate(saved, [], []);
-		expect(useGameStore.getState().currentPlayerIndex).toBe(1);
+		act(() => useGameStore.getState().suspendToLobby());
+		await flush();
+		expect(await readSession()).toBeTruthy(); // preserved for "Resume"
 	});
 
-	it('banks a correct answer so the player keeps their Spark and continues', async () => {
-		useGameStore.getState().startGame(drafts);
-		await saveCheckpoint(useGameStore.getState());
-		await forfeitSavedTurn(useGameStore.getState()); // question shown → points at the next player
+	it('discards the saved game on abandon (empty roster)', async () => {
+		renderHook(() => useAutoSave());
+		act(() => useGameStore.getState().startGame(drafts));
+		await flush();
+		act(() => useGameStore.getState().abandonGame());
+		await flush();
+		expect(await readSession()).toBeUndefined();
+	});
 
-		// The player answers correctly: they move on, earn a Spark, and the FEEDBACK checkpoint
-		// restores the turn to them.
-		useGameStore.setState((state) => ({
-			players: state.players.map((p, i) =>
-				i === 0 ? { ...p, position: 5, sparks: ['CYAN_SCI'] } : p,
-			),
-		}));
-		await saveCheckpoint(useGameStore.getState());
-
+	it('banks a correct answer so the active player keeps their progress', async () => {
+		renderHook(() => useAutoSave());
+		act(() => useGameStore.getState().startGame(drafts));
+		await flush();
+		act(() =>
+			useGameStore.setState((state) => ({
+				players: state.players.map((p, i) =>
+					i === 0 ? { ...p, position: 5, sparks: ['CYAN_SCI'] } : p,
+				),
+				lastOutcome: {
+					correct: true,
+					selectedIndex: 0,
+					correctIndex: 0,
+					collectedSpark: 'CYAN_SCI',
+				},
+				phase: 'FEEDBACK',
+			})),
+		);
+		await flush();
 		const saved = await readSession();
-		expect(saved?.currentPlayerIndex).toBe(0); // restored to the active player
+		expect(saved?.currentPlayerIndex).toBe(0);
 		expect(saved?.players[0].sparks).toEqual(['CYAN_SCI']);
 	});
 
-	// Wiring: the hook turns phase changes into the right persistence calls without needing the bank.
-	it('wires phase transitions to checkpoint then forfeit', async () => {
-		renderHook(() => useAutoSave());
-
-		act(() => useGameStore.getState().startGame(drafts));
-		await act(async () => {
-			await Promise.resolve();
-		});
-		expect((await readSession())?.currentPlayerIndex).toBe(0);
-
-		act(() => useGameStore.setState({ phase: 'ROLLING_DICE' }));
-		act(() => useGameStore.setState({ phase: 'QUESTION_ACTIVE' }));
-		await act(async () => {
-			await new Promise((r) => setTimeout(r, 10));
-		});
-		expect((await readSession())?.currentPlayerIndex).toBe(1);
+	it('hydrate reconstructs startedAt from the banked elapsedMs', () => {
+		useGameStore.getState().startGame(drafts);
+		const players = useGameStore.getState().players;
+		const session: GameSession = {
+			id: SESSION_ID,
+			players,
+			currentPlayerIndex: 1,
+			phase: 'TURN_TRANSITION',
+			updatedAt: Date.now(),
+			elapsedMs: 60000,
+		};
+		const before = Date.now();
+		useGameStore.getState().hydrate(session, [], []);
+		const s = useGameStore.getState();
+		expect(s.currentPlayerIndex).toBe(1);
+		expect(s.isPaused).toBe(false);
+		expect(s.startedAt).toBeLessThanOrEqual(before - 60000 + 50);
+		expect(s.startedAt).toBeGreaterThanOrEqual(before - 60000 - 2000);
 	});
 });

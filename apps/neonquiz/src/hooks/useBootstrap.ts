@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { db, SESSION_ID } from '../db/database';
+import { applyAudienceOverrides, getAudienceOverrides } from '../db/questionOverrides';
 import { loadUsedIds } from '../db/questionUsage';
 import { loadQuestionBank } from '../db/seed';
 import { useGameStore } from '../store/gameStore';
 
 /**
- * Seeds the question bank on first launch, loads it (with persisted question usage) into the
- * store, and resumes a previously saved session if one exists. Returns true once ready.
+ * Seeds the question bank on first launch and loads it (with persisted question usage and audience
+ * overrides) into the store. Always lands on the lobby; a previously saved game is offered there
+ * via the "Resume" card rather than re-entered automatically. Returns true once ready.
  */
 export const useBootstrap = (): boolean => {
 	const [ready, setReady] = useState(false);
@@ -15,17 +16,14 @@ export const useBootstrap = (): boolean => {
 		let cancelled = false;
 		(async () => {
 			try {
-				const bank = await loadQuestionBank();
+				const rawBank = await loadQuestionBank();
 				if (cancelled) return;
 
-				const [saved, usedIds] = await Promise.all([db.gameSession.get(SESSION_ID), loadUsedIds()]);
+				const [usedIds, overrides] = await Promise.all([loadUsedIds(), getAudienceOverrides()]);
 				if (cancelled) return;
 
-				if (saved && saved.players.length >= 2) {
-					useGameStore.getState().hydrate(saved, bank, usedIds);
-				} else {
-					useGameStore.getState().loadBank(bank, usedIds);
-				}
+				const bank = applyAudienceOverrides(rawBank, overrides);
+				useGameStore.getState().loadBank(bank, usedIds);
 			} catch (err) {
 				console.error('Bootstrap failed:', err);
 			} finally {
