@@ -45,7 +45,9 @@ const SetupLobbyScreen: React.FC = () => {
 	const activeShape = availableShapes.includes(shape) ? shape : availableShapes[0];
 
 	const usedAccents = new Set(drafts.map((d, index) => d.accentColor ?? playerAccent(index)));
-	const freeAccent = PLAYER_ACCENTS.find((accent) => !usedAccents.has(accent));
+	const availableAccents = PLAYER_ACCENTS.filter((option) => !usedAccents.has(option));
+	const [accent, setAccent] = useState<string>(PLAYER_ACCENTS[0]);
+	const activeAccent = availableAccents.includes(accent) ? accent : availableAccents[0];
 
 	const canAdd = drafts.length < MAX_PLAYERS && availableShapes.length > 0;
 	const canStart = drafts.length >= MIN_PLAYERS;
@@ -55,10 +57,13 @@ const SetupLobbyScreen: React.FC = () => {
 	// brand-new players are created when the match actually starts (see `startMatch`).
 	const addPlayer = () => {
 		tap();
-		if (!canAdd || !activeShape || !freeAccent) return;
+		if (!canAdd || !activeShape || !activeAccent) return;
 		const trimmed = name.trim() || `${t('lobby.player_name')} ${drafts.length + 1}`;
 		const finalName = trimmed.slice(0, 10);
-		setDrafts([...drafts, { name: finalName, shape: activeShape, level, accentColor: freeAccent }]);
+		setDrafts([
+			...drafts,
+			{ name: finalName, shape: activeShape, level, accentColor: activeAccent },
+		]);
 		setName('');
 	};
 
@@ -270,10 +275,33 @@ const SetupLobbyScreen: React.FC = () => {
 									<ShapeGlyph
 										shape={option}
 										size={20}
-										color={freeAccent ?? playerAccent(drafts.length)}
+										color={activeAccent ?? playerAccent(drafts.length)}
 									/>
 								</button>
 							))}
+						</div>
+						<div className="flex flex-wrap gap-2" data-testid="accent-picker">
+							{PLAYER_ACCENTS.map((option, index) => {
+								const taken = usedAccents.has(option);
+								const selected = option === activeAccent;
+								return (
+									<button
+										type="button"
+										key={option}
+										aria-label={`color-${index}`}
+										data-testid={`accent-${index}`}
+										disabled={taken}
+										onClick={() => {
+											tap();
+											setAccent(option);
+										}}
+										className={`h-8 w-8 rounded-full border-2 transition-transform ${
+											taken ? 'cursor-not-allowed opacity-25' : 'hover:scale-110'
+										} ${selected ? 'border-on-surface' : 'border-transparent'}`}
+										style={{ backgroundColor: option }}
+									/>
+								);
+							})}
 						</div>
 						<div className="flex gap-2" data-testid="level-toggle">
 							{LEVELS.map((option) => (
