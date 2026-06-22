@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import SparkFlyOverlay from '../components/SparkFlyOverlay';
+import SparkFlyOverlay, { arcApexY } from '../components/SparkFlyOverlay';
 
 const placeTarget = (attr: string, value: string, rect: Partial<DOMRect>): void => {
 	const el = document.createElement('div');
@@ -43,5 +43,20 @@ describe('SparkFlyOverlay', () => {
 		);
 		expect(getByTestId('spark-fly-overlay')).toBeInTheDocument();
 		await waitFor(() => expect(onDone).toHaveBeenCalledTimes(1));
+	});
+});
+
+describe('arcApexY (keeps the lobbed spark on screen)', () => {
+	it('clamps to a top margin when the HUD slot is near the top edge', () => {
+		// Slot at y=24 near the top: an unclamped lift (24 - 80 = -56) would sail off screen.
+		expect(arcApexY(600, 24, 800)).toBe(44);
+	});
+
+	it('lifts above the higher endpoint when there is room', () => {
+		expect(arcApexY(600, 300, 800)).toBe(220); // min(600,300) - 80
+	});
+
+	it('never exceeds the viewport bottom margin', () => {
+		expect(arcApexY(900, 900, 500)).toBe(456); // clamped to viewportH - margin
 	});
 });

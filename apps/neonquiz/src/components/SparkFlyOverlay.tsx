@@ -40,6 +40,17 @@ const prefersReducedMotion = (): boolean =>
 	typeof window.matchMedia === 'function' &&
 	window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const ARC_LIFT = 80;
+const ARC_MARGIN = 44;
+
+/**
+ * The arc apex Y: lifted above the higher endpoint for a clear lob, but clamped to the viewport
+ * so the (scaled) spark never sails off the top edge. The HUD track sits at the very top, so an
+ * unclamped lift would leave the screen on phones and short windows.
+ */
+export const arcApexY = (fromY: number, toY: number, viewportH: number): number =>
+	Math.max(ARC_MARGIN, Math.min(Math.min(fromY, toY) - ARC_LIFT, viewportH - ARC_MARGIN));
+
 /**
  * Celebrates collecting a Spark: a big, glowing spark arcs from its board node up into its slot
  * in the HUD Spark track, spinning and shrinking as it docks. The endpoints are measured live
@@ -63,8 +74,8 @@ const SparkFlyOverlay: React.FC<SparkFlyOverlayProps> = ({
 			return () => clearTimeout(id);
 		}
 
-		// Arc apex: midway across, lifted above the higher endpoint for a clear lob.
-		const mid = { x: (from.x + to.x) / 2, y: Math.min(from.y, to.y) - 80 };
+		const viewportH = typeof window !== 'undefined' ? window.innerHeight : Number.POSITIVE_INFINITY;
+		const mid = { x: (from.x + to.x) / 2, y: arcApexY(from.y, to.y, viewportH) };
 		setPath({ from, to, mid });
 		const doneId = setTimeout(onDone, durationMs);
 		return () => clearTimeout(doneId);
