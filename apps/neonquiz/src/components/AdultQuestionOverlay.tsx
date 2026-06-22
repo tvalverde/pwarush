@@ -7,6 +7,10 @@ import { categoryColor } from '../utils/categories';
 
 const TIMER_SECONDS = 30;
 
+/** Fraction (0..1) of the reading clock elapsed — drives the reveal button's charging fill. */
+export const revealProgress = (elapsedMs: number, totalMs: number): number =>
+	totalMs <= 0 ? 1 : Math.min(1, Math.max(0, elapsedMs / totalMs));
+
 /**
  * ADULT question flow: read the question against a 30s clock, reveal the correct answer,
  * then self-grade. Running out of time before revealing counts as a failure. The timer lives
@@ -31,19 +35,25 @@ const AdultQuestionOverlay: React.FC = () => {
 		(phase === 'QUESTION_ACTIVE' || phase === 'CONCLAVE_QUESTION') && answerRevealed;
 
 	const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
+	const [progress, setProgress] = useState(0);
 
 	useEffect(() => {
 		if (!isReading) return;
 		setTimeLeft(TIMER_SECONDS);
+		setProgress(0);
+		const totalMs = TIMER_SECONDS * 1000;
 		const start = Date.now();
 		const id = setInterval(() => {
-			const left = TIMER_SECONDS - Math.floor((Date.now() - start) / 1000);
+			const elapsed = Date.now() - start;
+			const left = TIMER_SECONDS - Math.floor(elapsed / 1000);
 			if (left <= 0) {
 				clearInterval(id);
 				setTimeLeft(0);
+				setProgress(1);
 				gradeAdultAnswer(false); // time out → automatic fail
 			} else {
 				setTimeLeft(left);
+				setProgress(revealProgress(elapsed, totalMs));
 			}
 		}, 250);
 		return () => clearInterval(id);
@@ -101,14 +111,26 @@ const AdultQuestionOverlay: React.FC = () => {
 					<Button
 						variant="primary"
 						size="md"
-						className="uppercase"
+						className="relative overflow-hidden uppercase"
 						data-testid="adult-reveal"
 						onClick={() => {
 							tap();
 							revealAdultAnswer();
 						}}
 					>
-						{t('adult.reveal')}
+						{/* Charging fill: grows 0→100% over the reading clock, in the category colour. */}
+						<span
+							aria-hidden="true"
+							data-testid="adult-reveal-progress"
+							className="absolute inset-y-0 left-0"
+							style={{
+								width: `${progress * 100}%`,
+								backgroundColor: color,
+								opacity: 0.4,
+								transition: 'width 250ms linear',
+							}}
+						/>
+						<span className="relative z-10">{t('adult.reveal')}</span>
 					</Button>
 				)}
 

@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import { beforeEach, describe, expect, it } from 'vitest';
-import AdultQuestionOverlay from '../components/AdultQuestionOverlay';
+import AdultQuestionOverlay, { revealProgress } from '../components/AdultQuestionOverlay';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES, type Question } from '../types';
 
@@ -46,5 +46,22 @@ describe('AdultQuestionOverlay', () => {
 	it('shows a countdown while reading', () => {
 		const { getByTestId } = render(<AdultQuestionOverlay />);
 		expect(getByTestId('adult-timer')).toBeInTheDocument();
+	});
+
+	it('renders the reveal button charging fill, starting empty', () => {
+		const { getByTestId } = render(<AdultQuestionOverlay />);
+		const fill = getByTestId('adult-reveal-progress');
+		expect(fill).toBeInTheDocument();
+		expect(fill.style.width).toBe('0%');
+	});
+});
+
+describe('revealProgress', () => {
+	it('maps elapsed time to a clamped 0..1 fraction of the reading clock', () => {
+		expect(revealProgress(0, 30000)).toBe(0);
+		expect(revealProgress(15000, 30000)).toBe(0.5);
+		expect(revealProgress(30000, 30000)).toBe(1);
+		expect(revealProgress(45000, 30000)).toBe(1);
+		expect(revealProgress(100, 0)).toBe(1);
 	});
 });
