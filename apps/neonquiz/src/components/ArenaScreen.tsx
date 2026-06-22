@@ -1,7 +1,7 @@
 import { Button } from '@pwarush/core/ui';
 import { Menu } from 'lucide-react';
 import type React from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useHapticEvent, useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { type Board, CATEGORIES, type Player, type TriviaCategory } from '../types';
@@ -141,19 +141,25 @@ const ArenaScreen: React.FC = () => {
 		setRolling(true);
 	}, [rolling, rollDice]);
 
-	// Fires the pending auto-roll once the board is settled — after any Spark has docked (flyingSpark
-	// cleared), plus a ~1s beat when a Spark just played, or immediately otherwise.
+	// Direct roll-again (no Spark won): roll before the browser paints, so the board never flashes —
+	// the dice overlay takes over straight from the feedback card.
+	useLayoutEffect(() => {
+		if (phase === 'ROLLING_DICE' && autoRoll && !autoRollPause && !rolling && !flyingSpark) {
+			setAutoRoll(false);
+			roll();
+		}
+	}, [phase, autoRoll, autoRollPause, rolling, flyingSpark, roll]);
+
+	// Roll-again after winning a Spark: keep the board visible so the Spark can fly and dock, then a
+	// ~1s beat, before rolling — the celebration reads best on the board.
 	useEffect(() => {
-		if (phase !== 'ROLLING_DICE' || !autoRoll || rolling || flyingSpark) return;
-		const id = setTimeout(
-			() => {
-				setAutoRoll(false);
-				roll();
-			},
-			autoRollPause ? 1000 : 0,
-		);
+		if (phase !== 'ROLLING_DICE' || !autoRoll || !autoRollPause || rolling || flyingSpark) return;
+		const id = setTimeout(() => {
+			setAutoRoll(false);
+			roll();
+		}, 1000);
 		return () => clearTimeout(id);
-	}, [phase, autoRoll, rolling, flyingSpark, autoRollPause, roll]);
+	}, [phase, autoRoll, autoRollPause, rolling, flyingSpark, roll]);
 
 	const player = players[currentPlayerIndex];
 	if (!player) return null;
