@@ -8,6 +8,8 @@ interface SparkFlyOverlayProps {
 	category: TriviaCategory;
 	/** Fired once the Spark has docked (or immediately when there is nothing to animate). */
 	onDone: () => void;
+	/** The app frame the spark is confined to (the overlay's positioned ancestor). */
+	containerRef?: React.RefObject<HTMLElement | null>;
 	/** Travel duration in ms. */
 	durationMs?: number;
 }
@@ -74,28 +76,40 @@ export const arcApex = (from: Point, to: Point, viewport: { w: number; h: number
 const SparkFlyOverlay: React.FC<SparkFlyOverlayProps> = ({
 	category,
 	onDone,
+	containerRef,
 	durationMs = 900,
 }) => {
 	const [path, setPath] = useState<{ from: Point; to: Point; mid: Point } | null>(null);
 
 	useEffect(() => {
-		const from = centerOf(document.querySelector(`[data-spark-node="${category}"]`));
-		const to = centerOf(document.querySelector(`[data-spark-slot="${category}"]`));
+		const fromAbs = centerOf(document.querySelector(`[data-spark-node="${category}"]`));
+		const toAbs = centerOf(document.querySelector(`[data-spark-slot="${category}"]`));
 
-		if (!from || !to || prefersReducedMotion()) {
+		if (!fromAbs || !toAbs || prefersReducedMotion()) {
 			const id = setTimeout(onDone, 0);
 			return () => clearTimeout(id);
 		}
 
-		const viewport =
-			typeof window !== 'undefined'
+		// Work in the app frame's coordinate space (the overlay's positioned ancestor), not the
+		// viewport: on desktop the frame is a centred phone-sized box, so viewport-clamped coords
+		// would let the spark drift into the grey margin around it. Falling back to the viewport
+		// keeps tests/SSR simple.
+		const frame = containerRef?.current?.getBoundingClientRect();
+		const originX = frame?.left ?? 0;
+		const originY = frame?.top ?? 0;
+		const viewport = frame
+			? { w: frame.width, h: frame.height }
+			: typeof window !== 'undefined'
 				? { w: window.innerWidth, h: window.innerHeight }
 				: { w: Number.POSITIVE_INFINITY, h: Number.POSITIVE_INFINITY };
+
+		const from = { x: fromAbs.x - originX, y: fromAbs.y - originY };
+		const to = { x: toAbs.x - originX, y: toAbs.y - originY };
 		const mid = arcApex(from, to, viewport);
 		setPath({ from, to, mid });
 		const doneId = setTimeout(onDone, durationMs);
 		return () => clearTimeout(doneId);
-	}, [category, onDone, durationMs]);
+	}, [category, onDone, durationMs, containerRef]);
 
 	if (!path) return null;
 
@@ -112,7 +126,7 @@ const SparkFlyOverlay: React.FC<SparkFlyOverlayProps> = ({
 	} as React.CSSProperties;
 
 	return (
-		<div data-testid="spark-fly-overlay" className="pointer-events-none fixed inset-0 z-[60]">
+		<div data-testid="spark-fly-overlay" className="pointer-events-none absolute inset-0 z-[60]">
 			<div className="nq-spark-fly absolute left-0 top-0" style={style}>
 				<svg width="52" height="52" viewBox="-26 -26 52 52" aria-hidden="true">
 					<circle r={21} fill={color} opacity={0.3} />

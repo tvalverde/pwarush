@@ -44,6 +44,41 @@ describe('SparkFlyOverlay', () => {
 		expect(getByTestId('spark-fly-overlay')).toBeInTheDocument();
 		await waitFor(() => expect(onDone).toHaveBeenCalledTimes(1));
 	});
+
+	it('positions the spark relative to the app frame, not the viewport', () => {
+		placeTarget('data-spark-node', 'CYAN_SCI', { left: 200, top: 500, width: 20, height: 20 });
+		placeTarget('data-spark-slot', 'CYAN_SCI', { left: 300, top: 90, width: 12, height: 12 });
+		const frame = document.createElement('div');
+		frame.getBoundingClientRect = () =>
+			({
+				left: 100,
+				top: 80,
+				width: 400,
+				height: 900,
+				right: 500,
+				bottom: 980,
+				x: 100,
+				y: 80,
+				toJSON: () => ({}),
+			}) as DOMRect;
+		const containerRef = { current: frame };
+
+		const { getByTestId } = render(
+			<SparkFlyOverlay
+				category="CYAN_SCI"
+				containerRef={containerRef}
+				onDone={() => {}}
+				durationMs={30}
+			/>,
+		);
+
+		const spark = getByTestId('spark-fly-overlay').querySelector('.nq-spark-fly') as HTMLElement;
+		// Node centre (210,510) and slot centre (306,96), each minus the frame origin (100,80).
+		expect(spark.style.getPropertyValue('--fx')).toBe('110px');
+		expect(spark.style.getPropertyValue('--fy')).toBe('430px');
+		expect(spark.style.getPropertyValue('--tx')).toBe('206px');
+		expect(spark.style.getPropertyValue('--ty')).toBe('16px');
+	});
 });
 
 describe('arcApex (keeps the lobbed spark on screen)', () => {

@@ -86,6 +86,7 @@ const ArenaScreen: React.FC = () => {
 	const [withheldSpark, setWithheldSpark] = useState<TriviaCategory | null>(null);
 	const [dockedSpark, setDockedSpark] = useState<TriviaCategory | null>(null);
 	const pendingSparkRef = useRef<TriviaCategory | null>(null);
+	const arenaRef = useRef<HTMLDivElement>(null);
 	const tap = useTap();
 	const fireHaptic = useHapticEvent();
 
@@ -156,7 +157,7 @@ const ArenaScreen: React.FC = () => {
 	};
 
 	return (
-		<div className="relative flex h-full flex-col">
+		<div ref={arenaRef} className="relative flex h-full flex-col">
 			<header className="flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest px-4 py-3">
 				<span className="flex items-center gap-2">
 					<ShapeGlyph
@@ -239,7 +240,11 @@ const ArenaScreen: React.FC = () => {
 
 			{showMenu && <ArenaMenu onClose={() => setShowMenu(false)} />}
 			{flyingSpark && (
-				<SparkFlyOverlay category={flyingSpark} onDone={() => handleSparkDocked(flyingSpark)} />
+				<SparkFlyOverlay
+					category={flyingSpark}
+					containerRef={arenaRef}
+					onDone={() => handleSparkDocked(flyingSpark)}
+				/>
 			)}
 		</div>
 	);
