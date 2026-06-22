@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '../helpers/page-setup';
 
 test('a KID wildcard (50/50) reduces the visible options to two', async ({ page }) => {
 	await page.goto('/pwarush/neonquiz/');

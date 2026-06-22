@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '../helpers/page-setup';
 
 test('an ADULT player reads, reveals and self-grades the question', async ({ page }) => {
 	await page.goto('/pwarush/neonquiz/');

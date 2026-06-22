@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '../helpers/page-setup';
 
 test('lobby to first answered question (pass-and-play loop)', async ({ page }) => {
 	await page.goto('/pwarush/neonquiz/');

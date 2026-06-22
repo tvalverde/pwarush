@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '../helpers/page-setup';
 
 const CATEGORIES = [
 	'EMERALD_GEO',
