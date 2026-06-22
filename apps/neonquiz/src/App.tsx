@@ -1,5 +1,6 @@
 import { Layout } from '@pwarush/core/ui';
 import { lazy, Suspense } from 'react';
+import ReloadPrompt from './components/ReloadPrompt';
 import { useAutoSave } from './hooks/useAutoSave';
 import { useBootstrap } from './hooks/useBootstrap';
 import { useFailedQuestionLog } from './hooks/useFailedQuestionLog';
@@ -33,6 +34,7 @@ export default function App() {
 			<Suspense fallback={loading}>
 				{!ready ? loading : phase === 'LOBBY' ? <SetupLobbyScreen /> : <ArenaScreen />}
 			</Suspense>
+			<ReloadPrompt />
 		</Layout>
 	);
 }
