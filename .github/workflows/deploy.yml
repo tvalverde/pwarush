@@ -29,7 +29,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          for attempt in 1 2 3; do
+            npm ci && exit 0
+            echo "npm ci failed (attempt $attempt), retrying in 15s..."
+            sleep 15
+          done
+          exit 1
 
       - name: Build Sudokupado
         run: npm run build --workspace=@pwarush/sudokupado
