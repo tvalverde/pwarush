@@ -1,7 +1,9 @@
 import { Button } from '@pwarush/core/ui';
 import type React from 'react';
+import { NEXUS_ID } from '../engine/boardFactory';
 import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
+import { CATEGORIES } from '../types';
 import { playerColor } from '../utils/players';
 import ShapeGlyph from './board/ShapeGlyph';
 
@@ -15,6 +17,9 @@ const TurnTransitionScreen: React.FC = () => {
 	const player = players[currentPlayerIndex];
 
 	if (!player) return null;
+
+	// With every Spark in hand but not yet on the central Nexus, remind the player where to go.
+	const headToNexus = player.sparks.length === CATEGORIES.length && player.position !== NEXUS_ID;
 
 	return (
 		<div
@@ -34,6 +39,14 @@ const TurnTransitionScreen: React.FC = () => {
 					{player.name}
 				</h2>
 			</div>
+			{headToNexus && (
+				<p
+					data-testid="nexus-reminder"
+					className="max-w-xs font-hanken text-sm font-bold uppercase tracking-wide-premium text-primary"
+				>
+					{t('conclave.reminder')}
+				</p>
+			)}
 			<Button
 				variant="primary"
 				size="lg"
