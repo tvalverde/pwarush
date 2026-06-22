@@ -121,6 +121,13 @@ export interface FailedQuestionEntry {
 	failedAt: number;
 }
 
+// A user override of a question's effective audience, keyed by a stable content key (not the
+// Dexie auto-id, which is reassigned on re-seed). Lets a too-hard KID question be moved to ADULT.
+export interface QuestionAudienceOverride {
+	key: string;
+	audience: TargetAudience;
+}
+
 export interface GameHistoryEntry {
 	id?: number;
 	winnerName: string;
@@ -159,4 +166,7 @@ export interface GameSession {
 	// Hito 8 — persisted so the match clock survives a reload (optional for legacy sessions).
 	startedAt?: number;
 	conclaveFails?: number;
+	// Active (un-paused) elapsed ms at checkpoint time; on resume `startedAt` is reconstructed from
+	// it so time spent away (or paused) never inflates the match duration.
+	elapsedMs?: number;
 }

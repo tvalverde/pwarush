@@ -20,6 +20,17 @@ export const translations = {
 			saved_players: 'Saved players',
 			no_saved_players: 'No saved players yet',
 			color_taken: 'Color already taken this match',
+			saved_game: 'Saved game',
+			resume: 'Resume game',
+			resume_prompt_title: 'Game in progress',
+			resume_prompt_msg: 'You have a game in progress. Continue it or start a new one?',
+			resume_prompt_confirm: 'Resume',
+			resume_prompt_cancel: 'New (discard)',
+		},
+		pause: {
+			title: 'Paused',
+			resume: 'Resume',
+			exit: 'Save & exit',
 		},
 		transition: {
 			pass_device: 'Pass the device to',
@@ -46,6 +57,8 @@ export const translations = {
 			vote_subtitle: 'Rivals, choose the final category',
 			handoff: 'Return the device to',
 			ready: 'Answer the final question',
+			complete: 'You have them all! Head to the centre for the Conclave',
+			reminder: 'You have every Spark — head to the Nexus at the centre',
 		},
 		adult: {
 			reveal: 'Reveal answer',
@@ -66,6 +79,22 @@ export const translations = {
 			answer: 'Answer',
 			clear: 'Clear review',
 			back: 'Back',
+		},
+		review: {
+			prev: 'Previous',
+			next: 'Next',
+			reveal: 'Reveal answer',
+		},
+		manage: {
+			open: 'Question audiences',
+			title: 'Question audiences',
+			empty: 'No questions have appeared yet',
+			all: 'All',
+		},
+		audience: {
+			kid: 'Kids',
+			adult: 'Adults',
+			both: 'Both',
 		},
 		victory: {
 			title: 'Victory',
@@ -131,6 +160,15 @@ export const translations = {
 			GOLD_ENT: 'Entertainment',
 			ORANGE_SPORT: 'Sports',
 		},
+		pwa: {
+			ready: 'App Ready Offline',
+			ready_msg: 'Neon Quiz is ready to be played without internet.',
+			new_version: 'New Version Available',
+			new_version_msg: 'A new update is available for a better experience.',
+			version_update: '{from} → {to}',
+			update: 'Update',
+			close: 'Close',
+		},
 	},
 	es: {
 		app: {
@@ -153,6 +191,17 @@ export const translations = {
 			saved_players: 'Jugadores guardados',
 			no_saved_players: 'Aún no hay jugadores guardados',
 			color_taken: 'Color ya usado en esta partida',
+			saved_game: 'Partida guardada',
+			resume: 'Reanudar partida',
+			resume_prompt_title: 'Partida en curso',
+			resume_prompt_msg: 'Tienes una partida en curso. ¿Continuarla o empezar una nueva?',
+			resume_prompt_confirm: 'Reanudar',
+			resume_prompt_cancel: 'Nueva (borrar)',
+		},
+		pause: {
+			title: 'Pausa',
+			resume: 'Reanudar',
+			exit: 'Salir y guardar',
 		},
 		transition: {
 			pass_device: 'Pasa el dispositivo a',
@@ -199,6 +248,22 @@ export const translations = {
 			answer: 'Respuesta',
 			clear: 'Vaciar repaso',
 			back: 'Volver',
+		},
+		review: {
+			prev: 'Anterior',
+			next: 'Siguiente',
+			reveal: 'Revelar respuesta',
+		},
+		manage: {
+			open: 'Audiencia de preguntas',
+			title: 'Audiencia de preguntas',
+			empty: 'Aún no ha aparecido ninguna pregunta',
+			all: 'Todas',
+		},
+		audience: {
+			kid: 'Niños',
+			adult: 'Adultos',
+			both: 'Ambos',
 		},
 		victory: {
 			title: 'Victoria',
@@ -263,6 +328,15 @@ export const translations = {
 			CYAN_SCI: 'Ciencias',
 			GOLD_ENT: 'Entretenimiento',
 			ORANGE_SPORT: 'Deportes',
+		},
+		pwa: {
+			ready: 'App lista offline',
+			ready_msg: 'Neon Quiz ya puede jugarse sin conexión a internet.',
+			new_version: 'Nueva versión disponible',
+			new_version_msg: 'Hay una actualización disponible para mejorar tu experiencia.',
+			version_update: '{from} → {to}',
+			update: 'Actualizar',
+			close: 'Cerrar',
 		},
 	},
 } as const;

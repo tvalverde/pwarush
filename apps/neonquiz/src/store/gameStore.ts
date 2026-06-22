@@ -13,10 +13,12 @@ import {
 	type PlayerLevel,
 	type PlayerShape,
 	type Question,
+	type TargetAudience,
 	type TriviaCategory,
 	type WildcardUsage,
 } from '../types';
 import { playerAccent } from '../utils/players';
+import { questionKey } from '../utils/questionKey';
 import { translations } from '../utils/translations';
 
 const SPARKS_TO_WIN = CATEGORIES.length;
@@ -59,6 +61,14 @@ interface GameStore {
 	hiddenOptions: number[];
 	lockedOptions: number[];
 	answerRevealed: boolean;
+	// KID rule: at most one wildcard per question. Reset whenever a fresh question is presented
+	// (roll, conclave handoff, turn change); using any wildcard sets it and a Change does NOT reset it.
+	wildcardUsedThisQuestion: boolean;
+	// Pause state (mirrors Sudokupado): a boolean flag, not a phase. `pausedAccumMs` banks completed
+	// pauses and `pausedSince` marks the pause in progress, so the clock and the adult timer freeze.
+	isPaused: boolean;
+	pausedAccumMs: number;
+	pausedSince: number | null;
 	hapticsEnabled: boolean;
 
 	t: (path: string) => string;
@@ -66,6 +76,7 @@ interface GameStore {
 	setHapticsEnabled: (enabled: boolean) => void;
 
 	loadBank: (questions: Question[], usedIds?: number[]) => void;
+	setQuestionAudience: (question: Question, audience: TargetAudience) => void;
 	startGame: (drafts: PlayerDraft[]) => void;
 	hydrate: (session: GameSession, questions: Question[], usedIds?: number[]) => void;
 	resetGame: () => void;
@@ -74,6 +85,11 @@ interface GameStore {
 	abandonGame: () => void;
 	removePlayer: (playerId: string) => void;
 	resetApp: () => void;
+
+	pauseGame: () => void;
+	resumeGame: () => void;
+	suspendToLobby: () => void;
+	resumeSavedGame: (session: GameSession) => void;
 
 	confirmTurnTransition: () => void;
 	rollDice: (roll?: number) => void;
@@ -169,6 +185,10 @@ const FRESH_GAME: Pick<
 	| 'hiddenOptions'
 	| 'lockedOptions'
 	| 'answerRevealed'
+	| 'wildcardUsedThisQuestion'
+	| 'isPaused'
+	| 'pausedAccumMs'
+	| 'pausedSince'
 > = {
 	dice: null,
 	validMoves: [],
@@ -183,6 +203,10 @@ const FRESH_GAME: Pick<
 	hiddenOptions: [],
 	lockedOptions: [],
 	answerRevealed: false,
+	wildcardUsedThisQuestion: false,
+	isPaused: false,
+	pausedAccumMs: 0,
+	pausedSince: null,
 };
 
 export const useGameStore = create<GameStore>()((set, get) => ({
@@ -223,6 +247,18 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		set({ bank: questions, bankSize: questions.length, usedQuestionIds: usedIds });
 	},
 
+	// Reroutes a question between KID/ADULT/BOTH in the live bank so it immediately stops/starts
+	// appearing for the right level (the engine filters on `targetAudience`). The screen also
+	// persists the override to Dexie; this only mutates in-memory state.
+	setQuestionAudience: (question, audience) => {
+		const key = questionKey(question);
+		set((state) => ({
+			bank: state.bank.map((q) =>
+				questionKey(q) === key ? { ...q, targetAudience: audience } : q,
+			),
+		}));
+	},
+
 	startGame: (drafts) =>
 		set({
 			board: buildFamiliarBoard(),
@@ -242,7 +278,12 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			players: session.players.map(normalizePlayer),
 			currentPlayerIndex: session.currentPlayerIndex,
 			phase: 'TURN_TRANSITION',
-			startedAt: session.startedAt ?? Date.now(),
+			// Reconstruct the start so the clock continues from the banked active elapsed (time spent
+			// away or paused does not count). Falls back to the legacy `startedAt` for old sessions.
+			startedAt:
+				session.elapsedMs != null
+					? Date.now() - session.elapsedMs
+					: (session.startedAt ?? Date.now()),
 			...FRESH_GAME,
 			conclaveFails: session.conclaveFails ?? 0,
 		});
@@ -308,6 +349,33 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			startedAt: null,
 			...FRESH_GAME,
 		});
+	},
+
+	// Pauses a live game in place: the clock and the adult timer freeze. No-op in the lobby/victory
+	// or when already paused.
+	pauseGame: () => {
+		const state = get();
+		if (state.isPaused) return;
+		if (state.phase === 'LOBBY' || state.phase === 'VICTORY' || state.players.length === 0) return;
+		set({ isPaused: true, pausedSince: Date.now() });
+	},
+
+	// Resumes in place, banking the just-finished pause span so it never counts as play time.
+	resumeGame: () => {
+		const state = get();
+		if (!state.isPaused) return;
+		const banked = state.pausedSince !== null ? Date.now() - state.pausedSince : 0;
+		set({ isPaused: false, pausedAccumMs: state.pausedAccumMs + banked, pausedSince: null });
+	},
+
+	// Leaves to the lobby while KEEPING the saved checkpoint (the autosave only clears the session
+	// when the roster is emptied, e.g. on abandon). Resuming later re-enters at the turn start.
+	suspendToLobby: () => set({ phase: 'LOBBY', isPaused: false, pausedSince: null }),
+
+	// Re-enters a saved game from the lobby using the bank already loaded into the store.
+	resumeSavedGame: (session) => {
+		const state = get();
+		state.hydrate(session, state.bank, state.usedQuestionIds);
 	},
 
 	// At the start of a turn a challenger already standing on the Nexus with every Spark
@@ -380,6 +448,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			hiddenOptions: [],
 			lockedOptions: [],
 			answerRevealed: false,
+			wildcardUsedThisQuestion: false,
 			phase: 'QUESTION_ACTIVE',
 		});
 	},
@@ -520,21 +589,31 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			activeNodeId: null,
 			isConclave: true,
 			answerRevealed: false,
+			wildcardUsedThisQuestion: false,
 			phase: 'CONCLAVE_QUESTION',
 		});
 	},
 
-	// KID wildcards — one use per player per game, tracked on the player.
+	// KID wildcards — one use per player per game (tracked on the player) AND, in KID mode, at most
+	// one wildcard per question (tracked by `wildcardUsedThisQuestion`).
 	useFiftyFifty: () => {
 		const state = get();
 		const player = state.players[state.currentPlayerIndex];
 		const question = state.activeQuestion;
-		if (state.phase !== 'QUESTION_ACTIVE' || !question || player.usedWildcards.fiftyFifty) return;
+		if (
+			state.phase !== 'QUESTION_ACTIVE' ||
+			!question ||
+			player.usedWildcards.fiftyFifty ||
+			(player.level === 'KID' && state.wildcardUsedThisQuestion)
+		) {
+			return;
+		}
 
 		const wrong = [0, 1, 2, 3].filter((i) => i !== question.correctAnswerIndex);
 		const toHide = wrong.sort(() => Math.random() - 0.5).slice(0, 2);
 		set({
 			hiddenOptions: toHide,
+			wildcardUsedThisQuestion: true,
 			players: markWildcard(state.players, state.currentPlayerIndex, 'fiftyFifty'),
 		});
 	},
@@ -543,7 +622,14 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		const state = get();
 		const player = state.players[state.currentPlayerIndex];
 		const question = state.activeQuestion;
-		if (state.phase !== 'QUESTION_ACTIVE' || !question || player.usedWildcards.change) return;
+		if (
+			state.phase !== 'QUESTION_ACTIVE' ||
+			!question ||
+			player.usedWildcards.change ||
+			(player.level === 'KID' && state.wildcardUsedThisQuestion)
+		) {
+			return;
+		}
 
 		const { question: swapped, used } = drawQuestion(
 			state.bank,
@@ -556,6 +642,9 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			usedQuestionIds: [...used],
 			hiddenOptions: [],
 			lockedOptions: [],
+			// A Change spends the per-question allowance: the swapped question keeps the flag set,
+			// so a KID can't also use 50/50 on the replacement.
+			wildcardUsedThisQuestion: true,
 			players: markWildcard(state.players, state.currentPlayerIndex, 'change'),
 		});
 	},
@@ -569,7 +658,8 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			state.isConclave ||
 			!outcome ||
 			outcome.correct ||
-			player.usedWildcards.secondChance
+			player.usedWildcards.secondChance ||
+			(player.level === 'KID' && state.wildcardUsedThisQuestion)
 		) {
 			return;
 		}
@@ -577,6 +667,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			phase: 'QUESTION_ACTIVE',
 			lastOutcome: null,
 			answerRevealed: false,
+			wildcardUsedThisQuestion: true,
 			lockedOptions: [...state.lockedOptions, outcome.selectedIndex],
 			players: markWildcard(state.players, state.currentPlayerIndex, 'secondChance'),
 		});
@@ -666,6 +757,7 @@ const advanceTurn = (set: SetState): void => {
 		hiddenOptions: [],
 		lockedOptions: [],
 		answerRevealed: false,
+		wildcardUsedThisQuestion: false,
 		turnCount: state.turnCount + 1,
 	});
 };

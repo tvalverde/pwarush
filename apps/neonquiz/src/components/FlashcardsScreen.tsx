@@ -6,7 +6,7 @@ import { clearFailedQuestions, getFailedQuestions } from '../db/failedQuestions'
 import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import type { Question } from '../types';
-import { categoryColor } from '../utils/categories';
+import QuestionCardBrowser from './QuestionCardBrowser';
 
 interface FlashcardsScreenProps {
 	onClose: () => void;
@@ -17,6 +17,9 @@ const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
 	const [cards, setCards] = useState<Question[] | null>(null);
+	// Player-centric audience filter: "kid" shows kid-eligible questions (KID + BOTH), "adult"
+	// shows adult-eligible ones (ADULT + BOTH). No "both" chip here — a player reviews as one role.
+	const [audience, setAudience] = useState<'ALL' | 'KID' | 'ADULT'>('ALL');
 
 	useEffect(() => {
 		let cancelled = false;
@@ -38,6 +41,14 @@ const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 		tap();
 		onClose();
 	};
+
+	const shown = (cards ?? []).filter((card) =>
+		audience === 'ALL'
+			? true
+			: audience === 'KID'
+				? card.targetAudience !== 'ADULT'
+				: card.targetAudience !== 'KID',
+	);
 
 	return (
 		<div data-testid="flashcards-screen" className="absolute inset-0 z-30 flex flex-col bg-surface">
@@ -64,37 +75,45 @@ const FlashcardsScreen: React.FC<FlashcardsScreenProps> = ({ onClose }) => {
 				</button>
 			</header>
 
-			<main className="flex flex-1 flex-col gap-3 overflow-y-auto px-5 py-6">
-				{cards && cards.length === 0 && (
+			{cards && cards.length > 0 && (
+				<div
+					className="flex flex-wrap gap-2 border-b border-outline-variant px-4 py-3"
+					data-testid="repaso-audience-filter"
+				>
+					{(['ALL', 'KID', 'ADULT'] as const).map((option) => (
+						<button
+							type="button"
+							key={option}
+							data-testid={`rfilter-${option}`}
+							onClick={() => {
+								tap();
+								setAudience(option);
+							}}
+							className={`rounded-full border px-3 py-1.5 font-hanken text-[11px] font-bold uppercase tracking-wide-premium transition-colors ${
+								audience === option
+									? 'border-primary bg-primary-container text-on-surface'
+									: 'border-outline-variant bg-surface-container text-on-surface-variant'
+							}`}
+						>
+							{t(
+								option === 'ALL'
+									? 'manage.all'
+									: option === 'KID'
+										? 'audience.kid'
+										: 'audience.adult',
+							)}
+						</button>
+					))}
+				</div>
+			)}
+
+			<main className="flex flex-1 flex-col overflow-y-auto">
+				{cards && shown.length === 0 && (
 					<p className="mt-10 text-center font-hanken text-sm text-on-surface-variant">
 						{t('flashcards.empty')}
 					</p>
 				)}
-				{cards?.map((card) => {
-					const color = categoryColor(card.category);
-					const correct = [card.option0, card.option1, card.option2, card.option3][
-						card.correctAnswerIndex
-					];
-					return (
-						<div
-							key={card.id ?? card.questionText}
-							className="flex flex-col gap-2 rounded-lg border-l-4 bg-surface-container-low p-4"
-							style={{ borderColor: color }}
-						>
-							<span
-								className="font-display text-[9px] font-bold uppercase tracking-widest-premium"
-								style={{ color }}
-							>
-								{t(`categories.${card.category}`)}
-							</span>
-							<p className="font-hanken text-sm font-bold text-on-surface">{card.questionText}</p>
-							<p className="font-sans text-sm text-success">
-								<span className="text-on-surface-variant">{t('flashcards.answer')}: </span>
-								{correct}
-							</p>
-						</div>
-					);
-				})}
+				{shown.length > 0 && <QuestionCardBrowser key={audience} questions={shown} interactive />}
 			</main>
 
 			<div className="border-t border-outline-variant bg-surface-container-lowest p-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
