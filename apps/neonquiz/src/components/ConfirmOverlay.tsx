@@ -36,9 +36,9 @@ const ConfirmOverlay: React.FC<ConfirmOverlayProps> = ({
 				<p className="font-sans text-sm text-on-surface-variant">{message}</p>
 				<div className="flex flex-col gap-2 pt-1">
 					<Button
-						variant="primary"
+						variant={danger ? 'danger' : 'primary'}
 						size="md"
-						className={`uppercase ${danger ? 'bg-error text-on-error hover:bg-error' : ''}`}
+						className="uppercase"
 						data-testid="confirm-yes"
 						onClick={() => {
 							tap();

@@ -43,6 +43,15 @@ describe('AdultQuestionOverlay', () => {
 		expect(getByTestId('adult-question-overlay').textContent).toContain('the right one');
 	});
 
+	it('paints the failure button with the semantic error colour, not a category colour', () => {
+		const { getByTestId } = render(<AdultQuestionOverlay />);
+		fireEvent.click(getByTestId('adult-reveal'));
+
+		const failed = getByTestId('adult-failed');
+		expect(failed.className).toContain('bg-error');
+		expect(failed.className).toContain('text-on-error');
+	});
+
 	it('shows a countdown while reading', () => {
 		const { getByTestId } = render(<AdultQuestionOverlay />);
 		expect(getByTestId('adult-timer')).toBeInTheDocument();
@@ -53,6 +62,28 @@ describe('AdultQuestionOverlay', () => {
 		const fill = getByTestId('adult-reveal-progress');
 		expect(fill).toBeInTheDocument();
 		expect(fill.style.width).toBe('0%');
+	});
+
+	it('fills with a fixed contrast scrim, never the category colour, so it stays visible on the primary button (e.g. Geography)', () => {
+		useGameStore.setState({
+			activeQuestion: {
+				id: 99,
+				category: 'EMERALD_GEO',
+				targetAudience: 'BOTH',
+				questionText: 'Geo Q',
+				option0: 'a',
+				option1: 'b',
+				option2: 'c',
+				option3: 'd',
+				correctAnswerIndex: 0,
+			},
+		});
+
+		const { getByTestId } = render(<AdultQuestionOverlay />);
+		const fill = getByTestId('adult-reveal-progress');
+
+		expect(fill.style.backgroundColor).toBe('var(--color-on-primary)');
+		expect(fill.style.backgroundColor).not.toBe('var(--color-cat-cyan)');
 	});
 });
 

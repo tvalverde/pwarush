@@ -133,14 +133,13 @@ const AdultQuestionOverlay: React.FC = () => {
 							revealAdultAnswer();
 						}}
 					>
-						{/* Charging fill: grows 0→100% over the reading clock, in the category colour. */}
 						<span
 							aria-hidden="true"
 							data-testid="adult-reveal-progress"
 							className="absolute inset-y-0 left-0"
 							style={{
 								width: `${progress * 100}%`,
-								backgroundColor: color,
+								backgroundColor: 'var(--color-on-primary)',
 								opacity: 0.4,
 								transition: 'width 250ms linear',
 							}}
@@ -164,7 +163,7 @@ const AdultQuestionOverlay: React.FC = () => {
 							{t('adult.i_was_right')}
 						</Button>
 						<Button
-							variant="secondary"
+							variant="danger"
 							size="md"
 							className="flex-1 uppercase"
 							data-testid="adult-failed"
