@@ -23,6 +23,13 @@ describe('Button', () => {
 		expect(screen.getByRole('button').className).toContain('border-outline-variant');
 	});
 
+	it('applies the danger variant with the semantic error colours', () => {
+		render(<Button variant="danger">X</Button>);
+		const className = screen.getByRole('button').className;
+		expect(className).toContain('bg-error');
+		expect(className).toContain('text-on-error');
+	});
+
 	it('does not fire onClick when disabled', () => {
 		const onClick = vi.fn();
 		render(
