@@ -35,6 +35,7 @@ plan-*.md
 LEEME*
 .claude/settings.local.json
 .xclaude-docker
+.enclaude-docker
 
 # Playwright
 test-results/
