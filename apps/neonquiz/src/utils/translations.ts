@@ -230,6 +230,8 @@ export const translations = {
 			vote_subtitle: 'Rivales, elegid la categoría final',
 			handoff: 'Devuelve el dispositivo a',
 			ready: 'Responder la pregunta final',
+			complete: '¡Las tienes todas! Ve al centro para el Cónclave',
+			reminder: 'Tienes todas las Chispas: ve al Nexus, en el centro',
 		},
 		adult: {
 			reveal: 'Revelar respuesta',
