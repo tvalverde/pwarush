@@ -112,6 +112,8 @@ export const translations = {
 			abandon: 'Abandon game',
 			close: 'Close',
 			leave_confirm: 'Leave the game? The rest keep playing.',
+			leave_cancels_confirm:
+				'Only 2 players left: if you leave, the game will be cancelled — not enough players to continue.',
 			restart_confirm: 'Restart with the same players? Progress is lost.',
 			abandon_confirm: 'Abandon the game and return to the lobby?',
 		},
@@ -281,6 +283,8 @@ export const translations = {
 			abandon: 'Abandonar partida',
 			close: 'Cerrar',
 			leave_confirm: '¿Retirarse de la partida? El resto sigue jugando.',
+			leave_cancels_confirm:
+				'Solo quedáis 2 jugadores: si te retiras, la partida se cancelará porque no quedarán suficientes para continuar.',
 			restart_confirm: '¿Reiniciar con los mismos jugadores? Se pierde el progreso.',
 			abandon_confirm: '¿Abandonar la partida y volver al lobby?',
 		},

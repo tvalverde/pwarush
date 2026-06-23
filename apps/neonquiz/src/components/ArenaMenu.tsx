@@ -24,8 +24,9 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 	const tap = useTap();
 	const [pending, setPending] = useState<Pending | null>(null);
 
+	const leavingEndsGame = players.length <= 2;
 	const confirmTexts: Record<Pending['kind'], string> = {
-		leave: t('menu.leave_confirm'),
+		leave: leavingEndsGame ? t('menu.leave_cancels_confirm') : t('menu.leave_confirm'),
 		restart: t('menu.restart_confirm'),
 		abandon: t('menu.abandon_confirm'),
 	};
