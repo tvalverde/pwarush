@@ -1,4 +1,4 @@
-import { render, waitFor } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import DiceRollOverlay, {
 	DEFAULT_REVEAL_MS,
@@ -51,6 +51,34 @@ describe('DiceRollOverlay', () => {
 		// Wait past the original duration; onDone must not fire after unmount.
 		await new Promise((resolve) => setTimeout(resolve, 60));
 		expect(onDone).not.toHaveBeenCalled();
+	});
+
+	it('stops immediately and lands on the resolved value when the overlay is tapped', async () => {
+		const onDone = vi.fn();
+		const { getByTestId, getByRole } = render(
+			<DiceRollOverlay value={2} onDone={onDone} durationMs={5000} revealMs={10} />,
+		);
+
+		fireEvent.pointerDown(getByTestId('dice-roll-overlay'));
+
+		await waitFor(() => {
+			expect(getByRole('img', { name: 'Dice showing 2' })).not.toBeNull();
+			expect(onDone).toHaveBeenCalledTimes(1);
+		});
+	});
+
+	it('ignores further taps once settled so onDone fires exactly once', async () => {
+		const onDone = vi.fn();
+		const { getByTestId } = render(
+			<DiceRollOverlay value={5} onDone={onDone} durationMs={5000} revealMs={10} />,
+		);
+
+		fireEvent.pointerDown(getByTestId('dice-roll-overlay'));
+		await waitFor(() => expect(onDone).toHaveBeenCalledTimes(1));
+
+		fireEvent.pointerDown(getByTestId('dice-roll-overlay'));
+		await new Promise((resolve) => setTimeout(resolve, 30));
+		expect(onDone).toHaveBeenCalledTimes(1);
 	});
 
 	it('handles a null value by falling back to a random face on settle', async () => {

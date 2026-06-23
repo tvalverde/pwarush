@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Dice from './Dice';
 
 interface DiceRollOverlayProps {
@@ -34,6 +34,8 @@ const DiceRollOverlay: React.FC<DiceRollOverlayProps> = ({
 }) => {
 	const [face, setFace] = useState<number>(() => randomFace());
 	const [settled, setSettled] = useState(false);
+	const tickRef = useRef<ReturnType<typeof setInterval> | null>(null);
+	const settleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	useEffect(() => {
 		setSettled(false);
@@ -43,12 +45,22 @@ const DiceRollOverlay: React.FC<DiceRollOverlayProps> = ({
 			setSettled(true);
 			setFace(value ?? randomFace());
 		}, durationMs);
+		tickRef.current = tickId;
+		settleRef.current = settleId;
 
 		return () => {
 			clearInterval(tickId);
 			clearTimeout(settleId);
 		};
 	}, [value, durationMs]);
+
+	const skipTumble = useCallback(() => {
+		if (settled) return;
+		if (tickRef.current !== null) clearInterval(tickRef.current);
+		if (settleRef.current !== null) clearTimeout(settleRef.current);
+		setSettled(true);
+		setFace(value ?? randomFace());
+	}, [settled, value]);
 
 	useEffect(() => {
 		if (!settled) return;
@@ -59,6 +71,7 @@ const DiceRollOverlay: React.FC<DiceRollOverlayProps> = ({
 	return (
 		<div
 			data-testid="dice-roll-overlay"
+			onPointerDown={skipTumble}
 			className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-surface/80 backdrop-blur-sm"
 		>
 			<div
