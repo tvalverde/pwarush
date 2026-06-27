@@ -1,7 +1,7 @@
 # PWARUSH
 
 PWARUSH is a monorepo of offline-first Progressive Web Apps (PWAs) built on a
-shared, incrementally extracted shell. It hosts three games and the
+shared, incrementally extracted shell. It hosts four games and the
 `@pwarush/core` package that powers them.
 
 - **Sudokupado** — a premium, minimalist, "Zen Focus" Sudoku PWA. High-contrast,
@@ -11,11 +11,15 @@ shared, incrementally extracted shell. It hosts three games and the
 - **El Farsante** — a social deduction party game with a cyberpunk-neon
   identity, multi-language (es/en/ca) and optional multi-device sync via
   Firebase (anonymous auth + Firestore).
+- **Neonquiz** — a neon trivia board game: roll, move and answer questions across
+  six categories to collect Sparks and win the final Conclave. Pass-and-play
+  Family mode plus a single-player Arcade mode with combo scoring and a Hall of
+  Fame.
 
 The apps share the PWA shell and build infrastructure, but keep their own game
 logic and palette; Sudokupado and Murdokupado also share the color-free design
-system, while El Farsante keeps its own visual identity and adheres only to the
-semantic color contract.
+system, while El Farsante and Neonquiz keep their own visual identities and
+adhere only to the semantic color contract.
 
 ## Layout
 
@@ -24,7 +28,8 @@ pwarush/
 ├── apps/
 │   ├── sudokupado/        # @pwarush/sudokupado — the mature Sudoku PWA
 │   ├── murdokupado/       # @pwarush/murdokupado — Latin-square stub
-│   └── elfarsante/        # @pwarush/elfarsante — social deduction party game
+│   ├── elfarsante/        # @pwarush/elfarsante — social deduction party game
+│   └── neonquiz/          # @pwarush/neonquiz — neon trivia board game
 ├── packages/
 │   └── core/              # @pwarush/core — shared shell (see packages/core/README.md)
 ├── landing/               # static landing listing the games at /pwarush/
@@ -96,6 +101,7 @@ Each app deploys to GitHub Pages under its own subpath, sharing one origin:
 - `tvalverde.github.io/pwarush/sudokupado/` — Sudokupado (own PWA scope)
 - `tvalverde.github.io/pwarush/murdokupado/` — Murdokupado (own PWA scope)
 - `tvalverde.github.io/pwarush/elfarsante/` — El Farsante (own PWA scope)
+- `tvalverde.github.io/pwarush/neonquiz/` — Neonquiz (own PWA scope)
 
 El Farsante needs the seven `VITE_FIREBASE_*` repository secrets at build time
 (see `apps/elfarsante/.env.example`), and the Pages host must be listed in the
