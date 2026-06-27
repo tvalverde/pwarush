@@ -1,4 +1,4 @@
-.PHONY: setup install dev build lint format typecheck test check e2e e2e-update e2e-ui e2e-build
+.PHONY: setup install dev build lint format typecheck test check bump e2e e2e-update e2e-ui e2e-build
 
 # Recipes run in bash (nvm and the multi-line setup recipe need it).
 SHELL := /usr/bin/env bash
@@ -86,6 +86,20 @@ test:
 	npm test
 
 check: lint typecheck test
+
+# Bump versions for a release WITHOUT a manual `nvm use` (the recipe runs under
+# the project's Node via the PATH set above, so `npm version` keeps package.json
+# and package-lock.json in sync correctly). ROOT is the monorepo-tag version;
+# pass WS + WS_VERSION to also bump one workspace. Ends with the quality gate.
+#   make bump ROOT=1.25.1 WS=@pwarush/neonquiz WS_VERSION=0.12.1
+bump:
+	@test -n "$(ROOT)" || { echo "usage: make bump ROOT=X.Y.Z [WS=@pwarush/<name> WS_VERSION=X.Y.Z]"; exit 1; }
+	@if [ -n "$(WS)" ]; then \
+		test -n "$(WS_VERSION)" || { echo "✖ WS set but WS_VERSION missing"; exit 1; }; \
+		npm version "$(WS_VERSION)" --no-git-tag-version --workspace="$(WS)"; \
+	fi
+	npm version "$(ROOT)" --no-git-tag-version
+	$(MAKE) check
 
 # Run E2E tests inside the official Playwright container
 # Uses node_modules from the host (must be installed beforehand via `make install`)

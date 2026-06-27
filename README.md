@@ -88,10 +88,14 @@ make dev       # start the Sudokupado dev server
 make check     # quality gate: lint + typecheck + test
 make build     # build every app for production
 make e2e       # end-to-end suite (Playwright, inside the official container)
+make bump ROOT=1.25.1 WS=@pwarush/neonquiz WS_VERSION=0.12.1   # release bump + check
 ```
 
 The same targets are available as npm scripts (`npm run check`, `npm test`,
-`npm run build`, …), which fan out to the workspaces.
+`npm run build`, …), which fan out to the workspaces. Because every `make`
+target and the git hooks load the project Node themselves, a release needs no
+manual `nvm use`: `make bump …` then `git commit`/`git tag`/`git push` all run
+under Node 24.
 
 ## Deploy
 
