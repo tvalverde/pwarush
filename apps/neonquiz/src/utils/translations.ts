@@ -22,6 +22,8 @@ export const translations = {
 			color_taken: 'Color already taken this match',
 			saved_game: 'Saved game',
 			resume: 'Resume game',
+			resume_family: 'Resume Family Game',
+			resume_arcade: 'Resume Arcade Game',
 			resume_prompt_title: 'Game in progress',
 			resume_prompt_msg: 'You have a game in progress. Continue it or start a new one?',
 			resume_prompt_confirm: 'Resume',
@@ -55,6 +57,7 @@ export const translations = {
 		conclave: {
 			vote_title: 'The Conclave',
 			vote_subtitle: 'Rivals, choose the final category',
+			solo_vote: 'Choose your final category',
 			handoff: 'Return the device to',
 			ready: 'Answer the final question',
 			complete: 'You have them all! Head to the centre for the Conclave',
@@ -139,6 +142,8 @@ export const translations = {
 		history: {
 			open: 'Hall of Fame',
 			title: 'Hall of Fame',
+			tab_family: 'Family',
+			tab_arcade: 'Arcade',
 			empty: 'No games played yet',
 			turns: 'turns',
 			players: 'players',
@@ -153,6 +158,12 @@ export const translations = {
 		common: {
 			confirm: 'Confirm',
 			cancel: 'Cancel',
+		},
+		arcade: {
+			score: 'Score',
+			combo: 'Combo',
+			max_combo: 'Max Combo',
+			new_high_score: 'New High Score!',
 		},
 		categories: {
 			EMERALD_GEO: 'Geography',
@@ -195,6 +206,8 @@ export const translations = {
 			color_taken: 'Color ya usado en esta partida',
 			saved_game: 'Partida guardada',
 			resume: 'Reanudar partida',
+			resume_family: 'Reanudar partida familiar',
+			resume_arcade: 'Reanudar partida arcade',
 			resume_prompt_title: 'Partida en curso',
 			resume_prompt_msg: 'Tienes una partida en curso. ¿Continuarla o empezar una nueva?',
 			resume_prompt_confirm: 'Reanudar',
@@ -228,6 +241,7 @@ export const translations = {
 		conclave: {
 			vote_title: 'El Cónclave',
 			vote_subtitle: 'Rivales, elegid la categoría final',
+			solo_vote: 'Elige tu categoría final',
 			handoff: 'Devuelve el dispositivo a',
 			ready: 'Responder la pregunta final',
 			complete: '¡Las tienes todas! Ve al centro para el Cónclave',
@@ -312,6 +326,8 @@ export const translations = {
 		history: {
 			open: 'Salón de la fama',
 			title: 'Salón de la fama',
+			tab_family: 'Familiar',
+			tab_arcade: 'Arcade',
 			empty: 'Aún no se ha jugado ninguna partida',
 			turns: 'turnos',
 			players: 'jugadores',
@@ -326,6 +342,12 @@ export const translations = {
 		common: {
 			confirm: 'Confirmar',
 			cancel: 'Cancelar',
+		},
+		arcade: {
+			score: 'Puntuación',
+			combo: 'Combo',
+			max_combo: 'Combo Máx',
+			new_high_score: '¡Nuevo Récord!',
 		},
 		categories: {
 			EMERALD_GEO: 'Geografía',

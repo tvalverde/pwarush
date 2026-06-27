@@ -6,6 +6,7 @@ import { categoryColor } from '../utils/categories';
 
 /** Conclave step 1: the rivals collectively pick the challenger's final-question category. */
 const ConclaveVoteScreen: React.FC = () => {
+	const mode = useGameStore((s) => s.mode);
 	const voteConclaveCategory = useGameStore((s) => s.voteConclaveCategory);
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
@@ -17,11 +18,13 @@ const ConclaveVoteScreen: React.FC = () => {
 		>
 			<div className="flex flex-col items-center gap-1">
 				<h2 className="font-display text-2xl font-bold uppercase tracking-widest-premium text-tertiary">
-					{t('conclave.vote_title')}
+					{mode === 'ARCADE' ? t('conclave.solo_vote') : t('conclave.vote_title')}
 				</h2>
-				<p className="font-hanken text-xs uppercase tracking-wide-premium text-on-surface-variant">
-					{t('conclave.vote_subtitle')}
-				</p>
+				{mode === 'FAMILY' && (
+					<p className="font-hanken text-xs uppercase tracking-wide-premium text-on-surface-variant">
+						{t('conclave.vote_subtitle')}
+					</p>
+				)}
 			</div>
 
 			<div className="grid w-full max-w-sm grid-cols-2 gap-3">

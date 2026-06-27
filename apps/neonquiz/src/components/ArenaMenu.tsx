@@ -17,6 +17,7 @@ type Pending = { kind: 'leave'; playerId: string } | { kind: 'restart' } | { kin
 /** In-game menu: retire a single player, restart, or abandon the whole game. */
 const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 	const players = useGameStore((s) => s.players);
+	const mode = useGameStore((s) => s.mode);
 	const removePlayer = useGameStore((s) => s.removePlayer);
 	const restartGame = useGameStore((s) => s.restartGame);
 	const abandonGame = useGameStore((s) => s.abandonGame);
@@ -93,18 +94,20 @@ const ArenaMenu: React.FC<ArenaMenuProps> = ({ onClose }) => {
 								<ShapeGlyph shape={player.shape} size={20} color={playerColor(player, index)} />
 								<span className="font-hanken text-sm font-bold text-on-surface">{player.name}</span>
 							</span>
-							<button
-								type="button"
-								data-testid={`leave-${index}`}
-								onClick={() => {
-									tap();
-									setPending({ kind: 'leave', playerId: player.id });
-								}}
-								className="flex items-center gap-1 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-on-surface-variant hover:text-error"
-							>
-								<LogOut className="h-3.5 w-3.5" />
-								{t('menu.leave')}
-							</button>
+							{mode !== 'ARCADE' && (
+								<button
+									type="button"
+									data-testid={`leave-${index}`}
+									onClick={() => {
+										tap();
+										setPending({ kind: 'leave', playerId: player.id });
+									}}
+									className="flex items-center gap-1 font-hanken text-[11px] font-bold uppercase tracking-wide-premium text-on-surface-variant hover:text-error"
+								>
+									<LogOut className="h-3.5 w-3.5" />
+									{t('menu.leave')}
+								</button>
+							)}
 						</div>
 					))}
 				</div>

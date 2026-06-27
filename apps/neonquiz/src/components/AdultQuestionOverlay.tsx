@@ -65,7 +65,7 @@ const AdultQuestionOverlay: React.FC = () => {
 				clearInterval(id);
 				setTimeLeft(0);
 				setProgress(1);
-				gradeAdultAnswer(false); // time out → automatic fail
+				gradeAdultAnswer(false, elapsedRef.current); // time out → automatic fail
 			} else {
 				setTimeLeft(left);
 				setProgress(revealProgress(elapsedRef.current, totalMs));
@@ -157,7 +157,7 @@ const AdultQuestionOverlay: React.FC = () => {
 							data-testid="adult-correct"
 							onClick={() => {
 								tap();
-								gradeAdultAnswer(true);
+								gradeAdultAnswer(true, elapsedRef.current);
 							}}
 						>
 							{t('adult.i_was_right')}
@@ -169,7 +169,7 @@ const AdultQuestionOverlay: React.FC = () => {
 							data-testid="adult-failed"
 							onClick={() => {
 								tap();
-								gradeAdultAnswer(false);
+								gradeAdultAnswer(false, elapsedRef.current);
 							}}
 						>
 							{t('adult.i_failed')}

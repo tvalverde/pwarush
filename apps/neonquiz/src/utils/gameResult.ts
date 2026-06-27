@@ -1,4 +1,4 @@
-import type { GameHistoryEntry, GameResult, MatchPlayerStat, Player } from '../types';
+import type { GameHistoryEntry, GameMode, GameResult, MatchPlayerStat, Player } from '../types';
 import { playerColor } from './players';
 import { activeElapsedMs } from './time';
 
@@ -11,6 +11,7 @@ export interface MatchSummaryInput {
 	startedAt: number | null;
 	conclaveFails: number;
 	pausedAccumMs: number;
+	mode: GameMode;
 }
 
 export interface MatchSummary {
@@ -44,6 +45,12 @@ export const buildMatchSummary = (state: MatchSummaryInput): MatchSummary | null
 		correct: player.correct ?? 0,
 		wrong: player.wrong ?? 0,
 		winner: index === winnerIndex,
+		...(state.mode === 'ARCADE'
+			? {
+					arcadeScore: player.arcadeScore ?? 0,
+					arcadeMaxCombo: player.arcadeMaxCombo ?? 0,
+				}
+			: {}),
 	}));
 
 	const correct = roster.reduce((total, stat) => total + stat.correct, 0);
@@ -63,6 +70,7 @@ export const buildMatchSummary = (state: MatchSummaryInput): MatchSummary | null
 		wrong,
 		wildcardsUsed,
 		conclaveFails,
+		mode: state.mode,
 	};
 
 	const result: GameResult = {

@@ -2,7 +2,7 @@ import { Button } from '@pwarush/core/ui';
 import { BookOpen, PlayCircle, Plus, Settings, SlidersHorizontal, Trophy, X } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
-import { db, SESSION_ID } from '../db/database';
+import { ARCADE_SESSION_ID, db, FAMILY_SESSION_ID } from '../db/database';
 import { getProfiles, upsertProfile } from '../db/profiles';
 import { clearSavedSession } from '../hooks/useAutoSave';
 import { useTap } from '../hooks/useHaptics';
@@ -25,7 +25,7 @@ import SettingsScreen from './SettingsScreen';
 const LEVELS: PlayerLevel[] = ['KID', 'ADULT'];
 
 const MAX_PLAYERS = 6;
-const MIN_PLAYERS = 2;
+const MIN_PLAYERS = 1;
 
 const SetupLobbyScreen: React.FC = () => {
 	const startGame = useGameStore((s) => s.startGame);
@@ -40,8 +40,10 @@ const SetupLobbyScreen: React.FC = () => {
 	const [showHistory, setShowHistory] = useState(false);
 	const [showSettings, setShowSettings] = useState(false);
 	const [showQuestionManager, setShowQuestionManager] = useState(false);
-	const [savedSession, setSavedSession] = useState<GameSession | null>(null);
+	const [familySession, setFamilySession] = useState<GameSession | null>(null);
+	const [arcadeSession, setArcadeSession] = useState<GameSession | null>(null);
 	const [showResumePrompt, setShowResumePrompt] = useState(false);
+	const [conflictingSession, setConflictingSession] = useState<GameSession | null>(null);
 
 	useEffect(() => {
 		let cancelled = false;
@@ -53,11 +55,17 @@ const SetupLobbyScreen: React.FC = () => {
 		};
 	}, []);
 
-	// Surface a previously saved game (paused or left mid-match) so it can be resumed from here.
+	// Surface previously saved games (paused or left mid-match) so they can be resumed from here.
 	useEffect(() => {
 		let cancelled = false;
-		db.gameSession.get(SESSION_ID).then((session) => {
-			if (!cancelled && session && session.players.length >= 2) setSavedSession(session);
+		Promise.all([
+			db.gameSession.get(FAMILY_SESSION_ID),
+			db.gameSession.get(ARCADE_SESSION_ID),
+		]).then(([family, arcade]) => {
+			if (!cancelled) {
+				if (family && family.players.length >= 1) setFamilySession(family);
+				if (arcade && arcade.players.length >= 1) setArcadeSession(arcade);
+			}
 		});
 		return () => {
 			cancelled = true;
@@ -128,16 +136,23 @@ const SetupLobbyScreen: React.FC = () => {
 	const handleStart = () => {
 		tap();
 		if (!canStart) return;
-		if (savedSession) {
+		const isArcade = drafts.length === 1;
+		if (isArcade && arcadeSession) {
+			setConflictingSession(arcadeSession);
+			setShowResumePrompt(true);
+			return;
+		}
+		if (!isArcade && familySession) {
+			setConflictingSession(familySession);
 			setShowResumePrompt(true);
 			return;
 		}
 		void startNewMatch();
 	};
 
-	const handleResume = () => {
+	const handleResume = (session: GameSession) => {
 		tap();
-		if (savedSession) resumeSavedGame(savedSession);
+		resumeSavedGame(session);
 	};
 
 	const addSavedProfile = (profile: PlayerProfile) => {
@@ -165,17 +180,22 @@ const SetupLobbyScreen: React.FC = () => {
 	if (showSettings) return <SettingsScreen onClose={() => setShowSettings(false)} />;
 	if (showQuestionManager)
 		return <QuestionAudienceManagerScreen onClose={() => setShowQuestionManager(false)} />;
-	if (showResumePrompt && savedSession)
+	if (showResumePrompt && conflictingSession)
 		return (
 			<ConfirmOverlay
 				title={t('lobby.resume_prompt_title')}
 				message={t('lobby.resume_prompt_msg')}
 				confirmText={t('lobby.resume_prompt_confirm')}
 				cancelText={t('lobby.resume_prompt_cancel')}
-				onConfirm={() => resumeSavedGame(savedSession)}
+				onConfirm={() => handleResume(conflictingSession)}
 				onCancel={() => {
-					void clearSavedSession();
-					setSavedSession(null);
+					void clearSavedSession(conflictingSession.id);
+					if (conflictingSession.id === ARCADE_SESSION_ID) {
+						setArcadeSession(null);
+					} else {
+						setFamilySession(null);
+					}
+					setConflictingSession(null);
 					setShowResumePrompt(false);
 					void startNewMatch();
 				}}
@@ -244,25 +264,51 @@ const SetupLobbyScreen: React.FC = () => {
 			</header>
 
 			<main className="flex flex-1 flex-col gap-5 overflow-y-auto px-5 py-6">
-				{savedSession && (
+				{familySession && (
 					<div
-						data-testid="resume-card"
+						data-testid="resume-family-card"
 						className="flex items-center justify-between rounded-lg border border-primary bg-surface-container-low p-4"
 					>
 						<div className="flex flex-col">
 							<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
-								{t('lobby.saved_game')}
+								{t('lobby.resume_family')}
 							</span>
 							<span className="font-hanken text-sm font-bold text-on-surface">
-								{savedSession.players.map((p) => p.name).join(', ')}
+								{familySession.players.map((p) => p.name).join(', ')}
 							</span>
 						</div>
 						<Button
 							variant="primary"
 							size="sm"
 							className="gap-2 uppercase"
-							data-testid="resume-game"
-							onClick={handleResume}
+							data-testid="resume-family-game"
+							onClick={() => handleResume(familySession)}
+						>
+							<PlayCircle className="h-4 w-4" />
+							{t('lobby.resume')}
+						</Button>
+					</div>
+				)}
+
+				{arcadeSession && (
+					<div
+						data-testid="resume-arcade-card"
+						className="flex items-center justify-between rounded-lg border border-primary bg-surface-container-low p-4"
+					>
+						<div className="flex flex-col">
+							<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
+								{t('lobby.resume_arcade')}
+							</span>
+							<span className="font-hanken text-sm font-bold text-on-surface">
+								{arcadeSession.players[0]?.name}
+							</span>
+						</div>
+						<Button
+							variant="primary"
+							size="sm"
+							className="gap-2 uppercase"
+							data-testid="resume-arcade-game"
+							onClick={() => handleResume(arcadeSession)}
 						>
 							<PlayCircle className="h-4 w-4" />
 							{t('lobby.resume')}

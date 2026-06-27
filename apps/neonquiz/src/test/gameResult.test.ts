@@ -32,6 +32,7 @@ const baseState = (overrides: Partial<MatchSummaryInput> = {}): MatchSummaryInpu
 	startedAt: Date.now() - 5000,
 	conclaveFails: 0,
 	pausedAccumMs: 0,
+	mode: 'FAMILY',
 	...overrides,
 });
 
@@ -134,5 +135,22 @@ describe('buildMatchSummary', () => {
 		const summary = buildMatchSummary(baseState());
 		expect(summary!.result.players).toBe(summary!.entry.roster);
 		expect(summary!.result.turns).toBe(10);
+	});
+
+	it('defaults the entry mode to FAMILY and omits arcade stats from the roster', () => {
+		const summary = buildMatchSummary(baseState());
+		expect(summary!.entry.mode).toBe('FAMILY');
+		expect(summary!.entry.roster?.[0]).not.toHaveProperty('arcadeScore');
+	});
+
+	it('stamps the Arcade mode and copies arcade stats into the roster', () => {
+		const state = baseState({
+			mode: 'ARCADE',
+			players: [makePlayer({ arcadeScore: 750, arcadeMaxCombo: 4 })],
+			winnerIndex: 0,
+		});
+		const summary = buildMatchSummary(state);
+		expect(summary!.entry.mode).toBe('ARCADE');
+		expect(summary!.entry.roster?.[0]).toMatchObject({ arcadeScore: 750, arcadeMaxCombo: 4 });
 	});
 });

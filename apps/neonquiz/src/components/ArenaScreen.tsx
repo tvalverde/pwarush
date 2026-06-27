@@ -74,6 +74,7 @@ const SparkTrack: React.FC<SparkTrackProps> = ({ collected, pending, docked }) =
 
 const ArenaScreen: React.FC = () => {
 	const phase = useGameStore((s) => s.phase);
+	const mode = useGameStore((s) => s.mode);
 	const board = useGameStore((s) => s.board);
 	const players = useGameStore((s) => s.players);
 	const currentPlayerIndex = useGameStore((s) => s.currentPlayerIndex);
@@ -217,6 +218,37 @@ const ArenaScreen: React.FC = () => {
 					</span>
 				</span>
 				<span className="flex items-center gap-3">
+					{mode === 'ARCADE' && (
+						<div
+							data-testid="arcade-hud"
+							className="mr-2 flex items-center gap-4 rounded-full bg-surface-container-low px-4 py-1"
+						>
+							<div className="flex flex-col items-end leading-tight">
+								<span className="font-hanken text-[8px] uppercase tracking-widest-premium text-on-surface-variant">
+									{t('arcade.score')}
+								</span>
+								<span
+									className="font-display text-base font-bold tabular-nums text-primary"
+									style={{ textShadow: '0 0 8px var(--color-primary-container)' }}
+								>
+									{player.arcadeScore ?? 0}
+								</span>
+							</div>
+							<div className="h-6 w-[1px] bg-outline-variant" />
+							<div className="flex flex-col items-end leading-tight">
+								<span className="font-hanken text-[8px] uppercase tracking-widest-premium text-on-surface-variant">
+									{t('arcade.combo')}
+								</span>
+								<span
+									className={`font-display text-sm font-bold tabular-nums ${
+										(player.arcadeCombo ?? 0) > 0 ? 'text-tertiary' : 'text-on-surface-variant'
+									}`}
+								>
+									×{player.arcadeCombo ?? 0}
+								</span>
+							</div>
+						</div>
+					)}
 					<MatchClock />
 					<SparkTrack collected={player.sparks} pending={withheldSpark} docked={dockedSpark} />
 					<button

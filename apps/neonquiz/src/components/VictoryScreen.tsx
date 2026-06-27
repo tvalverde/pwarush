@@ -1,5 +1,7 @@
 import { Button } from '@pwarush/core/ui';
 import type React from 'react';
+import { useEffect, useState } from 'react';
+import { db } from '../db/database';
 import { useTap } from '../hooks/useHaptics';
 import { useGameStore } from '../store/gameStore';
 import { CATEGORIES } from '../types';
@@ -15,7 +17,35 @@ const VictoryScreen: React.FC = () => {
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
 
+	const mode = useGameStore((s) => s.mode);
+	const startedAt = useGameStore((s) => s.startedAt);
+
 	const winner = winnerIndex !== null ? players[winnerIndex] : null;
+
+	const [isHighScore, setIsHighScore] = useState(false);
+
+	useEffect(() => {
+		if (mode !== 'ARCADE' || !winner) return;
+		let cancelled = false;
+		db.gameHistory.toArray().then((entries) => {
+			if (cancelled) return;
+			const others = entries.filter(
+				(e) =>
+					e.mode === 'ARCADE' &&
+					e.roster?.[0]?.level === winner.level &&
+					e.date < (startedAt ?? Date.now()),
+			);
+			const maxScore = others.reduce((max, e) => Math.max(max, e.roster?.[0]?.arcadeScore ?? 0), 0);
+			// New high score if greater than 0 AND greater than previous max
+			if ((winner.arcadeScore ?? 0) > maxScore && (winner.arcadeScore ?? 0) > 0) {
+				setIsHighScore(true);
+			}
+		});
+		return () => {
+			cancelled = true;
+		};
+	}, [mode, winner, startedAt]);
+
 	if (!winner || winnerIndex === null) return null;
 	const accent = playerColor(winner, winnerIndex);
 
@@ -42,7 +72,37 @@ const VictoryScreen: React.FC = () => {
 				</p>
 			</div>
 
-			<div className="flex gap-8">
+			<div className="flex flex-wrap justify-center gap-6 max-w-sm">
+				{mode === 'ARCADE' && (
+					<div className="flex flex-col items-center gap-2">
+						<span className="font-display text-xl font-bold text-primary">
+							{winner.arcadeScore ?? 0}
+						</span>
+						{isHighScore ? (
+							<span className="rounded-sm bg-primary px-1.5 py-0.5 font-display text-[9px] font-bold uppercase tracking-widest-premium text-on-primary">
+								{t('arcade.new_high_score')}
+							</span>
+						) : (
+							<span className="h-4" />
+						)}
+						<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
+							{t('arcade.score')}
+						</span>
+					</div>
+				)}
+
+				{mode === 'ARCADE' && (
+					<div className="flex flex-col items-center gap-2">
+						<span className="font-display text-xl font-bold text-tertiary">
+							×{winner.arcadeMaxCombo ?? 0}
+						</span>
+						<span className="h-4" />
+						<span className="font-hanken text-[10px] uppercase tracking-wide-premium text-on-surface-variant">
+							{t('arcade.max_combo')}
+						</span>
+					</div>
+				)}
+
 				<div className="flex flex-col items-center gap-2">
 					<span className="font-display text-xl font-bold text-on-surface">
 						{winner.sparks.length}/{CATEGORIES.length}

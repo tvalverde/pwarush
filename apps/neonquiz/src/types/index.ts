@@ -1,5 +1,7 @@
 export type Language = 'en' | 'es';
 
+export type GameMode = 'FAMILY' | 'ARCADE';
+
 export const CATEGORIES = [
 	'EMERALD_GEO',
 	'CRIMSON_HIST',
@@ -74,6 +76,9 @@ export interface Player {
 	profileId?: number;
 	correct?: number;
 	wrong?: number;
+	arcadeScore?: number;
+	arcadeCombo?: number;
+	arcadeMaxCombo?: number;
 }
 
 // A reusable, device-local player remembered across games, with lifetime aggregates.
@@ -106,6 +111,8 @@ export interface MatchPlayerStat {
 	correct: number;
 	wrong: number;
 	winner: boolean;
+	arcadeScore?: number;
+	arcadeMaxCombo?: number;
 }
 
 // The distilled outcome of a completed match, consumed by the profile-aggregation layer.
@@ -143,6 +150,7 @@ export interface GameHistoryEntry {
 	wrong?: number;
 	wildcardsUsed?: number;
 	conclaveFails?: number;
+	mode?: GameMode;
 }
 
 export type GamePhase =
@@ -169,4 +177,5 @@ export interface GameSession {
 	// Active (un-paused) elapsed ms at checkpoint time; on resume `startedAt` is reconstructed from
 	// it so time spent away (or paused) never inflates the match duration.
 	elapsedMs?: number;
+	mode?: GameMode;
 }

@@ -60,7 +60,8 @@ const V6 = {
 	questionAudienceOverrides: 'key',
 };
 
-export const SESSION_ID = 1;
+export const FAMILY_SESSION_ID = 1;
+export const ARCADE_SESSION_ID = 2;
 export const USAGE_ID = 1;
 
 export const db = createDatabase<NeonquizTables>({

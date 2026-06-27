@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { act } from 'react';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { db, SESSION_ID } from '../db/database';
+import { ARCADE_SESSION_ID, db, FAMILY_SESSION_ID } from '../db/database';
 import { saveCheckpoint, useAutoSave } from '../hooks/useAutoSave';
 import { type PlayerDraft, useGameStore } from '../store/gameStore';
 import type { GameSession } from '../types';
@@ -11,7 +11,7 @@ const drafts: PlayerDraft[] = [
 	{ name: 'Bob', shape: 'SQUARE', level: 'KID' },
 ];
 
-const readSession = () => db.gameSession.get(SESSION_ID);
+const readSession = () => db.gameSession.get(FAMILY_SESSION_ID);
 const flush = async () => {
 	await act(async () => {
 		await new Promise((r) => setTimeout(r, 10));
@@ -89,11 +89,28 @@ describe('autosave checkpoint + session lifecycle', () => {
 		expect(saved?.players[0].sparks).toEqual(['CYAN_SCI']);
 	});
 
+	it('persists Family and Arcade games to independent session slots', async () => {
+		const store = useGameStore.getState();
+		store.startGame(drafts); // two players → FAMILY
+		await saveCheckpoint(useGameStore.getState());
+
+		store.resetGame();
+		store.startGame([{ name: 'Solo', shape: 'TRIANGLE', level: 'KID' }]); // one player → ARCADE
+		await saveCheckpoint(useGameStore.getState());
+
+		const family = await db.gameSession.get(FAMILY_SESSION_ID);
+		const arcade = await db.gameSession.get(ARCADE_SESSION_ID);
+		expect(family?.mode).toBe('FAMILY');
+		expect(family?.players).toHaveLength(2);
+		expect(arcade?.mode).toBe('ARCADE');
+		expect(arcade?.players).toHaveLength(1);
+	});
+
 	it('hydrate reconstructs startedAt from the banked elapsedMs', () => {
 		useGameStore.getState().startGame(drafts);
 		const players = useGameStore.getState().players;
 		const session: GameSession = {
-			id: SESSION_ID,
+			id: FAMILY_SESSION_ID,
 			players,
 			currentPlayerIndex: 1,
 			phase: 'TURN_TRANSITION',

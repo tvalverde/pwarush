@@ -3,9 +3,11 @@ import { calculateValidMoves } from '../engine/boardEngine';
 import { buildFamiliarBoard, getNode, NEXUS_ID } from '../engine/boardFactory';
 import { drawQuestion } from '../engine/questionPool';
 import { rollDie } from '../engine/rng';
+import { calculateArcadeScore } from '../engine/scoring';
 import {
 	type Board,
 	CATEGORIES,
+	type GameMode,
 	type GamePhase,
 	type GameSession,
 	type Language,
@@ -40,6 +42,7 @@ export interface PlayerDraft {
 
 interface GameStore {
 	language: Language;
+	mode: GameMode;
 	phase: GamePhase;
 	board: Board;
 	players: Player[];
@@ -104,7 +107,7 @@ interface GameStore {
 	useSecondChance: () => void;
 	revealAnswer: () => void;
 	revealAdultAnswer: () => void;
-	gradeAdultAnswer: (correct: boolean) => void;
+	gradeAdultAnswer: (correct: boolean, answerTimeMs?: number) => void;
 }
 
 const FRESH_WILDCARDS = (): WildcardUsage => ({
@@ -154,6 +157,9 @@ const normalizePlayer = (player: Player, index: number): Player => ({
 	accentColor: player.accentColor ?? playerAccent(index),
 	correct: player.correct ?? 0,
 	wrong: player.wrong ?? 0,
+	arcadeScore: player.arcadeScore ?? 0,
+	arcadeCombo: player.arcadeCombo ?? 0,
+	arcadeMaxCombo: player.arcadeMaxCombo ?? 0,
 });
 
 // Increments the active player's per-match answer tally.
@@ -211,6 +217,7 @@ const FRESH_GAME: Pick<
 
 export const useGameStore = create<GameStore>()((set, get) => ({
 	language: getInitialLanguage(),
+	mode: 'FAMILY',
 	phase: 'LOBBY',
 	board: buildFamiliarBoard(),
 	players: [],
@@ -259,25 +266,43 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		}));
 	},
 
-	startGame: (drafts) =>
+	startGame: (drafts) => {
+		const mode: GameMode = drafts.length === 1 ? 'ARCADE' : 'FAMILY';
 		set({
+			mode,
 			board: buildFamiliarBoard(),
-			players: drafts.map(createPlayer),
+			players: drafts.map((draft, index) => ({
+				...createPlayer(draft, index),
+				...(mode === 'ARCADE' ? { arcadeScore: 0, arcadeCombo: 0, arcadeMaxCombo: 0 } : {}),
+			})),
 			currentPlayerIndex: 0,
-			phase: 'TURN_TRANSITION',
+			phase: mode === 'ARCADE' ? 'ROLLING_DICE' : 'TURN_TRANSITION',
 			startedAt: Date.now(),
 			...FRESH_GAME,
-		}),
+		});
+	},
 
 	hydrate: (session, questions, usedIds = []) => {
+		const mode: GameMode = session.mode ?? 'FAMILY';
+		const players = session.players.map(normalizePlayer);
+		const resumePlayer = players[session.currentPlayerIndex];
+		// Arcade has no pass-the-device screen, so resume straight into the roll. A solo player
+		// already on the Nexus with every Spark re-enters the Conclave (mirrors advanceTurn).
+		const resumePhase =
+			mode === 'ARCADE'
+				? resumePlayer && resumePlayer.position === NEXUS_ID && hasAllSparks(resumePlayer)
+					? 'CONCLAVE_VOTE'
+					: 'ROLLING_DICE'
+				: 'TURN_TRANSITION';
 		set({
+			mode,
 			board: buildFamiliarBoard(),
 			bank: questions,
 			bankSize: questions.length,
 			usedQuestionIds: usedIds,
-			players: session.players.map(normalizePlayer),
+			players,
 			currentPlayerIndex: session.currentPlayerIndex,
-			phase: 'TURN_TRANSITION',
+			phase: resumePhase,
 			// Reconstruct the start so the clock continues from the banked active elapsed (time spent
 			// away or paused does not count). Falls back to the legacy `startedAt` for old sessions.
 			startedAt:
@@ -309,9 +334,12 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 				wrong: 0,
 				usedWildcards: FRESH_WILDCARDS(),
 				pendingConclaveCategory: null,
+				arcadeScore: 0,
+				arcadeCombo: 0,
+				arcadeMaxCombo: 0,
 			})),
 			currentPlayerIndex: 0,
-			phase: 'TURN_TRANSITION',
+			phase: state.mode === 'ARCADE' ? 'ROLLING_DICE' : 'TURN_TRANSITION',
 			startedAt: Date.now(),
 			...FRESH_GAME,
 		})),
@@ -333,7 +361,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		set({
 			players,
 			currentPlayerIndex: shifted % players.length,
-			phase: 'TURN_TRANSITION',
+			phase: state.mode === 'ARCADE' ? 'ROLLING_DICE' : 'TURN_TRANSITION',
 			...FRESH_GAME,
 		});
 	},
@@ -489,6 +517,27 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 						: player,
 				);
 			}
+		}
+
+		if (state.mode === 'ARCADE') {
+			const player = players[state.currentPlayerIndex];
+			const result = calculateArcadeScore(
+				correct,
+				player.arcadeCombo ?? 0,
+				player.arcadeMaxCombo ?? 0,
+				player.level === 'ADULT',
+				null,
+			);
+			players = players.map((p, i) =>
+				i === state.currentPlayerIndex
+					? {
+							...p,
+							arcadeScore: (p.arcadeScore ?? 0) + result.scoreDelta,
+							arcadeCombo: result.newCombo,
+							arcadeMaxCombo: result.newMaxCombo,
+						}
+					: p,
+			);
 		}
 
 		set({
@@ -683,7 +732,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 		set({ answerRevealed: true });
 	},
 
-	gradeAdultAnswer: (correct) => {
+	gradeAdultAnswer: (correct, answerTimeMs) => {
 		const state = get();
 		const question = state.activeQuestion;
 		if (!question) return;
@@ -722,6 +771,27 @@ export const useGameStore = create<GameStore>()((set, get) => ({
 			}
 		}
 
+		if (state.mode === 'ARCADE') {
+			const player = players[state.currentPlayerIndex];
+			const result = calculateArcadeScore(
+				correct,
+				player.arcadeCombo ?? 0,
+				player.arcadeMaxCombo ?? 0,
+				player.level === 'ADULT',
+				answerTimeMs ?? null,
+			);
+			players = players.map((p, i) =>
+				i === state.currentPlayerIndex
+					? {
+							...p,
+							arcadeScore: (p.arcadeScore ?? 0) + result.scoreDelta,
+							arcadeCombo: result.newCombo,
+							arcadeMaxCombo: result.newMaxCombo,
+						}
+					: p,
+			);
+		}
+
 		set({
 			players: bumpAnswer(players, state.currentPlayerIndex, correct),
 			phase: 'FEEDBACK',
@@ -746,9 +816,16 @@ type SetState = (partial: Partial<GameStore>) => void;
 const advanceTurn = (set: SetState): void => {
 	const state = useGameStore.getState();
 	const nextIndex = (state.currentPlayerIndex + 1) % state.players.length;
+	const nextPlayer = state.players[nextIndex];
+	const nextPhase =
+		state.mode === 'ARCADE'
+			? nextPlayer.position === NEXUS_ID && hasAllSparks(nextPlayer)
+				? 'CONCLAVE_VOTE'
+				: 'ROLLING_DICE'
+			: 'TURN_TRANSITION';
 	set({
 		currentPlayerIndex: nextIndex,
-		phase: 'TURN_TRANSITION',
+		phase: nextPhase,
 		dice: null,
 		validMoves: [],
 		activeNodeId: null,
