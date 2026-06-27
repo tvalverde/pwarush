@@ -852,16 +852,6 @@
 	{
 		"category": "VIOLET_ART",
 		"targetAudience": "KID",
-		"questionText": "¿A qué casa pertenece Harry Potter en la escuela Hogwarts?",
-		"option0": "Slytherin",
-		"option1": "Gryffindor",
-		"option2": "Hufflepuff",
-		"option3": "Ravenclaw",
-		"correctAnswerIndex": 1
-	},
-	{
-		"category": "VIOLET_ART",
-		"targetAudience": "KID",
 		"questionText": "¿Cómo se llama el niño que gana el último billete dorado para ver a Willy Wonka?",
 		"option0": "Tom",
 		"option1": "Augustus",

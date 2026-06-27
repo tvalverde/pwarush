@@ -52,7 +52,7 @@
 	{
 		"category": "VIOLET_ART",
 		"targetAudience": "BOTH",
-		"questionText": "¿Cuál de estos artistas es el máximo representante del Pop Art?",
+		"questionText": "¿Qué artista es el máximo representante del Pop Art?",
 		"option0": "Jackson Pollock",
 		"option1": "Mark Rothko",
 		"option2": "Claude Monet",
@@ -131,7 +131,7 @@
 	},
 	{
 		"category": "VIOLET_ART",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿Cuál de estas obras fue realizada por Leonardo da Vinci?",
 		"option0": "La escuela de Atenas",
 		"option1": "La joven de la perla",
@@ -391,7 +391,7 @@
 	},
 	{
 		"category": "VIOLET_ART",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿Qué nombre recibe el misterioso artista callejero británico conocido por sus grafitis con mensajes políticos y sociales?",
 		"option0": "Banksy",
 		"option1": "Basquiat",
@@ -592,7 +592,7 @@
 	{
 		"category": "VIOLET_ART",
 		"targetAudience": "ADULT",
-		"questionText": "¿Cuál de estos escritores es el autor de la extensa novela rusa 'Guerra y paz'?",
+		"questionText": "¿Qué escritor es el autor de la extensa novela rusa 'Guerra y paz'?",
 		"option0": "Fiódor Dostoyevski",
 		"option1": "Antón Chéjov",
 		"option2": "Iván Turguénev",
@@ -998,5 +998,15 @@
 		"option2": "Rubén Darío",
 		"option3": "Amado Nervo",
 		"correctAnswerIndex": 2
+	},
+	{
+		"category": "VIOLET_ART",
+		"targetAudience": "BOTH",
+		"questionText": "¿A qué casa pertenece Harry Potter en la escuela Hogwarts?",
+		"option0": "Slytherin",
+		"option1": "Gryffindor",
+		"option2": "Hufflepuff",
+		"option3": "Ravenclaw",
+		"correctAnswerIndex": 1
 	}
 ]

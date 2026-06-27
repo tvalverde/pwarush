@@ -132,16 +132,6 @@
 	{
 		"category": "GOLD_ENT",
 		"targetAudience": "KID",
-		"questionText": "¿Cómo se llama el ogro verde que vive en un pantano?",
-		"option0": "Shrek",
-		"option1": "Hulk",
-		"option2": "Sulley",
-		"option3": "Fiona",
-		"correctAnswerIndex": 0
-	},
-	{
-		"category": "GOLD_ENT",
-		"targetAudience": "KID",
 		"questionText": "¿Qué animal es Sonic, el personaje azul que corre muy rápido?",
 		"option0": "Un gato",
 		"option1": "Un perro",
@@ -582,16 +572,6 @@
 	{
 		"category": "GOLD_ENT",
 		"targetAudience": "KID",
-		"questionText": "¿De qué color es la espada láser del maestro Yoda en 'Star Wars'?",
-		"option0": "Verde",
-		"option1": "Roja",
-		"option2": "Azul",
-		"option3": "Amarilla",
-		"correctAnswerIndex": 0
-	},
-	{
-		"category": "GOLD_ENT",
-		"targetAudience": "KID",
 		"questionText": "¿Qué animales son Skipper, Kowalski y Rico en la película 'Madagascar'?",
 		"option0": "Monos",
 		"option1": "Cebras",
@@ -778,16 +758,6 @@
 		"option2": "Un Creeper",
 		"option3": "Un Araña",
 		"correctAnswerIndex": 2
-	},
-	{
-		"category": "GOLD_ENT",
-		"targetAudience": "KID",
-		"questionText": "¿Cómo se llama el valiente héroe que viste de verde en el juego 'The Legend of Zelda'?",
-		"option0": "Zelda",
-		"option1": "Ganon",
-		"option2": "Falcon",
-		"option3": "Link",
-		"correctAnswerIndex": 3
 	},
 	{
 		"category": "GOLD_ENT",
@@ -988,15 +958,5 @@
 		"option2": "Pinchador",
 		"option3": "Tenenedor",
 		"correctAnswerIndex": 1
-	},
-	{
-		"category": "GOLD_ENT",
-		"targetAudience": "KID",
-		"questionText": "¿Qué objeto te hace invencible y brillar con colores en los juegos de 'Mario Kart'?",
-		"option0": "El caparazón azul",
-		"option1": "El champiñón",
-		"option2": "La estrella",
-		"option3": "El plátano",
-		"correctAnswerIndex": 2
 	}
 ]

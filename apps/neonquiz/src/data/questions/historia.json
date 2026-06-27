@@ -251,7 +251,7 @@
 	},
 	{
 		"category": "CRIMSON_HIST",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿Qué activista estadounidense se negó a ceder su asiento en un autobús en 1955, impulsando el movimiento por los derechos civiles?",
 		"option0": "Harriet Tubman",
 		"option1": "Sojourner Truth",
@@ -581,7 +581,7 @@
 	},
 	{
 		"category": "CRIMSON_HIST",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿Qué ingeniero escocés perfeccionó la máquina de vapor, siendo clave para el inicio de la Revolución Industrial?",
 		"option0": "George Stephenson",
 		"option1": "Robert Fulton",
@@ -661,7 +661,7 @@
 	},
 	{
 		"category": "CRIMSON_HIST",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿Qué monja católica de origen albanés fundó las Misioneras de la Caridad en Calcuta?",
 		"option0": "Sor Juana Inés",
 		"option1": "Santa Teresa de Ávila",
@@ -741,7 +741,7 @@
 	},
 	{
 		"category": "CRIMSON_HIST",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿Qué científico francés desarrolló el proceso de eliminar bacterias en alimentos mediante calor, conocido hoy como pasteurización?",
 		"option0": "Antoine Lavoisier",
 		"option1": "Claude Bernard",

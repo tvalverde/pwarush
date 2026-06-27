@@ -462,7 +462,7 @@
 	{
 		"category": "EMERALD_GEO",
 		"targetAudience": "BOTH",
-		"questionText": "¿Cuál de estos países es conocido por su neutralidad histórica y por no tener salida al mar en el corazón de Europa?",
+		"questionText": "¿Qué pais es conocido por su neutralidad histórica y por tener salida al mar en el corazón de Europa?",
 		"option0": "Suiza",
 		"option1": "Grecia",
 		"option2": "Noruega",
@@ -998,5 +998,15 @@
 		"option2": "Río Danubio",
 		"option3": "Río Vístula",
 		"correctAnswerIndex": 0
+	},
+	{
+		"category": "EMERALD_GEO",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el río más largo del mundo?",
+		"option0": "Río Nilo",
+		"option1": "Río Amazonas",
+		"option2": "Río Ebro",
+		"option3": "Río Tajo",
+		"correctAnswerIndex": 1
 	}
 ]

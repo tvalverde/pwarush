@@ -72,16 +72,6 @@
 	{
 		"category": "EMERALD_GEO",
 		"targetAudience": "KID",
-		"questionText": "¿Cuál es el río más largo del mundo?",
-		"option0": "Río Nilo",
-		"option1": "Río Amazonas",
-		"option2": "Río Ebro",
-		"option3": "Río Tajo",
-		"correctAnswerIndex": 1
-	},
-	{
-		"category": "EMERALD_GEO",
-		"targetAudience": "KID",
 		"questionText": "¿En qué continente está el desierto del Sahara?",
 		"option0": "África",
 		"option1": "Oceanía",

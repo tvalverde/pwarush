@@ -2,16 +2,6 @@
 	{
 		"category": "CYAN_SCI",
 		"targetAudience": "KID",
-		"questionText": "¿Cuál es el planeta más grande de nuestro Sistema Solar?",
-		"option0": "Júpiter",
-		"option1": "Marte",
-		"option2": "Tierra",
-		"option3": "Saturno",
-		"correctAnswerIndex": 0
-	},
-	{
-		"category": "CYAN_SCI",
-		"targetAudience": "KID",
 		"questionText": "¿Qué animal es conocido por ser el más rápido corriendo en la tierra?",
 		"option0": "León",
 		"option1": "Guepardo",

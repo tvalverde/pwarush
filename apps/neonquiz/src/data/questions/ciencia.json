@@ -998,5 +998,15 @@
 		"option2": "Fusión nuclear",
 		"option3": "Oxidación",
 		"correctAnswerIndex": 2
+	},
+	{
+		"category": "CYAN_SCI",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cuál es el planeta más grande de nuestro Sistema Solar?",
+		"option0": "Júpiter",
+		"option1": "Marte",
+		"option2": "Tierra",
+		"option3": "Saturno",
+		"correctAnswerIndex": 0
 	}
 ]

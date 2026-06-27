@@ -982,16 +982,6 @@
 	{
 		"category": "ORANGE_SPORT",
 		"targetAudience": "ADULT",
-		"questionText": "¿Cuál de estas es una de las tres armas utilizadas en esgrima donde solo se permite tocar con la punta del arma?",
-		"option0": "Alfanje",
-		"option1": "Cimitarra",
-		"option2": "Katana",
-		"option3": "Florete",
-		"correctAnswerIndex": 3
-	},
-	{
-		"category": "ORANGE_SPORT",
-		"targetAudience": "ADULT",
 		"questionText": "Según la leyenda, ¿entre qué dos ciudades griegas corrió el soldado Filípides para anunciar la victoria antes de morir?",
 		"option0": "Esparta y Atenas",
 		"option1": "Maratón y Atenas",

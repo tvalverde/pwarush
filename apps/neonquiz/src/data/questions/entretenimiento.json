@@ -421,7 +421,7 @@
 	},
 	{
 		"category": "GOLD_ENT",
-		"targetAudience": "BOTH",
+		"targetAudience": "ADULT",
 		"questionText": "¿De qué país era originario Alekséi Pázhitnov, el ingeniero informático que creó el videojuego 'Tetris'?",
 		"option0": "Estados Unidos",
 		"option1": "Japón",
@@ -872,7 +872,7 @@
 	{
 		"category": "GOLD_ENT",
 		"targetAudience": "BOTH",
-		"questionText": "¿Cuál de estas frases es un insulto clásico que Bart suele decir a Homer en 'Los Simpson'?",
+		"questionText": "¿Qué frase es un insulto clásico que Bart suele decirle a Homer en 'Los Simpson'?",
 		"option0": "¡Multiplícate por cero!",
 		"option1": "¡Vete a pasear!",
 		"option2": "¡No me hables!",
@@ -998,5 +998,45 @@
 		"option2": "La flauta",
 		"option3": "El violonchelo",
 		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el ogro verde que vive en un pantano?",
+		"option0": "Shrek",
+		"option1": "Hulk",
+		"option2": "Sulley",
+		"option3": "Fiona",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿De qué color es la espada láser del maestro Yoda en 'Star Wars'?",
+		"option0": "Verde",
+		"option1": "Roja",
+		"option2": "Azul",
+		"option3": "Amarilla",
+		"correctAnswerIndex": 0
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Cómo se llama el valiente héroe que viste de verde en el juego 'The Legend of Zelda'?",
+		"option0": "Zelda",
+		"option1": "Ganon",
+		"option2": "Falcon",
+		"option3": "Link",
+		"correctAnswerIndex": 3
+	},
+	{
+		"category": "GOLD_ENT",
+		"targetAudience": "BOTH",
+		"questionText": "¿Qué objeto te hace invencible y brillar con colores en los juegos de 'Mario Kart'?",
+		"option0": "El caparazón azul",
+		"option1": "El champiñón",
+		"option2": "La estrella",
+		"option3": "El plátano",
+		"correctAnswerIndex": 2
 	}
 ]
