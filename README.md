@@ -56,10 +56,29 @@ system; each app maps the semantic tokens to a concrete palette in its own
 
 ## Development
 
+### Requirements
+
+The toolchain requires **Node 24** (pinned in `.nvmrc`), managed via
+[**nvm**](https://github.com/nvm-sh/nvm). Node 25 leaks globals that break the
+test suite and Node 20.x crashes the toolchain, so the version is enforced:
+`engine-strict=true` (`.npmrc`) makes `npm` refuse to install under any other
+major. Install nvm first, then bootstrap once:
+
+```bash
+make setup     # installs Node 24 via nvm (reads .nvmrc) and runs npm ci
+```
+
+The `Makefile` resolves the nvm-installed Node 24 and prepends it to `PATH` for
+every target, so `make check`, `make e2e`, … always run under the right Node
+without a manual `nvm use`. The git hooks (commit/push) load it the same way.
+
+### Tasks
+
 The root `Makefile` orchestrates the workspaces:
 
 ```bash
-make install   # install all workspaces
+make setup     # one-time bootstrap: Node 24 (nvm) + install all workspaces
+make install   # install all workspaces (npm ci)
 make dev       # start the Sudokupado dev server
 make check     # quality gate: lint + typecheck + test
 make build     # build every app for production

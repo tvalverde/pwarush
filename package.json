@@ -3,6 +3,9 @@
 	"private": true,
 	"version": "1.25.0",
 	"type": "module",
+	"engines": {
+		"node": "24.x"
+	},
 	"workspaces": [
 		"apps/*",
 		"packages/*"

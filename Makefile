@@ -1,4 +1,20 @@
-.PHONY: install dev build lint format typecheck test check e2e e2e-update e2e-ui e2e-build
+.PHONY: setup install dev build lint format typecheck test check e2e e2e-update e2e-ui e2e-build
+
+# Recipes run in bash (nvm and the multi-line setup recipe need it).
+SHELL := /usr/bin/env bash
+
+# --- Node toolchain (single source of truth: .nvmrc) ------------------------
+# Every target runs under the project's Node WITHOUT a manual `nvm use`: we
+# resolve the nvm-installed bin dir matching .nvmrc (e.g. "24" -> latest v24.x)
+# and prepend it to PATH for all recipes. Run `make setup` once to install it.
+NVM_DIR ?= $(HOME)/.nvm
+NODE_REQ := $(shell cat .nvmrc 2>/dev/null)
+NODE_BIN := $(shell ls -d $(NVM_DIR)/versions/node/v$(NODE_REQ)*/bin 2>/dev/null | sort -V | tail -1)
+ifneq ($(NODE_BIN),)
+export PATH := $(NODE_BIN):$(PATH)
+else
+$(warning Node $(NODE_REQ) no está instalado vía nvm en $(NVM_DIR) — ejecuta 'make setup'. Usando el node del PATH.)
+endif
 
 PLAYWRIGHT_IMAGE := mcr.microsoft.com/playwright:v1.60.0-noble
 PLAYWRIGHT_LOCAL_IMAGE := pwarush/playwright:local
@@ -36,6 +52,17 @@ DOCKER_RUN_BASE := $(CONTAINER_ENGINE) run --rm --ipc=host $(CONTAINER_NET) \
 	-e CI=$(CI) -e HOME=/tmp
 DOCKER_RUN := $(DOCKER_RUN_BASE) $(PLAYWRIGHT_IMAGE)
 DOCKER_RUN_TTY := $(DOCKER_RUN_BASE) -it $(PLAYWRIGHT_IMAGE)
+
+# One-time bootstrap: install the project's Node (.nvmrc) via nvm and all deps.
+# This is the only target that needs nvm's shell function (to install Node); the
+# rest just rely on the PATH set above.
+setup:
+	@export NVM_DIR="$(NVM_DIR)"; \
+	if [ ! -s "$$NVM_DIR/nvm.sh" ]; then \
+		echo "✖ nvm no encontrado en $$NVM_DIR. Instálalo: https://github.com/nvm-sh/nvm"; \
+		exit 1; \
+	fi; \
+	. "$$NVM_DIR/nvm.sh" && nvm install && nvm use && echo "→ usando $$(node -v)" && npm ci
 
 install:
 	npm ci
