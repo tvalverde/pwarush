@@ -322,7 +322,7 @@ const ArenaScreen: React.FC = () => {
 						data-testid="skip-turn"
 						onClick={handleSkipTurn}
 					>
-						{t('question.next_player')}
+						{t(mode === 'ARCADE' ? 'question.roll_again' : 'question.next_player')}
 					</Button>
 				)}
 			</footer>

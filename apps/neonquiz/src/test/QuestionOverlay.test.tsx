@@ -60,3 +60,26 @@ describe('QuestionOverlay second-chance reveal (regression)', () => {
 		expect(getByTestId('answer-0').className).toContain('success');
 	});
 });
+
+describe('QuestionOverlay arcade feedback label (regression)', () => {
+	beforeEach(() => {
+		const s = useGameStore.getState();
+		s.resetGame();
+		s.loadBank(bank);
+		s.startGame([{ name: 'Solo', shape: 'TRIANGLE', level: 'KID' }]); // 1 player → ARCADE
+		useGameStore.getState().rollDice(1);
+		useGameStore.getState().moveTo(useGameStore.getState().validMoves[0]);
+		useGameStore.getState().answerQuestion(1); // wrong (correct is index 0)
+		useGameStore.getState().revealAnswer(); // decline the retry → continue button appears
+	});
+
+	// Regression: a solo Arcade player who missed saw "Next player", but there is no next
+	// player — the button must invite them to roll again instead.
+	it('labels the post-miss button "roll again", not "next player", in Arcade', () => {
+		const { getByTestId } = render(<QuestionOverlay />);
+		const t = useGameStore.getState().t;
+		const label = getByTestId('continue-feedback').textContent;
+		expect(label).toBe(t('question.roll_again'));
+		expect(label).not.toBe(t('question.next_player'));
+	});
+});

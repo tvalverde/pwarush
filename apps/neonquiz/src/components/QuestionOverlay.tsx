@@ -20,6 +20,7 @@ const QuestionOverlay: React.FC = () => {
 	const revealAnswer = useGameStore((s) => s.revealAnswer);
 	const answerRevealed = useGameStore((s) => s.answerRevealed);
 	const isConclave = useGameStore((s) => s.isConclave);
+	const mode = useGameStore((s) => s.mode);
 	const wildcardUsedThisQuestion = useGameStore((s) => s.wildcardUsedThisQuestion);
 	const t = useGameStore((s) => s.t);
 	const tap = useTap();
@@ -196,7 +197,7 @@ const QuestionOverlay: React.FC = () => {
 							>
 								{outcome.correct
 									? t(isConclave ? 'question.claim_victory' : 'question.roll_again')
-									: t('question.next_player')}
+									: t(mode === 'ARCADE' ? 'question.roll_again' : 'question.next_player')}
 							</Button>
 						)}
 					</div>

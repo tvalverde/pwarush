@@ -26,6 +26,7 @@ const AdultQuestionOverlay: React.FC = () => {
 	const gradeAdultAnswer = useGameStore((s) => s.gradeAdultAnswer);
 	const continueAfterFeedback = useGameStore((s) => s.continueAfterFeedback);
 	const isConclave = useGameStore((s) => s.isConclave);
+	const mode = useGameStore((s) => s.mode);
 	const isPaused = useGameStore((s) => s.isPaused);
 	const player = useGameStore((s) => s.players[s.currentPlayerIndex]);
 	const t = useGameStore((s) => s.t);
@@ -211,7 +212,7 @@ const AdultQuestionOverlay: React.FC = () => {
 						>
 							{outcome.correct
 								? t(isConclave ? 'question.claim_victory' : 'question.roll_again')
-								: t('question.next_player')}
+								: t(mode === 'ARCADE' ? 'question.roll_again' : 'question.next_player')}
 						</Button>
 					</div>
 				)}
