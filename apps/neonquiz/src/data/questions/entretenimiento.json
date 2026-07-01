@@ -122,12 +122,12 @@
 	{
 		"category": "GOLD_ENT",
 		"targetAudience": "ADULT",
-		"questionText": "¿Cuál de los siguientes personajes NO forma parte del grupo principal de la serie 'Friends'?",
-		"option0": "Phoebe",
-		"option1": "Barney",
-		"option2": "Chandler",
-		"option3": "Ross",
-		"correctAnswerIndex": 1
+		"questionText": "Nombra a los seis protagonistas de la serie 'Friends'.",
+		"option0": "Ross, Rachel, Monica, Chandler, Joey y Phoebe",
+		"option1": "Ross, Rachel, Monica, Chandler, Joey y Janice",
+		"option2": "Ross, Rachel, Monica, Chandler, Joey y Gunther",
+		"option3": "Ross, Rachel, Monica, Chandler, Joey y Emily",
+		"correctAnswerIndex": 0
 	},
 	{
 		"category": "GOLD_ENT",

@@ -452,7 +452,7 @@
 	{
 		"category": "ORANGE_SPORT",
 		"targetAudience": "ADULT",
-		"questionText": "¿Cuál de estas es una de las tres armas utilizadas en la esgrima deportiva moderna?",
+		"questionText": "Además del florete y la espada, ¿cuál es la tercera arma de la esgrima deportiva moderna?",
 		"option0": "Daga",
 		"option1": "Sable",
 		"option2": "Alabarda",

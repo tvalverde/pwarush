@@ -132,7 +132,7 @@
 	{
 		"category": "VIOLET_ART",
 		"targetAudience": "ADULT",
-		"questionText": "¿Cuál de estas obras fue realizada por Leonardo da Vinci?",
+		"questionText": "¿Cómo se titula el célebre mural que pintó Leonardo da Vinci en el refectorio de Santa Maria delle Grazie de Milán?",
 		"option0": "La escuela de Atenas",
 		"option1": "La joven de la perla",
 		"option2": "La última cena",
@@ -152,7 +152,7 @@
 	{
 		"category": "VIOLET_ART",
 		"targetAudience": "ADULT",
-		"questionText": "¿Cuál de estos colores se considera un 'color primario' en el modelo de color tradicional de los pintores?",
+		"questionText": "Además del rojo y el amarillo, ¿qué otro color completa los tres primarios del modelo tradicional de los pintores?",
 		"option0": "Verde",
 		"option1": "Azul",
 		"option2": "Naranja",
