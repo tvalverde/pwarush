@@ -34,6 +34,7 @@ TODO.md
 plan-*.md
 LEEME*
 .claude/settings.local.json
+.mcp.json
 .xclaude-docker
 .enclaude-docker
 
